@@ -46,19 +46,34 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ConnectionException.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="Compare.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Compare.Designer.cs">
+      <DependentUpon>Compare.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ConnectionException.cs" />
+    <Compile Include="Datagridview.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Datagridview.Designer.cs">
+      <DependentUpon>Datagridview.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
     </Compile>
     <Compile Include="Manager.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </EmbeddedResource>
+    <Compile Include="Requirements.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Requirements.Designer.cs">
+      <DependentUpon>Requirements.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Manager.resx">
       <DependentUpon>Manager.cs</DependentUpon>
     </EmbeddedResource>
