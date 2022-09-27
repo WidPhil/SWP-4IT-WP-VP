@@ -16,7 +16,7 @@ namespace SWP_4IT_WP_VP
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new Requirements());
         }
     }
 }
