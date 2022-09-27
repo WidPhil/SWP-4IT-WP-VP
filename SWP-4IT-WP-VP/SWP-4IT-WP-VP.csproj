@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BCrypt.cs" />
     <Compile Include="Compare.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -74,6 +75,9 @@
     <Compile Include="Requirements.Designer.cs">
       <DependentUpon>Requirements.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Datagridview.resx">
+      <DependentUpon>Datagridview.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Manager.resx">
       <DependentUpon>Manager.cs</DependentUpon>
     </EmbeddedResource>
