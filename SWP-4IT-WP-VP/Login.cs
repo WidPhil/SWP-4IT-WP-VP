@@ -14,7 +14,7 @@ namespace SWP_4IT_WP_VP
     {
         public static string Username;
         public static string Password;
-
+        
 
         public Login()
         {
@@ -23,7 +23,7 @@ namespace SWP_4IT_WP_VP
 
         private void Login_Load(object sender, EventArgs e)
         {
-
+            Manager.createTable();
         }
 
         private void btn_Login_Click(object sender, EventArgs e)
@@ -36,7 +36,10 @@ namespace SWP_4IT_WP_VP
         //Bcrypt hashes password
         public static void password()
         {
-            
+            Random rnd = new Random();
+            int salt = rnd.Next(5);
+            string stringsalt = Convert.ToString(salt);
+            BCrypt.HashPassword(Password, stringsalt);
                         
         }
 

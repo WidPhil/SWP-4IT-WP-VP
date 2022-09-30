@@ -1,12 +1,12 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Text;
 using System.Security.Cryptography;
 
-namespace StudioManager
+namespace SWP_4IT_WP_VP
 {
-    public class BCrypt
+    internal class BCrypt
     {
         private const int GENSALT_DEFAULT_LOG2_ROUNDS = 10;
         private const int BCRYPT_SALT_LEN = 16;
@@ -751,5 +751,5 @@ namespace StudioManager
         }
 
     }
-
 }
+

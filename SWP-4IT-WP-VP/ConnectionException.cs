@@ -4,15 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Veranstaltungssoftware
+namespace SWP_4IT_WP_VP
 {
-    class ConnectionException : Exception
+    internal class ConnectionException : Exception
     {
         public ConnectionException()
         {
 
         }
-        public ConnectionException(string message) : base (message)
+        public ConnectionException(string message) : base(message)
         {
 
         }
