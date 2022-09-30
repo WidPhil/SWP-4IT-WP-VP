@@ -75,6 +75,9 @@
     <Compile Include="Requirements.Designer.cs">
       <DependentUpon>Requirements.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Compare.resx">
+      <DependentUpon>Compare.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Datagridview.resx">
       <DependentUpon>Datagridview.cs</DependentUpon>
     </EmbeddedResource>
