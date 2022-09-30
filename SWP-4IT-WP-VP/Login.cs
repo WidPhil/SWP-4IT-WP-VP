@@ -12,9 +12,33 @@ namespace SWP_4IT_WP_VP
 {
     public partial class Login : Form
     {
+        public static string Username;
+        public static string Password;
+
+
         public Login()
         {
             InitializeComponent();
         }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_Login_Click(object sender, EventArgs e)
+        {
+            Username = txtbox_username.Text;
+            Password = txtbox_password.Text;
+
+        }
+
+        //Bcrypt hashes password
+        public static void password()
+        {
+            
+                        
+        }
+
     }
 }
