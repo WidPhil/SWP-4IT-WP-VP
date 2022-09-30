@@ -28,20 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
             this.btn_compare = new System.Windows.Forms.Button();
             this.lbl_chooseINV = new System.Windows.Forms.Label();
             this.cb_chooseTable = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(497, 280);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(147, 62);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
             // 
             // btn_compare
             // 
@@ -79,7 +69,6 @@
             this.Controls.Add(this.cb_chooseTable);
             this.Controls.Add(this.lbl_chooseINV);
             this.Controls.Add(this.btn_compare);
-            this.Controls.Add(this.button1);
             this.Name = "Compare";
             this.Text = "Compare";
             this.Load += new System.EventHandler(this.Compare_Load);
@@ -89,8 +78,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btn_compare;
         private System.Windows.Forms.Label lbl_chooseINV;
         private System.Windows.Forms.ComboBox cb_chooseTable;

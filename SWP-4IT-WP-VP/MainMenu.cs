@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace SWP_4IT_WP_VP
 {
-    public partial class Requirements : Form
+    public partial class MainMenu : Form
     {
-        public Requirements()
+        public MainMenu()
         {
             InitializeComponent();
-        }
-
-        private void btn_exit_Click(object sender, EventArgs e)
-        {
-            Environment.Exit(0);
         }
     }
 }
