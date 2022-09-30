@@ -40,7 +40,7 @@ namespace Veranstaltungssoftware
             {
                 con = new SqlConnection(ConnectionString);
                 con.Open();
-                SqlCommand cmd = new SqlCommand("CREATE DATABASE Event", con);
+                SqlCommand cmd = new SqlCommand("CREATE DATABASE INVSOFTWARE", con);
                 cmd.ExecuteNonQuery();
                 iForDatabases++;
             }
@@ -86,10 +86,10 @@ namespace Veranstaltungssoftware
                 con = new SqlConnection(ConnectionString);
                 con.Open();
 
-                SqlCommand com = new SqlCommand("CREATE TABLE guests(ID varchar(200), Vorname varchar(20), Nachname varchar(20), Geburtsdatum varchar(20)", con);
+                SqlCommand com = new SqlCommand("CREATE TABLE INVENTORY(PID varchar(200), description varchar(20), colour varchar(20), Orderdate varchar(20), delivery date varchar(20)", con);
                 com.ExecuteNonQuery();
-                SqlCommand cmd = new SqlCommand("CREATE TABLE event(ID varchar(200), NamedesEvents varchar(50), AnzahlderGaeste varchar(50), Chef varchar(50)", con);
-                cmd.ExecuteNonQuery();
+                //SqlCommand cmd = new SqlCommand("CREATE TABLE event(ID varchar(200), NamedesEvents varchar(50), AnzahlderGaeste varchar(50), Chef varchar(50)", con);
+                //cmd.ExecuteNonQuery();
                 iForTables++;
 
             }
