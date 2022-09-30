@@ -6,7 +6,7 @@ using System.Security.Cryptography;
 
 namespace StudioManager
 {
-    class BCrypt
+    public class BCrypt
     {
         private const int GENSALT_DEFAULT_LOG2_ROUNDS = 10;
         private const int BCRYPT_SALT_LEN = 16;
