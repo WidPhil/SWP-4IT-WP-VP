@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Windows.Forms;
 
-namespace Veranstaltungssoftware
+namespace SWP_4IT_WP_VP
 {
-    class Manager
+    internal class Manager
     {
         public static string ConnectionString = "server = (localdb)\\MSSQLLocalDB;Database =" + NameofDB + ";Integrated Security = true";
 
@@ -16,7 +16,7 @@ namespace Veranstaltungssoftware
         public static int iForTables;
 
 
-       
+
 
         public static int ID;
         //df
@@ -76,7 +76,7 @@ namespace Veranstaltungssoftware
         //Tabelle
         public static void createTBL() { }
 
-    
+
         //Tabelle
         public static void createTable()
         {
@@ -111,13 +111,13 @@ namespace Veranstaltungssoftware
                 con = new SqlConnection(ConnectionString);
                 con.Open();
 
-                SqlCommand cmd = new SqlCommand("CREATE TABLE " + NameofTBL + " (" + "'" + ID + "' " + "INT PRIMARY KEY," + " '" + nameofEvent + "' " + "VARCHAR NOT NULL," + " '" + street + "' " + "VARCHAR NOT NULL," + " '" + house + "' " + "VARCHAR NOT NULL" + ");", con);
-                cmd.ExecuteNonQuery();
+                //SqlCommand cmd = new SqlCommand("CREATE TABLE " + NameofTBL + " (" + "'" + ID + "' " + "INT PRIMARY KEY," + " '" + nameofEvent + "' " + "VARCHAR NOT NULL," + " '" + street + "' " + "VARCHAR NOT NULL," + " '" + house + "' " + "VARCHAR NOT NULL" + ");", con);
+                //cmd.ExecuteNonQuery();
                 iForTables++;
 
 
 
-              
+
             }
             catch (Exception)
             {
