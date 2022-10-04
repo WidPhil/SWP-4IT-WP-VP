@@ -16,5 +16,11 @@ namespace SWP_4IT_WP_VP
         {
             InitializeComponent();
         }
+
+        private void btn_orders_Click(object sender, EventArgs e)
+        {
+            orders orders = new orders();
+            orders.Show();
+        }
     }
 }

@@ -23,14 +23,15 @@ namespace SWP_4IT_WP_VP
 
         private void Login_Load(object sender, EventArgs e)
         {
-            Manager.createTable();
+            //Manager.createTable();
         }
 
         private void btn_Login_Click(object sender, EventArgs e)
         {
             Username = txtbox_username.Text;
             Password = txtbox_password.Text;
-
+            menu menu = new menu();
+            menu.Show();
         }
 
         //Bcrypt hashes password
