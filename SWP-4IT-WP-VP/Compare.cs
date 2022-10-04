@@ -11,7 +11,7 @@ using System.Data.SqlClient;
 
 namespace SWP_4IT_WP_VP
 {
-    public partial class Compare : Form
+    public partial class compare : Form
     {
         public static string connectionstring = "server = (localdb)\\MSSQLLocalDB ; Database = User ;  Integrated Security = true";
         public static SqlCommand cmd;
@@ -19,7 +19,7 @@ namespace SWP_4IT_WP_VP
 
         public static int choice;
 
-        public Compare()
+        public compare()
         {
             InitializeComponent();
         }
@@ -32,6 +32,12 @@ namespace SWP_4IT_WP_VP
         private void Compare_Load(object sender, EventArgs e)
         {
             //cb_chooseTable.Items.Add(cmd = "SELECT * FROM INVENTORY WHERE INVID = " + choice + "", con);
+        }
+
+        private void btn_compare_Click(object sender, EventArgs e)
+        {
+            overview show = new overview();
+            show.Show();
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace SWP_4IT_WP_VP
 {
-    partial class Compare
+    partial class compare
     {
         /// <summary>
         /// Required designer variable.
@@ -44,6 +44,7 @@
             this.btn_compare.TabIndex = 1;
             this.btn_compare.Text = "Compare";
             this.btn_compare.UseVisualStyleBackColor = true;
+            this.btn_compare.Click += new System.EventHandler(this.btn_compare_Click);
             // 
             // lbl_chooseINV
             // 

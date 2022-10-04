@@ -1,6 +1,6 @@
 ﻿namespace SWP_4IT_WP_VP
 {
-    partial class Requirements
+    partial class requirements
     {
         /// <summary>
         /// Required designer variable.

@@ -1,6 +1,6 @@
 ﻿namespace SWP_4IT_WP_VP
 {
-    partial class MainMenu
+    partial class menu
     {
         /// <summary>
         /// Required designer variable.

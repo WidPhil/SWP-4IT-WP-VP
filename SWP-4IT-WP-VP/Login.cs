@@ -10,13 +10,13 @@ using System.Windows.Forms;
 
 namespace SWP_4IT_WP_VP
 {
-    public partial class Login : Form
+    public partial class login : Form
     {
         public static string Username;
         public static string Password;
         
 
-        public Login()
+        public login()
         {
             InitializeComponent();
         }
