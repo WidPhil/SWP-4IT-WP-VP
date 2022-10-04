@@ -66,7 +66,7 @@
     <Compile Include="menu.Designer.cs">
       <DependentUpon>menu.cs</DependentUpon>
     </Compile>
-    <Compile Include="Manager.cs" />
+    <Compile Include="sqlmanager.cs" />
     <Compile Include="orders.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -93,6 +93,12 @@
     <Compile Include="overview.Designer.cs">
       <DependentUpon>overview.cs</DependentUpon>
     </Compile>
+    <Compile Include="Testform.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Testform.Designer.cs">
+      <DependentUpon>Testform.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="compare.resx">
       <DependentUpon>compare.cs</DependentUpon>
     </EmbeddedResource>
@@ -113,6 +119,9 @@
     </Compile>
     <EmbeddedResource Include="requirements.resx">
       <DependentUpon>requirements.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Testform.resx">
+      <DependentUpon>Testform.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
