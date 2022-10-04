@@ -1,6 +1,6 @@
 ﻿namespace SWP_4IT_WP_VP
 {
-    partial class Login
+    partial class login
     {
         /// <summary>
         /// Required designer variable.

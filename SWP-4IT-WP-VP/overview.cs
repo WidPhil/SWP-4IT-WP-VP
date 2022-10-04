@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace SWP_4IT_WP_VP
 {
-    public partial class MainMenu : Form
+    public partial class overview : Form
     {
-        public MainMenu()
+        public overview()
         {
             InitializeComponent();
         }
