@@ -5,10 +5,10 @@ C:\Users\philip.widauer\Source\Repos\WidPhil\SWP-4IT-WP-VP\SWP-4IT-WP-VP\obj\Deb
 C:\Users\philip.widauer\Source\Repos\WidPhil\SWP-4IT-WP-VP\SWP-4IT-WP-VP\obj\Debug\SWP-4IT-WP-VP.csproj.SuggestedBindingRedirects.cache
 C:\Users\philip.widauer\Source\Repos\WidPhil\SWP-4IT-WP-VP\SWP-4IT-WP-VP\obj\Debug\SWP_4IT_WP_VP.Compare.resources
 C:\Users\philip.widauer\Source\Repos\WidPhil\SWP-4IT-WP-VP\SWP-4IT-WP-VP\obj\Debug\SWP_4IT_WP_VP.Login.resources
-C:\Users\philip.widauer\Source\Repos\WidPhil\SWP-4IT-WP-VP\SWP-4IT-WP-VP\obj\Debug\SWP_4IT_WP_VP.MainMenu.resources
 C:\Users\philip.widauer\Source\Repos\WidPhil\SWP-4IT-WP-VP\SWP-4IT-WP-VP\obj\Debug\SWP_4IT_WP_VP.Properties.Resources.resources
 C:\Users\philip.widauer\Source\Repos\WidPhil\SWP-4IT-WP-VP\SWP-4IT-WP-VP\obj\Debug\SWP_4IT_WP_VP.Requirements.resources
 C:\Users\philip.widauer\Source\Repos\WidPhil\SWP-4IT-WP-VP\SWP-4IT-WP-VP\obj\Debug\SWP-4IT-WP-VP.csproj.GenerateResource.cache
 C:\Users\philip.widauer\Source\Repos\WidPhil\SWP-4IT-WP-VP\SWP-4IT-WP-VP\obj\Debug\SWP-4IT-WP-VP.csproj.CoreCompileInputs.cache
 C:\Users\philip.widauer\Source\Repos\WidPhil\SWP-4IT-WP-VP\SWP-4IT-WP-VP\obj\Debug\SWP-4IT-WP-VP.exe
 C:\Users\philip.widauer\Source\Repos\WidPhil\SWP-4IT-WP-VP\SWP-4IT-WP-VP\obj\Debug\SWP-4IT-WP-VP.pdb
+C:\Users\philip.widauer\Source\Repos\WidPhil\SWP-4IT-WP-VP\SWP-4IT-WP-VP\obj\Debug\SWP_4IT_WP_VP.menu.resources

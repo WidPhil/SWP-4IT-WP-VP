@@ -32,7 +32,7 @@
             this.lbl_chooseINV = new System.Windows.Forms.Label();
             this.cb_chooseTable = new System.Windows.Forms.ComboBox();
             this.lbl_Compare = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cb_compareto = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // btn_compare
@@ -75,25 +75,25 @@
             this.lbl_Compare.TabIndex = 4;
             this.lbl_Compare.Text = "Compare To:";
             // 
-            // comboBox1
+            // cb_compareto
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(16, 151);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(263, 21);
-            this.comboBox1.TabIndex = 5;
+            this.cb_compareto.FormattingEnabled = true;
+            this.cb_compareto.Location = new System.Drawing.Point(16, 151);
+            this.cb_compareto.Name = "cb_compareto";
+            this.cb_compareto.Size = new System.Drawing.Size(263, 21);
+            this.cb_compareto.TabIndex = 5;
             // 
-            // Compare
+            // compare
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(290, 275);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cb_compareto);
             this.Controls.Add(this.lbl_Compare);
             this.Controls.Add(this.cb_chooseTable);
             this.Controls.Add(this.lbl_chooseINV);
             this.Controls.Add(this.btn_compare);
-            this.Name = "Compare";
+            this.Name = "compare";
             this.Text = "Compare";
             this.Load += new System.EventHandler(this.Compare_Load);
             this.ResumeLayout(false);
@@ -106,6 +106,6 @@
         private System.Windows.Forms.Label lbl_chooseINV;
         private System.Windows.Forms.ComboBox cb_chooseTable;
         private System.Windows.Forms.Label lbl_Compare;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cb_compareto;
     }
 }
