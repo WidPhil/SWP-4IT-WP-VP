@@ -30,7 +30,8 @@
         {
             this.btn_NewInv = new System.Windows.Forms.Button();
             this.btn_CompareInv = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btn_orders = new System.Windows.Forms.Button();
+            this.btn_requirements = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btn_NewInv
@@ -44,31 +45,42 @@
             // 
             // btn_CompareInv
             // 
-            this.btn_CompareInv.Location = new System.Drawing.Point(57, 253);
+            this.btn_CompareInv.Location = new System.Drawing.Point(57, 212);
             this.btn_CompareInv.Name = "btn_CompareInv";
             this.btn_CompareInv.Size = new System.Drawing.Size(167, 49);
             this.btn_CompareInv.TabIndex = 1;
             this.btn_CompareInv.Text = "Compare Inventorys";
             this.btn_CompareInv.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // btn_orders
             // 
-            this.button1.Location = new System.Drawing.Point(57, 308);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(167, 52);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Order Items";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btn_orders.Location = new System.Drawing.Point(57, 267);
+            this.btn_orders.Name = "btn_orders";
+            this.btn_orders.Size = new System.Drawing.Size(167, 52);
+            this.btn_orders.TabIndex = 2;
+            this.btn_orders.Text = "Order Items";
+            this.btn_orders.UseVisualStyleBackColor = true;
+            this.btn_orders.Click += new System.EventHandler(this.btn_orders_Click);
             // 
-            // MainMenu
+            // btn_requirements
+            // 
+            this.btn_requirements.Location = new System.Drawing.Point(57, 152);
+            this.btn_requirements.Name = "btn_requirements";
+            this.btn_requirements.Size = new System.Drawing.Size(167, 54);
+            this.btn_requirements.TabIndex = 3;
+            this.btn_requirements.Text = "Requirements";
+            this.btn_requirements.UseVisualStyleBackColor = true;
+            // 
+            // menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(270, 450);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btn_requirements);
+            this.Controls.Add(this.btn_orders);
             this.Controls.Add(this.btn_CompareInv);
             this.Controls.Add(this.btn_NewInv);
-            this.Name = "MainMenu";
+            this.Name = "menu";
             this.Text = "Main";
             this.ResumeLayout(false);
 
@@ -78,6 +90,7 @@
 
         private System.Windows.Forms.Button btn_NewInv;
         private System.Windows.Forms.Button btn_CompareInv;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btn_orders;
+        private System.Windows.Forms.Button btn_requirements;
     }
 }
