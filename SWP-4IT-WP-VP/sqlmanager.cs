@@ -10,10 +10,13 @@ namespace SWP_4IT_WP_VP
 {
     internal class sqlmanager
     {
-        public static string ConnectionString = "server = (localdb)\\MSSQLLocalDB;Database =" + NameofDB + ";Integrated Security = true";
+        public static string ConnectionString = "server = (localdb)\\MSSQLLocalDB;Database = master;Integrated Security = true";
+        /*;Database =" + NameofDB + "*/
 
         public static int iForDatabases;
         public static int iForTables;
+        //public static string Username = login.Username;
+        //public static string Password = login.Password;
 
 
 
@@ -24,6 +27,7 @@ namespace SWP_4IT_WP_VP
 
 
         public static string NameofDB = "INVSOFTWARE";
+        public static string NameofDB2 = "UserData";
         public static string NameofTBL;
         public static SqlConnection con;
         public static SqlCommand cmd;
@@ -35,7 +39,7 @@ namespace SWP_4IT_WP_VP
 
         //Datenbank erstellen, löschen und verändern
         //Wir brauchen Tabelle Veranstaltung und Tabelle Gäste
-        public static bool createDatabase()
+        public static bool createDatabaseandTable()
         {
             con = new SqlConnection(ConnectionString);
             con.Open();
@@ -75,6 +79,66 @@ namespace SWP_4IT_WP_VP
             return false;
         }
 
+        public static bool createDatabaseandTableforPassword()
+        {
+            con = new SqlConnection(ConnectionString);
+            con.Open();
+            cmd = new SqlCommand("SELECT * FROM sys.databases", con);
+
+            SqlDataReader checkDatabase = cmd.ExecuteReader();
+            while (checkDatabase.Read())
+            {
+                if (checkDatabase.GetString(0).ToLower().Equals(NameofDB2.ToLower()))
+                {
+                    return true;
+                }
+            }
+            checkDatabase.Close();
+
+
+
+            try
+            {
+
+                SqlCommand cmd2 = new SqlCommand("Create Database UserData", con);
+                cmd2.ExecuteNonQuery();
+                con.Close();
+
+
+
+                con = new SqlConnection("server = (localdb)\\MSSQLLocalDB; Database = UserData; Integrated Security = true");
+                con.Open();
+                SqlCommand cmd = new SqlCommand("CREATE TABLE Data(id int, Username varchar(50), Password varchar(100))", con);
+                cmd.ExecuteNonQuery();
+                con.Close();
+            }
+            catch (ConnectionException cex)
+            {
+                MessageBox.Show(cex.ToString());
+            }
+            return false;
+        }
+
+        public static string ReadUser()
+        {
+            con = new SqlConnection(ConnectionString);
+            con.Open();
+            cmd = new SqlCommand("SELECT Username FROM UserData where id = 1");
+            cmd.ExecuteNonQuery();
+            return cmd.CommandText;
+
+
+        }
+
+        public static string ReadPassword()
+        {
+            con = new SqlConnection(ConnectionString);
+            con.Open();
+            cmd = new SqlCommand("SELECT Password FROM UserData where id = 1");
+            cmd.ExecuteNonQuery();
+            return cmd.CommandText;
+        }
+
         //Datenbank löschen
         public static void deleteDB()
         {
@@ -94,42 +158,19 @@ namespace SWP_4IT_WP_VP
             con.Close();
             MessageBox.Show("Database Successfully deleted!");
         }
-     
-        //Tabelle
-        public static void createTable()
-        {
-            //Funktioniert nicht
-            try
-            {
-                con = new SqlConnection(ConnectionString);
-                con.Open();
-
-                SqlCommand com = new SqlCommand("CREATE TABLE INVENTORY(PID int, description varchar(20), colour varchar(20), Orderdate varchar(20), delivery date int)", con);
-                com.ExecuteNonQuery();
-
-                iForTables++;
-
-            }
-            catch (ConnectionException cex)
-            {
-                MessageBox.Show(cex.ToString());
-            }
-            con.Close();
-            MessageBox.Show("Table Successfully created!");
-
-        }
-
-        public static void InsertintoTable(string nameofTable)
+             
+        public static void InsertintoTable()
 
         {
             try
             {
-                //if ()
-                con = new SqlConnection(ConnectionString);
+               
+                con = new SqlConnection("server = (localdb)\\MSSQLLocalDB; Database = UserData; Integrated Security = true");
                 con.Open();
 
-                //SqlCommand cmd = new SqlCommand("CREATE TABLE " + NameofTBL + " (" + "'" + ID + "' " + "INT PRIMARY KEY," + " '" + nameofEvent + "' " + "VARCHAR NOT NULL," + " '" + street + "' " + "VARCHAR NOT NULL," + " '" + house + "' " + "VARCHAR NOT NULL" + ");", con);
-                //cmd.ExecuteNonQuery();
+                //SqlCommand cmd = new SqlCommand("INSERT INTO TABLE UserData (" + "'" + ID + "' " + "INT PRIMARY KEY," + " '" + Username + "' " + "VARCHAR NOT NULL," + " '" + Password + "' " + "VARCHAR NOT NULL," + ")" +
+                 SqlCommand cmd = new SqlCommand("INSERT INTO UserData('id', 'Username', 'Password') VALUES('1', 'Widauer', '1234')", con);
+                cmd.ExecuteNonQuery();
                 iForTables++;
 
 

@@ -26,7 +26,7 @@ namespace SWP_4IT_WP_VP
 
         private void cb_chooseTable_SelectedIndexChanged(object sender, EventArgs e)
         {
-            choice = cb_chooseTable.SelectedIndex;
+            //choice = cb_chooseTable.SelectedIndex;
         }
 
         private void Compare_Load(object sender, EventArgs e)
