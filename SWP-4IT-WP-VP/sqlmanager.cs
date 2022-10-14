@@ -15,7 +15,7 @@ namespace SWP_4IT_WP_VP
 
         public static int iForDatabases;
         public static int iForTables;
-        //public static string Username = login.Username;
+        public static string Username = login.Username;
         //public static string Password = login.Password;
 
 
@@ -39,6 +39,10 @@ namespace SWP_4IT_WP_VP
 
         //Datenbank erstellen, löschen und verändern
         //Wir brauchen Tabelle Veranstaltung und Tabelle Gäste
+
+
+
+        //funktioniert
         public static bool createDatabaseandTable()
         {
             con = new SqlConnection(ConnectionString);
@@ -79,6 +83,9 @@ namespace SWP_4IT_WP_VP
             return false;
         }
 
+
+
+        //funktioniert
         public static bool createDatabaseandTableforPassword()
         {
             con = new SqlConnection(ConnectionString);
@@ -119,26 +126,33 @@ namespace SWP_4IT_WP_VP
             return false;
         }
 
-        public static string ReadUser()
+
+
+        //ToDO: brauchen wir diesen Command wirklich oder sollen wir den Username einfach aus dem Login mitnehmen
+        public static string GetUsername()
         {
             con = new SqlConnection(ConnectionString);
             con.Open();
-            cmd = new SqlCommand("SELECT Username FROM UserData where id = 1");
+            cmd = new SqlCommand("SELECT Username FROM UserData where id = ");
             cmd.ExecuteNonQuery();
             return cmd.CommandText;
 
 
         }
 
+
+        //TODO
         public static string ReadPassword()
         {
             con = new SqlConnection(ConnectionString);
             con.Open();
-            cmd = new SqlCommand("SELECT Password FROM UserData where id = 1");
+            cmd = new SqlCommand("SELECT Password FROM UserData where Username = " + Username);
             cmd.ExecuteNonQuery();
             return cmd.CommandText;
         }
 
+
+        //TODO
         //Datenbank löschen
         public static void deleteDB()
         {
@@ -158,7 +172,8 @@ namespace SWP_4IT_WP_VP
             con.Close();
             MessageBox.Show("Database Successfully deleted!");
         }
-             
+            
+        //TODO
         public static void InsertintoTable()
 
         {
@@ -183,6 +198,8 @@ namespace SWP_4IT_WP_VP
                 throw;
             }
         }
+
+        //brauchen wir nicht
         public static void deleteTBL()
         {
             //Funktioniert nicht
