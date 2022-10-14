@@ -33,8 +33,8 @@
             this.btn_requirements = new System.Windows.Forms.Button();
             this.lbl_menu = new System.Windows.Forms.Label();
             this.btn_showInv = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lbl_hello = new System.Windows.Forms.Label();
+            this.lbl_name = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btn_order
@@ -87,23 +87,23 @@
             this.btn_showInv.UseVisualStyleBackColor = true;
             this.btn_showInv.Click += new System.EventHandler(this.btn_showInv_Click);
             // 
-            // label1
+            // lbl_hello
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(17, 54);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(34, 13);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "Hello:";
+            this.lbl_hello.AutoSize = true;
+            this.lbl_hello.Location = new System.Drawing.Point(17, 54);
+            this.lbl_hello.Name = "lbl_hello";
+            this.lbl_hello.Size = new System.Drawing.Size(34, 13);
+            this.lbl_hello.TabIndex = 5;
+            this.lbl_hello.Text = "Hello:";
             // 
-            // label2
+            // lbl_name
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(55, 54);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "Name";
+            this.lbl_name.AutoSize = true;
+            this.lbl_name.Location = new System.Drawing.Point(55, 54);
+            this.lbl_name.Name = "lbl_name";
+            this.lbl_name.Size = new System.Drawing.Size(35, 13);
+            this.lbl_name.TabIndex = 6;
+            this.lbl_name.Text = "Name";
             // 
             // menu
             // 
@@ -111,8 +111,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(294, 372);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lbl_name);
+            this.Controls.Add(this.lbl_hello);
             this.Controls.Add(this.btn_showInv);
             this.Controls.Add(this.lbl_menu);
             this.Controls.Add(this.btn_requirements);
@@ -120,6 +120,7 @@
             this.Controls.Add(this.btn_order);
             this.Name = "menu";
             this.Text = "Main";
+            this.Load += new System.EventHandler(this.menu_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -132,7 +133,7 @@
         private System.Windows.Forms.Button btn_requirements;
         private System.Windows.Forms.Label lbl_menu;
         private System.Windows.Forms.Button btn_showInv;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lbl_hello;
+        private System.Windows.Forms.Label lbl_name;
     }
 }
