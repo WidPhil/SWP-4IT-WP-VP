@@ -17,10 +17,29 @@ namespace SWP_4IT_WP_VP
             InitializeComponent();
         }
 
-        private void btn_orders_Click(object sender, EventArgs e)
+        private void btn_order_Click(object sender, EventArgs e)
         {
             orders orders = new orders();
             orders.Show();
+        }
+
+        private void btn_compare_Click(object sender, EventArgs e)
+        {
+            compare compare = new compare();
+            compare.Show();
+            
+        }
+
+        private void btn_requirements_Click(object sender, EventArgs e)
+        {
+            requirements requirements = new requirements();
+            requirements.Show();
+        }
+
+        private void btn_showInv_Click(object sender, EventArgs e)
+        {
+            overview overview = new overview();
+            overview.Show();
         }
     }
 }

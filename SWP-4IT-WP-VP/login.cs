@@ -12,8 +12,8 @@ namespace SWP_4IT_WP_VP
 {
     public partial class login : Form
     {
-              
 
+        public static string Username;
         public login()
         {
             InitializeComponent();
@@ -23,7 +23,10 @@ namespace SWP_4IT_WP_VP
         {
             sqlmanager.createDatabaseandTable();
             sqlmanager.createDatabaseandTableforPassword();
-            sqlmanager.InsertintoTable();
+
+
+            //TODO
+            //sqlmanager.InsertintoTable();
         }
 
         private static string GetRandomSalt()
@@ -33,11 +36,12 @@ namespace SWP_4IT_WP_VP
 
 
         //Bcrypt hashes password
-        public static void HashPassword(string Password)
+        public static string HashPassword(string Password)
         {
-           
-            string passwordHash = BCrypt.HashPassword(Password, GetRandomSalt());
-            ValidatePassword(Password, passwordHash);
+            return BCrypt.HashPassword(Password, GetRandomSalt());
+
+            //string passwordHash = BCrypt.HashPassword(Password, GetRandomSalt());
+            //ValidatePassword(Password, passwordHash);
                         
         }
         public static void ValidatePassword(string Password, string passwordHash)
@@ -50,7 +54,7 @@ namespace SWP_4IT_WP_VP
         }
         public static void GetUsername()
         {
-            string Username = sqlmanager.ReadUser();
+            string Username = sqlmanager.GetUsername();
         }
         public static void GetPassword()
         {
@@ -59,8 +63,9 @@ namespace SWP_4IT_WP_VP
 
         private void btn_login_Click_1(object sender, EventArgs e)
         {
-           
-            HashPassword(Password);
+
+            //HashPassword(Password);
+            Username = txtbox_username.Text;
             menu menu = new menu();
             menu.Show();
         }

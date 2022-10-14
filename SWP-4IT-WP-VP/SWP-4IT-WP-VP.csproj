@@ -54,6 +54,12 @@
       <DependentUpon>compare.cs</DependentUpon>
     </Compile>
     <Compile Include="ConnectionException.cs" />
+    <Compile Include="converter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="converter.Designer.cs">
+      <DependentUpon>converter.cs</DependentUpon>
+    </Compile>
     <Compile Include="login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -101,6 +107,9 @@
     </Compile>
     <EmbeddedResource Include="compare.resx">
       <DependentUpon>compare.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="converter.resx">
+      <DependentUpon>converter.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="login.resx">
       <DependentUpon>login.cs</DependentUpon>
