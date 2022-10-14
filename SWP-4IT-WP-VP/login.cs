@@ -12,9 +12,7 @@ namespace SWP_4IT_WP_VP
 {
     public partial class login : Form
     {
-        public static string Username;
-        public static string Password;
-        
+              
 
         public login()
         {
@@ -23,26 +21,48 @@ namespace SWP_4IT_WP_VP
 
         private void Login_Load(object sender, EventArgs e)
         {
-            //Manager.createTable();
+            sqlmanager.createDatabaseandTable();
+            sqlmanager.createDatabaseandTableforPassword();
+            sqlmanager.InsertintoTable();
         }
 
-        private void btn_Login_Click(object sender, EventArgs e)
+        private static string GetRandomSalt()
         {
-            Username = txtbox_username.Text;
-            Password = txtbox_password.Text;
+            return BCrypt.GenerateSalt(12);
+        }
+
+
+        //Bcrypt hashes password
+        public static void HashPassword(string Password)
+        {
+           
+            string passwordHash = BCrypt.HashPassword(Password, GetRandomSalt());
+            ValidatePassword(Password, passwordHash);
+                        
+        }
+        public static void ValidatePassword(string Password, string passwordHash)
+        {
+            bool verified = BCrypt.CheckPassword(Password, passwordHash);
+            if(verified == true)
+            {
+                MessageBox.Show("Logged in successfully!");
+            }
+        }
+        public static void GetUsername()
+        {
+            string Username = sqlmanager.ReadUser();
+        }
+        public static void GetPassword()
+        {
+            string Password = sqlmanager.ReadPassword();
+        }
+
+        private void btn_login_Click_1(object sender, EventArgs e)
+        {
+           
+            HashPassword(Password);
             menu menu = new menu();
             menu.Show();
         }
-
-        //Bcrypt hashes password
-        public static void password()
-        {
-            Random rnd = new Random();
-            int salt = rnd.Next(5);
-            string stringsalt = Convert.ToString(salt);
-            BCrypt.HashPassword(Password, stringsalt);
-                        
-        }
-
     }
 }

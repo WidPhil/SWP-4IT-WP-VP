@@ -19,7 +19,7 @@ namespace SWP_4IT_WP_VP
 
         private void btn_test_Click(object sender, EventArgs e)
         {
-            sqlmanager.createDatabase();
+            //sqlmanager.createDatabase();
             
         }
     }
