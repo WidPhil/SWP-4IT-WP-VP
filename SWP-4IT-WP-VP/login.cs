@@ -21,12 +21,10 @@ namespace SWP_4IT_WP_VP
 
         private void Login_Load(object sender, EventArgs e)
         {
-            sqlmanager.createDatabaseandTable();
-            sqlmanager.createDatabaseandTableforPassword();
+            sqlmanager.createDatabase("Intersport");
+            sqlmanager.createTableProducts("ProductsWomen","ProductsMen","ProductsKids");
 
-
-            //TODO
-            //sqlmanager.InsertintoTable();
+            
         }
 
         private static string GetRandomSalt()
@@ -52,10 +50,7 @@ namespace SWP_4IT_WP_VP
                 MessageBox.Show("Logged in successfully!");
             }
         }
-        public static void GetUsername()
-        {
-            string Username = sqlmanager.GetUsername();
-        }
+
         public static void GetPassword()
         {
             string Password = sqlmanager.ReadPassword();
