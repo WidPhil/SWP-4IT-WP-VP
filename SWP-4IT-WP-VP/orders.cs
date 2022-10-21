@@ -16,5 +16,15 @@ namespace SWP_4IT_WP_VP
         {
             InitializeComponent();
         }
+
+        private void orders_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_order_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

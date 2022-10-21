@@ -16,6 +16,8 @@ namespace SWP_4IT_WP_VP
         public static string connectionstring = "server = (localdb)\\MSSQLLocalDB ; Database = User ;  Integrated Security = true";
         public static SqlCommand cmd;
         public static SqlConnection con;
+        public static string Base;
+        public static string CompareTo;
 
         public static int choice;
 
@@ -32,12 +34,46 @@ namespace SWP_4IT_WP_VP
         private void Compare_Load(object sender, EventArgs e)
         {
             //cb_chooseTable.Items.Add(cmd = "SELECT * FROM INVENTORY WHERE INVID = " + choice + "", con);
+
         }
 
-        private void btn_compare_Click(object sender, EventArgs e)
+      
+
+        private void btn_compare_Click_1(object sender, EventArgs e)
         {
-            overview show = new overview();
-            show.Show();
+            Base = cb_Base.Text;
+            CompareTo = cb_compareBase.Text;
+            //Tabelle im Gridview ausgeben
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+                
+                DataTable dataBase = new DataTable();
+                SqlConnection con = new SqlConnection(connectionstring);
+                con.Open();
+                SqlDataAdapter sqldataAdapter = new SqlDataAdapter(cmd = new SqlCommand("Select * from " + Base + ";", con));
+                sqldataAdapter.Fill(dataBase);
+                dgv_Base.DataSource = dataBase;
+            }
+            catch (Exception)
+            {
+            }
+            //Tabelle im Gridview ausgeben
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+                
+                DataTable data = new DataTable();
+                SqlConnection con = new SqlConnection(connectionstring);
+                con.Open();
+                SqlDataAdapter sqldataAdapter = new SqlDataAdapter(cmd = new SqlCommand("Select * from " + CompareTo + ";", con));
+                sqldataAdapter.Fill(data);
+                dgv_compareBase.DataSource = data;
+            }
+            catch (Exception)
+            {
+            }
+
         }
     }
 }

@@ -30,3 +30,5 @@ C:\Users\Vanessa Payr\Source\Repos\WidPhil\SWP-4IT-WP-VP\SWP-4IT-WP-VP\obj\Debug
 C:\Users\Vanessa Payr\Source\Repos\WidPhil\SWP-4IT-WP-VP\SWP-4IT-WP-VP\bin\Debug\SWP-4IT-WP-VP.exe.config
 C:\Users\Vanessa Payr\Source\Repos\WidPhil\SWP-4IT-WP-VP\SWP-4IT-WP-VP\bin\Debug\SWP-4IT-WP-VP.exe
 C:\Users\Vanessa Payr\Source\Repos\WidPhil\SWP-4IT-WP-VP\SWP-4IT-WP-VP\bin\Debug\SWP-4IT-WP-VP.pdb
+C:\Users\philip.widauer\Source\Repos\WidPhil\SWP-4IT-WP-VP\SWP-4IT-WP-VP\obj\Debug\SWP_4IT_WP_VP.overview.resources
+

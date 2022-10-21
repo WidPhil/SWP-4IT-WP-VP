@@ -12,6 +12,7 @@ namespace SWP_4IT_WP_VP
 {
     public partial class menu : Form
     {
+        public static string Username = sqlmanager.Username;
         public menu()
         {
             InitializeComponent();
@@ -40,6 +41,11 @@ namespace SWP_4IT_WP_VP
         {
             overview overview = new overview();
             overview.Show();
+        }
+
+        private void menu_Load(object sender, EventArgs e)
+        {
+            lbl_name.Text = Username;
         }
     }
 }
