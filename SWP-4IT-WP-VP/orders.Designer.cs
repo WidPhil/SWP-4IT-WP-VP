@@ -28,23 +28,28 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cb_productgroup = new System.Windows.Forms.ComboBox();
             this.btn_order = new System.Windows.Forms.Button();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.lbl_productgroup = new System.Windows.Forms.Label();
             this.NUD__Amount = new System.Windows.Forms.NumericUpDown();
             this.lbl_amount = new System.Windows.Forms.Label();
+            this.radioButton3 = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.NUD__Amount)).BeginInit();
             this.SuspendLayout();
             // 
-            // comboBox1
+            // cb_productgroup
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(55, 39);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 5;
+            this.cb_productgroup.FormattingEnabled = true;
+            this.cb_productgroup.Items.AddRange(new object[] {
+            "Schuhe",
+            "T-Shirt",
+            "Jeans"});
+            this.cb_productgroup.Location = new System.Drawing.Point(55, 39);
+            this.cb_productgroup.Name = "cb_productgroup";
+            this.cb_productgroup.Size = new System.Drawing.Size(121, 21);
+            this.cb_productgroup.TabIndex = 5;
             // 
             // btn_order
             // 
@@ -61,10 +66,10 @@
             this.radioButton1.AutoSize = true;
             this.radioButton1.Location = new System.Drawing.Point(55, 153);
             this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(85, 17);
+            this.radioButton1.Size = new System.Drawing.Size(40, 17);
             this.radioButton1.TabIndex = 7;
             this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "radioButton1";
+            this.radioButton1.Text = "Kid";
             this.radioButton1.UseVisualStyleBackColor = true;
             // 
             // radioButton2
@@ -72,10 +77,10 @@
             this.radioButton2.AutoSize = true;
             this.radioButton2.Location = new System.Drawing.Point(55, 177);
             this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(85, 17);
+            this.radioButton2.Size = new System.Drawing.Size(46, 17);
             this.radioButton2.TabIndex = 8;
             this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "radioButton2";
+            this.radioButton2.Text = "Men";
             this.radioButton2.UseVisualStyleBackColor = true;
             // 
             // lbl_productgroup
@@ -103,18 +108,30 @@
             this.lbl_amount.TabIndex = 11;
             this.lbl_amount.Text = "Amount:";
             // 
+            // radioButton3
+            // 
+            this.radioButton3.AutoSize = true;
+            this.radioButton3.Location = new System.Drawing.Point(55, 200);
+            this.radioButton3.Name = "radioButton3";
+            this.radioButton3.Size = new System.Drawing.Size(62, 17);
+            this.radioButton3.TabIndex = 12;
+            this.radioButton3.TabStop = true;
+            this.radioButton3.Text = "Women";
+            this.radioButton3.UseVisualStyleBackColor = true;
+            // 
             // orders
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(244, 422);
+            this.Controls.Add(this.radioButton3);
             this.Controls.Add(this.lbl_amount);
             this.Controls.Add(this.NUD__Amount);
             this.Controls.Add(this.lbl_productgroup);
             this.Controls.Add(this.radioButton2);
             this.Controls.Add(this.radioButton1);
             this.Controls.Add(this.btn_order);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cb_productgroup);
             this.Name = "orders";
             this.Text = "orders";
             this.Load += new System.EventHandler(this.orders_Load);
@@ -126,12 +143,13 @@
 
         #endregion
 
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cb_productgroup;
         private System.Windows.Forms.Button btn_order;
         private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.Label lbl_productgroup;
         private System.Windows.Forms.NumericUpDown NUD__Amount;
         private System.Windows.Forms.Label lbl_amount;
+        private System.Windows.Forms.RadioButton radioButton3;
     }
 }

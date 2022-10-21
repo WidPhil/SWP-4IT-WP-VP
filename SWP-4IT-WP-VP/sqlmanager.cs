@@ -68,6 +68,13 @@ namespace SWP_4IT_WP_VP
 
             SqlCommand com = new SqlCommand("Create Table" + nameofPrT + "(id int primary key IDENTITY (1, 1), type varchar(100), brand varchar(100),  price varchar(100), number varchar(100))", con);
             com.ExecuteNonQuery();
+
+            //Philip
+            //com.CommandText = "Create Table User(id int primary key IDENTITY (1, 1), Username varchar(100), Password varchar(100))", con);
+            //com.ExecuteNonQuery();
+
+            
+
             con.Close();
 
             return false;

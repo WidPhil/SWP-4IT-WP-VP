@@ -12,7 +12,7 @@ namespace SWP_4IT_WP_VP
 {
     public partial class login : Form
     {
-
+        public static string Salt;
         public static string Username;
         public login()
         {
@@ -21,24 +21,25 @@ namespace SWP_4IT_WP_VP
 
         private void Login_Load(object sender, EventArgs e)
         {
-            sqlmanager.createDatabaseandTable();
-            sqlmanager.createDatabaseandTableforPassword();
+            sqlmanager.createDatabase();
+            sqlmanager.createTableProducts();
+            
 
 
             //TODO
             //sqlmanager.InsertintoTable();
         }
 
-        private static string GetRandomSalt()
+        private static void GetRandomSalt()
         {
-            return BCrypt.GenerateSalt(12);
+            Salt = BCrypt.GenerateSalt(12);
         }
 
 
         //Bcrypt hashes password
-        public static string HashPassword(string Password)
+        public static string HashPassword(string Password, string Salt)
         {
-            return BCrypt.HashPassword(Password, GetRandomSalt());
+            return BCrypt.HashPassword(Password, Salt);
 
             //string passwordHash = BCrypt.HashPassword(Password, GetRandomSalt());
             //ValidatePassword(Password, passwordHash);
@@ -54,7 +55,7 @@ namespace SWP_4IT_WP_VP
         }
         public static void GetUsername()
         {
-            string Username = sqlmanager.GetUsername();
+            //string Username = sqlmanager.GetUsername();
         }
         public static void GetPassword()
         {
