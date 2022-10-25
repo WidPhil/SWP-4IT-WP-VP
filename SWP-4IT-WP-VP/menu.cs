@@ -12,7 +12,7 @@ namespace SWP_4IT_WP_VP
 {
     public partial class menu : Form
     {
-        public static string Username = sqlmanager.Username;
+        public static string Username = sqlmanager.username;
         public menu()
         {
             InitializeComponent();

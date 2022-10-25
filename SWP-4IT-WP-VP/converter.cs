@@ -25,7 +25,7 @@ namespace SWP_4IT_WP_VP
 
         private void converter_Load(object sender, EventArgs e)
         {
-            cb_inventories.Items.Add("Inventories");
+            
         }
     }
 }

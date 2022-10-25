@@ -37,11 +37,8 @@ namespace SWP_4IT_WP_VP
 
             try
             {
-
                 SqlCommand cmd02 = new SqlCommand("Create Database " + dbname , con);
                 cmd02.ExecuteNonQuery();
-                
-
             }
             catch (ConnectionException cex)
             {
@@ -54,7 +51,7 @@ namespace SWP_4IT_WP_VP
 
         }
 
-        public static bool createTableProducts(string tnameWomen, string tnameMen, string tnameKids)
+        public static bool createTableProducts(string tname)
         {
             con02 = new SqlConnection(ConnectionString02);
             con02.Open();
@@ -64,40 +61,33 @@ namespace SWP_4IT_WP_VP
 
             while (checkTable.Read())
             {
-                if (checkTable.GetString(0).ToLower().Equals(tnameWomen.ToLower()))
+                if (checkTable.GetString(0).ToLower().Equals(tname.ToLower()))
                 {
                     return true;
                 }
+                
             }
             checkTable.Close();
 
-            SqlCommand comWomen = new SqlCommand("Create Table " + tnameWomen + "(id int primary key IDENTITY (1, 1), type varchar(100), brand varchar(100),  price varchar(100), amount varchar(100))", con02);
-            comWomen.ExecuteNonQuery();
+            SqlCommand com = new SqlCommand("Create Table " + tname + "(id int primary key IDENTITY (1, 1), name varchar(100), type varchar(100), brand varchar(100),  price varchar(100), amount varchar(100), availableFor varchar(100))", con02);
+            //test products
+            SqlCommand com02 = new SqlCommand("insert into Products(name, type, brand, price, amount, availableFor) values('SM34', 'Wanderschuhe', 'Salomon', '0.0EUR', '100Stück', 'women')", con02);
+            com.ExecuteNonQuery();
+            com02.ExecuteNonQuery();
+            
             con02.Close();
-
             return false;
 
-            //SqlCommand comMen = new SqlCommand("Create Table " + tnameMen + "(id int primary key IDENTITY (1, 1), type varchar(100), brand varchar(100),  price varchar(100), amount varchar(100))", con02);
-            //SqlCommand comKids = new SqlCommand("Create Table " + tnameKids + "(id int primary key IDENTITY (1, 1), type varchar(100), brand varchar(100),  price varchar(100), amount varchar(100))", con02);
-
-            //com = new SqlCommand("Insert into Products (type, brand, price, amount) values ('','','','')", con02);
-
-
-            //comMen.ExecuteNonQuery();
-            //comKids.ExecuteNonQuery();
-
-
-
         }
 
-        public static string ReadPassword()
-        {
-            con = new SqlConnection(ConnectionString);
-            con.Open();
-            cmd = new SqlCommand("SELECT Password FROM UserData where Username = " + username);
-            cmd.ExecuteNonQuery();
-            return cmd.CommandText;
-        }
+        //public static string ReadPassword()
+        //{
+        //    con = new SqlConnection(ConnectionString);
+        //    con.Open();
+        //    cmd = new SqlCommand("SELECT Password FROM UserData where Username = " + username);
+        //    cmd.ExecuteNonQuery();
+        //    return cmd.CommandText;
+        //}
 
 
     }
