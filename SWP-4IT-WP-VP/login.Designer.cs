@@ -28,80 +28,59 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.txtbox_username = new System.Windows.Forms.Label();
-            this.txtbox_password = new System.Windows.Forms.Label();
-            this.btn_login = new System.Windows.Forms.Button();
-            this.btn_signup = new System.Windows.Forms.Button();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(login));
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
-            // textBox1
+            // pictureBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(306, 60);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(179, 20);
-            this.textBox1.TabIndex = 0;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(32, 30);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(268, 63);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
-            // textBox2
+            // pictureBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(306, 105);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(179, 20);
-            this.textBox2.TabIndex = 1;
+            this.pictureBox2.BackColor = System.Drawing.Color.White;
+            this.pictureBox2.Location = new System.Drawing.Point(-1, -2);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(339, 453);
+            this.pictureBox2.TabIndex = 1;
+            this.pictureBox2.TabStop = false;
             // 
-            // txtbox_username
+            // label1
             // 
-            this.txtbox_username.AutoSize = true;
-            this.txtbox_username.Location = new System.Drawing.Point(99, 60);
-            this.txtbox_username.Name = "txtbox_username";
-            this.txtbox_username.Size = new System.Drawing.Size(58, 13);
-            this.txtbox_username.TabIndex = 2;
-            this.txtbox_username.Text = "Username:";
-            // 
-            // txtbox_password
-            // 
-            this.txtbox_password.AutoSize = true;
-            this.txtbox_password.Location = new System.Drawing.Point(99, 105);
-            this.txtbox_password.Name = "txtbox_password";
-            this.txtbox_password.Size = new System.Drawing.Size(56, 13);
-            this.txtbox_password.TabIndex = 3;
-            this.txtbox_password.Text = "Password:";
-            // 
-            // btn_login
-            // 
-            this.btn_login.Location = new System.Drawing.Point(102, 169);
-            this.btn_login.Name = "btn_login";
-            this.btn_login.Size = new System.Drawing.Size(147, 23);
-            this.btn_login.TabIndex = 4;
-            this.btn_login.Text = "Log in";
-            this.btn_login.UseVisualStyleBackColor = true;
-            this.btn_login.Click += new System.EventHandler(this.btn_login_Click_1);
-            // 
-            // btn_signup
-            // 
-            this.btn_signup.Location = new System.Drawing.Point(350, 169);
-            this.btn_signup.Name = "btn_signup";
-            this.btn_signup.Size = new System.Drawing.Size(135, 23);
-            this.btn_signup.TabIndex = 5;
-            this.btn_signup.Text = "Sign up";
-            this.btn_signup.UseVisualStyleBackColor = true;
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.White;
+            this.label1.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(32, 218);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(268, 64);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Welcome to \r\nthe inventory system";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // login
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(600, 366);
-            this.Controls.Add(this.btn_signup);
-            this.Controls.Add(this.btn_login);
-            this.Controls.Add(this.txtbox_password);
-            this.Controls.Add(this.txtbox_username);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.pictureBox2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "login";
-            this.Text = "Login";
+            this.Text = "Intersport Login";
             this.Load += new System.EventHandler(this.Login_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -109,11 +88,8 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label txtbox_username;
-        private System.Windows.Forms.Label txtbox_password;
-        private System.Windows.Forms.Button btn_login;
-        private System.Windows.Forms.Button btn_signup;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Label label1;
     }
 }

@@ -33,14 +33,6 @@ namespace SWP_4IT_WP_VP
 
         private void cb_chooseproduct_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string ConnectionString = "server = (localdb)\\MSSQLLocalDB;Database = master;Integrated Security = true";
-            SqlConnection con = new SqlConnection();
-            SqlCommand cmd = new SqlCommand();
-
-            string Product = "jsdlkafj";
-
-            con.Open();
-            cmd.CommandText = "SELECT * FROM PRODUCTS WHERE DESCRIPTION = " + Product;
                     
         }
     }
