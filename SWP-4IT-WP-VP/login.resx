@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="pictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="pictureBoxLogo.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAApYAAACWCAYAAABkbcgjAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAS
         cgAAEnIBXmVb4wAAO0BJREFUeF7tnYe7FFW69b//4M6IMzqjgDmnMSfMoIMkBREziCJmxZxQUTGPknPO
@@ -377,10 +377,10 @@
         /H/hUX1S5vRlGQAAAABJRU5ErkJggg==
 </value>
   </data>
-  <metadata name="pictureBox2.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="pictureBoxLogin.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <data name="pictureBox3.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="pictureBoxUserIcon.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAA1wAAAKBCAYAAABDMqqBAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAE/xSURBVHhe7f1ZsBX1uT/+/y9+qdS5O1WpcypVpyKDKDKLIA6R2QHHGBSniMb4PRoUJdEEIghi
@@ -727,7 +727,7 @@
         AhcAAEAm/if5/wP5L3yQClHX1gAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="pictureBox4.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="pictureBoxLocerIcon.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6
         JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAr3klEQVR4Xu3dC5RlVXngcZqHCkZERVAU
@@ -921,4 +921,7 @@
         RU5ErkJggg==
 </value>
   </data>
+  <metadata name="$this.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
 </root>

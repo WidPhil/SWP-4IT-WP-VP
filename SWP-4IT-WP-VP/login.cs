@@ -26,6 +26,32 @@ namespace SWP_4IT_WP_VP
 
         }
 
+        private void buttonLogin_Click(object sender, EventArgs e)
+        {
+            
+            menu m = new menu();
+            login l = new login();
+
+            try
+            {
+                //User and Password are right
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Wrong!");
+                throw;
+            }
+
+            m.Show();
+            l.Hide();
+
+        }
+
+        private void buttonForgetPassword_Click(object sender, EventArgs e)
+        {
+
+        }
+
         //private static string GetRandomSalt()
         //{
         //    return BCrypt.GenerateSalt(12);
