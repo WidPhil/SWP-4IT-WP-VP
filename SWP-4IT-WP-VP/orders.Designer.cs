@@ -35,6 +35,7 @@
             this.lbl_productgroup = new System.Windows.Forms.Label();
             this.NUD__Amount = new System.Windows.Forms.NumericUpDown();
             this.lbl_amount = new System.Windows.Forms.Label();
+            this.radioButton3 = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.NUD__Amount)).BeginInit();
             this.SuspendLayout();
             // 
@@ -103,11 +104,23 @@
             this.lbl_amount.TabIndex = 11;
             this.lbl_amount.Text = "Amount:";
             // 
+            // radioButton3
+            // 
+            this.radioButton3.AutoSize = true;
+            this.radioButton3.Location = new System.Drawing.Point(55, 200);
+            this.radioButton3.Name = "radioButton3";
+            this.radioButton3.Size = new System.Drawing.Size(85, 17);
+            this.radioButton3.TabIndex = 12;
+            this.radioButton3.TabStop = true;
+            this.radioButton3.Text = "radioButton3";
+            this.radioButton3.UseVisualStyleBackColor = true;
+            // 
             // orders
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(244, 422);
+            this.Controls.Add(this.radioButton3);
             this.Controls.Add(this.lbl_amount);
             this.Controls.Add(this.NUD__Amount);
             this.Controls.Add(this.lbl_productgroup);
@@ -133,5 +146,6 @@
         private System.Windows.Forms.Label lbl_productgroup;
         private System.Windows.Forms.NumericUpDown NUD__Amount;
         private System.Windows.Forms.Label lbl_amount;
+        private System.Windows.Forms.RadioButton radioButton3;
     }
 }
