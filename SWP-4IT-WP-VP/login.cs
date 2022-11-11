@@ -23,6 +23,7 @@ namespace SWP_4IT_WP_VP
         {
             sqlmanager.createDatabase("Intersport");
             sqlmanager.createTableProducts("Products");
+            sqlmanager.createTableUsers("Users");
 
         }
 
@@ -34,7 +35,14 @@ namespace SWP_4IT_WP_VP
 
             try
             {
-                //User and Password are right
+                string name = textBoxUser.Text;
+                //sqlmanager.Readpwd(username);
+                
+                //bool doesPasswordMatch = BCrypt.CheckPassword(password, myHash);
+                //if(doesPasswordMatch == true)
+                //{
+                //    MessageBox.Show("Successfully logged in!");
+                //}
             }
             catch (Exception)
             {
@@ -50,6 +58,16 @@ namespace SWP_4IT_WP_VP
         private void buttonForgetPassword_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btn_signup_Click(object sender, EventArgs e)
+        {
+            string name = textBoxUser.Text;
+            string password = textBoxPassword.Text;
+            string mySalt = BCrypt.GenerateSalt();
+            string myHash = BCrypt.HashPassword(password, mySalt);
+
+            sqlmanager.AddUser(name, password, myHash);
         }
 
         //private static string GetRandomSalt()
