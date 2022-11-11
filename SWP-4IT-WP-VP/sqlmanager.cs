@@ -16,7 +16,6 @@ namespace SWP_4IT_WP_VP
         public static string username = login.Username;
 
         public static SqlConnection con;
-        public static SqlConnection con02;
         public static SqlCommand cmd;
 
         public static bool createDatabase(string dbname)
@@ -53,9 +52,9 @@ namespace SWP_4IT_WP_VP
 
         public static bool createTableProducts(string tname)
         {
-            con02 = new SqlConnection(ConnectionString02);
-            con02.Open();
-            cmd = new SqlCommand("SELECT * FROM sys.tables", con02);
+            con = new SqlConnection(ConnectionString02);
+            con.Open();
+            cmd = new SqlCommand("SELECT * FROM sys.tables", con);
 
             SqlDataReader checkTable = cmd.ExecuteReader();
 
@@ -69,24 +68,67 @@ namespace SWP_4IT_WP_VP
             }
             checkTable.Close();
 
-            SqlCommand com = new SqlCommand("Create Table " + tname + "(id int primary key IDENTITY (1, 1), name varchar(100), type varchar(100), brand varchar(100),  price varchar(100), amount varchar(100), availableFor varchar(100))", con02);
+            SqlCommand com = new SqlCommand("Create Table " + tname + "(id int primary key IDENTITY (1, 1), name varchar(100), type varchar(100), brand varchar(100),  price varchar(100), amount varchar(100), availableFor varchar(100))", con);
             //test products
-            SqlCommand com02 = new SqlCommand("insert into Products(name, type, brand, price, amount, availableFor) values('SM34', 'Wanderschuhe', 'Salomon', '0.0EUR', '100Stück', 'women')", con02);
+            SqlCommand com02 = new SqlCommand("insert into Products(name, type, brand, price, amount, availableFor) values('SM34', 'Wanderschuhe', 'Salomon', '0.0EUR', '100Stück', 'women')", con);
             com.ExecuteNonQuery();
             com02.ExecuteNonQuery();
             
-            con02.Close();
+            con.Close();
             return false;
 
         }
 
-        //public static string ReadPassword()
+        public static bool createTableUsers(string tname)
+        {
+            con = new SqlConnection(ConnectionString02);
+            con.Open();
+            cmd = new SqlCommand("SELECT * FROM sys.tables", con);
+
+            SqlDataReader checkTable = cmd.ExecuteReader();
+
+            while (checkTable.Read())
+            {
+                if (checkTable.GetString(0).ToLower().Equals(tname.ToLower()))
+                {
+                    return true;
+                }
+
+            }
+            checkTable.Close();
+
+            SqlCommand com = new SqlCommand("Create Table " + tname + "(id int primary key IDENTITY (1, 1), name varchar(100), password varchar(100), hashedPassword varchar(100))", con);
+            //test products
+            
+
+            con.Close();
+            return false;
+
+        }
+
+        public static void AddUser(string name, string password, string Hash)
+        {
+            con = new SqlConnection(ConnectionString02);
+
+            con.Open();
+            cmd = new SqlCommand("insert into Users(name, password, hashedPassword) values('"+ name +"', '"+password+"', '"+Hash+"')", con);
+            cmd.ExecuteNonQuery();
+            con.Close();
+            MessageBox.Show("Signed up successfully!");
+        }
+
+
+        //public static string ReadPassword(string username)
         //{
         //    con = new SqlConnection(ConnectionString);
         //    con.Open();
-        //    cmd = new SqlCommand("SELECT Password FROM UserData where Username = " + username);
+        //    cmd = new SqlCommand("SELECT Password FROM Users where Username = " + username);
         //    cmd.ExecuteNonQuery();
-        //    return cmd.CommandText;
+        //    cmd = new SqlCommand("SELECT myHash FROM Users where Username = " + username);
+        //    cmd.ExecuteNonQuery();
+        //    //string myHash = cmd.
+        //    //con.Close();
+        //    //return password, myHash;
         //}
 
 
