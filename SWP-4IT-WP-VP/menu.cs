@@ -28,7 +28,7 @@ namespace SWP_4IT_WP_VP
         {
             compare compare = new compare();
             compare.Show();
-            
+
         }
 
         private void btn_requirements_Click(object sender, EventArgs e)
@@ -45,7 +45,12 @@ namespace SWP_4IT_WP_VP
 
         private void menu_Load(object sender, EventArgs e)
         {
-            lbl_name.Text = Username;
+            //lbl_name.Text = Username;
+        }
+
+        private void dateTimePickerMenu_ValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

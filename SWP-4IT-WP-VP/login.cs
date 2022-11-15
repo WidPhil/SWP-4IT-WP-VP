@@ -33,23 +33,6 @@ namespace SWP_4IT_WP_VP
             menu m = new menu();
             login l = new login();
 
-            try
-            {
-                string name = textBoxUser.Text;
-                //sqlmanager.Readpwd(username);
-                
-                //bool doesPasswordMatch = BCrypt.CheckPassword(password, myHash);
-                //if(doesPasswordMatch == true)
-                //{
-                //    MessageBox.Show("Successfully logged in!");
-                //}
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Wrong!");
-                throw;
-            }
-
             m.Show();
             l.Hide();
 

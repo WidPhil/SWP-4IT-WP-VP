@@ -54,18 +54,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BCrypt.cs" />
-    <Compile Include="compare.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="compare.Designer.cs">
-      <DependentUpon>compare.cs</DependentUpon>
-    </Compile>
     <Compile Include="ConnectionException.cs" />
     <Compile Include="converter.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="converter.Designer.cs">
       <DependentUpon>converter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="inventory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="inventory.Designer.cs">
+      <DependentUpon>inventory.cs</DependentUpon>
     </Compile>
     <Compile Include="login.cs">
       <SubType>Form</SubType>
@@ -78,6 +78,12 @@
     </Compile>
     <Compile Include="menu.Designer.cs">
       <DependentUpon>menu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="settings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="settings.Designer.cs">
+      <DependentUpon>settings.cs</DependentUpon>
     </Compile>
     <Compile Include="sqlmanager.cs" />
     <Compile Include="orders.cs">
@@ -106,9 +112,6 @@
     <Compile Include="overview.Designer.cs">
       <DependentUpon>overview.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="compare.resx">
-      <DependentUpon>compare.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="converter.resx">
       <DependentUpon>converter.cs</DependentUpon>
     </EmbeddedResource>

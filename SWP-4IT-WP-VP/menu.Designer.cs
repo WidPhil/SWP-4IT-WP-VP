@@ -28,112 +28,233 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btn_order = new System.Windows.Forms.Button();
-            this.btn_compare = new System.Windows.Forms.Button();
-            this.btn_requirements = new System.Windows.Forms.Button();
-            this.lbl_menu = new System.Windows.Forms.Label();
-            this.btn_showInv = new System.Windows.Forms.Button();
-            this.lbl_hello = new System.Windows.Forms.Label();
-            this.lbl_name = new System.Windows.Forms.Label();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(menu));
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.groupBoxProducts = new System.Windows.Forms.GroupBox();
+            this.buttonProducts = new System.Windows.Forms.Button();
+            this.buttonRequirements = new System.Windows.Forms.Button();
+            this.buttonOrders = new System.Windows.Forms.Button();
+            this.groupBoxInventory = new System.Windows.Forms.GroupBox();
+            this.buttonConvert = new System.Windows.Forms.Button();
+            this.buttonOverview = new System.Windows.Forms.Button();
+            this.buttonInventory = new System.Windows.Forms.Button();
+            this.buttonSettings = new System.Windows.Forms.Button();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.labelDate = new System.Windows.Forms.Label();
+            this.dateTimePickerMenu = new System.Windows.Forms.DateTimePicker();
+            this.label1 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.groupBoxProducts.SuspendLayout();
+            this.groupBoxInventory.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
-            // btn_order
+            // pictureBox1
             // 
-            this.btn_order.Location = new System.Drawing.Point(12, 95);
-            this.btn_order.Name = "btn_order";
-            this.btn_order.Size = new System.Drawing.Size(260, 24);
-            this.btn_order.TabIndex = 0;
-            this.btn_order.Text = "Order Products";
-            this.btn_order.UseVisualStyleBackColor = true;
-            this.btn_order.Click += new System.EventHandler(this.btn_order_Click);
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(2, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(589, 94);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 7;
+            this.pictureBox1.TabStop = false;
             // 
-            // btn_compare
+            // groupBoxProducts
             // 
-            this.btn_compare.Location = new System.Drawing.Point(12, 135);
-            this.btn_compare.Name = "btn_compare";
-            this.btn_compare.Size = new System.Drawing.Size(260, 23);
-            this.btn_compare.TabIndex = 1;
-            this.btn_compare.Text = "Compare Inventories";
-            this.btn_compare.UseVisualStyleBackColor = true;
-            this.btn_compare.Click += new System.EventHandler(this.btn_compare_Click);
+            this.groupBoxProducts.BackColor = System.Drawing.Color.White;
+            this.groupBoxProducts.Controls.Add(this.buttonProducts);
+            this.groupBoxProducts.Controls.Add(this.buttonRequirements);
+            this.groupBoxProducts.Controls.Add(this.buttonOrders);
+            this.groupBoxProducts.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBoxProducts.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.groupBoxProducts.Location = new System.Drawing.Point(2, 103);
+            this.groupBoxProducts.Name = "groupBoxProducts";
+            this.groupBoxProducts.Size = new System.Drawing.Size(253, 181);
+            this.groupBoxProducts.TabIndex = 8;
+            this.groupBoxProducts.TabStop = false;
+            this.groupBoxProducts.Text = "Products";
             // 
-            // btn_requirements
+            // buttonProducts
             // 
-            this.btn_requirements.Location = new System.Drawing.Point(12, 182);
-            this.btn_requirements.Name = "btn_requirements";
-            this.btn_requirements.Size = new System.Drawing.Size(260, 24);
-            this.btn_requirements.TabIndex = 2;
-            this.btn_requirements.Text = "Requirements";
-            this.btn_requirements.UseVisualStyleBackColor = true;
-            this.btn_requirements.Click += new System.EventHandler(this.btn_requirements_Click);
+            this.buttonProducts.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonProducts.ForeColor = System.Drawing.Color.Black;
+            this.buttonProducts.Location = new System.Drawing.Point(6, 136);
+            this.buttonProducts.Name = "buttonProducts";
+            this.buttonProducts.Size = new System.Drawing.Size(191, 30);
+            this.buttonProducts.TabIndex = 2;
+            this.buttonProducts.Text = "new products";
+            this.buttonProducts.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonProducts.UseVisualStyleBackColor = true;
             // 
-            // lbl_menu
+            // buttonRequirements
             // 
-            this.lbl_menu.AutoSize = true;
-            this.lbl_menu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_menu.Location = new System.Drawing.Point(13, 13);
-            this.lbl_menu.Name = "lbl_menu";
-            this.lbl_menu.Size = new System.Drawing.Size(49, 20);
-            this.lbl_menu.TabIndex = 3;
-            this.lbl_menu.Text = "Menu";
+            this.buttonRequirements.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonRequirements.ForeColor = System.Drawing.Color.Black;
+            this.buttonRequirements.Location = new System.Drawing.Point(6, 82);
+            this.buttonRequirements.Name = "buttonRequirements";
+            this.buttonRequirements.Size = new System.Drawing.Size(191, 32);
+            this.buttonRequirements.TabIndex = 1;
+            this.buttonRequirements.Text = "general requirements";
+            this.buttonRequirements.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonRequirements.UseVisualStyleBackColor = true;
             // 
-            // btn_showInv
+            // buttonOrders
             // 
-            this.btn_showInv.Location = new System.Drawing.Point(12, 228);
-            this.btn_showInv.Name = "btn_showInv";
-            this.btn_showInv.Size = new System.Drawing.Size(260, 26);
-            this.btn_showInv.TabIndex = 4;
-            this.btn_showInv.Text = "Show Inventory";
-            this.btn_showInv.UseVisualStyleBackColor = true;
-            this.btn_showInv.Click += new System.EventHandler(this.btn_showInv_Click);
+            this.buttonOrders.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonOrders.ForeColor = System.Drawing.Color.Black;
+            this.buttonOrders.Location = new System.Drawing.Point(6, 29);
+            this.buttonOrders.Name = "buttonOrders";
+            this.buttonOrders.Size = new System.Drawing.Size(191, 32);
+            this.buttonOrders.TabIndex = 0;
+            this.buttonOrders.Text = "order products";
+            this.buttonOrders.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonOrders.UseVisualStyleBackColor = true;
             // 
-            // lbl_hello
+            // groupBoxInventory
             // 
-            this.lbl_hello.AutoSize = true;
-            this.lbl_hello.Location = new System.Drawing.Point(17, 54);
-            this.lbl_hello.Name = "lbl_hello";
-            this.lbl_hello.Size = new System.Drawing.Size(34, 13);
-            this.lbl_hello.TabIndex = 5;
-            this.lbl_hello.Text = "Hello:";
+            this.groupBoxInventory.BackColor = System.Drawing.Color.White;
+            this.groupBoxInventory.Controls.Add(this.label1);
+            this.groupBoxInventory.Controls.Add(this.buttonConvert);
+            this.groupBoxInventory.Controls.Add(this.buttonOverview);
+            this.groupBoxInventory.Controls.Add(this.buttonInventory);
+            this.groupBoxInventory.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBoxInventory.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.groupBoxInventory.Location = new System.Drawing.Point(2, 290);
+            this.groupBoxInventory.Name = "groupBoxInventory";
+            this.groupBoxInventory.Size = new System.Drawing.Size(253, 299);
+            this.groupBoxInventory.TabIndex = 9;
+            this.groupBoxInventory.TabStop = false;
+            this.groupBoxInventory.Text = "Inventory";
             // 
-            // lbl_name
+            // buttonConvert
             // 
-            this.lbl_name.AutoSize = true;
-            this.lbl_name.Location = new System.Drawing.Point(55, 54);
-            this.lbl_name.Name = "lbl_name";
-            this.lbl_name.Size = new System.Drawing.Size(35, 13);
-            this.lbl_name.TabIndex = 6;
-            this.lbl_name.Text = "Name";
+            this.buttonConvert.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonConvert.ForeColor = System.Drawing.Color.Black;
+            this.buttonConvert.Location = new System.Drawing.Point(6, 241);
+            this.buttonConvert.Name = "buttonConvert";
+            this.buttonConvert.Size = new System.Drawing.Size(191, 30);
+            this.buttonConvert.TabIndex = 2;
+            this.buttonConvert.Text = "convert inventory";
+            this.buttonConvert.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonConvert.UseVisualStyleBackColor = true;
+            // 
+            // buttonOverview
+            // 
+            this.buttonOverview.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonOverview.ForeColor = System.Drawing.Color.Black;
+            this.buttonOverview.Location = new System.Drawing.Point(6, 150);
+            this.buttonOverview.Name = "buttonOverview";
+            this.buttonOverview.Size = new System.Drawing.Size(191, 32);
+            this.buttonOverview.TabIndex = 1;
+            this.buttonOverview.Text = "overview ";
+            this.buttonOverview.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonOverview.UseVisualStyleBackColor = true;
+            // 
+            // buttonInventory
+            // 
+            this.buttonInventory.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonInventory.ForeColor = System.Drawing.Color.Black;
+            this.buttonInventory.Location = new System.Drawing.Point(6, 74);
+            this.buttonInventory.Name = "buttonInventory";
+            this.buttonInventory.Size = new System.Drawing.Size(191, 32);
+            this.buttonInventory.TabIndex = 0;
+            this.buttonInventory.Text = "new inventory";
+            this.buttonInventory.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonInventory.UseVisualStyleBackColor = true;
+            // 
+            // buttonSettings
+            // 
+            this.buttonSettings.Font = new System.Drawing.Font("Arial", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonSettings.Location = new System.Drawing.Point(629, 3);
+            this.buttonSettings.Name = "buttonSettings";
+            this.buttonSettings.Size = new System.Drawing.Size(68, 27);
+            this.buttonSettings.TabIndex = 10;
+            this.buttonSettings.Text = "Settings";
+            this.buttonSettings.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonSettings.UseVisualStyleBackColor = true;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(597, 3);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(36, 27);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 11;
+            this.pictureBox2.TabStop = false;
+            // 
+            // labelDate
+            // 
+            this.labelDate.AutoSize = true;
+            this.labelDate.BackColor = System.Drawing.Color.Transparent;
+            this.labelDate.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelDate.Location = new System.Drawing.Point(341, 453);
+            this.labelDate.Name = "labelDate";
+            this.labelDate.Size = new System.Drawing.Size(104, 19);
+            this.labelDate.TabIndex = 12;
+            this.labelDate.Text = "Todays Date:";
+            // 
+            // dateTimePickerMenu
+            // 
+            this.dateTimePickerMenu.Font = new System.Drawing.Font("Arial", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePickerMenu.Location = new System.Drawing.Point(451, 450);
+            this.dateTimePickerMenu.Name = "dateTimePickerMenu";
+            this.dateTimePickerMenu.Size = new System.Drawing.Size(246, 22);
+            this.dateTimePickerMenu.TabIndex = 13;
+            this.dateTimePickerMenu.ValueChanged += new System.EventHandler(this.dateTimePickerMenu_ValueChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label1.Location = new System.Drawing.Point(6, 52);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(160, 19);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "create new inventory";
             // 
             // menu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(294, 372);
-            this.Controls.Add(this.lbl_name);
-            this.Controls.Add(this.lbl_hello);
-            this.Controls.Add(this.btn_showInv);
-            this.Controls.Add(this.lbl_menu);
-            this.Controls.Add(this.btn_requirements);
-            this.Controls.Add(this.btn_compare);
-            this.Controls.Add(this.btn_order);
+            this.BackColor = System.Drawing.SystemColors.Control;
+            this.ClientSize = new System.Drawing.Size(789, 601);
+            this.Controls.Add(this.dateTimePickerMenu);
+            this.Controls.Add(this.labelDate);
+            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.buttonSettings);
+            this.Controls.Add(this.groupBoxInventory);
+            this.Controls.Add(this.groupBoxProducts);
+            this.Controls.Add(this.pictureBox1);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "menu";
-            this.Text = "Main";
+            this.Text = "Intersport Main Menu";
             this.Load += new System.EventHandler(this.menu_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.groupBoxProducts.ResumeLayout(false);
+            this.groupBoxInventory.ResumeLayout(false);
+            this.groupBoxInventory.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btn_order;
-        private System.Windows.Forms.Button btn_compare;
-        private System.Windows.Forms.Button btn_requirements;
-        private System.Windows.Forms.Label lbl_menu;
-        private System.Windows.Forms.Button btn_showInv;
-        private System.Windows.Forms.Label lbl_hello;
-        private System.Windows.Forms.Label lbl_name;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.GroupBox groupBoxProducts;
+        private System.Windows.Forms.Button buttonProducts;
+        private System.Windows.Forms.Button buttonRequirements;
+        private System.Windows.Forms.Button buttonOrders;
+        private System.Windows.Forms.GroupBox groupBoxInventory;
+        private System.Windows.Forms.Button buttonConvert;
+        private System.Windows.Forms.Button buttonOverview;
+        private System.Windows.Forms.Button buttonInventory;
+        private System.Windows.Forms.Button buttonSettings;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Label labelDate;
+        private System.Windows.Forms.DateTimePicker dateTimePickerMenu;
+        private System.Windows.Forms.Label label1;
     }
 }
