@@ -97,7 +97,7 @@ namespace SWP_4IT_WP_VP
             }
             checkTable.Close();
 
-            SqlCommand com = new SqlCommand("Create Table " + tname + "(id int primary key IDENTITY (1, 1), name varchar(100), password varchar(100), hashedPassword varchar(100))", con);
+            SqlCommand com = new SqlCommand("Create Table " + tname + "(id int primary key IDENTITY (1, 1), name varchar(100), password varchar(100), hashedPassword varchar(100), VerificationCode varchar(100))", con);
             //test products
             
 
@@ -111,7 +111,7 @@ namespace SWP_4IT_WP_VP
             con = new SqlConnection(ConnectionString02);
 
             con.Open();
-            cmd = new SqlCommand("insert into Users(name, password, hashedPassword) values('"+ name +"', '"+password+"', '"+Hash+"')", con);
+            //cmd = new SqlCommand("insert into Users(name, password, hashedPassword) values('"+ name +"', '"+password+"', '"+Hash+"', '"/*+TypeCode+*/)", con);
             cmd.ExecuteNonQuery();
             con.Close();
             MessageBox.Show("Signed up successfully!");
