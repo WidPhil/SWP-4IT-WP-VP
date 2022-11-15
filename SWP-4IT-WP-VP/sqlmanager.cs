@@ -16,7 +16,6 @@ namespace SWP_4IT_WP_VP
         public static string username = login.Username;
 
         public static SqlConnection con;
-        public static SqlConnection con02;
         public static SqlCommand cmd;
 
         public static bool createDatabase(string dbname)
@@ -53,9 +52,9 @@ namespace SWP_4IT_WP_VP
 
         public static bool createTableProducts(string tname)
         {
-            con02 = new SqlConnection(ConnectionString02);
-            con02.Open();
-            cmd = new SqlCommand("SELECT * FROM sys.tables", con02);
+            con = new SqlConnection(ConnectionString02);
+            con.Open();
+            cmd = new SqlCommand("SELECT * FROM sys.tables", con);
 
             SqlDataReader checkTable = cmd.ExecuteReader();
 
@@ -75,7 +74,7 @@ namespace SWP_4IT_WP_VP
             com.ExecuteNonQuery();
             com02.ExecuteNonQuery();
             
-            con02.Close();
+            con.Close();
             return false;
 
         }
