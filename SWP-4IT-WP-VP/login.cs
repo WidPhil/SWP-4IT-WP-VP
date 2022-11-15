@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data;
+using System.Data.SqlClient;
 
 namespace SWP_4IT_WP_VP
 {
@@ -14,6 +16,7 @@ namespace SWP_4IT_WP_VP
     {
 
         public static string Username;
+        
         public login()
         {
             InitializeComponent();

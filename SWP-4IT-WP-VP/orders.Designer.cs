@@ -90,7 +90,7 @@
             // 
             // NUD__Amount
             // 
-            this.NUD__Amount.Location = new System.Drawing.Point(55, 250);
+            this.NUD__Amount.Location = new System.Drawing.Point(55, 247);
             this.NUD__Amount.Name = "NUD__Amount";
             this.NUD__Amount.Size = new System.Drawing.Size(120, 20);
             this.NUD__Amount.TabIndex = 10;
