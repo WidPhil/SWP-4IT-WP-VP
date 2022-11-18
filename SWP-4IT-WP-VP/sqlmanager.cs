@@ -17,6 +17,7 @@ namespace SWP_4IT_WP_VP
 
         public static SqlConnection con;
         public static SqlCommand cmd;
+        public static SqlDataReader reader;
 
         public static bool createDatabase(string dbname)
         {
@@ -97,7 +98,8 @@ namespace SWP_4IT_WP_VP
             }
             checkTable.Close();
 
-            SqlCommand com = new SqlCommand("Create Table " + tname + "(id int primary key IDENTITY (1, 1), name varchar(100), password varchar(100), hashedPassword varchar(100), VerificationCode varchar(100))", con);
+            SqlCommand com = new SqlCommand("Create Table " + tname + "(id int primary key IDENTITY (1, 1), name varchar(100), password varchar(100), hashedPassword varchar(100))", con);
+            com.ExecuteNonQuery();
             //test products
             
 
@@ -111,7 +113,7 @@ namespace SWP_4IT_WP_VP
             con = new SqlConnection(ConnectionString02);
 
             con.Open();
-            //cmd = new SqlCommand("insert into Users(name, password, hashedPassword) values('"+ name +"', '"+password+"', '"+Hash+"', '"/*+TypeCode+*/)", con);
+            cmd = new SqlCommand("insert into Users(name, password, hashedPassword) values('"+ name +"', '"+password+"', '"+Hash+"')", con);
             cmd.ExecuteNonQuery();
             con.Close();
             MessageBox.Show("Signed up successfully!");
@@ -122,24 +124,26 @@ namespace SWP_4IT_WP_VP
         {
             con = new SqlConnection(ConnectionString02);
             con.Open();
-            cmd = new SqlCommand("UPDATE Users SET(name, password) values('"+ Username +"', '"+newPassword+"' WHERE name = " + Username +")", con);
+            cmd = new SqlCommand("UPDATE Users SET(name, password) values("+ Username +", "+newPassword+" WHERE name = " + Username +";)", con);
             cmd.ExecuteNonQuery();
             con.Close();
 
         }
 
-
         //public static string ReadPassword(string username)
         //{
         //    con = new SqlConnection(ConnectionString);
         //    con.Open();
-        //    cmd = new SqlCommand("SELECT Password FROM Users where Username = " + username);
+        //    cmd = new SqlCommand("SELECT hashedPassword FROM Users where Username = " + username, con);
         //    cmd.ExecuteNonQuery();
-        //    cmd = new SqlCommand("SELECT myHash FROM Users where Username = " + username);
+            
+        //    cmd = new SqlCommand("SELECT password FROM Users where Username = " + username, con);
         //    cmd.ExecuteNonQuery();
-        //    //string myHash = cmd.
-        //    //con.Close();
-        //    //return password, myHash;
+        //    //cmd.ExecuteScalar();
+        //    reader = cmd.ExecuteReader();
+        //    reader.GetString(0);
+        //    con.Close();
+        //    return password, myHash;
         //}
 
 
