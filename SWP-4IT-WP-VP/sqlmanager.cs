@@ -118,6 +118,17 @@ namespace SWP_4IT_WP_VP
         }
 
 
+        public static void NewPassword(string newPassword, string Username)
+        {
+            con = new SqlConnection(ConnectionString02);
+            con.Open();
+            cmd = new SqlCommand("UPDATE Users SET(name, password) values('"+ Username +"', '"+newPassword+"' WHERE name = " + Username +")", con);
+            cmd.ExecuteNonQuery();
+            con.Close();
+
+        }
+
+
         //public static string ReadPassword(string username)
         //{
         //    con = new SqlConnection(ConnectionString);
