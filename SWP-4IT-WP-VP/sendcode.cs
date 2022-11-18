@@ -14,7 +14,8 @@ namespace SWP_4IT_WP_VP
 {
     public partial class sendcode : Form
     {
-       
+        public static string randomCode;
+        public static string Username;
         public sendcode()
         {
             InitializeComponent();
@@ -24,7 +25,7 @@ namespace SWP_4IT_WP_VP
         {
             string from;
             string to;
-            string randomCode;
+            
 
             Random rand = new Random();
             randomCode = (rand.Next(999999)).ToString();
@@ -40,7 +41,21 @@ namespace SWP_4IT_WP_VP
             };
             client.Send(from, to, "Recovery Code", "Your recovery Code is: " + randomCode);
 
+            Username = txtbox_Email.Text;
             //recovery Code in Datenbank speichern
+        }
+
+        private void btn_recover_Click(object sender, EventArgs e)
+        {
+            if (txtbox_verificationcode.Text == randomCode)
+            {
+                NewPassword newPassword = new NewPassword();
+                newPassword.Show();
+            }
+            else
+            {
+                MessageBox.Show("Wrong verification Code");
+            }
         }
     }
 }

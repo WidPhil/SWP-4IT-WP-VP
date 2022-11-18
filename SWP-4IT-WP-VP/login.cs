@@ -60,7 +60,8 @@ namespace SWP_4IT_WP_VP
 
         private void buttonForgetPassword_Click(object sender, EventArgs e)
         {
-
+            sendcode sendcode = new sendcode();
+            sendcode.Show();
         }
 
         private void btn_signup_Click(object sender, EventArgs e)

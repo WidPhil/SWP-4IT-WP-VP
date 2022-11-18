@@ -62,6 +62,7 @@ namespace SWP_4IT_WP_VP
             this.btn_recover.TabIndex = 2;
             this.btn_recover.Text = "recover Password";
             this.btn_recover.UseVisualStyleBackColor = true;
+            this.btn_recover.Click += new System.EventHandler(this.btn_recover_Click);
             // 
             // txtbox_verificationcode
             // 
