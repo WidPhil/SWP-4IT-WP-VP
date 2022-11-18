@@ -16,6 +16,7 @@ namespace SWP_4IT_WP_VP
     {
 
         public static string Username;
+        public static string Password;
         
         public login()
         {
@@ -52,6 +53,17 @@ namespace SWP_4IT_WP_VP
                 MessageBox.Show("Wrong!");
                 throw;
             }
+
+            
+
+
+
+            //if (textBoxUser.Text ==)
+
+
+
+
+
 
             m.Show();
             l.Hide();
