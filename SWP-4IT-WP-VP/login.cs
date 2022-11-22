@@ -86,6 +86,42 @@ namespace SWP_4IT_WP_VP
             sqlmanager.AddUser(name, password, myHash);
         }
 
+        private void textBoxUserEnter(object sender, EventArgs e)
+        {
+            if (textBoxUser.Text.Equals("Username"))
+            {
+                textBoxUser.Text = "";
+            }
+            textBoxUser.ForeColor = Color.Black;
+        }
+
+        private void textBoxUserLeave(object sender, EventArgs e)
+        {
+            if (textBoxUser.Text.Equals(""))
+            {
+                textBoxUser.Text = "Username";
+            }
+            textBoxUser.ForeColor = Color.Silver;
+        }
+
+        private void textBoxPasswordEnter(object sender, EventArgs e)
+        {
+            if (textBoxPassword.Text.Equals("Password"))
+            {
+                textBoxPassword.Text = "";
+            }
+            textBoxPassword.ForeColor = Color.Black;
+        }
+
+        private void textBoxPasswordLeave(object sender, EventArgs e)
+        {
+            if (textBoxPassword.Text.Equals(""))
+            {
+                textBoxPassword.Text = "Password";
+            }
+            textBoxPassword.ForeColor = Color.Silver;
+        }
+
         //private static string GetRandomSalt()
         //{
         //    return BCrypt.GenerateSalt(12);

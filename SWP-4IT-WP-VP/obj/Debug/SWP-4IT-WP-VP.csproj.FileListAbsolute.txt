@@ -80,3 +80,8 @@ C:\Users\Admin\Source\Repos\WidPhil\SWP-4IT-WP-VP\SWP-4IT-WP-VP\obj\Debug\SWP-4I
 C:\Users\Admin\Source\Repos\WidPhil\SWP-4IT-WP-VP\SWP-4IT-WP-VP\obj\Debug\SWP-4IT-WP-VP.pdb
 C:\Users\philip.widauer\Source\Repos\WidPhil\SWP-4IT-WP-VP\SWP-4IT-WP-VP\obj\Debug\SWP_4IT_WP_VP.NewPassword.resources
 C:\Users\philip.widauer\Source\Repos\WidPhil\SWP-4IT-WP-VP\SWP-4IT-WP-VP\obj\Debug\SWP_4IT_WP_VP.sendcode.resources
+C:\Users\Vanessa Payr\Source\Repos\WidPhil\SWP-4IT-WP-VP\SWP-4IT-WP-VP\obj\Debug\SWP_4IT_WP_VP.NewPassword.resources
+C:\Users\Vanessa Payr\Source\Repos\WidPhil\SWP-4IT-WP-VP\SWP-4IT-WP-VP\obj\Debug\SWP_4IT_WP_VP.sendcode.resources
+C:\Users\Vanessa Payr\Source\Repos\WidPhil\SWP-4IT-WP-VP\SWP-4IT-WP-VP\bin\Debug\Aspose.Cells.dll
+C:\Users\Vanessa Payr\Source\Repos\WidPhil\SWP-4IT-WP-VP\SWP-4IT-WP-VP\bin\Debug\Aspose.Cells.xml
+C:\Users\Vanessa Payr\Source\Repos\WidPhil\SWP-4IT-WP-VP\SWP-4IT-WP-VP\obj\Debug\SWP-4IT-WP-VP.csproj.CopyComplete

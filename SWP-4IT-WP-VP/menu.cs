@@ -45,7 +45,7 @@ namespace SWP_4IT_WP_VP
 
         private void menu_Load(object sender, EventArgs e)
         {
-            lbl_name.Text = Username;
+            //lbl_name.Text = Username;
         }
     }
 }
