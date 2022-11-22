@@ -32,9 +32,46 @@ namespace SWP_4IT_WP_VP
                 DataTable data = new DataTable();
                 SqlConnection con = new SqlConnection(Connectionstring);
                 con.Open();
-                SqlDataAdapter sqldataAdapter = new SqlDataAdapter(cmd = new SqlCommand("Select * from " + NameofTable + ";", con));
+                SqlDataAdapter sqldataAdapter = new SqlDataAdapter(cmd = new SqlCommand("Select * from Users;", con));
                 sqldataAdapter.Fill(data);
                 gridView.DataSource = data;
+
+
+
+
+               
+                Microsoft.Office.Interop.Excel.Worksheet excelSheet;
+                Microsoft.Office.Interop.Excel.Range excelCellrange;
+
+
+                //load Excel and creatr a new Workbook
+                Microsoft.Office.Interop.Excel.Application excel = new Microsoft.Office.Interop.Excel.Application();
+                excel.Workbooks.Add();
+
+                //single Worksheet
+                //Microsoft.Office.Interop.Excel._Worksheet worksheet = excel.ActivateSheet;
+
+
+                Microsoft.Office.Interop.Excel.Workbook excelworkbook = new Microsoft.Office.Interop.Excel.Workbook();
+                excelworkbook.Worksheets.Add(data, "Inventur-Uebersicht");
+
+                //Datacells
+                int RowsCount = data.Rows.Count;
+
+
+
+
+
+                excel.Visible = true;
+                excel.DisplayAlerts = false;
+
+                
+
+                excelSheet = (Microsoft.Office.Interop.Excel.Worksheet)excelworkbook.ActiveSheet;
+                excelSheet.Name = "Test Work sheet";
+
+                //excelCellrange = excelSheet.Range(excelSheet.Cells[1, 1], excelSheet.Cells[RowIndex, data.Columns.Count]);
+                //excelCellrange.EntireColumn.AutoFit();
             }
             catch (Exception)
             { 
@@ -44,19 +81,7 @@ namespace SWP_4IT_WP_VP
 
         private void converter_Load(object sender, EventArgs e)
         {
-            Microsoft.Office.Interop.Excel.Application excel;
-            Microsoft.Office.Interop.Excel.Workbook excelworkbook;
-            Microsoft.Office.Interop.Excel.Worksheet excelSheet;
-            Microsoft.Office.Interop.Excel.Range excelCellrange;
-
-            excel = new Microsoft.Office.Interop.Excel.Application();
-            excel.Visible = false;
-            excel.DisplayAlerts = false;
-
-            excelworkbook = excel.Workbooks.Add(Type.Missing);
-
-            excelSheet = (Microsoft.Office.Interop.Excel.Worksheet)excelworkbook.ActiveSheet;
-            excelSheet.Name = "Test Work sheet";
+          
 
             //excelCellrange = excelSheet.Range[excelSheet.Cells[1, 1], excelSheet.Cells[rowcount, data.Columns.Count]]; 
             //excelCellrange.EntireColumn.AutoFit();
