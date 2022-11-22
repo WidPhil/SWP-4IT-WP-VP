@@ -35,6 +35,7 @@
             this.buttonRequirements = new System.Windows.Forms.Button();
             this.buttonOrders = new System.Windows.Forms.Button();
             this.groupBoxInventory = new System.Windows.Forms.GroupBox();
+            this.labelCreate = new System.Windows.Forms.Label();
             this.buttonConvert = new System.Windows.Forms.Button();
             this.buttonOverview = new System.Windows.Forms.Button();
             this.buttonInventory = new System.Windows.Forms.Button();
@@ -114,6 +115,7 @@
             // 
             this.groupBoxInventory.BackColor = System.Drawing.Color.White;
             this.groupBoxInventory.Controls.Add(this.label1);
+            this.groupBoxInventory.Controls.Add(this.labelCreate);
             this.groupBoxInventory.Controls.Add(this.buttonConvert);
             this.groupBoxInventory.Controls.Add(this.buttonOverview);
             this.groupBoxInventory.Controls.Add(this.buttonInventory);
@@ -121,16 +123,27 @@
             this.groupBoxInventory.ForeColor = System.Drawing.Color.RoyalBlue;
             this.groupBoxInventory.Location = new System.Drawing.Point(2, 290);
             this.groupBoxInventory.Name = "groupBoxInventory";
-            this.groupBoxInventory.Size = new System.Drawing.Size(253, 299);
+            this.groupBoxInventory.Size = new System.Drawing.Size(253, 229);
             this.groupBoxInventory.TabIndex = 9;
             this.groupBoxInventory.TabStop = false;
             this.groupBoxInventory.Text = "Inventory";
+            // 
+            // labelCreate
+            // 
+            this.labelCreate.AutoSize = true;
+            this.labelCreate.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelCreate.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.labelCreate.Location = new System.Drawing.Point(6, 42);
+            this.labelCreate.Name = "labelCreate";
+            this.labelCreate.Size = new System.Drawing.Size(160, 19);
+            this.labelCreate.TabIndex = 3;
+            this.labelCreate.Text = "create new inventory";
             // 
             // buttonConvert
             // 
             this.buttonConvert.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonConvert.ForeColor = System.Drawing.Color.Black;
-            this.buttonConvert.Location = new System.Drawing.Point(6, 241);
+            this.buttonConvert.Location = new System.Drawing.Point(10, 178);
             this.buttonConvert.Name = "buttonConvert";
             this.buttonConvert.Size = new System.Drawing.Size(191, 30);
             this.buttonConvert.TabIndex = 2;
@@ -142,7 +155,7 @@
             // 
             this.buttonOverview.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonOverview.ForeColor = System.Drawing.Color.Black;
-            this.buttonOverview.Location = new System.Drawing.Point(6, 150);
+            this.buttonOverview.Location = new System.Drawing.Point(6, 126);
             this.buttonOverview.Name = "buttonOverview";
             this.buttonOverview.Size = new System.Drawing.Size(191, 32);
             this.buttonOverview.TabIndex = 1;
@@ -154,11 +167,11 @@
             // 
             this.buttonInventory.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonInventory.ForeColor = System.Drawing.Color.Black;
-            this.buttonInventory.Location = new System.Drawing.Point(6, 74);
+            this.buttonInventory.Location = new System.Drawing.Point(6, 64);
             this.buttonInventory.Name = "buttonInventory";
-            this.buttonInventory.Size = new System.Drawing.Size(191, 32);
+            this.buttonInventory.Size = new System.Drawing.Size(77, 32);
             this.buttonInventory.TabIndex = 0;
-            this.buttonInventory.Text = "new inventory";
+            this.buttonInventory.Text = "create";
             this.buttonInventory.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonInventory.UseVisualStyleBackColor = true;
             // 
@@ -208,10 +221,10 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label1.Location = new System.Drawing.Point(6, 52);
+            this.label1.Location = new System.Drawing.Point(10, 104);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(160, 19);
-            this.label1.TabIndex = 3;
+            this.label1.TabIndex = 4;
             this.label1.Text = "create new inventory";
             // 
             // menu
@@ -255,6 +268,7 @@
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label labelDate;
         private System.Windows.Forms.DateTimePicker dateTimePickerMenu;
+        private System.Windows.Forms.Label labelCreate;
         private System.Windows.Forms.Label label1;
     }
 }
