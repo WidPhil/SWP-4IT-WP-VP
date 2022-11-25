@@ -60,7 +60,7 @@
             // radioButton1
             // 
             this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(55, 153);
+            this.radioButton1.Location = new System.Drawing.Point(55, 91);
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.Size = new System.Drawing.Size(85, 17);
             this.radioButton1.TabIndex = 7;
@@ -71,7 +71,7 @@
             // radioButton2
             // 
             this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(55, 177);
+            this.radioButton2.Location = new System.Drawing.Point(55, 115);
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(85, 17);
             this.radioButton2.TabIndex = 8;
@@ -107,7 +107,7 @@
             // radioButton3
             // 
             this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(55, 200);
+            this.radioButton3.Location = new System.Drawing.Point(55, 138);
             this.radioButton3.Name = "radioButton3";
             this.radioButton3.Size = new System.Drawing.Size(85, 17);
             this.radioButton3.TabIndex = 12;

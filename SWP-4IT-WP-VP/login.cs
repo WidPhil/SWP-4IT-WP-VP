@@ -16,8 +16,10 @@ namespace SWP_4IT_WP_VP
     {
 
         public static string Username;
-        public static string Password;
-        
+        public static string password;
+        public static string name;
+        public static string mySalt;
+        public static string myHash;
         public login()
         {
             InitializeComponent();
@@ -39,14 +41,17 @@ namespace SWP_4IT_WP_VP
 
             try
             {
-                string name = textBoxUser.Text;
-                //sqlmanager.Readpwd(username);
+                string username = textBoxUser.Text;
+                string Password = textBoxPassword.Text;
                 
-                //bool doesPasswordMatch = BCrypt.CheckPassword(password, myHash);
-                //if(doesPasswordMatch == true)
-                //{
-                //    MessageBox.Show("Successfully logged in!");
-                //}
+                //BCrypt.CheckPassword(Password, )
+                sqlmanager.ReadPassword(username, Password);
+
+                bool doesPasswordMatch = BCrypt.CheckPassword(password, myHash);
+                if (doesPasswordMatch == true)
+                {
+                    MessageBox.Show("Successfully logged in!");
+                }
             }
             catch (Exception)
             {
@@ -78,10 +83,10 @@ namespace SWP_4IT_WP_VP
 
         private void btn_signup_Click(object sender, EventArgs e)
         {
-            string name = textBoxUser.Text;
-            string password = textBoxPassword.Text;
-            string mySalt = BCrypt.GenerateSalt();
-            string myHash = BCrypt.HashPassword(password, mySalt);
+            name = textBoxUser.Text;
+            password = textBoxPassword.Text;
+            mySalt = BCrypt.GenerateSalt();
+            myHash = BCrypt.HashPassword(password, mySalt);
 
             sqlmanager.AddUser(name, password, myHash);
         }
