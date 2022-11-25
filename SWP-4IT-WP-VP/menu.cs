@@ -12,40 +12,45 @@ namespace SWP_4IT_WP_VP
 {
     public partial class menu : Form
     {
-        public static string Username = sqlmanager.username;
+        //public static string Username = sqlmanager.username;
         public menu()
         {
             InitializeComponent();
+            menuDesign();
         }
 
-        private void btn_order_Click(object sender, EventArgs e)
+        private void menuDesign()
         {
-            orders orders = new orders();
-            orders.Show();
+            panelInventory.Visible = false;
+            panelProducts.Visible = false;
+           
         }
 
-        private void btn_compare_Click(object sender, EventArgs e)
+        private void menuHide()
         {
-            compare compare = new compare();
-            compare.Show();
-            
+
+            if (panelInventory.Visible.Equals(true))
+            {
+                panelInventory.Visible.Equals(false);
+            }
+            if (panelProducts.Visible.Equals(true))
+            {
+                panelProducts.Visible.Equals(false);
+            }
+
         }
 
-        private void btn_requirements_Click(object sender, EventArgs e)
+        private void menuShow(Panel menu)
         {
-            requirements requirements = new requirements();
-            requirements.Show();
-        }
-
-        private void btn_showInv_Click(object sender, EventArgs e)
-        {
-            overview overview = new overview();
-            overview.Show();
+            if (menu.Visible.Equals(false))
+            {
+                menuHide();
+            }
         }
 
         private void menu_Load(object sender, EventArgs e)
         {
-            //lbl_name.Text = Username;
+            
         }
     }
 }
