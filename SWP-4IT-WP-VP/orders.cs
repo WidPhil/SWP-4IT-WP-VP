@@ -12,6 +12,7 @@ namespace SWP_4IT_WP_VP
 {
     public partial class orders : Form
     {
+        
         public orders()
         {
             InitializeComponent();

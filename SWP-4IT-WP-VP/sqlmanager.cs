@@ -130,21 +130,29 @@ namespace SWP_4IT_WP_VP
 
         }
 
-        //public static string ReadPassword(string username)
-        //{
-        //    con = new SqlConnection(ConnectionString);
-        //    con.Open();
-        //    cmd = new SqlCommand("SELECT hashedPassword FROM Users where Username = " + username, con);
-        //    cmd.ExecuteNonQuery();
+        public static void ReadPassword(string username, string Password)
+        {
+            con = new SqlConnection(ConnectionString);
+            con.Open();
+            cmd = new SqlCommand("SELECT hashedPassword FROM Users where Username = " + username, con);
+            cmd.ExecuteNonQuery();
+
+            cmd = new SqlCommand("SELECT password FROM Users where Username = " + username, con);
+            cmd.ExecuteNonQuery();
+            while (reader.Read())
+            {
+                if (reader.GetString(0).Equals(Password))
+                {
+                    bool Checkpassword = true;
+                } 
+            }
+            reader = cmd.ExecuteReader();
+            reader.GetString(0);
+            string password = reader.GetString(1);
+
+            con.Close();
             
-        //    cmd = new SqlCommand("SELECT password FROM Users where Username = " + username, con);
-        //    cmd.ExecuteNonQuery();
-        //    //cmd.ExecuteScalar();
-        //    reader = cmd.ExecuteReader();
-        //    reader.GetString(0);
-        //    con.Close();
-        //    return password, myHash;
-        //}
+        }
 
 
     }
