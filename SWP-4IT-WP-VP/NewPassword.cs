@@ -12,7 +12,8 @@ namespace SWP_4IT_WP_VP
 {
     public partial class NewPassword : Form
     {
-        string Username = sendcode.Username;
+        public static string Username = sendcode.Username;
+        public static string Email = sendcode.Email;
         public NewPassword()
         {
             InitializeComponent();
@@ -23,7 +24,9 @@ namespace SWP_4IT_WP_VP
             string newPassword = txtbox_newPassword.Text;
             if (newPassword == txtbox_confirmation.Text)
             {
-                sqlmanager.NewPassword(newPassword, Username);
+                sqlmanager.NewPassword(newPassword, Username, Email);
+                login l = new login();
+                l.Show();
             }
             MessageBox.Show("Password changed successfully");
         }

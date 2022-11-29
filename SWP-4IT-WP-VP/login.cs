@@ -18,6 +18,7 @@ namespace SWP_4IT_WP_VP
         public static string Username;
         public static string password;
         public static string name;
+        public static string Email;
         public static string mySalt;
         public static string myHash;
         public login()
@@ -77,10 +78,24 @@ namespace SWP_4IT_WP_VP
         {
             name = textBoxUser.Text;
             password = textBoxPassword.Text;
+            Email = textboxEmail.Text;
             mySalt = BCrypt.GenerateSalt();
             myHash = BCrypt.HashPassword(password, mySalt);
 
-            sqlmanager.AddUser(name, password, myHash);
+            if(name == "" || name == "Username")
+            {
+                MessageBox.Show("Please type in a Username!");
+            }
+            else if (password == "" || password == "Password")
+            {
+                MessageBox.Show("Please type in a Password!");
+            }
+            else if (Email == "" || Email == "Email")
+            {
+                MessageBox.Show("Please type in an Email!");
+            }
+            else 
+            sqlmanager.AddUser(name, Email, password, myHash);
         }
 
         private void textBoxUserEnter(object sender, EventArgs e)
