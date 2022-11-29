@@ -53,105 +53,145 @@ namespace SWP_4IT_WP_VP
 
         public static bool createTableProducts(string tname)
         {
-            con = new SqlConnection(ConnectionString02);
-            con.Open();
-            cmd = new SqlCommand("SELECT * FROM sys.tables", con);
-
-            SqlDataReader checkTable = cmd.ExecuteReader();
-
-            while (checkTable.Read())
+            try
             {
-                if (checkTable.GetString(0).ToLower().Equals(tname.ToLower()))
+                con = new SqlConnection(ConnectionString02);
+                con.Open();
+                cmd = new SqlCommand("SELECT * FROM sys.tables", con);
+
+                SqlDataReader checkTable = cmd.ExecuteReader();
+
+                while (checkTable.Read())
                 {
-                    return true;
+                    if (checkTable.GetString(0).ToLower().Equals(tname.ToLower()))
+                    {
+                        return true;
+                    }
+
                 }
-                
+                checkTable.Close();
+
+                SqlCommand com = new SqlCommand("Create Table " + tname + "(id int primary key IDENTITY (1, 1), name varchar(100), type varchar(100), brand varchar(100),  price varchar(100), amount varchar(100), availableFor varchar(100))", con);
+                //test products
+                SqlCommand com02 = new SqlCommand("insert into Products(name, type, brand, price, amount, availableFor) values('SM34', 'Wanderschuhe', 'Salomon', '0.0EUR', '100Stück', 'women')", con);
+                com.ExecuteNonQuery();
+                com02.ExecuteNonQuery();
+
+                con.Close();
+                return false;
+
             }
-            checkTable.Close();
+            catch (Exception)
+            {
 
-            SqlCommand com = new SqlCommand("Create Table " + tname + "(id int primary key IDENTITY (1, 1), name varchar(100), type varchar(100), brand varchar(100),  price varchar(100), amount varchar(100), availableFor varchar(100))", con);
-            //test products
-            SqlCommand com02 = new SqlCommand("insert into Products(name, type, brand, price, amount, availableFor) values('SM34', 'Wanderschuhe', 'Salomon', '0.0EUR', '100Stück', 'women')", con);
-            com.ExecuteNonQuery();
-            com02.ExecuteNonQuery();
-            
-            con.Close();
-            return false;
-
+                throw;
+            }
         }
 
         public static bool createTableUsers(string tname)
         {
-            con = new SqlConnection(ConnectionString02);
-            con.Open();
-            cmd = new SqlCommand("SELECT * FROM sys.tables", con);
-
-            SqlDataReader checkTable = cmd.ExecuteReader();
-
-            while (checkTable.Read())
+            try
             {
-                if (checkTable.GetString(0).ToLower().Equals(tname.ToLower()))
+                con = new SqlConnection(ConnectionString02);
+                con.Open();
+                cmd = new SqlCommand("SELECT * FROM sys.tables", con);
+
+                SqlDataReader checkTable = cmd.ExecuteReader();
+
+                while (checkTable.Read())
                 {
-                    return true;
+                    if (checkTable.GetString(0).ToLower().Equals(tname.ToLower()))
+                    {
+                        return true;
+                    }
+
                 }
+                checkTable.Close();
+
+                SqlCommand com = new SqlCommand("Create Table " + tname + "(id int primary key IDENTITY (1, 1), name varchar(100), Email varchar(100), password varchar(100), hashedPassword varchar(100))", con);
+                com.ExecuteNonQuery();
+                //test products
+
+
+                con.Close();
+                return false;
 
             }
-            checkTable.Close();
+            catch (Exception)
+            {
 
-            SqlCommand com = new SqlCommand("Create Table " + tname + "(id int primary key IDENTITY (1, 1), name varchar(100), password varchar(100), hashedPassword varchar(100))", con);
-            com.ExecuteNonQuery();
-            //test products
-            
-
-            con.Close();
-            return false;
-
+                throw;
+            }
         }
 
-        public static void AddUser(string name, string password, string Hash)
+        public static void AddUser(string name, string Email, string password, string Hash)
         {
-            con = new SqlConnection(ConnectionString02);
+            try
+            {
+                con = new SqlConnection(ConnectionString02);
 
-            con.Open();
-            cmd = new SqlCommand("insert into Users(name, password, hashedPassword) values('"+ name +"', '"+password+"', '"+Hash+"')", con);
-            cmd.ExecuteNonQuery();
-            con.Close();
-            MessageBox.Show("Signed up successfully!");
+                con.Open();
+                cmd = new SqlCommand("insert into Users(name, Email, password, hashedPassword) values('" + name + "', '" + Email + "', '" + password + "', '" + Hash + "')", con);
+                cmd.ExecuteNonQuery();
+                con.Close();
+                MessageBox.Show("Signed up successfully!");
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
 
-        public static void NewPassword(string newPassword, string Username)
+        public static void NewPassword(string newPassword, string Username, string Email)
         {
-            con = new SqlConnection(ConnectionString02);
-            con.Open();
-            cmd = new SqlCommand("UPDATE Users SET(name, password) values("+ Username +", "+newPassword+" WHERE name = " + Username +";)", con);
-            cmd.ExecuteNonQuery();
-            con.Close();
+            try
+            {
+                con = new SqlConnection(ConnectionString02);
+                con.Open();
+                cmd = new SqlCommand("UPDATE Users SET password = " + newPassword + " WHERE Email = " + Email + "", con);
+                cmd.ExecuteNonQuery();
+                con.Close();
 
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public static void ReadPassword(string username, string Password)
         {
-            con = new SqlConnection(ConnectionString);
-            con.Open();
-            cmd = new SqlCommand("SELECT hashedPassword FROM Users where Username = " + username, con);
-            cmd.ExecuteNonQuery();
-
-            cmd = new SqlCommand("SELECT password FROM Users where Username = " + username, con);
-            cmd.ExecuteNonQuery();
-            while (reader.Read())
+            try
             {
-                if (reader.GetString(0).Equals(Password))
-                {
-                    bool Checkpassword = true;
-                } 
-            }
-            reader = cmd.ExecuteReader();
-            reader.GetString(0);
-            string password = reader.GetString(1);
+                con = new SqlConnection(ConnectionString);
+                con.Open();
+                cmd = new SqlCommand("SELECT hashedPassword FROM Users where Username = " + username, con);
+                cmd.ExecuteNonQuery();
 
-            con.Close();
-            
+                cmd = new SqlCommand("SELECT password FROM Users where Username = " + username, con);
+                cmd.ExecuteNonQuery();
+                while (reader.Read())
+                {
+                    if (reader.GetString(0).Equals(Password))
+                    {
+                        bool Checkpassword = true;
+                    }
+                }
+                reader = cmd.ExecuteReader();
+                reader.GetString(0);
+                string password = reader.GetString(1);
+
+                con.Close();
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
 

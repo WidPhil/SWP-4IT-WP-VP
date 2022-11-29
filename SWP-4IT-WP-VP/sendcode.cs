@@ -16,6 +16,7 @@ namespace SWP_4IT_WP_VP
     {
         public static string randomCode;
         public static string Username;
+        public static string Email;
         public sendcode()
         {
             InitializeComponent();
@@ -41,7 +42,7 @@ namespace SWP_4IT_WP_VP
             };
             client.Send(from, to, "Recovery Code", "Your recovery Code is: " + randomCode);
 
-            Username = txtbox_Email.Text;
+            Email = txtbox_Email.Text;
             //recovery Code in Datenbank speichern
         }
 

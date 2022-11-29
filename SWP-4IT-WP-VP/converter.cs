@@ -27,6 +27,7 @@ namespace SWP_4IT_WP_VP
         {
             SaveFileDialog saveFileDialog = new SaveFileDialog();
             saveFileDialog.ShowDialog();
+            saveFileDialog.FileName = "Test.xlsx";
             try
             {
                 SqlCommand cmd = new SqlCommand();
@@ -39,36 +40,46 @@ namespace SWP_4IT_WP_VP
                 gridView.DataSource = data;
 
                 //Microsoft.Office.Interop.Excel.Worksheet excelSheet;
-                //Microsoft.Office.Interop.Excel.Range excelCellrange;
 
 
-                //load Excel and creatr a new Workbook
+                //initialise
+                //load Excel and create a new Workbook
+                Microsoft.Office.Interop.Excel.Worksheet excelSheet = new Microsoft.Office.Interop.Excel.Worksheet();
                 Microsoft.Office.Interop.Excel.Application excel = new Microsoft.Office.Interop.Excel.Application();
-                excel.Workbooks.Add();
 
-                //single Worksheet
-                //Microsoft.Office.Interop.Excel._Worksheet worksheet = excel.ActivateSheet;
-
+                //Workbook
                 Microsoft.Office.Interop.Excel.Workbook excelworkbook = new Microsoft.Office.Interop.Excel.Workbook();
                 excelworkbook.Worksheets.Add(data, "Inventur-Uebersicht");
-                
+
+                //making Excel visible
+                excel.Visible = true;
+                excel.DisplayAlerts = true;
+
+                //Worksheet
+                excelSheet = (Microsoft.Office.Interop.Excel.Worksheet)excelworkbook.ActiveSheet;
+                excelSheet.Name = "Inventur";
+                excel.Workbooks.Add();
+
+                excelSheet.Cells[1, 1] = "Test";
+
+                //resize Columns
+                Microsoft.Office.Interop.Excel.Range excelCellrange;
+                excelCellrange = excelSheet.Range[excelSheet.Cells[1, 1], excelSheet.Cells[/*excelSheet.Rows,*/data.Columns.Count]];
+                excelCellrange.EntireColumn.AutoFit();
+                Microsoft.Office.Interop.Excel.Borders border = excelCellrange.Borders;
+
+
                 ////Datacells
                 //int RowsCount = data.Rows.Count;
 
 
-                //excel.Visible = true;
-                //excel.DisplayAlerts = false;
-
-                
-
                 //excelSheet = (Microsoft.Office.Interop.Excel.Worksheet)excelworkbook.ActiveSheet;
                 //excelSheet.Name = "Test Work sheet";
 
-                //excelCellrange = excelSheet.Range(excelSheet.Cells[1, 1], excelSheet.Cells[RowIndex, data.Columns.Count]);
-                //excelCellrange.EntireColumn.AutoFit();
+
             }
             catch (Exception)
-            { 
+            {
                 MessageBox.Show("Das hat nicht funktioniert!");
             }
         }
