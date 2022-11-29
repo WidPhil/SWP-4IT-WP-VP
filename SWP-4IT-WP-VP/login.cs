@@ -38,41 +38,33 @@ namespace SWP_4IT_WP_VP
             
             menu m = new menu();
             login l = new login();
+            converter excel = new converter();
+            excel.Show();
 
-            try
-            {
-                string username = textBoxUser.Text;
-                string Password = textBoxPassword.Text;
+            //try
+            //{
+            //    string username = textBoxUser.Text;
+            //    string Password = textBoxPassword.Text;
                 
-                //BCrypt.CheckPassword(Password, )
-                sqlmanager.ReadPassword(username, Password);
+            //    //BCrypt.CheckPassword(Password, )
+            //    sqlmanager.ReadPassword(username, Password);
 
-                bool doesPasswordMatch = BCrypt.CheckPassword(password, myHash);
-                if (doesPasswordMatch == true)
-                {
-                    MessageBox.Show("Successfully logged in!");
-                }
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Wrong!");
-                throw;
-            }
-
-            
-
+            //    bool doesPasswordMatch = BCrypt.CheckPassword(password, myHash);
+            //    if (doesPasswordMatch == true)
+            //    {
+            //        MessageBox.Show("Successfully logged in!");
+            //    }
+            //}
+            //catch (Exception)
+            //{
+            //    MessageBox.Show("Wrong!");
+            //    throw;
+            //}
 
 
             //if (textBoxUser.Text ==)
-
-
-
-
-
-
             m.Show();
             l.Hide();
-
         }
 
         private void buttonForgetPassword_Click(object sender, EventArgs e)

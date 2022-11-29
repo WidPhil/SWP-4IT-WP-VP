@@ -38,12 +38,8 @@ namespace SWP_4IT_WP_VP
                 sqldataAdapter.Fill(data);
                 gridView.DataSource = data;
 
-
-
-
-               
-                Microsoft.Office.Interop.Excel.Worksheet excelSheet;
-                Microsoft.Office.Interop.Excel.Range excelCellrange;
+                //Microsoft.Office.Interop.Excel.Worksheet excelSheet;
+                //Microsoft.Office.Interop.Excel.Range excelCellrange;
 
 
                 //load Excel and creatr a new Workbook
@@ -53,24 +49,20 @@ namespace SWP_4IT_WP_VP
                 //single Worksheet
                 //Microsoft.Office.Interop.Excel._Worksheet worksheet = excel.ActivateSheet;
 
-
                 Microsoft.Office.Interop.Excel.Workbook excelworkbook = new Microsoft.Office.Interop.Excel.Workbook();
                 excelworkbook.Worksheets.Add(data, "Inventur-Uebersicht");
-
-                //Datacells
-                int RowsCount = data.Rows.Count;
-
-
+                
+                ////Datacells
+                //int RowsCount = data.Rows.Count;
 
 
-
-                excel.Visible = true;
-                excel.DisplayAlerts = false;
+                //excel.Visible = true;
+                //excel.DisplayAlerts = false;
 
                 
 
-                excelSheet = (Microsoft.Office.Interop.Excel.Worksheet)excelworkbook.ActiveSheet;
-                excelSheet.Name = "Test Work sheet";
+                //excelSheet = (Microsoft.Office.Interop.Excel.Worksheet)excelworkbook.ActiveSheet;
+                //excelSheet.Name = "Test Work sheet";
 
                 //excelCellrange = excelSheet.Range(excelSheet.Cells[1, 1], excelSheet.Cells[RowIndex, data.Columns.Count]);
                 //excelCellrange.EntireColumn.AutoFit();
