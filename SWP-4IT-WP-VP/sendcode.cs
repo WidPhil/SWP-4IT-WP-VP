@@ -22,6 +22,7 @@ namespace SWP_4IT_WP_VP
             InitializeComponent();
         }
 
+        //Sends Recovery Code to Email
         private void btn_SendCode_Click(object sender, EventArgs e)
         {
             string from;
@@ -46,6 +47,7 @@ namespace SWP_4IT_WP_VP
             //recovery Code in Datenbank speichern
         }
 
+        //Opens NewPassword Form
         private void btn_recover_Click(object sender, EventArgs e)
         {
             if (txtbox_verificationcode.Text == randomCode)

@@ -45,6 +45,10 @@
             // cb_inventories
             // 
             this.cb_inventories.FormattingEnabled = true;
+            this.cb_inventories.Items.AddRange(new object[] {
+            "Products",
+            "Users",
+            "Inventory"});
             this.cb_inventories.Location = new System.Drawing.Point(30, 75);
             this.cb_inventories.Name = "cb_inventories";
             this.cb_inventories.Size = new System.Drawing.Size(346, 21);

@@ -53,7 +53,7 @@
             // 
             this.pictureBoxLogo.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxLogo.Image")));
             this.pictureBoxLogo.Location = new System.Drawing.Point(17, 25);
-            this.pictureBoxLogo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBoxLogo.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBoxLogo.Name = "pictureBoxLogo";
             this.pictureBoxLogo.Size = new System.Drawing.Size(217, 52);
             this.pictureBoxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -65,7 +65,7 @@
             this.pictureBoxLogin.BackColor = System.Drawing.Color.White;
             this.pictureBoxLogin.Dock = System.Windows.Forms.DockStyle.Left;
             this.pictureBoxLogin.Location = new System.Drawing.Point(0, 0);
-            this.pictureBoxLogin.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBoxLogin.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBoxLogin.Name = "pictureBoxLogin";
             this.pictureBoxLogin.Size = new System.Drawing.Size(254, 366);
             this.pictureBoxLogin.TabIndex = 1;
@@ -115,7 +115,7 @@
             this.textBoxUser.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxUser.ForeColor = System.Drawing.Color.Silver;
             this.textBoxUser.Location = new System.Drawing.Point(289, 149);
-            this.textBoxUser.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxUser.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxUser.Name = "textBoxUser";
             this.textBoxUser.Size = new System.Drawing.Size(278, 21);
             this.textBoxUser.TabIndex = 5;
@@ -128,7 +128,7 @@
             this.pictureBoxUserIcon.BackColor = System.Drawing.Color.White;
             this.pictureBoxUserIcon.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxUserIcon.Image")));
             this.pictureBoxUserIcon.Location = new System.Drawing.Point(266, 149);
-            this.pictureBoxUserIcon.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBoxUserIcon.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBoxUserIcon.Name = "pictureBoxUserIcon";
             this.pictureBoxUserIcon.Size = new System.Drawing.Size(23, 20);
             this.pictureBoxUserIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -140,7 +140,7 @@
             this.textBoxPassword.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxPassword.ForeColor = System.Drawing.Color.Silver;
             this.textBoxPassword.Location = new System.Drawing.Point(289, 184);
-            this.textBoxPassword.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxPassword.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxPassword.Name = "textBoxPassword";
             this.textBoxPassword.Size = new System.Drawing.Size(278, 21);
             this.textBoxPassword.TabIndex = 7;
@@ -156,8 +156,8 @@
             this.buttonLogin.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.buttonLogin.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonLogin.ForeColor = System.Drawing.Color.White;
-            this.buttonLogin.Location = new System.Drawing.Point(271, 249);
-            this.buttonLogin.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonLogin.Location = new System.Drawing.Point(271, 248);
+            this.buttonLogin.Margin = new System.Windows.Forms.Padding(2);
             this.buttonLogin.Name = "buttonLogin";
             this.buttonLogin.Size = new System.Drawing.Size(141, 27);
             this.buttonLogin.TabIndex = 9;
@@ -170,7 +170,7 @@
             this.pictureBoxLocerIcon.BackColor = System.Drawing.Color.White;
             this.pictureBoxLocerIcon.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxLocerIcon.Image")));
             this.pictureBoxLocerIcon.Location = new System.Drawing.Point(267, 184);
-            this.pictureBoxLocerIcon.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBoxLocerIcon.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBoxLocerIcon.Name = "pictureBoxLocerIcon";
             this.pictureBoxLocerIcon.Size = new System.Drawing.Size(22, 20);
             this.pictureBoxLocerIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -179,13 +179,14 @@
             // 
             // buttonForgetPassword
             // 
+            this.buttonForgetPassword.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.buttonForgetPassword.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonForgetPassword.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonForgetPassword.ForeColor = System.Drawing.Color.Gray;
-            this.buttonForgetPassword.Location = new System.Drawing.Point(418, 251);
-            this.buttonForgetPassword.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonForgetPassword.Location = new System.Drawing.Point(254, 342);
+            this.buttonForgetPassword.Margin = new System.Windows.Forms.Padding(2);
             this.buttonForgetPassword.Name = "buttonForgetPassword";
-            this.buttonForgetPassword.Size = new System.Drawing.Size(148, 24);
+            this.buttonForgetPassword.Size = new System.Drawing.Size(346, 24);
             this.buttonForgetPassword.TabIndex = 11;
             this.buttonForgetPassword.Text = "Forget Password?";
             this.buttonForgetPassword.UseVisualStyleBackColor = true;
@@ -238,7 +239,7 @@
             this.Controls.Add(this.labelLoginLogo);
             this.Controls.Add(this.pictureBoxLogo);
             this.Controls.Add(this.pictureBoxLogin);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "login";
             this.Text = "Intersport Login";
             this.Load += new System.EventHandler(this.Login_Load);
