@@ -19,6 +19,7 @@ namespace SWP_4IT_WP_VP
             InitializeComponent();
         }
 
+        //Update Password in Table
         private void btn_recover_Click(object sender, EventArgs e)
         {
             string newPassword = txtbox_newPassword.Text;

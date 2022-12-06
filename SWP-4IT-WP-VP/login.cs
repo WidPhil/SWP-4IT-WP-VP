@@ -26,6 +26,7 @@ namespace SWP_4IT_WP_VP
             InitializeComponent();
         }
 
+        //Creates Databases and Tables
         private void Login_Load(object sender, EventArgs e)
         {
             sqlmanager.createDatabase("Intersport");
@@ -34,11 +35,15 @@ namespace SWP_4IT_WP_VP
 
         }
 
+        //Opens Forms
         private void buttonLogin_Click(object sender, EventArgs e)
         {
             
             menu m = new menu();
             login l = new login();
+            m.Show();
+            l.Hide();
+
             converter excel = new converter();
             excel.Show();
 
@@ -64,40 +69,50 @@ namespace SWP_4IT_WP_VP
 
 
             //if (textBoxUser.Text ==)
-            m.Show();
-            l.Hide();
+            
         }
 
+        //Opens Form for sending Recovery Code
         private void buttonForgetPassword_Click(object sender, EventArgs e)
         {
             sendcode sendcode = new sendcode();
             sendcode.Show();
         }
 
+        //Adds User to Table
         private void btn_signup_Click(object sender, EventArgs e)
         {
-            name = textBoxUser.Text;
-            password = textBoxPassword.Text;
-            Email = textboxEmail.Text;
-            mySalt = BCrypt.GenerateSalt();
-            myHash = BCrypt.HashPassword(password, mySalt);
+            try
+            {
+                name = textBoxUser.Text;
+                password = textBoxPassword.Text;
+                Email = textboxEmail.Text;
+                mySalt = BCrypt.GenerateSalt();
+                myHash = BCrypt.HashPassword(password, mySalt);
 
-            if(name == "" || name == "Username")
-            {
-                MessageBox.Show("Please type in a Username!");
+                if (name == "" || name == "Username")
+                {
+                    MessageBox.Show("Please type in a Username!");
+                }
+                else if (password == "" || password == "Password")
+                {
+                    MessageBox.Show("Please type in a Password!");
+                }
+                else if (Email == "" || Email == "Email")
+                {
+                    MessageBox.Show("Please type in an Email!");
+                }
+                else
+                    sqlmanager.AddUser(name, Email, password, myHash);
             }
-            else if (password == "" || password == "Password")
+            catch (Exception)
             {
-                MessageBox.Show("Please type in a Password!");
+
+                throw;
             }
-            else if (Email == "" || Email == "Email")
-            {
-                MessageBox.Show("Please type in an Email!");
-            }
-            else 
-            sqlmanager.AddUser(name, Email, password, myHash);
         }
 
+        //If User hovers over Textbox the Text is invisible
         private void textBoxUserEnter(object sender, EventArgs e)
         {
             if (textBoxUser.Text.Equals("Username"))

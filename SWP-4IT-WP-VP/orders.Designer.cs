@@ -42,41 +42,41 @@
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(55, 39);
+            this.comboBox1.Location = new System.Drawing.Point(45, 39);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.Size = new System.Drawing.Size(130, 21);
             this.comboBox1.TabIndex = 5;
             // 
             // btn_order
             // 
-            this.btn_order.Location = new System.Drawing.Point(55, 319);
+            this.btn_order.Location = new System.Drawing.Point(55, 369);
             this.btn_order.Name = "btn_order";
             this.btn_order.Size = new System.Drawing.Size(120, 23);
             this.btn_order.TabIndex = 6;
-            this.btn_order.Text = "order products";
+            this.btn_order.Text = "Order";
             this.btn_order.UseVisualStyleBackColor = true;
             this.btn_order.Click += new System.EventHandler(this.btn_order_Click);
             // 
             // radioButton1
             // 
             this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(55, 91);
+            this.radioButton1.Location = new System.Drawing.Point(48, 140);
             this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(85, 17);
+            this.radioButton1.Size = new System.Drawing.Size(68, 17);
             this.radioButton1.TabIndex = 7;
             this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "radioButton1";
+            this.radioButton1.Text = "Product1";
             this.radioButton1.UseVisualStyleBackColor = true;
             // 
             // radioButton2
             // 
             this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(55, 115);
+            this.radioButton2.Location = new System.Drawing.Point(48, 164);
             this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(85, 17);
+            this.radioButton2.Size = new System.Drawing.Size(68, 17);
             this.radioButton2.TabIndex = 8;
             this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "radioButton2";
+            this.radioButton2.Text = "Product2";
             this.radioButton2.UseVisualStyleBackColor = true;
             // 
             // lbl_productgroup
@@ -90,7 +90,7 @@
             // 
             // NUD__Amount
             // 
-            this.NUD__Amount.Location = new System.Drawing.Point(55, 247);
+            this.NUD__Amount.Location = new System.Drawing.Point(45, 91);
             this.NUD__Amount.Name = "NUD__Amount";
             this.NUD__Amount.Size = new System.Drawing.Size(120, 20);
             this.NUD__Amount.TabIndex = 10;
@@ -98,7 +98,7 @@
             // lbl_amount
             // 
             this.lbl_amount.AutoSize = true;
-            this.lbl_amount.Location = new System.Drawing.Point(45, 231);
+            this.lbl_amount.Location = new System.Drawing.Point(42, 75);
             this.lbl_amount.Name = "lbl_amount";
             this.lbl_amount.Size = new System.Drawing.Size(46, 13);
             this.lbl_amount.TabIndex = 11;
@@ -107,19 +107,19 @@
             // radioButton3
             // 
             this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(55, 138);
+            this.radioButton3.Location = new System.Drawing.Point(48, 187);
             this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(85, 17);
+            this.radioButton3.Size = new System.Drawing.Size(68, 17);
             this.radioButton3.TabIndex = 12;
             this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "radioButton3";
+            this.radioButton3.Text = "Product3";
             this.radioButton3.UseVisualStyleBackColor = true;
             // 
             // orders
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(244, 422);
+            this.ClientSize = new System.Drawing.Size(764, 437);
             this.Controls.Add(this.radioButton3);
             this.Controls.Add(this.lbl_amount);
             this.Controls.Add(this.NUD__Amount);
