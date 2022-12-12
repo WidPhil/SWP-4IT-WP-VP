@@ -149,6 +149,42 @@ namespace SWP_4IT_WP_VP
             textBoxPassword.ForeColor = Color.Silver;
         }
 
+        private void pictureBoxUserIcon_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBoxUser_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textboxEmailEnter(object sender, EventArgs e)
+        {
+            if (textboxEmail.Text.Equals("E-Mail"))
+            {
+                textboxEmail.Text = "";
+            }
+            textboxEmail.ForeColor = Color.Black;
+        }
+
+        private void textboxEmailLeave(object sender, EventArgs e)
+        {
+            if (textboxEmail.Text.Equals(""))
+            {
+                textboxEmail.Text = "E-Mail";
+            }
+            textboxEmail.ForeColor = Color.Silver;
+        }
+
+        private void buttonTest_Click(object sender, EventArgs e)
+        {
+            menu m = new menu();
+            login l = new login();
+            m.Show();
+            l.Hide();
+        }
+
         //private static string GetRandomSalt()
         //{
         //    return BCrypt.GenerateSalt(12);
