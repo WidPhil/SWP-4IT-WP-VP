@@ -122,6 +122,15 @@ namespace SWP_4IT_WP_VP
             textBoxPassword.ForeColor = Color.Silver;
         }
 
+        private void buttonTest_Click(object sender, EventArgs e)
+        {
+            menu m = new menu();
+            login l = new login();
+
+            l.Close();
+            m.Show();
+        }
+
         //private static string GetRandomSalt()
         //{
         //    return BCrypt.GenerateSalt(12);

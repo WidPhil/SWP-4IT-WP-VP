@@ -41,6 +41,7 @@
             this.pictureBoxLocerIcon = new System.Windows.Forms.PictureBox();
             this.buttonForgetPassword = new System.Windows.Forms.Button();
             this.btn_signup = new System.Windows.Forms.Button();
+            this.buttonTest = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUserIcon)).BeginInit();
@@ -76,7 +77,7 @@
             this.labelLoginLogo.Font = new System.Drawing.Font("Arial", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelLoginLogo.Location = new System.Drawing.Point(44, 161);
             this.labelLoginLogo.Name = "labelLoginLogo";
-            this.labelLoginLogo.Size = new System.Drawing.Size(268, 64);
+            this.labelLoginLogo.Size = new System.Drawing.Size(269, 64);
             this.labelLoginLogo.TabIndex = 2;
             this.labelLoginLogo.Text = "Welcome to \r\nthe inventory system";
             this.labelLoginLogo.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -88,7 +89,7 @@
             this.labelDeveloped.Font = new System.Drawing.Font("Arial", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelDeveloped.Location = new System.Drawing.Point(111, 394);
             this.labelDeveloped.Name = "labelDeveloped";
-            this.labelDeveloped.Size = new System.Drawing.Size(201, 32);
+            this.labelDeveloped.Size = new System.Drawing.Size(218, 32);
             this.labelDeveloped.TabIndex = 3;
             this.labelDeveloped.Text = "Developed By\r\nPayr Vanessa and Philip Widauer";
             this.labelDeveloped.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -101,7 +102,7 @@
             this.labelLogin.ForeColor = System.Drawing.Color.Black;
             this.labelLogin.Location = new System.Drawing.Point(351, 92);
             this.labelLogin.Name = "labelLogin";
-            this.labelLogin.Size = new System.Drawing.Size(228, 26);
+            this.labelLogin.Size = new System.Drawing.Size(244, 27);
             this.labelLogin.TabIndex = 4;
             this.labelLogin.Text = "Login to your account";
             // 
@@ -199,11 +200,22 @@
             this.btn_signup.UseVisualStyleBackColor = true;
             this.btn_signup.Click += new System.EventHandler(this.btn_signup_Click);
             // 
+            // buttonTest
+            // 
+            this.buttonTest.Location = new System.Drawing.Point(385, 31);
+            this.buttonTest.Name = "buttonTest";
+            this.buttonTest.Size = new System.Drawing.Size(75, 23);
+            this.buttonTest.TabIndex = 13;
+            this.buttonTest.Text = "Test!";
+            this.buttonTest.UseVisualStyleBackColor = true;
+            this.buttonTest.Click += new System.EventHandler(this.buttonTest_Click);
+            // 
             // login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.buttonTest);
             this.Controls.Add(this.btn_signup);
             this.Controls.Add(this.buttonForgetPassword);
             this.Controls.Add(this.pictureBoxLocerIcon);
@@ -243,5 +255,6 @@
         private System.Windows.Forms.PictureBox pictureBoxLocerIcon;
         private System.Windows.Forms.Button buttonForgetPassword;
         private System.Windows.Forms.Button btn_signup;
+        private System.Windows.Forms.Button buttonTest;
     }
 }

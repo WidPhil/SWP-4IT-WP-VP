@@ -28,28 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(menu));
             this.panelMainMenu = new System.Windows.Forms.Panel();
+            this.panelProducts = new System.Windows.Forms.Panel();
+            this.buttonProduct = new System.Windows.Forms.Button();
+            this.buttonRequirements = new System.Windows.Forms.Button();
+            this.buttonOrder = new System.Windows.Forms.Button();
+            this.buttonProducts = new System.Windows.Forms.Button();
+            this.panelInventory = new System.Windows.Forms.Panel();
+            this.buttonCompare = new System.Windows.Forms.Button();
+            this.buttonConvert = new System.Windows.Forms.Button();
+            this.buttonOverview = new System.Windows.Forms.Button();
+            this.buttonCreate = new System.Windows.Forms.Button();
             this.buttonInventory = new System.Windows.Forms.Button();
             this.panelMenuLogo = new System.Windows.Forms.Panel();
-            this.panelInventory = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.buttonProducts = new System.Windows.Forms.Button();
-            this.panelProducts = new System.Windows.Forms.Panel();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
+            this.panelMain02 = new System.Windows.Forms.Panel();
+            this.panelMain01 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelMainMenu.SuspendLayout();
-            this.panelInventory.SuspendLayout();
             this.panelProducts.SuspendLayout();
+            this.panelInventory.SuspendLayout();
+            this.panelMenuLogo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panelMainMenu
             // 
-            this.panelMainMenu.BackColor = System.Drawing.Color.White;
+            this.panelMainMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.panelMainMenu.Controls.Add(this.panelProducts);
             this.panelMainMenu.Controls.Add(this.buttonProducts);
             this.panelMainMenu.Controls.Add(this.panelInventory);
@@ -58,215 +63,246 @@
             this.panelMainMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelMainMenu.Location = new System.Drawing.Point(0, 0);
             this.panelMainMenu.Name = "panelMainMenu";
-            this.panelMainMenu.Size = new System.Drawing.Size(250, 577);
+            this.panelMainMenu.Size = new System.Drawing.Size(290, 657);
             this.panelMainMenu.TabIndex = 0;
             // 
-            // buttonInventory
+            // panelProducts
             // 
-            this.buttonInventory.Dock = System.Windows.Forms.DockStyle.Top;
-            this.buttonInventory.FlatAppearance.BorderSize = 0;
-            this.buttonInventory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonInventory.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonInventory.Location = new System.Drawing.Point(0, 100);
-            this.buttonInventory.Name = "buttonInventory";
-            this.buttonInventory.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.buttonInventory.Size = new System.Drawing.Size(250, 45);
-            this.buttonInventory.TabIndex = 1;
-            this.buttonInventory.Text = "Inventory";
-            this.buttonInventory.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonInventory.UseVisualStyleBackColor = true;
+            this.panelProducts.BackColor = System.Drawing.Color.White;
+            this.panelProducts.Controls.Add(this.buttonProduct);
+            this.panelProducts.Controls.Add(this.buttonRequirements);
+            this.panelProducts.Controls.Add(this.buttonOrder);
+            this.panelProducts.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelProducts.ForeColor = System.Drawing.Color.Black;
+            this.panelProducts.Location = new System.Drawing.Point(0, 356);
+            this.panelProducts.Name = "panelProducts";
+            this.panelProducts.Size = new System.Drawing.Size(290, 124);
+            this.panelProducts.TabIndex = 4;
             // 
-            // panelMenuLogo
+            // buttonProduct
             // 
-            this.panelMenuLogo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelMenuLogo.Location = new System.Drawing.Point(0, 0);
-            this.panelMenuLogo.Name = "panelMenuLogo";
-            this.panelMenuLogo.Size = new System.Drawing.Size(250, 100);
-            this.panelMenuLogo.TabIndex = 0;
+            this.buttonProduct.Dock = System.Windows.Forms.DockStyle.Top;
+            this.buttonProduct.FlatAppearance.BorderSize = 0;
+            this.buttonProduct.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonProduct.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonProduct.ForeColor = System.Drawing.Color.Black;
+            this.buttonProduct.Location = new System.Drawing.Point(0, 80);
+            this.buttonProduct.Name = "buttonProduct";
+            this.buttonProduct.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.buttonProduct.Size = new System.Drawing.Size(290, 40);
+            this.buttonProduct.TabIndex = 2;
+            this.buttonProduct.Text = "products";
+            this.buttonProduct.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonProduct.UseVisualStyleBackColor = true;
+            this.buttonProduct.Click += new System.EventHandler(this.buttonProduct_Click);
             // 
-            // panelInventory
+            // buttonRequirements
             // 
-            this.panelInventory.BackColor = System.Drawing.Color.SteelBlue;
-            this.panelInventory.Controls.Add(this.button5);
-            this.panelInventory.Controls.Add(this.button4);
-            this.panelInventory.Controls.Add(this.button3);
-            this.panelInventory.Controls.Add(this.button2);
-            this.panelInventory.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelInventory.Location = new System.Drawing.Point(0, 145);
-            this.panelInventory.Name = "panelInventory";
-            this.panelInventory.Size = new System.Drawing.Size(250, 166);
-            this.panelInventory.TabIndex = 2;
+            this.buttonRequirements.Dock = System.Windows.Forms.DockStyle.Top;
+            this.buttonRequirements.FlatAppearance.BorderSize = 0;
+            this.buttonRequirements.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonRequirements.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonRequirements.ForeColor = System.Drawing.Color.Black;
+            this.buttonRequirements.Location = new System.Drawing.Point(0, 40);
+            this.buttonRequirements.Name = "buttonRequirements";
+            this.buttonRequirements.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.buttonRequirements.Size = new System.Drawing.Size(290, 40);
+            this.buttonRequirements.TabIndex = 1;
+            this.buttonRequirements.Text = "requirements";
+            this.buttonRequirements.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonRequirements.UseVisualStyleBackColor = true;
+            this.buttonRequirements.Click += new System.EventHandler(this.buttonRequirements_Click);
             // 
-            // button2
+            // buttonOrder
             // 
-            this.button2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(0, 0);
-            this.button2.Name = "button2";
-            this.button2.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.button2.Size = new System.Drawing.Size(250, 40);
-            this.button2.TabIndex = 0;
-            this.button2.Text = "button2";
-            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            this.button3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(0, 40);
-            this.button3.Name = "button3";
-            this.button3.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.button3.Size = new System.Drawing.Size(250, 40);
-            this.button3.TabIndex = 1;
-            this.button3.Text = "button3";
-            this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // button4
-            // 
-            this.button4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button4.FlatAppearance.BorderSize = 0;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ForeColor = System.Drawing.Color.White;
-            this.button4.Location = new System.Drawing.Point(0, 80);
-            this.button4.Name = "button4";
-            this.button4.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.button4.Size = new System.Drawing.Size(250, 40);
-            this.button4.TabIndex = 2;
-            this.button4.Text = "button4";
-            this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button4.UseVisualStyleBackColor = true;
-            // 
-            // button5
-            // 
-            this.button5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button5.FlatAppearance.BorderSize = 0;
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.ForeColor = System.Drawing.Color.White;
-            this.button5.Location = new System.Drawing.Point(0, 120);
-            this.button5.Name = "button5";
-            this.button5.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.button5.Size = new System.Drawing.Size(250, 40);
-            this.button5.TabIndex = 3;
-            this.button5.Text = "button5";
-            this.button5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button5.UseVisualStyleBackColor = true;
+            this.buttonOrder.Dock = System.Windows.Forms.DockStyle.Top;
+            this.buttonOrder.FlatAppearance.BorderSize = 0;
+            this.buttonOrder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonOrder.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonOrder.ForeColor = System.Drawing.Color.Black;
+            this.buttonOrder.Location = new System.Drawing.Point(0, 0);
+            this.buttonOrder.Name = "buttonOrder";
+            this.buttonOrder.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.buttonOrder.Size = new System.Drawing.Size(290, 40);
+            this.buttonOrder.TabIndex = 0;
+            this.buttonOrder.Text = "order";
+            this.buttonOrder.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonOrder.UseVisualStyleBackColor = true;
+            this.buttonOrder.Click += new System.EventHandler(this.buttonOrder_Click);
             // 
             // buttonProducts
             // 
+            this.buttonProducts.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.buttonProducts.Dock = System.Windows.Forms.DockStyle.Top;
             this.buttonProducts.FlatAppearance.BorderSize = 0;
             this.buttonProducts.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonProducts.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonProducts.ForeColor = System.Drawing.Color.White;
             this.buttonProducts.Location = new System.Drawing.Point(0, 311);
             this.buttonProducts.Name = "buttonProducts";
             this.buttonProducts.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.buttonProducts.Size = new System.Drawing.Size(250, 45);
+            this.buttonProducts.Size = new System.Drawing.Size(290, 45);
             this.buttonProducts.TabIndex = 3;
             this.buttonProducts.Text = "Products";
             this.buttonProducts.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonProducts.UseVisualStyleBackColor = true;
+            this.buttonProducts.UseVisualStyleBackColor = false;
+            this.buttonProducts.Click += new System.EventHandler(this.buttonProducts_Click);
             // 
-            // panelProducts
+            // panelInventory
             // 
-            this.panelProducts.BackColor = System.Drawing.Color.SteelBlue;
-            this.panelProducts.Controls.Add(this.button6);
-            this.panelProducts.Controls.Add(this.button7);
-            this.panelProducts.Controls.Add(this.button8);
-            this.panelProducts.Controls.Add(this.button9);
-            this.panelProducts.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelProducts.Location = new System.Drawing.Point(0, 356);
-            this.panelProducts.Name = "panelProducts";
-            this.panelProducts.Size = new System.Drawing.Size(250, 166);
-            this.panelProducts.TabIndex = 4;
+            this.panelInventory.BackColor = System.Drawing.Color.White;
+            this.panelInventory.Controls.Add(this.buttonCompare);
+            this.panelInventory.Controls.Add(this.buttonConvert);
+            this.panelInventory.Controls.Add(this.buttonOverview);
+            this.panelInventory.Controls.Add(this.buttonCreate);
+            this.panelInventory.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelInventory.ForeColor = System.Drawing.Color.Black;
+            this.panelInventory.Location = new System.Drawing.Point(0, 145);
+            this.panelInventory.Name = "panelInventory";
+            this.panelInventory.Size = new System.Drawing.Size(290, 166);
+            this.panelInventory.TabIndex = 2;
             // 
-            // button6
+            // buttonCompare
             // 
-            this.button6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button6.FlatAppearance.BorderSize = 0;
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.ForeColor = System.Drawing.Color.White;
-            this.button6.Location = new System.Drawing.Point(0, 120);
-            this.button6.Name = "button6";
-            this.button6.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.button6.Size = new System.Drawing.Size(250, 40);
-            this.button6.TabIndex = 3;
-            this.button6.Text = "button6";
-            this.button6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button6.UseVisualStyleBackColor = true;
+            this.buttonCompare.Dock = System.Windows.Forms.DockStyle.Top;
+            this.buttonCompare.FlatAppearance.BorderSize = 0;
+            this.buttonCompare.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonCompare.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonCompare.ForeColor = System.Drawing.Color.Black;
+            this.buttonCompare.Location = new System.Drawing.Point(0, 120);
+            this.buttonCompare.Name = "buttonCompare";
+            this.buttonCompare.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.buttonCompare.Size = new System.Drawing.Size(290, 40);
+            this.buttonCompare.TabIndex = 3;
+            this.buttonCompare.Text = "compare ";
+            this.buttonCompare.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonCompare.UseVisualStyleBackColor = true;
+            this.buttonCompare.Click += new System.EventHandler(this.buttonCompare_Click);
             // 
-            // button7
+            // buttonConvert
             // 
-            this.button7.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button7.FlatAppearance.BorderSize = 0;
-            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button7.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button7.ForeColor = System.Drawing.Color.White;
-            this.button7.Location = new System.Drawing.Point(0, 80);
-            this.button7.Name = "button7";
-            this.button7.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.button7.Size = new System.Drawing.Size(250, 40);
-            this.button7.TabIndex = 2;
-            this.button7.Text = "button7";
-            this.button7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button7.UseVisualStyleBackColor = true;
+            this.buttonConvert.Dock = System.Windows.Forms.DockStyle.Top;
+            this.buttonConvert.FlatAppearance.BorderSize = 0;
+            this.buttonConvert.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonConvert.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonConvert.ForeColor = System.Drawing.Color.Black;
+            this.buttonConvert.Location = new System.Drawing.Point(0, 80);
+            this.buttonConvert.Name = "buttonConvert";
+            this.buttonConvert.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.buttonConvert.Size = new System.Drawing.Size(290, 40);
+            this.buttonConvert.TabIndex = 2;
+            this.buttonConvert.Text = "convert ";
+            this.buttonConvert.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonConvert.UseVisualStyleBackColor = true;
+            this.buttonConvert.Click += new System.EventHandler(this.buttonConvert_Click);
             // 
-            // button8
+            // buttonOverview
             // 
-            this.button8.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button8.FlatAppearance.BorderSize = 0;
-            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button8.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button8.ForeColor = System.Drawing.Color.White;
-            this.button8.Location = new System.Drawing.Point(0, 40);
-            this.button8.Name = "button8";
-            this.button8.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.button8.Size = new System.Drawing.Size(250, 40);
-            this.button8.TabIndex = 1;
-            this.button8.Text = "button8";
-            this.button8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button8.UseVisualStyleBackColor = true;
+            this.buttonOverview.Dock = System.Windows.Forms.DockStyle.Top;
+            this.buttonOverview.FlatAppearance.BorderSize = 0;
+            this.buttonOverview.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonOverview.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonOverview.ForeColor = System.Drawing.Color.Black;
+            this.buttonOverview.Location = new System.Drawing.Point(0, 40);
+            this.buttonOverview.Name = "buttonOverview";
+            this.buttonOverview.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.buttonOverview.Size = new System.Drawing.Size(290, 40);
+            this.buttonOverview.TabIndex = 1;
+            this.buttonOverview.Text = "overview";
+            this.buttonOverview.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonOverview.UseVisualStyleBackColor = true;
+            this.buttonOverview.Click += new System.EventHandler(this.buttonOverview_Click);
             // 
-            // button9
+            // buttonCreate
             // 
-            this.button9.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button9.FlatAppearance.BorderSize = 0;
-            this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button9.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button9.ForeColor = System.Drawing.Color.White;
-            this.button9.Location = new System.Drawing.Point(0, 0);
-            this.button9.Name = "button9";
-            this.button9.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.button9.Size = new System.Drawing.Size(250, 40);
-            this.button9.TabIndex = 0;
-            this.button9.Text = "button9";
-            this.button9.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button9.UseVisualStyleBackColor = true;
+            this.buttonCreate.Dock = System.Windows.Forms.DockStyle.Top;
+            this.buttonCreate.FlatAppearance.BorderSize = 0;
+            this.buttonCreate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonCreate.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonCreate.ForeColor = System.Drawing.Color.Black;
+            this.buttonCreate.Location = new System.Drawing.Point(0, 0);
+            this.buttonCreate.Name = "buttonCreate";
+            this.buttonCreate.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.buttonCreate.Size = new System.Drawing.Size(290, 40);
+            this.buttonCreate.TabIndex = 0;
+            this.buttonCreate.Text = "create ";
+            this.buttonCreate.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonCreate.UseVisualStyleBackColor = true;
+            this.buttonCreate.Click += new System.EventHandler(this.buttonCreate_Click);
+            // 
+            // buttonInventory
+            // 
+            this.buttonInventory.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.buttonInventory.Dock = System.Windows.Forms.DockStyle.Top;
+            this.buttonInventory.FlatAppearance.BorderSize = 0;
+            this.buttonInventory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonInventory.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonInventory.ForeColor = System.Drawing.Color.White;
+            this.buttonInventory.Location = new System.Drawing.Point(0, 100);
+            this.buttonInventory.Name = "buttonInventory";
+            this.buttonInventory.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.buttonInventory.Size = new System.Drawing.Size(290, 45);
+            this.buttonInventory.TabIndex = 1;
+            this.buttonInventory.Text = "Inventory";
+            this.buttonInventory.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonInventory.UseVisualStyleBackColor = false;
+            this.buttonInventory.Click += new System.EventHandler(this.buttonInventory_Click);
+            // 
+            // panelMenuLogo
+            // 
+            this.panelMenuLogo.Controls.Add(this.pictureBox1);
+            this.panelMenuLogo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelMenuLogo.Location = new System.Drawing.Point(0, 0);
+            this.panelMenuLogo.Name = "panelMenuLogo";
+            this.panelMenuLogo.Size = new System.Drawing.Size(290, 100);
+            this.panelMenuLogo.TabIndex = 0;
+            // 
+            // panelMain02
+            // 
+            this.panelMain02.BackColor = System.Drawing.Color.Gray;
+            this.panelMain02.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panelMain02.Location = new System.Drawing.Point(290, 557);
+            this.panelMain02.Name = "panelMain02";
+            this.panelMain02.Size = new System.Drawing.Size(976, 100);
+            this.panelMain02.TabIndex = 1;
+            // 
+            // panelMain01
+            // 
+            this.panelMain01.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.panelMain01.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelMain01.Location = new System.Drawing.Point(290, 0);
+            this.panelMain01.Name = "panelMain01";
+            this.panelMain01.Size = new System.Drawing.Size(976, 557);
+            this.panelMain01.TabIndex = 2;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(290, 74);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(1008, 577);
+            this.ClientSize = new System.Drawing.Size(1266, 657);
+            this.Controls.Add(this.panelMain01);
+            this.Controls.Add(this.panelMain02);
             this.Controls.Add(this.panelMainMenu);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "menu";
             this.Text = "Intersport Home";
             this.Load += new System.EventHandler(this.menu_Load);
             this.panelMainMenu.ResumeLayout(false);
-            this.panelInventory.ResumeLayout(false);
             this.panelProducts.ResumeLayout(false);
+            this.panelInventory.ResumeLayout(false);
+            this.panelMenuLogo.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -277,15 +313,17 @@
         private System.Windows.Forms.Button buttonInventory;
         private System.Windows.Forms.Panel panelMenuLogo;
         private System.Windows.Forms.Panel panelInventory;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button buttonCompare;
+        private System.Windows.Forms.Button buttonConvert;
+        private System.Windows.Forms.Button buttonOverview;
+        private System.Windows.Forms.Button buttonCreate;
         private System.Windows.Forms.Panel panelProducts;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Button buttonProduct;
+        private System.Windows.Forms.Button buttonRequirements;
+        private System.Windows.Forms.Button buttonOrder;
         private System.Windows.Forms.Button buttonProducts;
+        private System.Windows.Forms.Panel panelMain02;
+        private System.Windows.Forms.Panel panelMain01;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

@@ -26,31 +26,81 @@ namespace SWP_4IT_WP_VP
            
         }
 
-        private void menuHide()
+        private void SubMenuHide()
         {
 
             if (panelInventory.Visible.Equals(true))
             {
-                panelInventory.Visible.Equals(false);
+                panelInventory.Visible = false;
             }
             if (panelProducts.Visible.Equals(true))
             {
-                panelProducts.Visible.Equals(false);
+                panelProducts.Visible = false;
             }
 
         }
 
-        private void menuShow(Panel menu)
+        private void SubMenuShow(Panel SubMenu)
         {
-            if (menu.Visible.Equals(false))
+            if (SubMenu.Visible.Equals(false))
             {
-                menuHide();
+                SubMenuHide();
+                SubMenu.Visible = true;
+            }
+            else
+            {
+                SubMenu.Visible = false;
             }
         }
 
         private void menu_Load(object sender, EventArgs e)
         {
             
+        }
+
+        private void buttonInventory_Click(object sender, EventArgs e)
+        {
+            SubMenuShow(panelInventory);
+        }
+
+        private void buttonCreate_Click(object sender, EventArgs e)
+        {
+            SubMenuHide();
+        }
+
+        private void buttonOverview_Click(object sender, EventArgs e)
+        {
+            SubMenuHide();
+        }
+
+        private void buttonConvert_Click(object sender, EventArgs e)
+        {
+            SubMenuHide();
+        }
+
+        private void buttonCompare_Click(object sender, EventArgs e)
+        {
+            SubMenuHide();
+        }
+
+        private void buttonProducts_Click(object sender, EventArgs e)
+        {
+            SubMenuShow(panelProducts);
+        }
+
+        private void buttonOrder_Click(object sender, EventArgs e)
+        {
+            SubMenuHide();
+        }
+
+        private void buttonRequirements_Click(object sender, EventArgs e)
+        {
+            SubMenuHide();
+        }
+
+        private void buttonProduct_Click(object sender, EventArgs e)
+        {
+            SubMenuHide();
         }
     }
 }
