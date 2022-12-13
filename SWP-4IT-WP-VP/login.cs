@@ -75,6 +75,7 @@ namespace SWP_4IT_WP_VP
         //Opens Form for sending Recovery Code
         private void buttonForgetPassword_Click(object sender, EventArgs e)
         {
+            Email = textboxEmail.Text;
             sendcode sendcode = new sendcode();
             sendcode.Show();
         }

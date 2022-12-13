@@ -42,7 +42,7 @@ namespace SWP_4IT_WP_VP
             this.btn_sendcode.Location = new System.Drawing.Point(12, 63);
             this.btn_sendcode.Name = "btn_sendcode";
             this.btn_sendcode.Size = new System.Drawing.Size(162, 27);
-            this.btn_sendcode.TabIndex = 0;
+            this.btn_sendcode.TabIndex = 2;
             this.btn_sendcode.Text = "send Code";
             this.btn_sendcode.UseVisualStyleBackColor = true;
             this.btn_sendcode.Click += new System.EventHandler(this.btn_SendCode_Click);
@@ -59,7 +59,7 @@ namespace SWP_4IT_WP_VP
             this.btn_recover.Location = new System.Drawing.Point(12, 183);
             this.btn_recover.Name = "btn_recover";
             this.btn_recover.Size = new System.Drawing.Size(162, 31);
-            this.btn_recover.TabIndex = 2;
+            this.btn_recover.TabIndex = 4;
             this.btn_recover.Text = "recover Password";
             this.btn_recover.UseVisualStyleBackColor = true;
             this.btn_recover.Click += new System.EventHandler(this.btn_recover_Click);
@@ -102,6 +102,7 @@ namespace SWP_4IT_WP_VP
             this.Controls.Add(this.btn_sendcode);
             this.Name = "sendcode";
             this.Text = "sendcode";
+            this.Load += new System.EventHandler(this.sendcode_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
