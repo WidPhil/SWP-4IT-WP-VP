@@ -72,7 +72,7 @@
             this.btn_recover.Location = new System.Drawing.Point(64, 200);
             this.btn_recover.Name = "btn_recover";
             this.btn_recover.Size = new System.Drawing.Size(128, 23);
-            this.btn_recover.TabIndex = 4;
+            this.btn_recover.TabIndex = 3;
             this.btn_recover.Text = "Recover Password";
             this.btn_recover.UseVisualStyleBackColor = true;
             this.btn_recover.Click += new System.EventHandler(this.btn_recover_Click);

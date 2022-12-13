@@ -60,5 +60,10 @@ namespace SWP_4IT_WP_VP
                 MessageBox.Show("Wrong verification Code");
             }
         }
+
+        private void sendcode_Load(object sender, EventArgs e)
+        {
+            txtbox_Email.Text = login.Email;
+        }
     }
 }
