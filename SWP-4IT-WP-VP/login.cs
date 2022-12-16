@@ -32,6 +32,7 @@ namespace SWP_4IT_WP_VP
             sqlmanager.createDatabase("Intersport");
             sqlmanager.createTableProducts("Products");
             sqlmanager.createTableUsers("Users");
+            sqlmanager.createTableRequirements("Requirements");
 
         }
 

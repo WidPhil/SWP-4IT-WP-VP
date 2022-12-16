@@ -98,11 +98,11 @@
     <Compile Include="orders.Designer.cs">
       <DependentUpon>orders.cs</DependentUpon>
     </Compile>
-    <Compile Include="products.cs">
+    <Compile Include="sellproducts.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="products.Designer.cs">
-      <DependentUpon>products.cs</DependentUpon>
+    <Compile Include="sellproducts.Designer.cs">
+      <DependentUpon>sellproducts.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -139,8 +139,8 @@
     <EmbeddedResource Include="overview.resx">
       <DependentUpon>overview.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="products.resx">
-      <DependentUpon>products.cs</DependentUpon>
+    <EmbeddedResource Include="sellproducts.resx">
+      <DependentUpon>sellproducts.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
