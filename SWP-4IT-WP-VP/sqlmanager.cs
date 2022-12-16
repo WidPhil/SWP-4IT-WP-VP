@@ -19,6 +19,7 @@ namespace SWP_4IT_WP_VP
         public static SqlCommand cmd;
         public static SqlDataReader reader;
 
+        //Creates Database
         public static bool createDatabase(string dbname)
         {
             con = new SqlConnection(ConnectionString);
@@ -51,6 +52,7 @@ namespace SWP_4IT_WP_VP
 
         }
 
+        //Creates Table Products
         public static bool createTableProducts(string tname)
         {
             try
@@ -88,6 +90,7 @@ namespace SWP_4IT_WP_VP
             }
         }
 
+        //Creates Table Users
         public static bool createTableUsers(string tname)
         {
             try
@@ -124,6 +127,43 @@ namespace SWP_4IT_WP_VP
             }
         }
 
+       
+        public static bool createTableRequirements(string tname)
+        {
+            try
+            {
+                con = new SqlConnection(ConnectionString02);
+                con.Open();
+                cmd = new SqlCommand("SELECT * FROM sys.tables", con);
+
+                SqlDataReader checkTable = cmd.ExecuteReader();
+
+                while (checkTable.Read())
+                {
+                    if (checkTable.GetString(0).ToLower().Equals(tname.ToLower()))
+                    {
+                        return true;
+                    }
+
+                }
+                checkTable.Close();
+
+                SqlCommand com = new SqlCommand("Create Table " + tname + "(id int primary key IDENTITY (1, 1), name varchar(100), type varchar(100), inStock varchar(100), MinimumStock varchar(100))", con);
+                com.ExecuteNonQuery();
+
+                con.Close();
+                return false;
+
+            }
+            catch (ConnectionException CEX)
+            {
+                throw;
+                MessageBox.Show(CEX.Message);
+
+            }
+        }
+
+        //Adds User to Table
         public static void AddUser(string name, string Email, string password, string Hash)
         {
             try
@@ -143,17 +183,16 @@ namespace SWP_4IT_WP_VP
             }
         }
 
-
+        //Updates Password in Table
         public static void NewPassword(string newPassword, string Username, string Email)
         {
             try
             {
                 con = new SqlConnection(ConnectionString02);
                 con.Open();
-                cmd = new SqlCommand("UPDATE Users SET password = " + newPassword + " WHERE Email = " + Email + "", con);
+                cmd = new SqlCommand("UPDATE Users SET password = " + newPassword + " WHERE Email = " + Email + ";", con);
                 cmd.ExecuteNonQuery();
                 con.Close();
-
             }
             catch (Exception)
             {
@@ -162,6 +201,7 @@ namespace SWP_4IT_WP_VP
             }
         }
 
+        //Get Password
         public static void ReadPassword(string username, string Password)
         {
             try
@@ -194,6 +234,22 @@ namespace SWP_4IT_WP_VP
             }
         }
 
+        public static void GetInventory()
+        {
+            try
+            {
+                con = new SqlConnection(ConnectionString02);
+                con.Open();
+                cmd = new SqlCommand("Select * from Inventory");
+                cmd.ExecuteNonQuery();
+                con.Close();
+            }
+            catch (ConnectionException CEX)
+            {
+
+                MessageBox.Show(CEX.ToString());
+            }
+        }
 
     }
 }
