@@ -45,6 +45,7 @@
             this.buttonRequirements = new System.Windows.Forms.Button();
             this.buttonOrder = new System.Windows.Forms.Button();
             this.panelMainMenu = new System.Windows.Forms.Panel();
+            this.buttonInfo = new System.Windows.Forms.Button();
             this.panelMain01.SuspendLayout();
             this.panelMenuLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -276,6 +277,7 @@
             // panelMainMenu
             // 
             this.panelMainMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.panelMainMenu.Controls.Add(this.buttonInfo);
             this.panelMainMenu.Controls.Add(this.panelProducts);
             this.panelMainMenu.Controls.Add(this.buttonProducts);
             this.panelMainMenu.Controls.Add(this.panelInventory);
@@ -286,6 +288,24 @@
             this.panelMainMenu.Name = "panelMainMenu";
             this.panelMainMenu.Size = new System.Drawing.Size(306, 615);
             this.panelMainMenu.TabIndex = 5;
+            // 
+            // buttonInfo
+            // 
+            this.buttonInfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.buttonInfo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.buttonInfo.FlatAppearance.BorderSize = 0;
+            this.buttonInfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonInfo.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonInfo.ForeColor = System.Drawing.Color.White;
+            this.buttonInfo.Location = new System.Drawing.Point(0, 480);
+            this.buttonInfo.Name = "buttonInfo";
+            this.buttonInfo.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.buttonInfo.Size = new System.Drawing.Size(306, 45);
+            this.buttonInfo.TabIndex = 5;
+            this.buttonInfo.Text = "Info";
+            this.buttonInfo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonInfo.UseVisualStyleBackColor = false;
+            this.buttonInfo.Click += new System.EventHandler(this.buttonInfo_Click);
             // 
             // menu
             // 
@@ -327,5 +347,6 @@
         private System.Windows.Forms.Button buttonRequirements;
         private System.Windows.Forms.Button buttonOrder;
         private System.Windows.Forms.Panel panelMainMenu;
+        private System.Windows.Forms.Button buttonInfo;
     }
 }
