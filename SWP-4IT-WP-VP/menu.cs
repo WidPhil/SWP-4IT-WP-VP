@@ -103,6 +103,7 @@ namespace SWP_4IT_WP_VP
         private void buttonInfo_Click(object sender, EventArgs e)
         {
             SubMenuHide();
+            openMainForm(new info());
         }
 
         //Forms are shown inside the MainPanel
@@ -124,6 +125,11 @@ namespace SWP_4IT_WP_VP
             MainForm.BringToFront();
             MainForm.Show();
             
+        }
+
+        private void buttonExit_Click(object sender, EventArgs e)
+        {
+            Environment.Exit(0);
         }
     }
 }
