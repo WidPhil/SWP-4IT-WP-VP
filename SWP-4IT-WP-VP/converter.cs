@@ -16,7 +16,6 @@ namespace SWP_4IT_WP_VP
         public static string Connectionstring = "server = (localdb)\\MSSQLLocalDB;Database = Intersport;Integrated Security = true";
         public static string NameofTable;
 
-        //TestEdit
 
         public converter()
         {

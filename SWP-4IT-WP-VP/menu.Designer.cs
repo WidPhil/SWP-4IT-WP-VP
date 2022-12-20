@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(menu));
-            this.panelMain01 = new System.Windows.Forms.Panel();
+            this.panelMain = new System.Windows.Forms.Panel();
             this.panelMain02 = new System.Windows.Forms.Panel();
             this.panelMenuLogo = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -46,7 +46,7 @@
             this.buttonOrder = new System.Windows.Forms.Button();
             this.panelMainMenu = new System.Windows.Forms.Panel();
             this.buttonInfo = new System.Windows.Forms.Button();
-            this.panelMain01.SuspendLayout();
+            this.panelMain.SuspendLayout();
             this.panelMenuLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelInventory.SuspendLayout();
@@ -54,15 +54,15 @@
             this.panelMainMenu.SuspendLayout();
             this.SuspendLayout();
             // 
-            // panelMain01
+            // panelMain
             // 
-            this.panelMain01.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.panelMain01.Controls.Add(this.panelMain02);
-            this.panelMain01.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelMain01.Location = new System.Drawing.Point(306, 0);
-            this.panelMain01.Name = "panelMain01";
-            this.panelMain01.Size = new System.Drawing.Size(792, 615);
-            this.panelMain01.TabIndex = 7;
+            this.panelMain.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.panelMain.Controls.Add(this.panelMain02);
+            this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelMain.Location = new System.Drawing.Point(306, 0);
+            this.panelMain.Name = "panelMain";
+            this.panelMain.Size = new System.Drawing.Size(792, 615);
+            this.panelMain.TabIndex = 7;
             // 
             // panelMain02
             // 
@@ -313,13 +313,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1098, 615);
-            this.Controls.Add(this.panelMain01);
+            this.Controls.Add(this.panelMain);
             this.Controls.Add(this.panelMainMenu);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "menu";
             this.Text = "Intersport Home";
-            this.Load += new System.EventHandler(this.menu_Load);
-            this.panelMain01.ResumeLayout(false);
+            this.panelMain.ResumeLayout(false);
             this.panelMenuLogo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panelInventory.ResumeLayout(false);
@@ -331,7 +330,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel panelMain01;
+        private System.Windows.Forms.Panel panelMain;
         private System.Windows.Forms.Panel panelMain02;
         private System.Windows.Forms.Panel panelMenuLogo;
         private System.Windows.Forms.PictureBox pictureBox1;
