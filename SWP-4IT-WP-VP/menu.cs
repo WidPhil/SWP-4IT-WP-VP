@@ -104,6 +104,10 @@ namespace SWP_4IT_WP_VP
             SubMenuHide();
         }
 
+        private void buttonInfo_Click(object sender, EventArgs e)
+        {
+            SubMenuHide();
+        }
     }
 }
 
