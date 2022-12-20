@@ -26,6 +26,7 @@ namespace SWP_4IT_WP_VP
 
         }
 
+        //Close submenu when another menu is clicked
         private void SubMenuHide()
         {
 
@@ -40,6 +41,7 @@ namespace SWP_4IT_WP_VP
 
         }
 
+        //Opens submenu when menu is clicked
         private void SubMenuShow(Panel SubMenu)
         {
             if (SubMenu.Visible.Equals(false))
@@ -53,35 +55,29 @@ namespace SWP_4IT_WP_VP
             }
         }
 
-        private void menu_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void buttonInventory_Click(object sender, EventArgs e)
         {
             SubMenuShow(panelInventory);
-            
         }
 
         private void buttonCreate_Click(object sender, EventArgs e)
         {
-            SubMenuHide();
+            openMainForm(new createInventory());
         }
 
         private void buttonOverview_Click(object sender, EventArgs e)
         {
-            SubMenuHide();
+            openMainForm(new overviewInventory());
         }
 
         private void buttonConvert_Click(object sender, EventArgs e)
         {
-            SubMenuHide();
+            openMainForm(new converter());
         }
 
         private void buttonCompare_Click(object sender, EventArgs e)
         {
-            SubMenuHide();
+            openMainForm(new compare());
         }
 
         private void buttonProducts_Click(object sender, EventArgs e)
@@ -91,22 +87,43 @@ namespace SWP_4IT_WP_VP
 
         private void buttonOrder_Click(object sender, EventArgs e)
         {
-            SubMenuHide();
+            openMainForm(new order());
         }
 
         private void buttonRequirements_Click(object sender, EventArgs e)
         {
-            SubMenuHide();
+            openMainForm(new requirements());
         }
 
         private void buttonProduct_Click(object sender, EventArgs e)
         {
-            SubMenuHide();
+            openMainForm(new editProducts());
         }
 
         private void buttonInfo_Click(object sender, EventArgs e)
         {
             SubMenuHide();
+        }
+
+        //Forms are shown inside the MainPanel
+        private Form currentForm = null;
+        private void openMainForm(Form MainForm)
+        {
+            if (currentForm != null)
+            {
+                currentForm.Close();
+                currentForm = MainForm;
+            }
+
+            MainForm.TopLevel = false;
+            MainForm.FormBorderStyle = FormBorderStyle.None;
+            MainForm.Dock = DockStyle.Fill;
+
+            panelMain.Controls.Add(MainForm);
+
+            MainForm.BringToFront();
+            MainForm.Show();
+            
         }
     }
 }

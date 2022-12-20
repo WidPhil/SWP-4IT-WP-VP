@@ -12,6 +12,7 @@ namespace SWP_4IT_WP_VP
 {
     public partial class requirements : Form
     {
+        //current placeholder
         static int Product1;
         static int Product2;
         static int Product3;
@@ -29,6 +30,7 @@ namespace SWP_4IT_WP_VP
             Environment.Exit(0);
         }
 
+        //Message Box output when products are low
         private void requirements_Load(object sender, EventArgs e)
         {
             sqlmanager.GetInventory();

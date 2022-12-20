@@ -54,11 +54,29 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BCrypt.cs" />
+    <Compile Include="compare.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="compare.Designer.cs">
+      <DependentUpon>compare.cs</DependentUpon>
+    </Compile>
     <Compile Include="converter.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="converter.Designer.cs">
       <DependentUpon>converter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="createInventory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="createInventory.Designer.cs">
+      <DependentUpon>createInventory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="editProducts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="editProducts.Designer.cs">
+      <DependentUpon>editProducts.cs</DependentUpon>
     </Compile>
     <Compile Include="login.cs">
       <SubType>Form</SubType>
@@ -78,6 +96,18 @@
     <Compile Include="NewPassword.Designer.cs">
       <DependentUpon>NewPassword.cs</DependentUpon>
     </Compile>
+    <Compile Include="order.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="order.Designer.cs">
+      <DependentUpon>order.cs</DependentUpon>
+    </Compile>
+    <Compile Include="overviewInventory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="overviewInventory.Designer.cs">
+      <DependentUpon>overviewInventory.cs</DependentUpon>
+    </Compile>
     <Compile Include="sendcode.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -93,8 +123,17 @@
     <Compile Include="requirements.Designer.cs">
       <DependentUpon>requirements.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="compare.resx">
+      <DependentUpon>compare.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="converter.resx">
       <DependentUpon>converter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="createInventory.resx">
+      <DependentUpon>createInventory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="editProducts.resx">
+      <DependentUpon>editProducts.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="login.resx">
       <DependentUpon>login.cs</DependentUpon>
@@ -104,6 +143,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="NewPassword.resx">
       <DependentUpon>NewPassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="order.resx">
+      <DependentUpon>order.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="overviewInventory.resx">
+      <DependentUpon>overviewInventory.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
