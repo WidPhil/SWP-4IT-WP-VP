@@ -46,7 +46,9 @@
             this.buttonOrder = new System.Windows.Forms.Button();
             this.panelMainMenu = new System.Windows.Forms.Panel();
             this.buttonInfo = new System.Windows.Forms.Button();
+            this.buttonExit = new System.Windows.Forms.Button();
             this.panelMain.SuspendLayout();
+            this.panelMain02.SuspendLayout();
             this.panelMenuLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelInventory.SuspendLayout();
@@ -67,6 +69,7 @@
             // panelMain02
             // 
             this.panelMain02.BackColor = System.Drawing.Color.Gray;
+            this.panelMain02.Controls.Add(this.buttonExit);
             this.panelMain02.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panelMain02.Location = new System.Drawing.Point(0, 515);
             this.panelMain02.Name = "panelMain02";
@@ -307,6 +310,19 @@
             this.buttonInfo.UseVisualStyleBackColor = false;
             this.buttonInfo.Click += new System.EventHandler(this.buttonInfo_Click);
             // 
+            // buttonExit
+            // 
+            this.buttonExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonExit.Font = new System.Drawing.Font("Arial", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonExit.ForeColor = System.Drawing.Color.DarkRed;
+            this.buttonExit.Location = new System.Drawing.Point(658, 58);
+            this.buttonExit.Name = "buttonExit";
+            this.buttonExit.Size = new System.Drawing.Size(122, 30);
+            this.buttonExit.TabIndex = 0;
+            this.buttonExit.Text = "Exit";
+            this.buttonExit.UseVisualStyleBackColor = true;
+            this.buttonExit.Click += new System.EventHandler(this.buttonExit_Click);
+            // 
             // menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -319,6 +335,7 @@
             this.Name = "menu";
             this.Text = "Intersport Home";
             this.panelMain.ResumeLayout(false);
+            this.panelMain02.ResumeLayout(false);
             this.panelMenuLogo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panelInventory.ResumeLayout(false);
@@ -347,5 +364,6 @@
         private System.Windows.Forms.Button buttonOrder;
         private System.Windows.Forms.Panel panelMainMenu;
         private System.Windows.Forms.Button buttonInfo;
+        private System.Windows.Forms.Button buttonExit;
     }
 }
