@@ -41,7 +41,7 @@ namespace SWP_4IT_WP_VP
                 SqlCommand cmd02 = new SqlCommand("Create Database " + dbname , con);
                 cmd02.ExecuteNonQuery();
             }
-            catch (ConnectionException cex)
+            catch (Exception cex)
             {
                 MessageBox.Show(cex.ToString());
             }
@@ -155,7 +155,7 @@ namespace SWP_4IT_WP_VP
                 return false;
 
             }
-            catch (ConnectionException CEX)
+            catch (Exception CEX)
             {
                 throw;
                 MessageBox.Show(CEX.Message);
@@ -244,7 +244,7 @@ namespace SWP_4IT_WP_VP
                 cmd.ExecuteNonQuery();
                 con.Close();
             }
-            catch (ConnectionException CEX)
+            catch (Exception CEX)
             {
 
                 MessageBox.Show(CEX.ToString());

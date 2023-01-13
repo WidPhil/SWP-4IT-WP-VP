@@ -151,16 +151,6 @@ namespace SWP_4IT_WP_VP
             textBoxPassword.ForeColor = Color.Silver;
         }
 
-        private void pictureBoxUserIcon_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBoxUser_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void textboxEmailEnter(object sender, EventArgs e)
         {
             if (textboxEmail.Text.Equals("E-Mail"))

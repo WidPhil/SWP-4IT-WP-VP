@@ -60,12 +60,29 @@
     <Compile Include="compare.Designer.cs">
       <DependentUpon>compare.cs</DependentUpon>
     </Compile>
-    <Compile Include="ConnectionException.cs" />
     <Compile Include="converter.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="converter.Designer.cs">
       <DependentUpon>converter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="createInventory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="createInventory.Designer.cs">
+      <DependentUpon>createInventory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="editProducts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="editProducts.Designer.cs">
+      <DependentUpon>editProducts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="info.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="info.Designer.cs">
+      <DependentUpon>info.cs</DependentUpon>
     </Compile>
     <Compile Include="login.cs">
       <SubType>Form</SubType>
@@ -85,6 +102,18 @@
     <Compile Include="NewPassword.Designer.cs">
       <DependentUpon>NewPassword.cs</DependentUpon>
     </Compile>
+    <Compile Include="order.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="order.Designer.cs">
+      <DependentUpon>order.cs</DependentUpon>
+    </Compile>
+    <Compile Include="overviewInventory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="overviewInventory.Designer.cs">
+      <DependentUpon>overviewInventory.cs</DependentUpon>
+    </Compile>
     <Compile Include="sendcode.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -92,18 +121,6 @@
       <DependentUpon>sendcode.cs</DependentUpon>
     </Compile>
     <Compile Include="sqlmanager.cs" />
-    <Compile Include="orders.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="orders.Designer.cs">
-      <DependentUpon>orders.cs</DependentUpon>
-    </Compile>
-    <Compile Include="sellproducts.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="sellproducts.Designer.cs">
-      <DependentUpon>sellproducts.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="requirements.cs">
@@ -112,17 +129,20 @@
     <Compile Include="requirements.Designer.cs">
       <DependentUpon>requirements.cs</DependentUpon>
     </Compile>
-    <Compile Include="overview.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="overview.Designer.cs">
-      <DependentUpon>overview.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="compare.resx">
       <DependentUpon>compare.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="converter.resx">
       <DependentUpon>converter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="createInventory.resx">
+      <DependentUpon>createInventory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="editProducts.resx">
+      <DependentUpon>editProducts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="info.resx">
+      <DependentUpon>info.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="login.resx">
       <DependentUpon>login.cs</DependentUpon>
@@ -133,14 +153,11 @@
     <EmbeddedResource Include="NewPassword.resx">
       <DependentUpon>NewPassword.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="orders.resx">
-      <DependentUpon>orders.cs</DependentUpon>
+    <EmbeddedResource Include="order.resx">
+      <DependentUpon>order.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="overview.resx">
-      <DependentUpon>overview.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="sellproducts.resx">
-      <DependentUpon>sellproducts.cs</DependentUpon>
+    <EmbeddedResource Include="overviewInventory.resx">
+      <DependentUpon>overviewInventory.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

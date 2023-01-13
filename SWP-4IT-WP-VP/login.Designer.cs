@@ -121,7 +121,7 @@
             this.textBoxUser.Size = new System.Drawing.Size(278, 21);
             this.textBoxUser.TabIndex = 2;
             this.textBoxUser.Text = "Username";
-            this.textBoxUser.TextChanged += new System.EventHandler(this.textBoxUser_TextChanged);
+            //this.textBoxUser.TextChanged += new System.EventHandler(this.textBoxUser_TextChanged);
             this.textBoxUser.MouseEnter += new System.EventHandler(this.textBoxUserEnter);
             this.textBoxUser.MouseLeave += new System.EventHandler(this.textBoxUserLeave);
             // 
@@ -136,7 +136,7 @@
             this.pictureBoxUserIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxUserIcon.TabIndex = 6;
             this.pictureBoxUserIcon.TabStop = false;
-            this.pictureBoxUserIcon.Click += new System.EventHandler(this.pictureBoxUserIcon_Click);
+            //this.pictureBoxUserIcon.Click += new System.EventHandler(this.pictureBoxUserIcon_Click);
             // 
             // textBoxPassword
             // 

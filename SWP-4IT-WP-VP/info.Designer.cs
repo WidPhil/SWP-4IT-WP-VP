@@ -1,7 +1,7 @@
 ﻿
 namespace SWP_4IT_WP_VP
 {
-    partial class compare
+    partial class info
     {
         /// <summary>
         /// Required designer variable.
@@ -34,21 +34,21 @@ namespace SWP_4IT_WP_VP
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(308, 149);
+            this.button1.Location = new System.Drawing.Point(217, 100);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 0;
-            this.button1.Text = "compare";
+            this.button1.Text = "info";
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // compare
+            // info
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.button1);
-            this.Name = "compare";
-            this.Text = "compare";
+            this.Name = "info";
+            this.Text = "info";
             this.ResumeLayout(false);
 
         }

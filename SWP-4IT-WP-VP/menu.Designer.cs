@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(menu));
-            this.panelMain01 = new System.Windows.Forms.Panel();
+            this.panelMain = new System.Windows.Forms.Panel();
             this.panelMain02 = new System.Windows.Forms.Panel();
             this.panelMenuLogo = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -45,7 +45,10 @@
             this.buttonRequirements = new System.Windows.Forms.Button();
             this.buttonOrder = new System.Windows.Forms.Button();
             this.panelMainMenu = new System.Windows.Forms.Panel();
-            this.panelMain01.SuspendLayout();
+            this.buttonInfo = new System.Windows.Forms.Button();
+            this.buttonExit = new System.Windows.Forms.Button();
+            this.panelMain.SuspendLayout();
+            this.panelMain02.SuspendLayout();
             this.panelMenuLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelInventory.SuspendLayout();
@@ -53,19 +56,20 @@
             this.panelMainMenu.SuspendLayout();
             this.SuspendLayout();
             // 
-            // panelMain01
+            // panelMain
             // 
-            this.panelMain01.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.panelMain01.Controls.Add(this.panelMain02);
-            this.panelMain01.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelMain01.Location = new System.Drawing.Point(306, 0);
-            this.panelMain01.Name = "panelMain01";
-            this.panelMain01.Size = new System.Drawing.Size(792, 615);
-            this.panelMain01.TabIndex = 7;
+            this.panelMain.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.panelMain.Controls.Add(this.panelMain02);
+            this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelMain.Location = new System.Drawing.Point(306, 0);
+            this.panelMain.Name = "panelMain";
+            this.panelMain.Size = new System.Drawing.Size(792, 615);
+            this.panelMain.TabIndex = 7;
             // 
             // panelMain02
             // 
             this.panelMain02.BackColor = System.Drawing.Color.Gray;
+            this.panelMain02.Controls.Add(this.buttonExit);
             this.panelMain02.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panelMain02.Location = new System.Drawing.Point(0, 515);
             this.panelMain02.Name = "panelMain02";
@@ -276,6 +280,7 @@
             // panelMainMenu
             // 
             this.panelMainMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.panelMainMenu.Controls.Add(this.buttonInfo);
             this.panelMainMenu.Controls.Add(this.panelProducts);
             this.panelMainMenu.Controls.Add(this.buttonProducts);
             this.panelMainMenu.Controls.Add(this.panelInventory);
@@ -287,19 +292,50 @@
             this.panelMainMenu.Size = new System.Drawing.Size(306, 615);
             this.panelMainMenu.TabIndex = 5;
             // 
+            // buttonInfo
+            // 
+            this.buttonInfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.buttonInfo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.buttonInfo.FlatAppearance.BorderSize = 0;
+            this.buttonInfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonInfo.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonInfo.ForeColor = System.Drawing.Color.White;
+            this.buttonInfo.Location = new System.Drawing.Point(0, 480);
+            this.buttonInfo.Name = "buttonInfo";
+            this.buttonInfo.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.buttonInfo.Size = new System.Drawing.Size(306, 45);
+            this.buttonInfo.TabIndex = 5;
+            this.buttonInfo.Text = "Info";
+            this.buttonInfo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonInfo.UseVisualStyleBackColor = false;
+            this.buttonInfo.Click += new System.EventHandler(this.buttonInfo_Click);
+            // 
+            // buttonExit
+            // 
+            this.buttonExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonExit.Font = new System.Drawing.Font("Arial", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonExit.ForeColor = System.Drawing.Color.DarkRed;
+            this.buttonExit.Location = new System.Drawing.Point(658, 58);
+            this.buttonExit.Name = "buttonExit";
+            this.buttonExit.Size = new System.Drawing.Size(122, 30);
+            this.buttonExit.TabIndex = 0;
+            this.buttonExit.Text = "Exit";
+            this.buttonExit.UseVisualStyleBackColor = true;
+            this.buttonExit.Click += new System.EventHandler(this.buttonExit_Click);
+            // 
             // menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1098, 615);
-            this.Controls.Add(this.panelMain01);
+            this.Controls.Add(this.panelMain);
             this.Controls.Add(this.panelMainMenu);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "menu";
             this.Text = "Intersport Home";
-            this.Load += new System.EventHandler(this.menu_Load);
-            this.panelMain01.ResumeLayout(false);
+            this.panelMain.ResumeLayout(false);
+            this.panelMain02.ResumeLayout(false);
             this.panelMenuLogo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panelInventory.ResumeLayout(false);
@@ -311,7 +347,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel panelMain01;
+        private System.Windows.Forms.Panel panelMain;
         private System.Windows.Forms.Panel panelMain02;
         private System.Windows.Forms.Panel panelMenuLogo;
         private System.Windows.Forms.PictureBox pictureBox1;
@@ -327,5 +363,7 @@
         private System.Windows.Forms.Button buttonRequirements;
         private System.Windows.Forms.Button buttonOrder;
         private System.Windows.Forms.Panel panelMainMenu;
+        private System.Windows.Forms.Button buttonInfo;
+        private System.Windows.Forms.Button buttonExit;
     }
 }

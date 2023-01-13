@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace SWP_4IT_WP_VP
 {
-    public partial class compare : Form
+    public partial class info : Form
     {
-        public compare()
+        public info()
         {
             InitializeComponent();
         }
