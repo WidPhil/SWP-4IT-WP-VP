@@ -148,8 +148,12 @@ namespace SWP_4IT_WP_VP
                 }
                 checkTable.Close();
 
-                SqlCommand com = new SqlCommand("Create Table " + tname + "(id int primary key IDENTITY (1, 1), name varchar(100), type varchar(100), inStock varchar(100), MinimumStock varchar(100))", con);
+                //SqlCommand com = new SqlCommand("Create Table " + tname + "(id int primary key IDENTITY (1, 1), name varchar(100), type varchar(100), inStock varchar(100), MinimumStock varchar(100))", con);
+                //com.ExecuteNonQuery();
+                SqlCommand com = new SqlCommand("Create Table " + tname + "(id int primary key IDENTITY (1, 1), Product1 varchar(100), Product2 varchar(100), Product3 varchar(100), Product4 varchar(100), Product5 varchar(100), Product6 varchar(100), Product7 (varchar(100))", con);
                 com.ExecuteNonQuery();
+
+                cmd = new SqlCommand("Insert into Requirements (Product1, Product2, Product3, Product4, Product5, Product6, Product7) values(3, 3, 4, 3, 2, 3, 2");
 
                 con.Close();
                 return false;
@@ -249,6 +253,46 @@ namespace SWP_4IT_WP_VP
 
                 MessageBox.Show(CEX.ToString());
             }
+        }
+        public static void AutomaticOrderProducts()
+        {
+            try
+            {
+                con = new SqlConnection(ConnectionString02);
+                con.Open();
+                cmd = new SqlCommand("Select Product1 from Inventory");
+                cmd.ExecuteNonQuery();
+                con.Close();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+        public static void OrderProducts()
+        {
+            try
+            {
+                con = new SqlConnection(ConnectionString02);
+                con.Open();
+                cmd = new SqlCommand("Insert into ");
+                cmd.ExecuteNonQuery();
+                con.Close();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+        public static void CompareRequirementsToStock()
+        {
+            con = new SqlConnection(ConnectionString02);
+            con.Open();
+            cmd = new SqlCommand("Select * from Products");
+
+            SqlCommand cmd2 = new SqlCommand("Select * from Requirements");
         }
 
     }

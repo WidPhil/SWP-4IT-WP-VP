@@ -16,5 +16,10 @@ namespace SWP_4IT_WP_VP
         {
             InitializeComponent();
         }
+
+        private void btn_compare_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }
