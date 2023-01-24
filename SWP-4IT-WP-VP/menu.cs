@@ -95,11 +95,13 @@ namespace SWP_4IT_WP_VP
             openMainForm(new requirements());
         }
 
+        //
         private void buttonProduct_Click(object sender, EventArgs e)
         {
             openMainForm(new editProducts());
         }
 
+        //Opens Info
         private void buttonInfo_Click(object sender, EventArgs e)
         {
             SubMenuHide();
@@ -127,6 +129,7 @@ namespace SWP_4IT_WP_VP
             
         }
 
+        //Exit Button
         private void buttonExit_Click(object sender, EventArgs e)
         {
             Environment.Exit(0);

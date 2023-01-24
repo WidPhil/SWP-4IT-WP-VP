@@ -127,7 +127,7 @@ namespace SWP_4IT_WP_VP
             }
         }
 
-       
+       //Create Table Requirements
         public static bool createTableRequirements(string tname)
         {
             try
@@ -238,6 +238,7 @@ namespace SWP_4IT_WP_VP
             }
         }
 
+        //This Method Querys all the data from
         public static void GetInventory()
         {
             try
@@ -254,6 +255,8 @@ namespace SWP_4IT_WP_VP
                 MessageBox.Show(CEX.ToString());
             }
         }
+
+        //This Method checks if the Products are low in Quantity
         public static void AutomaticOrderProducts()
         {
             try
@@ -270,6 +273,8 @@ namespace SWP_4IT_WP_VP
                 throw;
             }
         }
+
+        //This Method orders Products
         public static void OrderProducts()
         {
             try
@@ -286,14 +291,16 @@ namespace SWP_4IT_WP_VP
                 throw;
             }
         }
-        public static void CompareRequirementsToStock()
-        {
-            con = new SqlConnection(ConnectionString02);
-            con.Open();
-            cmd = new SqlCommand("Select * from Products");
 
-            SqlCommand cmd2 = new SqlCommand("Select * from Requirements");
-        }
+        ////This Method
+        //public static void CompareRequirementsToStock()
+        //{
+        //    con = new SqlConnection(ConnectionString02);
+        //    con.Open();
+        //    cmd = new SqlCommand("Select * from Products");
+
+        //    SqlCommand cmd2 = new SqlCommand("Select * from Requirements");
+        //}
 
     }
 }
