@@ -22,11 +22,12 @@ namespace SWP_4IT_WP_VP
             InitializeComponent();
         }
 
+        //This Button should convert an Inventory into excel
         private void btn_convert_Click(object sender, EventArgs e)
         {
-            SaveFileDialog saveFileDialog = new SaveFileDialog();
-            saveFileDialog.ShowDialog();
-            saveFileDialog.FileName = "Test.xlsx";
+            //SaveFileDialog saveFileDialog = new SaveFileDialog();
+            //saveFileDialog.ShowDialog();
+            //saveFileDialog.FileName = "Test.xlsx";
             try
             {
                 SqlCommand cmd = new SqlCommand();
@@ -43,29 +44,62 @@ namespace SWP_4IT_WP_VP
 
                 //initialise
                 //load Excel and create a new Workbook
-                Microsoft.Office.Interop.Excel.Worksheet excelSheet = new Microsoft.Office.Interop.Excel.Worksheet();
+                //Microsoft.Office.Interop.Excel.Worksheet excelSheet = new Microsoft.Office.Interop.Excel.Worksheet();
                 Microsoft.Office.Interop.Excel.Application excel = new Microsoft.Office.Interop.Excel.Application();
 
-                //Workbook
-                Microsoft.Office.Interop.Excel.Workbook excelworkbook = new Microsoft.Office.Interop.Excel.Workbook();
-                excelworkbook.Worksheets.Add(data, "Inventur-Uebersicht");
 
-                //making Excel visible
-                excel.Visible = true;
-                excel.DisplayAlerts = true;
+                //Create a new Workbook
+                var workbook = excel.Workbooks.Add();
 
-                //Worksheet
-                excelSheet = (Microsoft.Office.Interop.Excel.Worksheet)excelworkbook.ActiveSheet;
-                excelSheet.Name = "Inventur";
-                excel.Workbooks.Add();
+                //Get the first worksheet
+                var worksheet = workbook.Worksheets[1];
+                
+                //Fill in the data
+                for(int i = 0; i < data.Rows.Count; i++)
+                {
+                    for(int j = 0; i < data.Columns.Count; j++)
+                    {
+                        worksheet.Cells[i + 1, j + 1] = data.Rows[i][j];
+                    }
+                }
 
-                excelSheet.Cells[1, 1] = "Test";
+                string filename = "Inventory.xlsx";
+                string folderpath = @"C:\Users\Admin\Documents\ExcelSWP";
+                
+                
 
-                //resize Columns
-                Microsoft.Office.Interop.Excel.Range excelCellrange;
-                excelCellrange = excelSheet.Range[excelSheet.Cells[1, 1], excelSheet.Cells[/*excelSheet.Rows,*/data.Columns.Count]];
-                excelCellrange.EntireColumn.AutoFit();
-                Microsoft.Office.Interop.Excel.Borders border = excelCellrange.Borders;
+                //Save the workbook
+                workbook.SaveAs(folderpath, filename);
+
+                //Close the workbook and Excel
+                workbook.Close();
+                excel.Quit();
+
+
+
+
+
+
+                ////Workbook
+                //Microsoft.Office.Interop.Excel.Workbook excelworkbook = new Microsoft.Office.Interop.Excel.Workbook();
+                //excelworkbook.Worksheets.Add(data, "Inventur-Uebersicht");
+
+                ////making Excel visible
+                //excel.Visible = true;
+                //excel.DisplayAlerts = true;
+
+                ////Worksheet
+                //excelSheet = (Microsoft.Office.Interop.Excel.Worksheet)excelworkbook.ActiveSheet;
+                //excelSheet.Name = "Inventur";
+                //excel.Workbooks.Add();
+
+                //excelSheet.Cells[1, 1] = "Test";
+
+                ////resize Columns
+                //Microsoft.Office.Interop.Excel.Range excelCellrange;
+                //excelCellrange = excelSheet.Range[excelSheet.Cells[1, 1], excelSheet.Cells[/*excelSheet.Rows,*/data.Columns.Count]];
+                //excelCellrange.EntireColumn.AutoFit();
+                //Microsoft.Office.Interop.Excel.Borders border = excelCellrange.Borders;
 
 
                 ////Datacells
@@ -92,6 +126,11 @@ namespace SWP_4IT_WP_VP
             //Microsoft.Office.Interop.Excel.Boders border = excelCellrange.Borders;
             //border.LineStyle = Microsoft.Office.Interop.Excel.XlLineStyle.xlContinous;
             //border.Weight = 2d;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
