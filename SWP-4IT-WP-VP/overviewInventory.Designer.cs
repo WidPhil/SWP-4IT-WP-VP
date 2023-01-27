@@ -36,9 +36,9 @@ namespace SWP_4IT_WP_VP
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(51, 57);
+            this.dataGridView1.Location = new System.Drawing.Point(22, 24);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(491, 260);
+            this.dataGridView1.Size = new System.Drawing.Size(544, 293);
             this.dataGridView1.TabIndex = 0;
             // 
             // overviewInventory
@@ -47,7 +47,7 @@ namespace SWP_4IT_WP_VP
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(600, 366);
             this.Controls.Add(this.dataGridView1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "overviewInventory";
             this.Text = "overviewInventory";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

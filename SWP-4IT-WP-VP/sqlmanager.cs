@@ -53,7 +53,7 @@ namespace SWP_4IT_WP_VP
         }
 
         //Creates Table Products
-        public static bool createTableProducts(string tname)
+        public static bool createTableInventory(string tname)
         {
             try
             {
@@ -75,9 +75,9 @@ namespace SWP_4IT_WP_VP
 
                 SqlCommand com = new SqlCommand("Create Table " + tname + "(id int primary key IDENTITY (1, 1), name varchar(100), type varchar(100), brand varchar(100),  price varchar(100), amount varchar(100), availableFor varchar(100))", con);
                 //test products
-                SqlCommand com02 = new SqlCommand("insert into Products(name, type, brand, price, amount, availableFor) values('SM34', 'Wanderschuhe', 'Salomon', '0.0EUR', '100Stück', 'women')", con);
+                //SqlCommand com02 = new SqlCommand("insert into Products(name, type, brand, price, amount, availableFor) values('SM34', 'Wanderschuhe', 'Salomon', '0.0EUR', '100Stück', 'women')", con);
                 com.ExecuteNonQuery();
-                com02.ExecuteNonQuery();
+                //com02.ExecuteNonQuery();
 
                 con.Close();
                 return false;
@@ -150,10 +150,10 @@ namespace SWP_4IT_WP_VP
 
                 //SqlCommand com = new SqlCommand("Create Table " + tname + "(id int primary key IDENTITY (1, 1), name varchar(100), type varchar(100), inStock varchar(100), MinimumStock varchar(100))", con);
                 //com.ExecuteNonQuery();
-                SqlCommand com = new SqlCommand("Create Table " + tname + "(id int primary key IDENTITY (1, 1), Product1 varchar(100), Product2 varchar(100), Product3 varchar(100), Product4 varchar(100), Product5 varchar(100), Product6 varchar(100), Product7 (varchar(100))", con);
+                SqlCommand com = new SqlCommand("Create Table " + tname + "(id int primary key IDENTITY (1, 1), Product1 varchar(100), Product2 varchar(100), Product3 varchar(100), Product4 varchar(100), Product5 varchar(100), Product6 varchar(100), Product7 varchar(100))", con);
                 com.ExecuteNonQuery();
 
-                cmd = new SqlCommand("Insert into Requirements (Product1, Product2, Product3, Product4, Product5, Product6, Product7) values(3, 3, 4, 3, 2, 3, 2");
+                //cmd = new SqlCommand("Insert into Requirements (Product1, Product2, Product3, Product4, Product5, Product6, Product7) values(3, 3, 4, 3, 2, 3, 2");
 
                 con.Close();
                 return false;
@@ -173,7 +173,6 @@ namespace SWP_4IT_WP_VP
             try
             {
                 con = new SqlConnection(ConnectionString02);
-
                 con.Open();
                 cmd = new SqlCommand("insert into Users(name, Email, password, hashedPassword) values('" + name + "', '" + Email + "', '" + password + "', '" + Hash + "')", con);
                 cmd.ExecuteNonQuery();
@@ -182,7 +181,6 @@ namespace SWP_4IT_WP_VP
             }
             catch (Exception)
             {
-
                 throw;
             }
         }
@@ -200,41 +198,29 @@ namespace SWP_4IT_WP_VP
             }
             catch (Exception)
             {
-
                 throw;
             }
         }
 
         //Get Password
-        public static void ReadPassword(string username, string Password)
+        public static string ReadPassword(string username)
         {
             try
             {
-                con = new SqlConnection(ConnectionString);
+                con = new SqlConnection(ConnectionString02);
                 con.Open();
-                cmd = new SqlCommand("SELECT hashedPassword FROM Users where Username = " + username, con);
-                cmd.ExecuteNonQuery();
-
-                cmd = new SqlCommand("SELECT password FROM Users where Username = " + username, con);
-                cmd.ExecuteNonQuery();
-                while (reader.Read())
-                {
-                    if (reader.GetString(0).Equals(Password))
-                    {
-                        bool Checkpassword = true;
-                    }
-                }
-                reader = cmd.ExecuteReader();
-                reader.GetString(0);
-                string password = reader.GetString(1);
-
+                cmd = new SqlCommand("SELECT password FROM Users Where name = '"+ username + "'", con);
+                
+                string password = (string)cmd.ExecuteScalar();
+                return password;
                 con.Close();
 
             }
             catch (Exception)
             {
-
+                
                 throw;
+                
             }
         }
 
@@ -251,7 +237,6 @@ namespace SWP_4IT_WP_VP
             }
             catch (Exception CEX)
             {
-
                 MessageBox.Show(CEX.ToString());
             }
         }
@@ -291,16 +276,5 @@ namespace SWP_4IT_WP_VP
                 throw;
             }
         }
-
-        ////This Method
-        //public static void CompareRequirementsToStock()
-        //{
-        //    con = new SqlConnection(ConnectionString02);
-        //    con.Open();
-        //    cmd = new SqlCommand("Select * from Products");
-
-        //    SqlCommand cmd2 = new SqlCommand("Select * from Requirements");
-        //}
-
     }
 }

@@ -30,48 +30,12 @@ namespace SWP_4IT_WP_VP
         private void Login_Load(object sender, EventArgs e)
         {
             sqlmanager.createDatabase("Intersport");
-            sqlmanager.createTableProducts("Products");
+            sqlmanager.createTableInventory("Inventory");
             sqlmanager.createTableUsers("Users");
-            //sqlmanager.createTableRequirements("Requirements");
-
+            sqlmanager.createTableRequirements("Requirements");
         }
 
-        //Opens Forms
-        private void buttonLogin_Click(object sender, EventArgs e)
-        {
-            
-            menu m = new menu();
-            login l = new login();
-            m.Show();
-            l.Hide();
-
-            converter excel = new converter();
-            excel.Show();
-
-            //try
-            //{
-            //    string username = textBoxUser.Text;
-            //    string Password = textBoxPassword.Text;
-                
-            //    //BCrypt.CheckPassword(Password, )
-            //    sqlmanager.ReadPassword(username, Password);
-
-            //    bool doesPasswordMatch = BCrypt.CheckPassword(password, myHash);
-            //    if (doesPasswordMatch == true)
-            //    {
-            //        MessageBox.Show("Successfully logged in!");
-            //    }
-            //}
-            //catch (Exception)
-            //{
-            //    MessageBox.Show("Wrong!");
-            //    throw;
-            //}
-
-
-            //if (textBoxUser.Text ==)
-            
-        }
+        
 
         //Opens Form for sending Recovery Code
         private void buttonForgetPassword_Click(object sender, EventArgs e)
@@ -109,8 +73,29 @@ namespace SWP_4IT_WP_VP
             }
             catch (Exception)
             {
-
                 throw;
+            }
+        }
+
+        //Opens Forms
+        private void buttonLogin_Click(object sender, EventArgs e)
+        {
+            Username = textBoxUser.Text;
+            password = sqlmanager.ReadPassword(Username);
+
+            bool isValid = BCrypt.CheckPassword(password, myHash);
+            if (isValid)
+            {
+                MessageBox.Show("Valid Password!");
+                
+                menu m = new menu();
+                m.Show();
+                //converter excel = new converter();
+                //excel.Show();
+            }
+            else
+            {
+                MessageBox.Show("Invalid Password!");
             }
         }
 
@@ -172,15 +157,6 @@ namespace SWP_4IT_WP_VP
                 textboxEmail.Text = "E-Mail";
             }
             textboxEmail.ForeColor = Color.Silver;
-        }
-
-        //Testbutton for Menu
-        private void buttonTest_Click(object sender, EventArgs e)
-        {
-            menu m = new menu();
-            login l = new login();
-            m.Show();
-            l.Hide();
         }
     }
 }
