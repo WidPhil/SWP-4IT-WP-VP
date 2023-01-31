@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(menu));
             this.panelMain = new System.Windows.Forms.Panel();
             this.panelMain02 = new System.Windows.Forms.Panel();
+            this.buttonExit = new System.Windows.Forms.Button();
             this.panelMenuLogo = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.buttonInventory = new System.Windows.Forms.Button();
@@ -46,7 +47,6 @@
             this.buttonOrder = new System.Windows.Forms.Button();
             this.panelMainMenu = new System.Windows.Forms.Panel();
             this.buttonInfo = new System.Windows.Forms.Button();
-            this.buttonExit = new System.Windows.Forms.Button();
             this.panelMain.SuspendLayout();
             this.panelMain02.SuspendLayout();
             this.panelMenuLogo.SuspendLayout();
@@ -75,6 +75,20 @@
             this.panelMain02.Name = "panelMain02";
             this.panelMain02.Size = new System.Drawing.Size(792, 100);
             this.panelMain02.TabIndex = 0;
+            // 
+            // buttonExit
+            // 
+            this.buttonExit.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.buttonExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonExit.Font = new System.Drawing.Font("Arial", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonExit.ForeColor = System.Drawing.Color.DarkRed;
+            this.buttonExit.Location = new System.Drawing.Point(0, 70);
+            this.buttonExit.Name = "buttonExit";
+            this.buttonExit.Size = new System.Drawing.Size(792, 30);
+            this.buttonExit.TabIndex = 0;
+            this.buttonExit.Text = "Exit";
+            this.buttonExit.UseVisualStyleBackColor = true;
+            this.buttonExit.Click += new System.EventHandler(this.buttonExit_Click);
             // 
             // panelMenuLogo
             // 
@@ -309,19 +323,6 @@
             this.buttonInfo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonInfo.UseVisualStyleBackColor = false;
             this.buttonInfo.Click += new System.EventHandler(this.buttonInfo_Click);
-            // 
-            // buttonExit
-            // 
-            this.buttonExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonExit.Font = new System.Drawing.Font("Arial", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonExit.ForeColor = System.Drawing.Color.DarkRed;
-            this.buttonExit.Location = new System.Drawing.Point(658, 58);
-            this.buttonExit.Name = "buttonExit";
-            this.buttonExit.Size = new System.Drawing.Size(122, 30);
-            this.buttonExit.TabIndex = 0;
-            this.buttonExit.Text = "Exit";
-            this.buttonExit.UseVisualStyleBackColor = true;
-            this.buttonExit.Click += new System.EventHandler(this.buttonExit_Click);
             // 
             // menu
             // 

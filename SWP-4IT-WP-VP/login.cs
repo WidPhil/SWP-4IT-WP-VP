@@ -158,5 +158,11 @@ namespace SWP_4IT_WP_VP
             }
             textboxEmail.ForeColor = Color.Silver;
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            menu m = new menu();
+            m.Show();
+        }
     }
 }
