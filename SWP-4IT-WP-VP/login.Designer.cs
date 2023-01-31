@@ -195,8 +195,7 @@
             // btn_signup
             // 
             this.btn_signup.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.btn_signup.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Bold);
-            this.btn_signup.ForeColor = System.Drawing.Color.White;
+            this.btn_signup.Font = new System.Drawing.Font("Arial", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_signup.Location = new System.Drawing.Point(271, 280);
             this.btn_signup.Name = "btn_signup";
             this.btn_signup.Size = new System.Drawing.Size(141, 24);
