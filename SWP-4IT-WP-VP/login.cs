@@ -15,7 +15,7 @@ namespace SWP_4IT_WP_VP
     public partial class login : Form
     {
 
-        public static string Username;
+        
         public static string password;
         public static string name;
         public static string Email;
@@ -80,8 +80,8 @@ namespace SWP_4IT_WP_VP
         //Opens Forms
         private void buttonLogin_Click(object sender, EventArgs e)
         {
-            Username = textBoxUser.Text;
-            password = sqlmanager.ReadPassword(Username);
+            name = textBoxUser.Text;
+            password = sqlmanager.ReadPassword(name);
 
             bool isValid = BCrypt.CheckPassword(password, myHash);
             if (isValid)
@@ -90,8 +90,8 @@ namespace SWP_4IT_WP_VP
                 
                 menu m = new menu();
                 m.Show();
-                //converter excel = new converter();
-                //excel.Show();
+                converter excel = new converter();
+                excel.Show();
             }
             else
             {

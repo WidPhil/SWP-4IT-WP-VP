@@ -13,7 +13,7 @@ namespace SWP_4IT_WP_VP
         public static string ConnectionString = "server = (localdb)\\MSSQLLocalDB; Integrated Security = true";
         public static string ConnectionString02 = "server = (localdb)\\MSSQLLocalDB; database = Intersport; Integrated Security = true";
 
-        public static string username = login.Username;
+        public static string username = login.name;
 
         public static SqlConnection con;
         public static SqlCommand cmd;
@@ -183,19 +183,20 @@ namespace SWP_4IT_WP_VP
         }
 
         //Updates Password in Table
-        public static void NewPassword(string newPassword, string Username, string Email)
+        //working on it
+        public static void NewPassword(string newPassword, string Username, string newHash)
         {
             try
             {
                 con = new SqlConnection(ConnectionString02);
                 con.Open();
-                cmd = new SqlCommand("UPDATE Users SET password = " + newPassword + " WHERE Email = " + Email + ";", con);
+                cmd = new SqlCommand("UPDATE Users SET password = '" + newPassword + "', hashedPassword = '" + newHash + "' WHERE name = '" + Username + "';", con);
                 cmd.ExecuteNonQuery();
                 con.Close();
             }
             catch (Exception)
             {
-                throw;
+                MessageBox.Show("Updated successfully");
             }
         }
 
