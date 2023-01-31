@@ -16,5 +16,17 @@ namespace SWP_4IT_WP_VP
         {
             InitializeComponent();
         }
+
+        private void createInventory_Load(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void buttonCreate_Click(object sender, EventArgs e)
+        {
+            string inventoryName = textBoxDate.Text.ToString();
+            //string inventoryName = dateTimePickerInventory.Value.ToShortDateString();
+            sqlmanager.createTableInventory(inventoryName);
+        }
     }
 }
