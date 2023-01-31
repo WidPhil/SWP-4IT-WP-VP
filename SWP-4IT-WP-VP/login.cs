@@ -30,48 +30,12 @@ namespace SWP_4IT_WP_VP
         private void Login_Load(object sender, EventArgs e)
         {
             sqlmanager.createDatabase("Intersport");
-            sqlmanager.createTableProducts("Products");
+            sqlmanager.createTableInventory("Inventory");
             sqlmanager.createTableUsers("Users");
             sqlmanager.createTableRequirements("Requirements");
-
         }
 
-        //Opens Forms
-        private void buttonLogin_Click(object sender, EventArgs e)
-        {
-            
-            menu m = new menu();
-            login l = new login();
-            m.Show();
-            l.Hide();
-
-            converter excel = new converter();
-            excel.Show();
-
-            //try
-            //{
-            //    string username = textBoxUser.Text;
-            //    string Password = textBoxPassword.Text;
-                
-            //    //BCrypt.CheckPassword(Password, )
-            //    sqlmanager.ReadPassword(username, Password);
-
-            //    bool doesPasswordMatch = BCrypt.CheckPassword(password, myHash);
-            //    if (doesPasswordMatch == true)
-            //    {
-            //        MessageBox.Show("Successfully logged in!");
-            //    }
-            //}
-            //catch (Exception)
-            //{
-            //    MessageBox.Show("Wrong!");
-            //    throw;
-            //}
-
-
-            //if (textBoxUser.Text ==)
-            
-        }
+        
 
         //Opens Form for sending Recovery Code
         private void buttonForgetPassword_Click(object sender, EventArgs e)
@@ -109,12 +73,33 @@ namespace SWP_4IT_WP_VP
             }
             catch (Exception)
             {
-
                 throw;
             }
         }
 
-        //If User hovers over Textbox the Text is invisible
+        //Opens Forms
+        private void buttonLogin_Click(object sender, EventArgs e)
+        {
+            Username = textBoxUser.Text;
+            password = sqlmanager.ReadPassword(Username);
+
+            bool isValid = BCrypt.CheckPassword(password, myHash);
+            if (isValid)
+            {
+                MessageBox.Show("Valid Password!");
+                
+                menu m = new menu();
+                m.Show();
+                //converter excel = new converter();
+                //excel.Show();
+            }
+            else
+            {
+                MessageBox.Show("Invalid Password!");
+            }
+        }
+
+        //If User hovers over Username-Textbox the Text is cleared
         private void textBoxUserEnter(object sender, EventArgs e)
         {
             if (textBoxUser.Text.Equals("Username"))
@@ -124,6 +109,7 @@ namespace SWP_4IT_WP_VP
             textBoxUser.ForeColor = Color.Black;
         }
 
+        //If User doesn't hover over Username-textbox anymore the Text shows up
         private void textBoxUserLeave(object sender, EventArgs e)
         {
             if (textBoxUser.Text.Equals(""))
@@ -133,6 +119,7 @@ namespace SWP_4IT_WP_VP
             textBoxUser.ForeColor = Color.Silver;
         }
 
+        //If User hovers over Password the text is cleared
         private void textBoxPasswordEnter(object sender, EventArgs e)
         {
             if (textBoxPassword.Text.Equals("Password"))
@@ -142,6 +129,7 @@ namespace SWP_4IT_WP_VP
             textBoxPassword.ForeColor = Color.Black;
         }
 
+        //If User doesn't hover over Password anymore the text shows up
         private void textBoxPasswordLeave(object sender, EventArgs e)
         {
             if (textBoxPassword.Text.Equals(""))
@@ -150,7 +138,8 @@ namespace SWP_4IT_WP_VP
             }
             textBoxPassword.ForeColor = Color.Silver;
         }
-
+        
+        //If User hovers over Email the text gets cleared
         private void textboxEmailEnter(object sender, EventArgs e)
         {
             if (textboxEmail.Text.Equals("E-Mail"))
@@ -160,6 +149,7 @@ namespace SWP_4IT_WP_VP
             textboxEmail.ForeColor = Color.Black;
         }
 
+        //If User doesn't hover over Email anymore the text shows up
         private void textboxEmailLeave(object sender, EventArgs e)
         {
             if (textboxEmail.Text.Equals(""))
@@ -168,38 +158,5 @@ namespace SWP_4IT_WP_VP
             }
             textboxEmail.ForeColor = Color.Silver;
         }
-
-        private void buttonTest_Click(object sender, EventArgs e)
-        {
-            menu m = new menu();
-            login l = new login();
-            m.Show();
-            l.Hide();
-        }
-
-        //private static string GetRandomSalt()
-        //{
-        //    return BCrypt.GenerateSalt(12);
-        //}
-
-        //public static string HashPassword(string Password)
-        //{
-        //    return BCrypt.HashPassword(Password, GetRandomSalt());
-
-        //}
-        //public static void ValidatePassword(string Password, string passwordHash)
-        //{
-        //    bool verified = BCrypt.CheckPassword(Password, passwordHash);
-        //    if (verified == true)
-        //    {
-        //        MessageBox.Show("Logged in successfully!");
-        //    }
-        //}
-
-        //public static void GetPassword()
-        //{
-        //    string Password = sqlmanager.ReadPassword();
-        //}
-
     }
 }

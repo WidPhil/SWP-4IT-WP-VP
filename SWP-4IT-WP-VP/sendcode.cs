@@ -47,7 +47,7 @@ namespace SWP_4IT_WP_VP
             //recovery Code in Datenbank speichern
         }
 
-        //Opens NewPassword Form
+        //Opens NewPassword Form if the verification-Code is correct
         private void btn_recover_Click(object sender, EventArgs e)
         {
             if (txtbox_verificationcode.Text == randomCode)
@@ -61,6 +61,7 @@ namespace SWP_4IT_WP_VP
             }
         }
 
+        //Email wird übertragen
         private void sendcode_Load(object sender, EventArgs e)
         {
             txtbox_Email.Text = login.Email;
