@@ -73,12 +73,9 @@ namespace SWP_4IT_WP_VP
                 }
                 checkTable.Close();
 
-                SqlCommand com = new SqlCommand("Create Table " + tname + "(id int primary key IDENTITY (1, 1), name varchar(100), type varchar(100), brand varchar(100),  price varchar(100), amount varchar(100), availableFor varchar(100))", con);
-                //test products
-                //SqlCommand com02 = new SqlCommand("insert into Products(name, type, brand, price, amount, availableFor) values('SM34', 'Wanderschuhe', 'Salomon', '0.0EUR', '100Stück', 'women')", con);
+                SqlCommand com = new SqlCommand("Create Table " + tname + "(id int primary key IDENTITY (1, 1), name varchar(100), quantity varchar(100), measurement varchar(100), valuePerPiece varchar(100), valueTotal varchar(100), sum varchar(100))", con);
                 com.ExecuteNonQuery();
-                //com02.ExecuteNonQuery();
-
+                
                 con.Close();
                 return false;
 

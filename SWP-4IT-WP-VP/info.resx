@@ -117,4 +117,15 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="richTextBoxInfo.Text" xml:space="preserve">
+    <value>With this software you can create an inventory in the menu above. Just click on the button inventory - create. 
+You can also take a look of the inventory you already created with the button inevntory - overview.
+If you want to convert a inventory into an excel sheet click on inventory - convert.
+To compare the inventory with another one to spot mistakes or deviations click inventory - compare.
+
+The products your company sells or needs can be add into a table. Just click Products - products.
+If you want to take a look at the products that are minimum required click products - requirements.
+When you made an inventory and need to order some products click products - order.
+</value>
+  </data>
 </root>
