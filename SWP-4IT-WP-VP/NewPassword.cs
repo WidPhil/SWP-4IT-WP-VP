@@ -12,8 +12,9 @@ namespace SWP_4IT_WP_VP
 {
     public partial class NewPassword : Form
     {
-        public static string Username = sendcode.Username;
+        public static string Username = login.name;
         public static string Email = sendcode.Email;
+        //public static string myHash = login.myHash;
         public NewPassword()
         {
             InitializeComponent();
@@ -23,13 +24,32 @@ namespace SWP_4IT_WP_VP
         private void btn_recover_Click(object sender, EventArgs e)
         {
             string newPassword = txtbox_newPassword.Text;
-            if (newPassword == txtbox_confirmation.Text)
+            string confirmation = txtbox_confirmation.Text;
+            try
             {
-                sqlmanager.NewPassword(newPassword, Username, Email);
-                login l = new login();
-                l.Show();
+                if (newPassword == confirmation)
+                {
+                    string mySalt = BCrypt.GenerateSalt();
+                    string newHash = BCrypt.HashPassword(newPassword, mySalt);
+
+                 
+
+                    sqlmanager.NewPassword(newPassword, Username, newHash);
+                    MessageBox.Show("worked!");
+                    //login l = new login();
+                    //l.Show();
+                }
+
+               
+                //else
+                //    sqlmanager.AddUser(Username, Email, newPassword, myHash);
+
             }
-            MessageBox.Show("Password changed successfully");
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
     }
 }

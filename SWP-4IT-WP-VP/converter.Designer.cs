@@ -31,6 +31,8 @@
             this.lbl_excel = new System.Windows.Forms.Label();
             this.cb_inventories = new System.Windows.Forms.ComboBox();
             this.btn_convert = new System.Windows.Forms.Button();
+            this.dgv_convert = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_convert)).BeginInit();
             this.SuspendLayout();
             // 
             // lbl_excel
@@ -64,18 +66,28 @@
             this.btn_convert.UseVisualStyleBackColor = true;
             this.btn_convert.Click += new System.EventHandler(this.btn_convert_Click);
             // 
+            // dgv_convert
+            // 
+            this.dgv_convert.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_convert.Location = new System.Drawing.Point(377, 181);
+            this.dgv_convert.Name = "dgv_convert";
+            this.dgv_convert.Size = new System.Drawing.Size(240, 150);
+            this.dgv_convert.TabIndex = 3;
+            // 
             // converter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(393, 258);
+            this.ClientSize = new System.Drawing.Size(734, 369);
+            this.Controls.Add(this.dgv_convert);
             this.Controls.Add(this.btn_convert);
             this.Controls.Add(this.cb_inventories);
             this.Controls.Add(this.lbl_excel);
             this.Name = "converter";
             this.Text = "converter";
             this.Load += new System.EventHandler(this.converter_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_convert)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -86,5 +98,6 @@
         private System.Windows.Forms.Label lbl_excel;
         private System.Windows.Forms.ComboBox cb_inventories;
         private System.Windows.Forms.Button btn_convert;
+        private System.Windows.Forms.DataGridView dgv_convert;
     }
 }
