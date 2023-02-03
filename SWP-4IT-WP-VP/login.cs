@@ -82,7 +82,9 @@ namespace SWP_4IT_WP_VP
         {
             name = textBoxUser.Text;
             password = sqlmanager.ReadPassword(name);
-
+            mySalt = BCrypt.GenerateSalt();
+            myHash = BCrypt.HashPassword(password, mySalt);
+            MessageBox.Show(myHash);
             bool isValid = BCrypt.CheckPassword(password, myHash);
             if (isValid)
             {

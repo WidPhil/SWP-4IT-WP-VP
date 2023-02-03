@@ -34,22 +34,42 @@ namespace SWP_4IT_WP_VP
             
             from = "Inventurprogramm-Widauer-Payr@outlook.com";
             to = txtbox_Email.Text;
+            string user = txtbox_user.Text;
 
-            SmtpClient client = new SmtpClient("smtp-mail.outlook.com")
+            try
             {
-                Port = 587,
-                Credentials = new NetworkCredential("Inventurprogramm-Widauer-Payr@outlook.com", "INV12345?!"),
-                EnableSsl = true
-            };
-            client.Send(from, to, "Recovery Code", "Your recovery Code is: " + randomCode);
+                if (txtbox_Email.Text == "" || txtbox_user.Text == "")
+                {
+                    MessageBox.Show("Email or Username is missing");
+                }
+                else
+                {
+                    SmtpClient client = new SmtpClient("smtp-mail.outlook.com")
+                    {
+                        Port = 587,
+                        Credentials = new NetworkCredential("Inventurprogramm-Widauer-Payr@outlook.com", "INV12345?!"),
+                        EnableSsl = true
+                    };
+                    client.Send(from, to, "Recovery Code", "Dear Mr/Mrs. " + user + ", your recovery Code is: " + randomCode);
 
-            Email = txtbox_Email.Text;
+                    Email = txtbox_Email.Text;
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+           
             //recovery Code in Datenbank speichern
         }
 
         //Opens NewPassword Form if the verification-Code is correct
         private void btn_recover_Click(object sender, EventArgs e)
         {
+           
+
             if (txtbox_verificationcode.Text == randomCode)
             {
                 NewPassword newPassword = new NewPassword();
