@@ -35,11 +35,13 @@ namespace SWP_4IT_WP_VP
             this.txtbox_verificationcode = new System.Windows.Forms.TextBox();
             this.lbl_verify = new System.Windows.Forms.Label();
             this.lbl_Email = new System.Windows.Forms.Label();
+            this.txtbox_user = new System.Windows.Forms.TextBox();
+            this.lbl_user = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btn_sendcode
             // 
-            this.btn_sendcode.Location = new System.Drawing.Point(12, 63);
+            this.btn_sendcode.Location = new System.Drawing.Point(12, 117);
             this.btn_sendcode.Name = "btn_sendcode";
             this.btn_sendcode.Size = new System.Drawing.Size(162, 27);
             this.btn_sendcode.TabIndex = 2;
@@ -56,7 +58,7 @@ namespace SWP_4IT_WP_VP
             // 
             // btn_recover
             // 
-            this.btn_recover.Location = new System.Drawing.Point(12, 183);
+            this.btn_recover.Location = new System.Drawing.Point(11, 242);
             this.btn_recover.Name = "btn_recover";
             this.btn_recover.Size = new System.Drawing.Size(162, 31);
             this.btn_recover.TabIndex = 4;
@@ -66,7 +68,7 @@ namespace SWP_4IT_WP_VP
             // 
             // txtbox_verificationcode
             // 
-            this.txtbox_verificationcode.Location = new System.Drawing.Point(12, 146);
+            this.txtbox_verificationcode.Location = new System.Drawing.Point(11, 205);
             this.txtbox_verificationcode.Name = "txtbox_verificationcode";
             this.txtbox_verificationcode.Size = new System.Drawing.Size(204, 20);
             this.txtbox_verificationcode.TabIndex = 3;
@@ -74,7 +76,7 @@ namespace SWP_4IT_WP_VP
             // lbl_verify
             // 
             this.lbl_verify.AutoSize = true;
-            this.lbl_verify.Location = new System.Drawing.Point(13, 127);
+            this.lbl_verify.Location = new System.Drawing.Point(12, 186);
             this.lbl_verify.Name = "lbl_verify";
             this.lbl_verify.Size = new System.Drawing.Size(88, 13);
             this.lbl_verify.TabIndex = 4;
@@ -89,11 +91,29 @@ namespace SWP_4IT_WP_VP
             this.lbl_Email.TabIndex = 5;
             this.lbl_Email.Text = "Email:";
             // 
+            // txtbox_user
+            // 
+            this.txtbox_user.Location = new System.Drawing.Point(15, 91);
+            this.txtbox_user.Name = "txtbox_user";
+            this.txtbox_user.Size = new System.Drawing.Size(201, 20);
+            this.txtbox_user.TabIndex = 6;
+            // 
+            // lbl_user
+            // 
+            this.lbl_user.AutoSize = true;
+            this.lbl_user.Location = new System.Drawing.Point(12, 65);
+            this.lbl_user.Name = "lbl_user";
+            this.lbl_user.Size = new System.Drawing.Size(58, 13);
+            this.lbl_user.TabIndex = 7;
+            this.lbl_user.Text = "Username:";
+            // 
             // sendcode
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(228, 247);
+            this.ClientSize = new System.Drawing.Size(282, 289);
+            this.Controls.Add(this.lbl_user);
+            this.Controls.Add(this.txtbox_user);
             this.Controls.Add(this.lbl_Email);
             this.Controls.Add(this.lbl_verify);
             this.Controls.Add(this.txtbox_verificationcode);
@@ -116,5 +136,7 @@ namespace SWP_4IT_WP_VP
         private System.Windows.Forms.TextBox txtbox_verificationcode;
         private System.Windows.Forms.Label lbl_verify;
         private System.Windows.Forms.Label lbl_Email;
+        private System.Windows.Forms.TextBox txtbox_user;
+        private System.Windows.Forms.Label lbl_user;
     }
 }
