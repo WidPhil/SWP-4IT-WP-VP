@@ -165,13 +165,13 @@ namespace SWP_4IT_WP_VP
         }
 
         //Adds User to Table
-        public static void AddUser(string name, string Email, string password, string Hash)
+        public static void AddUser(string name, string Email, string Hash)
         {
             try
             {
                 con = new SqlConnection(ConnectionString02);
                 con.Open();
-                cmd = new SqlCommand("insert into Users(name, Email, password, hashedPassword) values('" + name + "', '" + Email + "', '" + password + "', '" + Hash + "')", con);
+                cmd = new SqlCommand("insert into Users(name, Email, hashedPassword) values('" + name + "', '" + Email + "', '" + Hash + "')", con);
                 cmd.ExecuteNonQuery();
                 con.Close();
                 MessageBox.Show("Signed up successfully!");
@@ -184,13 +184,13 @@ namespace SWP_4IT_WP_VP
 
         //Updates Password in Table
         //working on it
-        public static void NewPassword(string newPassword, string Username, string newHash)
+        public static void NewPassword(string Username, string newHash)
         {
             try
             {
                 con = new SqlConnection(ConnectionString02);
                 con.Open();
-                cmd = new SqlCommand("UPDATE Users SET password = '" + newPassword + "', hashedPassword = '" + newHash + "' WHERE name = '" + Username + "';", con);
+                cmd = new SqlCommand("UPDATE Users SET hashedPassword = '" + newHash + "' WHERE name = '" + Username + "';", con);
                 cmd.ExecuteNonQuery();
                 con.Close();
             }
@@ -207,12 +207,10 @@ namespace SWP_4IT_WP_VP
             {
                 con = new SqlConnection(ConnectionString02);
                 con.Open();
-                cmd = new SqlCommand("SELECT password FROM Users Where name = '"+ username + "'", con);
-                
+                cmd = new SqlCommand("SELECT hashedPassword FROM Users Where name = '"+ username + "'", con);
                 string password = (string)cmd.ExecuteScalar();
-                return password;
                 con.Close();
-
+                return password;
             }
             catch (Exception)
             {

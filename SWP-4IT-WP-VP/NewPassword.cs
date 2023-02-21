@@ -31,19 +31,10 @@ namespace SWP_4IT_WP_VP
                 {
                     string mySalt = BCrypt.GenerateSalt();
                     string newHash = BCrypt.HashPassword(newPassword, mySalt);
-
-                 
-
-                    sqlmanager.NewPassword(newPassword, Username, newHash);
+                    sqlmanager.NewPassword(Username, newHash);
                     MessageBox.Show("worked!");
-                    //login l = new login();
-                    //l.Show();
+                    
                 }
-
-               
-                //else
-                //    sqlmanager.AddUser(Username, Email, newPassword, myHash);
-
             }
             catch (Exception)
             {

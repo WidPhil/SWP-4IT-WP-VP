@@ -20,7 +20,9 @@ namespace SWP_4IT_WP_VP
         public static string name;
         public static string Email;
         public static string mySalt;
-        public static string myHash;
+        public static string FirstHash;
+        public static string checkHash;
+        public static string PlainText;
         public login()
         {
             InitializeComponent();
@@ -54,7 +56,7 @@ namespace SWP_4IT_WP_VP
                 password = textBoxPassword.Text;
                 Email = textboxEmail.Text;
                 mySalt = BCrypt.GenerateSalt();
-                myHash = BCrypt.HashPassword(password, mySalt);
+                FirstHash = BCrypt.HashPassword(password, mySalt);
 
                 if (name == "" || name == "Username")
                 {
@@ -69,7 +71,7 @@ namespace SWP_4IT_WP_VP
                     MessageBox.Show("Please type in an Email!");
                 }
                 else
-                    sqlmanager.AddUser(name, Email, password, myHash);
+                    sqlmanager.AddUser(name, Email, FirstHash);
             }
             catch (Exception)
             {
@@ -81,12 +83,11 @@ namespace SWP_4IT_WP_VP
         private void buttonLogin_Click(object sender, EventArgs e)
         {
             name = textBoxUser.Text;
-            password = sqlmanager.ReadPassword(name);
-            mySalt = BCrypt.GenerateSalt();
-            myHash = BCrypt.HashPassword(password, mySalt);
-            MessageBox.Show(myHash);
-            bool isValid = BCrypt.CheckPassword(password, myHash);
-            if (isValid)
+            PlainText = textBoxPassword.Text;
+            checkHash = sqlmanager.ReadPassword(name);
+
+            bool isValid = BCrypt.CheckPassword(PlainText, checkHash);
+            if (isValid == true)
             {
                 MessageBox.Show("Valid Password!");
                 
@@ -101,6 +102,7 @@ namespace SWP_4IT_WP_VP
             }
         }
 
+        #region Textboxbehavior
         //If User hovers over Username-Textbox the Text is cleared
         private void textBoxUserEnter(object sender, EventArgs e)
         {
@@ -160,7 +162,7 @@ namespace SWP_4IT_WP_VP
             }
             textboxEmail.ForeColor = Color.Silver;
         }
-
+        #endregion
         private void button1_Click(object sender, EventArgs e)
         {
             menu m = new menu();
