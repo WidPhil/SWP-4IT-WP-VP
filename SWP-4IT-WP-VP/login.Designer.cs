@@ -44,6 +44,7 @@
             this.textboxEmail = new System.Windows.Forms.TextBox();
             this.labelSignUp = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUserIcon)).BeginInit();
@@ -195,7 +196,7 @@
             this.btn_signup.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.btn_signup.Font = new System.Drawing.Font("Arial", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_signup.Location = new System.Drawing.Point(361, 345);
-            this.btn_signup.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_signup.Margin = new System.Windows.Forms.Padding(4);
             this.btn_signup.Name = "btn_signup";
             this.btn_signup.Size = new System.Drawing.Size(188, 30);
             this.btn_signup.TabIndex = 6;
@@ -208,7 +209,7 @@
             this.textboxEmail.Font = new System.Drawing.Font("Arial", 9F);
             this.textboxEmail.ForeColor = System.Drawing.Color.Silver;
             this.textboxEmail.Location = new System.Drawing.Point(384, 153);
-            this.textboxEmail.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textboxEmail.Margin = new System.Windows.Forms.Padding(4);
             this.textboxEmail.Name = "textboxEmail";
             this.textboxEmail.Size = new System.Drawing.Size(369, 25);
             this.textboxEmail.TabIndex = 1;
@@ -237,11 +238,21 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(441, 270);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(46, 17);
+            this.label1.TabIndex = 16;
+            this.label1.Text = "label1";
+            // 
             // login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.labelSignUp);
             this.Controls.Add(this.textboxEmail);
@@ -287,5 +298,6 @@
         private System.Windows.Forms.TextBox textboxEmail;
         private System.Windows.Forms.Label labelSignUp;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label1;
     }
 }
