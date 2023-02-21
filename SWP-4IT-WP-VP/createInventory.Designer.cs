@@ -29,60 +29,59 @@ namespace SWP_4IT_WP_VP
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.buttonCreate = new System.Windows.Forms.Button();
+            this.components = new System.ComponentModel.Container();
+            this.dataGridViewInventory = new System.Windows.Forms.DataGridView();
             this.buttonCancel = new System.Windows.Forms.Button();
-            this.dateTimePickerInventory = new System.Windows.Forms.DateTimePicker();
             this.buttonSave = new System.Windows.Forms.Button();
-            this.textBoxDate = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.dateTimePickerInventory = new System.Windows.Forms.DateTimePicker();
+            this.intersportDataSet = new SWP_4IT_WP_VP.IntersportDataSet();
+            this.thisMonthBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.thisMonthTableAdapter = new SWP_4IT_WP_VP.IntersportDataSetTableAdapters.ThisMonthTableAdapter();
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.quantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.measurementDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.valuePerPieceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.valueTotalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sumDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewInventory)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.intersportDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.thisMonthBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // dataGridViewInventory
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(29, 103);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(925, 497);
-            this.dataGridView1.TabIndex = 0;
-            // 
-            // buttonCreate
-            // 
-            this.buttonCreate.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.buttonCreate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonCreate.Location = new System.Drawing.Point(29, 66);
-            this.buttonCreate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.buttonCreate.Name = "buttonCreate";
-            this.buttonCreate.Size = new System.Drawing.Size(109, 32);
-            this.buttonCreate.TabIndex = 1;
-            this.buttonCreate.Text = "Okay";
-            this.buttonCreate.UseVisualStyleBackColor = true;
-            this.buttonCreate.Click += new System.EventHandler(this.buttonCreate_Click);
+            this.dataGridViewInventory.AutoGenerateColumns = false;
+            this.dataGridViewInventory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewInventory.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idDataGridViewTextBoxColumn,
+            this.nameDataGridViewTextBoxColumn,
+            this.quantityDataGridViewTextBoxColumn,
+            this.measurementDataGridViewTextBoxColumn,
+            this.valuePerPieceDataGridViewTextBoxColumn,
+            this.valueTotalDataGridViewTextBoxColumn,
+            this.sumDataGridViewTextBoxColumn});
+            this.dataGridViewInventory.DataSource = this.thisMonthBindingSource;
+            this.dataGridViewInventory.Location = new System.Drawing.Point(29, 75);
+            this.dataGridViewInventory.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dataGridViewInventory.Name = "dataGridViewInventory";
+            this.dataGridViewInventory.RowHeadersWidth = 51;
+            this.dataGridViewInventory.RowTemplate.Height = 24;
+            this.dataGridViewInventory.Size = new System.Drawing.Size(925, 497);
+            this.dataGridViewInventory.TabIndex = 0;
             // 
             // buttonCancel
             // 
             this.buttonCancel.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonCancel.Location = new System.Drawing.Point(602, 607);
+            this.buttonCancel.Location = new System.Drawing.Point(846, 607);
             this.buttonCancel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(108, 33);
             this.buttonCancel.TabIndex = 2;
             this.buttonCancel.Text = "Cancel";
             this.buttonCancel.UseVisualStyleBackColor = true;
-            // 
-            // dateTimePickerInventory
-            // 
-            this.dateTimePickerInventory.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePickerInventory.Location = new System.Drawing.Point(29, 33);
-            this.dateTimePickerInventory.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dateTimePickerInventory.Name = "dateTimePickerInventory";
-            this.dateTimePickerInventory.Size = new System.Drawing.Size(308, 27);
-            this.dateTimePickerInventory.TabIndex = 3;
-            this.dateTimePickerInventory.Value = new System.DateTime(2023, 1, 31, 0, 0, 0, 0);
+            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
             // buttonSave
             // 
@@ -95,43 +94,122 @@ namespace SWP_4IT_WP_VP
             this.buttonSave.TabIndex = 4;
             this.buttonSave.Text = "Save";
             this.buttonSave.UseVisualStyleBackColor = true;
+            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
             // 
-            // textBoxDate
+            // dateTimePickerInventory
             // 
-            this.textBoxDate.Location = new System.Drawing.Point(387, 33);
-            this.textBoxDate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.textBoxDate.Name = "textBoxDate";
-            this.textBoxDate.Size = new System.Drawing.Size(232, 22);
-            this.textBoxDate.TabIndex = 5;
+            this.dateTimePickerInventory.Font = new System.Drawing.Font("Microsoft Tai Le", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePickerInventory.Location = new System.Drawing.Point(29, 31);
+            this.dateTimePickerInventory.Name = "dateTimePickerInventory";
+            this.dateTimePickerInventory.Size = new System.Drawing.Size(296, 29);
+            this.dateTimePickerInventory.TabIndex = 5;
+            // 
+            // intersportDataSet
+            // 
+            this.intersportDataSet.DataSetName = "IntersportDataSet";
+            this.intersportDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // thisMonthBindingSource
+            // 
+            this.thisMonthBindingSource.DataMember = "ThisMonth";
+            this.thisMonthBindingSource.DataSource = this.intersportDataSet;
+            // 
+            // thisMonthTableAdapter
+            // 
+            this.thisMonthTableAdapter.ClearBeforeFill = true;
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "id";
+            this.idDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.ReadOnly = true;
+            this.idDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "name";
+            this.nameDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // quantityDataGridViewTextBoxColumn
+            // 
+            this.quantityDataGridViewTextBoxColumn.DataPropertyName = "quantity";
+            this.quantityDataGridViewTextBoxColumn.HeaderText = "quantity";
+            this.quantityDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.quantityDataGridViewTextBoxColumn.Name = "quantityDataGridViewTextBoxColumn";
+            this.quantityDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // measurementDataGridViewTextBoxColumn
+            // 
+            this.measurementDataGridViewTextBoxColumn.DataPropertyName = "measurement";
+            this.measurementDataGridViewTextBoxColumn.HeaderText = "measurement";
+            this.measurementDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.measurementDataGridViewTextBoxColumn.Name = "measurementDataGridViewTextBoxColumn";
+            this.measurementDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // valuePerPieceDataGridViewTextBoxColumn
+            // 
+            this.valuePerPieceDataGridViewTextBoxColumn.DataPropertyName = "valuePerPiece";
+            this.valuePerPieceDataGridViewTextBoxColumn.HeaderText = "valuePerPiece";
+            this.valuePerPieceDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.valuePerPieceDataGridViewTextBoxColumn.Name = "valuePerPieceDataGridViewTextBoxColumn";
+            this.valuePerPieceDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // valueTotalDataGridViewTextBoxColumn
+            // 
+            this.valueTotalDataGridViewTextBoxColumn.DataPropertyName = "valueTotal";
+            this.valueTotalDataGridViewTextBoxColumn.HeaderText = "valueTotal";
+            this.valueTotalDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.valueTotalDataGridViewTextBoxColumn.Name = "valueTotalDataGridViewTextBoxColumn";
+            this.valueTotalDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // sumDataGridViewTextBoxColumn
+            // 
+            this.sumDataGridViewTextBoxColumn.DataPropertyName = "sum";
+            this.sumDataGridViewTextBoxColumn.HeaderText = "sum";
+            this.sumDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.sumDataGridViewTextBoxColumn.Name = "sumDataGridViewTextBoxColumn";
+            this.sumDataGridViewTextBoxColumn.Width = 125;
             // 
             // createInventory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(996, 662);
-            this.Controls.Add(this.textBoxDate);
-            this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.dateTimePickerInventory);
+            this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.buttonCancel);
-            this.Controls.Add(this.buttonCreate);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dataGridViewInventory);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "createInventory";
             this.Text = "Create new Inventory";
             this.Load += new System.EventHandler(this.createInventory_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewInventory)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.intersportDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.thisMonthBindingSource)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button buttonCreate;
+        private System.Windows.Forms.DataGridView dataGridViewInventory;
         private System.Windows.Forms.Button buttonCancel;
-        private System.Windows.Forms.DateTimePicker dateTimePickerInventory;
         private System.Windows.Forms.Button buttonSave;
-        private System.Windows.Forms.TextBox textBoxDate;
+        private System.Windows.Forms.DateTimePicker dateTimePickerInventory;
+        private IntersportDataSet intersportDataSet;
+        private System.Windows.Forms.BindingSource thisMonthBindingSource;
+        private IntersportDataSetTableAdapters.ThisMonthTableAdapter thisMonthTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn quantityDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn measurementDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn valuePerPieceDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn valueTotalDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sumDataGridViewTextBoxColumn;
     }
 }

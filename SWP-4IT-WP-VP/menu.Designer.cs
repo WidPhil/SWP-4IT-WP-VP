@@ -63,7 +63,7 @@
             this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelMain.Location = new System.Drawing.Point(306, 0);
             this.panelMain.Name = "panelMain";
-            this.panelMain.Size = new System.Drawing.Size(792, 615);
+            this.panelMain.Size = new System.Drawing.Size(1023, 726);
             this.panelMain.TabIndex = 7;
             // 
             // panelMain02
@@ -71,20 +71,19 @@
             this.panelMain02.BackColor = System.Drawing.Color.Gray;
             this.panelMain02.Controls.Add(this.buttonExit);
             this.panelMain02.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelMain02.Location = new System.Drawing.Point(0, 515);
+            this.panelMain02.Location = new System.Drawing.Point(0, 690);
             this.panelMain02.Name = "panelMain02";
-            this.panelMain02.Size = new System.Drawing.Size(792, 100);
+            this.panelMain02.Size = new System.Drawing.Size(1023, 36);
             this.panelMain02.TabIndex = 0;
             // 
             // buttonExit
             // 
-            this.buttonExit.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.buttonExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonExit.Dock = System.Windows.Forms.DockStyle.Right;
             this.buttonExit.Font = new System.Drawing.Font("Arial", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonExit.ForeColor = System.Drawing.Color.DarkRed;
-            this.buttonExit.Location = new System.Drawing.Point(0, 70);
+            this.buttonExit.Location = new System.Drawing.Point(953, 0);
             this.buttonExit.Name = "buttonExit";
-            this.buttonExit.Size = new System.Drawing.Size(792, 30);
+            this.buttonExit.Size = new System.Drawing.Size(70, 36);
             this.buttonExit.TabIndex = 0;
             this.buttonExit.Text = "Exit";
             this.buttonExit.UseVisualStyleBackColor = true;
@@ -303,7 +302,7 @@
             this.panelMainMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelMainMenu.Location = new System.Drawing.Point(0, 0);
             this.panelMainMenu.Name = "panelMainMenu";
-            this.panelMainMenu.Size = new System.Drawing.Size(306, 615);
+            this.panelMainMenu.Size = new System.Drawing.Size(306, 726);
             this.panelMainMenu.TabIndex = 5;
             // 
             // buttonInfo
@@ -329,7 +328,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(1098, 615);
+            this.ClientSize = new System.Drawing.Size(1329, 726);
             this.Controls.Add(this.panelMain);
             this.Controls.Add(this.panelMainMenu);
             this.Margin = new System.Windows.Forms.Padding(4);
