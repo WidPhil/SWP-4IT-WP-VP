@@ -49,7 +49,7 @@ namespace SWP_4IT_WP_VP
             this.richTextBoxInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.richTextBoxInfo.Location = new System.Drawing.Point(31, 66);
             this.richTextBoxInfo.Name = "richTextBoxInfo";
-            this.richTextBoxInfo.Size = new System.Drawing.Size(697, 476);
+            this.richTextBoxInfo.Size = new System.Drawing.Size(757, 518);
             this.richTextBoxInfo.TabIndex = 4;
             this.richTextBoxInfo.Text = resources.GetString("richTextBoxInfo.Text");
             // 
@@ -57,11 +57,12 @@ namespace SWP_4IT_WP_VP
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(755, 561);
+            this.ClientSize = new System.Drawing.Size(808, 597);
             this.Controls.Add(this.richTextBoxInfo);
             this.Controls.Add(this.infoLabel);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "info";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "info";
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -103,6 +103,7 @@ namespace SWP_4IT_WP_VP
                     if (checkTable.GetString(0).ToLower().Equals(tname.ToLower()))
                     {
                         return true;
+                        
                     }
 
                 }
@@ -122,6 +123,8 @@ namespace SWP_4IT_WP_VP
 
                 throw;
             }
+
+            
         }
 
        //Create Table Requirements

@@ -135,6 +135,11 @@ namespace SWP_4IT_WP_VP
         {
             Environment.Exit(0);
         }
+
+        private void panelMain_Paint(object sender, PaintEventArgs e)
+        {
+           
+        }
     }
 }
 

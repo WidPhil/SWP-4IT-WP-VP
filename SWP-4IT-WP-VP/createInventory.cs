@@ -19,14 +19,28 @@ namespace SWP_4IT_WP_VP
 
         private void createInventory_Load(object sender, EventArgs e)
         {
-            
+            // TODO: Diese Codezeile lädt Daten in die Tabelle "intersportDataSet.test". Sie können sie bei Bedarf verschieben oder entfernen.
+            this.testTableAdapter.Fill(this.intersportDataSet.test);
+            buttonCreate.Visible = true;
         }
 
         private void buttonCreate_Click(object sender, EventArgs e)
         {
-            string inventoryName = textBoxDate.Text.ToString();
-            //string inventoryName = dateTimePickerInventory.Value.ToShortDateString();
-            sqlmanager.createTableInventory(inventoryName);
+            
+            string date = textBox1.Text;
+            //string date = dateTimePickerInventory.Text.ToString();
+            
+            sqlmanager.createTableInventory(date);
+
+            MessageBox.Show("Table created successfully!");
+
+            dataGridViewInventory.Visible = true;
+            buttonCreate.Visible = false;
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
         }
     }
 }
