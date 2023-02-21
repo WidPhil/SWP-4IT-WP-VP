@@ -50,7 +50,7 @@ namespace SWP_4IT_WP_VP
                         Credentials = new NetworkCredential("Inventurprogramm-Widauer-Payr@outlook.com", "INV12345?!"),
                         EnableSsl = true
                     };
-                    client.Send(from, to, "Recovery Code", "Dear Mr/Mrs. " + user + ", your recovery Code is: " + randomCode);
+                    client.Send(from, to, "Recovery Code", "Dear " + user + ", your recovery Code is: " + randomCode);
 
                     Email = txtbox_Email.Text;
                 }
