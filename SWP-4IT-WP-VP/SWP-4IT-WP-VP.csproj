@@ -66,12 +66,6 @@
     <Compile Include="converter.Designer.cs">
       <DependentUpon>converter.cs</DependentUpon>
     </Compile>
-    <Compile Include="createInventory.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="createInventory.Designer.cs">
-      <DependentUpon>createInventory.cs</DependentUpon>
-    </Compile>
     <Compile Include="editProducts.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -139,9 +133,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="converter.resx">
       <DependentUpon>converter.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="createInventory.resx">
-      <DependentUpon>createInventory.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="editProducts.resx">
       <DependentUpon>editProducts.cs</DependentUpon>
