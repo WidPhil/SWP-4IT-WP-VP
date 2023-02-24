@@ -28,16 +28,14 @@ namespace SWP_4IT_WP_VP
             InitializeComponent();
         }
 
-        //Creates Databases and Tables
+        //creates database and tables
         private void Login_Load(object sender, EventArgs e)
         {
-            sqlmanager.createDatabase("Intersport");
-            //sqlmanager.createTableInventory("Inventory");
-            sqlmanager.createTableUsers("Users");
-            sqlmanager.createTableRequirements("Requirements");
+            sqlmanager.CreateDb();
+            
+            sqlmanager.CreateTUsers();
+            sqlmanager.CreateTRequirements();
         }
-
-        
 
         //Opens Form for sending Recovery Code
         private void buttonForgetPassword_Click(object sender, EventArgs e)
