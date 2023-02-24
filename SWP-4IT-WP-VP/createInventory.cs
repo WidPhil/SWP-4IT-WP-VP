@@ -19,13 +19,13 @@ namespace SWP_4IT_WP_VP
 
         private void createInventory_Load(object sender, EventArgs e)
         {
-            sqlmanager.createTablesInventory("ThisMonth", "LastMonth");
+            sqlmanager.CreateTInventoryTM();
+            sqlmanager.CreateTInventoryLM();
+
             // TODO: Diese Codezeile lädt Daten in die Tabelle "intersportDataSet.ThisMonth". Sie können sie bei Bedarf verschieben oder entfernen.
             this.thisMonthTableAdapter.Fill(this.intersportDataSet.ThisMonth);
             
         }
-
-        
 
         private void buttonCancel_Click(object sender, EventArgs e)
         {
@@ -33,19 +33,14 @@ namespace SWP_4IT_WP_VP
             try
             {
 
-            thisMonthBindingSource.RemoveCurrent();
-            MessageBox.Show("Successfully cleared selected row");
+                thisMonthBindingSource.RemoveCurrent();
+                MessageBox.Show("Successfully cleared selected row");
 
             }
             catch (Exception)
             {
-                
                 MessageBox.Show("Nothing to clear");
-                
             }
-
-            
-
         }
 
         private void buttonSave_Click(object sender, EventArgs e)

@@ -19,8 +19,16 @@ namespace SWP_4IT_WP_VP
         public static SqlCommand cmd;
         public static SqlDataReader reader;
 
-        //Creates Database Intersport
-        public static bool createDatabase(string dbname)
+        public static string DbName = "Intersport";
+        public static string TInvTM = "ThisMonth";
+        public static string TInvLM = "LastMonth";
+
+        public static string TU = "Users";
+
+        public static string TRequ = "Requirements";
+
+        //checks if database Intersport is already created
+        public static bool CheckDb()
         {
             con = new SqlConnection(ConnectionString);
             con.Open();
@@ -29,154 +37,168 @@ namespace SWP_4IT_WP_VP
             SqlDataReader checkDatabase = cmd.ExecuteReader();
             while (checkDatabase.Read())
             {
-                if (checkDatabase.GetString(0).ToLower().Equals(dbname.ToLower()))
+                if (checkDatabase.GetString(0).ToLower().Equals(DbName.ToLower()))
                 {
                     return true;
                 }
             }
             checkDatabase.Close();
+            con.Close();
+            return false;
+        }
+
+        //checks if tables are already created
+        public static bool CheckT(string table)
+        {
+            con = new SqlConnection(ConnectionString02);
+            con.Open();
+            cmd = new SqlCommand("SELECT * FROM sys.tables", con);
+
+            SqlDataReader checkTable = cmd.ExecuteReader();
+
+            while (checkTable.Read())
+            {
+                if (checkTable.GetString(0).ToLower().Equals(table.ToLower()))
+                {
+                    return true;
+                }
+
+            }
+            checkTable.Close();
+            con.Close();
+            return false;
+        }
+
+        //creates database Intersport
+        public static void CreateDb()
+        {
+            con = new SqlConnection(ConnectionString);
+            con.Open();
+
+            CheckDb();
 
             try
             {
-                SqlCommand cmd02 = new SqlCommand("Create Database " + dbname , con);
-                cmd02.ExecuteNonQuery();
+                SqlCommand cmd = new SqlCommand("Create Database " + DbName, con);
+                cmd.ExecuteNonQuery();
             }
             catch (Exception cex)
             {
                 MessageBox.Show(cex.ToString());
             }
-            
+
             con.Close();
-            return false;
-            
-
         }
 
-        //Create Inventory LastMonth and ThisMonth
-        public static bool createTablesInventory(string tname, string tname02)
+        //creates inventory This Month
+        public static void CreateTInventoryTM()
         {
+            con = new SqlConnection(ConnectionString02);
+            con.Open();
+
+            CheckT(TInvTM);
+
             try
             {
-                con = new SqlConnection(ConnectionString02);
-                con.Open();
-                cmd = new SqlCommand("SELECT * FROM sys.tables", con);
-
-                SqlDataReader checkTable = cmd.ExecuteReader();
-
-                while (checkTable.Read())
-                {
-                    if (checkTable.GetString(0).ToLower().Equals(tname.ToLower()))
-                    {
-                        return true;
-                    }
-
-                }
-                checkTable.Close();
-
-                SqlCommand com = new SqlCommand("Create Table " + tname + " (id int primary key IDENTITY (1, 1), name varchar(100), quantity varchar(100), measurement varchar(100), valuePerPiece varchar(100), valueTotal varchar(100), sum varchar(100))", con);
+                SqlCommand com = new SqlCommand("Create Table " + TInvTM + " " +
+                    "(id int primary key IDENTITY (1, 1), name varchar(100), quantity varchar(100), " +
+                    "measurement varchar(100), valuePerPiece varchar(100), valueTotal varchar(100), sum varchar(100))", con);
                 com.ExecuteNonQuery();
 
-                SqlCommand com02 = new SqlCommand("Create Table " + tname02 + " (id int primary key IDENTITY (1, 1), name varchar(100), quantity varchar(100), measurement varchar(100), valuePerPiece varchar(100), valueTotal varchar(100), sum varchar(100))", con);
-                com02.ExecuteNonQuery();
-
                 con.Close();
-                return false;
-
             }
             catch (Exception)
             {
-
                 throw;
             }
         }
 
-        //Creates Table Users
-        public static bool createTableUsers(string tname)
+        //creates inventory Last Month
+        public static void CreateTInventoryLM()
         {
+            con = new SqlConnection(ConnectionString02);
+            con.Open();
+
+            CheckT(TInvLM);
+
             try
             {
-                con = new SqlConnection(ConnectionString02);
-                con.Open();
-                cmd = new SqlCommand("SELECT * FROM sys.tables", con);
-
-                SqlDataReader checkTable = cmd.ExecuteReader();
-
-                while (checkTable.Read())
-                {
-                    if (checkTable.GetString(0).ToLower().Equals(tname.ToLower()))
-                    {
-                        return true;
-                    }
-
-                }
-                checkTable.Close();
-
-                SqlCommand com = new SqlCommand("Create Table " + tname + "(id int primary key IDENTITY (1, 1), name varchar(100), Email varchar(100), password varchar(100), hashedPassword varchar(100))", con);
+                SqlCommand com = new SqlCommand("Create Table " + TInvLM + " " +
+                    "(id int primary key IDENTITY (1, 1), name varchar(100), quantity varchar(100), measurement varchar(100), " +
+                    "valuePerPiece varchar(100), valueTotal varchar(100), sum varchar(100))", con);
                 com.ExecuteNonQuery();
-                //test products
-
 
                 con.Close();
-                return false;
-
             }
             catch (Exception)
             {
-
                 throw;
             }
         }
 
-       //Create Table Requirements
-        public static bool createTableRequirements(string tname)
+        //creates table Users
+        public static void CreateTUsers()
         {
+            con = new SqlConnection(ConnectionString02);
+            con.Open();
+
+            CheckT(TU);
+
             try
             {
-                con = new SqlConnection(ConnectionString02);
-                con.Open();
-                cmd = new SqlCommand("SELECT * FROM sys.tables", con);
+                SqlCommand com = new SqlCommand("Create Table " + TU + 
+                    "(id int primary key IDENTITY (1, 1), name varchar(100), Email varchar(100), " +
+                    "password varchar(100), hashedPassword varchar(100))", con);
+                com.ExecuteNonQuery();
 
-                SqlDataReader checkTable = cmd.ExecuteReader();
+                con.Close();
+                
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
 
-                while (checkTable.Read())
-                {
-                    if (checkTable.GetString(0).ToLower().Equals(tname.ToLower()))
-                    {
-                        return true;
-                    }
+       //create table Requirements
+        public static void CreateTRequirements()
+        {
+            con = new SqlConnection(ConnectionString02);
+            con.Open();
 
-                }
-                checkTable.Close();
+            CheckT(TRequ);
 
+            try
+            {
                 //SqlCommand com = new SqlCommand("Create Table " + tname + "(id int primary key IDENTITY (1, 1), name varchar(100), type varchar(100), inStock varchar(100), MinimumStock varchar(100))", con);
                 //com.ExecuteNonQuery();
-                SqlCommand com = new SqlCommand("Create Table " + tname + "(id int primary key IDENTITY (1, 1), Product1 varchar(100), Product2 varchar(100), Product3 varchar(100), Product4 varchar(100), Product5 varchar(100), Product6 varchar(100), Product7 varchar(100))", con);
+
+                SqlCommand com = new SqlCommand("Create Table " + TRequ + "(id int primary key IDENTITY (1, 1), Product1 varchar(100), Product2 varchar(100), Product3 varchar(100), Product4 varchar(100), Product5 varchar(100), Product6 varchar(100), Product7 varchar(100))", con);
                 com.ExecuteNonQuery();
 
                 //cmd = new SqlCommand("Insert into Requirements (Product1, Product2, Product3, Product4, Product5, Product6, Product7) values(3, 3, 4, 3, 2, 3, 2");
 
                 con.Close();
-                return false;
-
+                
             }
-            catch (Exception CEX)
+            catch (Exception)
             {
                 throw;
-                MessageBox.Show(CEX.Message);
-
             }
         }
 
-        //Adds User to Table
+        //adds user to table
         public static void AddUser(string name, string Email, string Hash)
         {
+            con = new SqlConnection(ConnectionString02);
+            con.Open();
+
             try
             {
-                con = new SqlConnection(ConnectionString02);
-                con.Open();
                 cmd = new SqlCommand("insert into Users(name, Email, hashedPassword) values('" + name + "', '" + Email + "', '" + Hash + "')", con);
                 cmd.ExecuteNonQuery();
                 con.Close();
+
                 MessageBox.Show("Signed up successfully!");
             }
             catch (Exception)
@@ -185,16 +207,17 @@ namespace SWP_4IT_WP_VP
             }
         }
 
-        //Updates Password in Table
-        //working on it
+        //updates password in table
         public static void NewPassword(string Username, string newHash)
         {
+            con = new SqlConnection(ConnectionString02);
+            con.Open();
+
             try
             {
-                con = new SqlConnection(ConnectionString02);
-                con.Open();
                 cmd = new SqlCommand("UPDATE Users SET hashedPassword = '" + newHash + "' WHERE name = '" + Username + "';", con);
                 cmd.ExecuteNonQuery();
+
                 con.Close();
             }
             catch (Exception)
@@ -203,35 +226,37 @@ namespace SWP_4IT_WP_VP
             }
         }
 
-        //Get Password
+        //get password
         public static string ReadPassword(string username)
         {
+            con = new SqlConnection(ConnectionString02);
+            con.Open();
+
             try
             {
-                con = new SqlConnection(ConnectionString02);
-                con.Open();
                 cmd = new SqlCommand("SELECT hashedPassword FROM Users Where name = '"+ username + "'", con);
                 string password = (string)cmd.ExecuteScalar();
+
                 con.Close();
                 return password;
             }
             catch (Exception)
             {
-                
                 throw;
-                
             }
         }
 
-        //This Method Querys all the data from
+        //this method querys all the data 
         public static void GetInventory()
         {
+            con = new SqlConnection(ConnectionString02);
+            con.Open();
+
             try
-            {
-                con = new SqlConnection(ConnectionString02);
-                con.Open();
+            { 
                 cmd = new SqlCommand("Select * from Inventory");
                 cmd.ExecuteNonQuery();
+
                 con.Close();
             }
             catch (Exception CEX)
@@ -240,7 +265,7 @@ namespace SWP_4IT_WP_VP
             }
         }
 
-        //This Method checks if the Products are low in Quantity
+        //this method checks if the Products are low in Quantity
         public static void AutomaticOrderProducts()
         {
             try
