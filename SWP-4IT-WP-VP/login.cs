@@ -82,7 +82,7 @@ namespace SWP_4IT_WP_VP
         //Opens Forms
         private void buttonLogin_Click(object sender, EventArgs e)
         {
-            name = textBoxUser.Text;
+            
             PlainText = textBoxPassword.Text;
             checkHash = sqlmanager.ReadPassword(name);
 
@@ -90,7 +90,6 @@ namespace SWP_4IT_WP_VP
             if (isValid == true)
             {
                 MessageBox.Show("Valid Password!");
-                
                 menu m = new menu();
                 m.Show();
                 converter excel = new converter();
@@ -163,10 +162,5 @@ namespace SWP_4IT_WP_VP
             textboxEmail.ForeColor = Color.Silver;
         }
         #endregion
-        private void button1_Click(object sender, EventArgs e)
-        {
-            menu m = new menu();
-            m.Show();
-        }
     }
 }

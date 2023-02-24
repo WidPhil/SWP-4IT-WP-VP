@@ -14,7 +14,9 @@ namespace SWP_4IT_WP_VP
     {
         public static string Username = login.name;
         public static string Email = sendcode.Email;
-        //public static string myHash = login.myHash;
+        public static string mySalt;
+        public static string newHash;
+        
         public NewPassword()
         {
             InitializeComponent();
@@ -29,8 +31,8 @@ namespace SWP_4IT_WP_VP
             {
                 if (newPassword == confirmation)
                 {
-                    string mySalt = BCrypt.GenerateSalt();
-                    string newHash = BCrypt.HashPassword(newPassword, mySalt);
+                    mySalt = BCrypt.GenerateSalt();
+                    newHash = BCrypt.HashPassword(newPassword, mySalt);
                     sqlmanager.NewPassword(Username, newHash);
                     MessageBox.Show("worked!");
                     
