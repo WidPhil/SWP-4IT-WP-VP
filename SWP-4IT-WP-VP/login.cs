@@ -32,7 +32,7 @@ namespace SWP_4IT_WP_VP
         private void Login_Load(object sender, EventArgs e)
         {
             sqlmanager.createDatabase("Intersport");
-            sqlmanager.createTableInventory("Inventory");
+            //sqlmanager.createTableInventory("Inventory");
             sqlmanager.createTableUsers("Users");
             sqlmanager.createTableRequirements("Requirements");
         }

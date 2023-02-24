@@ -19,7 +19,7 @@ namespace SWP_4IT_WP_VP
         public static SqlCommand cmd;
         public static SqlDataReader reader;
 
-        //Creates Database
+        //Creates Database Intersport
         public static bool createDatabase(string dbname)
         {
             con = new SqlConnection(ConnectionString);
@@ -52,8 +52,8 @@ namespace SWP_4IT_WP_VP
 
         }
 
-        //Creates Table Products
-        public static bool createTableInventory(string tname)
+        //Create Inventory LastMonth and ThisMonth
+        public static bool createTablesInventory(string tname, string tname02)
         {
             try
             {
@@ -73,9 +73,12 @@ namespace SWP_4IT_WP_VP
                 }
                 checkTable.Close();
 
-                SqlCommand com = new SqlCommand("Create Table " + tname + "(id int primary key IDENTITY (1, 1), name varchar(100), quantity varchar(100), measurement varchar(100), valuePerPiece varchar(100), valueTotal varchar(100), sum varchar(100))", con);
+                SqlCommand com = new SqlCommand("Create Table " + tname + " (id int primary key IDENTITY (1, 1), name varchar(100), quantity varchar(100), measurement varchar(100), valuePerPiece varchar(100), valueTotal varchar(100), sum varchar(100))", con);
                 com.ExecuteNonQuery();
-                
+
+                SqlCommand com02 = new SqlCommand("Create Table " + tname02 + " (id int primary key IDENTITY (1, 1), name varchar(100), quantity varchar(100), measurement varchar(100), valuePerPiece varchar(100), valueTotal varchar(100), sum varchar(100))", con);
+                com02.ExecuteNonQuery();
+
                 con.Close();
                 return false;
 
@@ -271,6 +274,15 @@ namespace SWP_4IT_WP_VP
 
                 throw;
             }
+        }
+
+        //Update the table in the database from gridView
+        public static void UpdateInventoryTable()
+        {
+            //DataTable dt = new DataTable();
+            //dt = (DataTable)dgvAdressenListe.DataSource;
+            //adressenTableAdapter.Update(databaseDataSet);
+
         }
     }
 }

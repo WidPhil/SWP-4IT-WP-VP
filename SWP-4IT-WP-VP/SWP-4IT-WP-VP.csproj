@@ -84,6 +84,11 @@
     <Compile Include="info.Designer.cs">
       <DependentUpon>info.cs</DependentUpon>
     </Compile>
+    <Compile Include="IntersportDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IntersportDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -174,6 +179,17 @@
     <EmbeddedResource Include="sendcode.resx">
       <DependentUpon>sendcode.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="IntersportDataSet.xsc">
+      <DependentUpon>IntersportDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="IntersportDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>IntersportDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="IntersportDataSet.xss">
+      <DependentUpon>IntersportDataSet.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
