@@ -86,7 +86,6 @@
             this.Controls.Add(this.lbl_excel);
             this.Name = "converter";
             this.Text = "converter";
-            this.Load += new System.EventHandler(this.converter_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_convert)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
