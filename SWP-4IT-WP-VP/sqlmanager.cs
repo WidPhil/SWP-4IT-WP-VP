@@ -17,7 +17,7 @@ namespace SWP_4IT_WP_VP
 
         public static SqlConnection con;
         public static SqlCommand cmd;
-        public static SqlDataReader reader;
+        //public static SqlDataReader reader;
 
         public static string DbName = "Intersport";
         public static string TInvTM = "ThisMonth";
@@ -39,6 +39,8 @@ namespace SWP_4IT_WP_VP
             {
                 if (checkDatabase.GetString(0).ToLower().Equals(DbName.ToLower()))
                 {
+                    checkDatabase.Close();
+                    con.Close();
                     return true;
                 }
             }
@@ -60,6 +62,8 @@ namespace SWP_4IT_WP_VP
             {
                 if (checkTable.GetString(0).ToLower().Equals(table.ToLower()))
                 {
+                    checkTable.Close();
+                    con.Close();
                     return true;
                 }
 
@@ -88,6 +92,7 @@ namespace SWP_4IT_WP_VP
             }
 
             con.Close();
+            
         }
 
         //creates inventory This Month
@@ -146,13 +151,13 @@ namespace SWP_4IT_WP_VP
 
             try
             {
-                SqlCommand com = new SqlCommand("Create Table " + TU + 
+                SqlCommand com = new SqlCommand("Create Table " + TU +
                     "(id int primary key IDENTITY (1, 1), name varchar(100), Email varchar(100), " +
                     "password varchar(100), hashedPassword varchar(100))", con);
                 com.ExecuteNonQuery();
 
                 con.Close();
-                
+
             }
             catch (Exception)
             {
@@ -160,7 +165,7 @@ namespace SWP_4IT_WP_VP
             }
         }
 
-       //create table Requirements
+        //create table Requirements
         public static void CreateTRequirements()
         {
             con = new SqlConnection(ConnectionString02);
