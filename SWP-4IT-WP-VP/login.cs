@@ -32,8 +32,7 @@ namespace SWP_4IT_WP_VP
         private void Login_Load(object sender, EventArgs e)
         {
             sqlmanager.CreateDb();
-            
-            sqlmanager.CreateTUsers();
+            //sqlmanager.CreateTUsers();
             sqlmanager.CreateTRequirements();
         }
 
