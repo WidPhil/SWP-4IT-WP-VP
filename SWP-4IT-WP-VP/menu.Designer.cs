@@ -334,6 +334,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "menu";
             this.Text = "Intersport Home";
+            this.Load += new System.EventHandler(this.menu_Load);
             this.panelMain.ResumeLayout(false);
             this.panelMain02.ResumeLayout(false);
             this.panelMenuLogo.ResumeLayout(false);
