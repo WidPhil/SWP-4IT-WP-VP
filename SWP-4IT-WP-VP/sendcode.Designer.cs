@@ -37,6 +37,7 @@ namespace SWP_4IT_WP_VP
             this.lbl_Email = new System.Windows.Forms.Label();
             this.txtbox_user = new System.Windows.Forms.TextBox();
             this.lbl_user = new System.Windows.Forms.Label();
+            this.btn_exit = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btn_sendcode
@@ -58,7 +59,7 @@ namespace SWP_4IT_WP_VP
             // 
             // btn_recover
             // 
-            this.btn_recover.Location = new System.Drawing.Point(11, 242);
+            this.btn_recover.Location = new System.Drawing.Point(11, 218);
             this.btn_recover.Name = "btn_recover";
             this.btn_recover.Size = new System.Drawing.Size(162, 31);
             this.btn_recover.TabIndex = 4;
@@ -68,7 +69,7 @@ namespace SWP_4IT_WP_VP
             // 
             // txtbox_verificationcode
             // 
-            this.txtbox_verificationcode.Location = new System.Drawing.Point(11, 205);
+            this.txtbox_verificationcode.Location = new System.Drawing.Point(11, 181);
             this.txtbox_verificationcode.Name = "txtbox_verificationcode";
             this.txtbox_verificationcode.Size = new System.Drawing.Size(204, 20);
             this.txtbox_verificationcode.TabIndex = 3;
@@ -76,7 +77,7 @@ namespace SWP_4IT_WP_VP
             // lbl_verify
             // 
             this.lbl_verify.AutoSize = true;
-            this.lbl_verify.Location = new System.Drawing.Point(12, 186);
+            this.lbl_verify.Location = new System.Drawing.Point(12, 162);
             this.lbl_verify.Name = "lbl_verify";
             this.lbl_verify.Size = new System.Drawing.Size(88, 13);
             this.lbl_verify.TabIndex = 4;
@@ -107,11 +108,21 @@ namespace SWP_4IT_WP_VP
             this.lbl_user.TabIndex = 7;
             this.lbl_user.Text = "Username:";
             // 
+            // btn_exit
+            // 
+            this.btn_exit.Location = new System.Drawing.Point(213, 256);
+            this.btn_exit.Name = "btn_exit";
+            this.btn_exit.Size = new System.Drawing.Size(57, 21);
+            this.btn_exit.TabIndex = 8;
+            this.btn_exit.Text = "exit";
+            this.btn_exit.UseVisualStyleBackColor = true;
+            // 
             // sendcode
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(282, 289);
+            this.Controls.Add(this.btn_exit);
             this.Controls.Add(this.lbl_user);
             this.Controls.Add(this.txtbox_user);
             this.Controls.Add(this.lbl_Email);
@@ -138,5 +149,6 @@ namespace SWP_4IT_WP_VP
         private System.Windows.Forms.Label lbl_Email;
         private System.Windows.Forms.TextBox txtbox_user;
         private System.Windows.Forms.Label lbl_user;
+        private System.Windows.Forms.Button btn_exit;
     }
 }
