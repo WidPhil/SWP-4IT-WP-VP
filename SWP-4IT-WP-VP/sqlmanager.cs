@@ -45,7 +45,6 @@ namespace SWP_4IT_WP_VP
                 if (checkDatabase.GetString(0).ToLower().Equals(DbName.ToLower()))
                 {
                     toReturnDB = true;
-                    
                 }
             }
             checkDatabase.Close();
@@ -102,50 +101,66 @@ namespace SWP_4IT_WP_VP
             
         }
 
-        //creates inventory This Month
+        //creates Table inventory ThisMonth
         public static void CreateTInventoryTM()
         {
-            con = new SqlConnection(ConnectionString02);
-            con.Open();
-
             CheckT(TInvTM);
 
-            try
+            if (toReturnT.Equals(false))
             {
-                SqlCommand com = new SqlCommand("Create Table " + TInvTM + " " +
-                    "(id int primary key IDENTITY (1, 1), name varchar(100), quantity varchar(100), " +
-                    "measurement varchar(100), valuePerPiece varchar(100), valueTotal varchar(100), sum varchar(100))", con);
-                com.ExecuteNonQuery();
+                try
+                {
+                    con = new SqlConnection(ConnectionString02);
+                    con.Open();
 
+                    SqlCommand com = new SqlCommand("Create Table " + TInvTM + " " +
+                        "(id int primary key IDENTITY (1, 1), name varchar(100), quantity varchar(100), " +
+                        "measurement varchar(100), valuePerPiece varchar(100), valueTotal varchar(100), sum varchar(100))", con);
+                    com.ExecuteNonQuery();
+
+                    con.Close();
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+            }
+            else
+            {
                 con.Close();
             }
-            catch (Exception)
-            {
-                throw;
-            }
+            
         }
 
-        //creates inventory Last Month
+        //creates Table inventory LastMonth
         public static void CreateTInventoryLM()
         {
-            con = new SqlConnection(ConnectionString02);
-            con.Open();
-
             CheckT(TInvLM);
 
-            try
+            if (toReturnT.Equals(false))
             {
-                SqlCommand com = new SqlCommand("Create Table " + TInvLM + " " +
-                    "(id int primary key IDENTITY (1, 1), name varchar(100), quantity varchar(100), measurement varchar(100), " +
-                    "valuePerPiece varchar(100), valueTotal varchar(100), sum varchar(100))", con);
-                com.ExecuteNonQuery();
+                try
+                {
+                    con = new SqlConnection(ConnectionString02);
+                    con.Open();
 
+                    SqlCommand com = new SqlCommand("Create Table " + TInvLM + " " +
+                        "(id int primary key IDENTITY (1, 1), name varchar(100), quantity varchar(100), measurement varchar(100), " +
+                        "valuePerPiece varchar(100), valueTotal varchar(100), sum varchar(100))", con);
+                    com.ExecuteNonQuery();
+
+                    con.Close();
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+            }
+            else
+            {
                 con.Close();
             }
-            catch (Exception)
-            {
-                throw;
-            }
+            
         }
 
         //creates table Users
@@ -183,40 +198,50 @@ namespace SWP_4IT_WP_VP
         //create table Requirements
         public static void CreateTRequirements()
         {
-            con = new SqlConnection(ConnectionString02);
-            con.Open();
-
             CheckT(TRequ);
 
-            try
+            if (toReturnT.Equals(false))
             {
-                //SqlCommand com = new SqlCommand("Create Table " + tname + "(id int primary key IDENTITY (1, 1), name varchar(100), type varchar(100), inStock varchar(100), MinimumStock varchar(100))", con);
-                //com.ExecuteNonQuery();
+                try
+                {
+                    con = new SqlConnection(ConnectionString02);
+                    con.Open();
 
-                SqlCommand com = new SqlCommand("Create Table " + TRequ + "(id int primary key IDENTITY (1, 1), Product1 varchar(100), Product2 varchar(100), Product3 varchar(100), Product4 varchar(100), Product5 varchar(100), Product6 varchar(100), Product7 varchar(100))", con);
-                com.ExecuteNonQuery();
+                    //SqlCommand com = new SqlCommand("Create Table " + tname + "(id int primary key IDENTITY (1, 1), name varchar(100), type varchar(100), inStock varchar(100), MinimumStock varchar(100))", con);
+                    //com.ExecuteNonQuery();
 
-                //cmd = new SqlCommand("Insert into Requirements (Product1, Product2, Product3, Product4, Product5, Product6, Product7) values(3, 3, 4, 3, 2, 3, 2");
+                    SqlCommand com = new SqlCommand("Create Table " + TRequ + "(id int primary key IDENTITY (1, 1), Product1 varchar(100), Product2 varchar(100), Product3 varchar(100), Product4 varchar(100), Product5 varchar(100), Product6 varchar(100), Product7 varchar(100))", con);
+                    com.ExecuteNonQuery();
 
+                    //cmd = new SqlCommand("Insert into Requirements (Product1, Product2, Product3, Product4, Product5, Product6, Product7) values(3, 3, 4, 3, 2, 3, 2");
+
+                    con.Close();
+
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+            }
+            else
+            {
                 con.Close();
-                
             }
-            catch (Exception)
-            {
-                throw;
-            }
+            
         }
 
         //adds user to table
         public static void AddUser(string name, string Email, string Hash)
         {
-            con = new SqlConnection(ConnectionString02);
-            con.Open();
-
+            
             try
             {
+                con = new SqlConnection(ConnectionString02);
+                con.Open();
+
                 cmd = new SqlCommand("insert into Users(name, Email, hashedPassword) values('" + name + "', '" + Email + "', '" + Hash + "')", con);
                 cmd.ExecuteNonQuery();
+
                 con.Close();
 
                 MessageBox.Show("Signed up successfully!");
@@ -230,11 +255,11 @@ namespace SWP_4IT_WP_VP
         //updates password in table
         public static void NewPassword(string Username, string newHash)
         {
-            con = new SqlConnection(ConnectionString02);
-            con.Open();
-
             try
             {
+                con = new SqlConnection(ConnectionString02);
+                con.Open();
+
                 cmd = new SqlCommand("UPDATE Users SET hashedPassword = '" + newHash + "' WHERE name = '" + Username + "';", con);
                 cmd.ExecuteNonQuery();
 
@@ -249,15 +274,18 @@ namespace SWP_4IT_WP_VP
         //get password
         public static string ReadPassword(string username)
         {
-            con = new SqlConnection(ConnectionString02);
-            con.Open();
+            
 
             try
             {
+                con = new SqlConnection(ConnectionString02);
+                con.Open();
+
                 cmd = new SqlCommand("SELECT hashedPassword FROM Users Where name = '"+ username + "'", con);
                 string password = (string)cmd.ExecuteScalar();
 
                 con.Close();
+
                 return password;
             }
             catch (Exception)
@@ -269,11 +297,13 @@ namespace SWP_4IT_WP_VP
         //this method querys all the data 
         public static void GetInventory()
         {
-            con = new SqlConnection(ConnectionString02);
-            con.Open();
+            
 
             try
-            { 
+            {
+                con = new SqlConnection(ConnectionString02);
+                con.Open();
+
                 cmd = new SqlCommand("Select * from Inventory");
                 cmd.ExecuteNonQuery();
 
@@ -292,8 +322,10 @@ namespace SWP_4IT_WP_VP
             {
                 con = new SqlConnection(ConnectionString02);
                 con.Open();
+
                 cmd = new SqlCommand("Select Product1 from Inventory");
                 cmd.ExecuteNonQuery();
+
                 con.Close();
             }
             catch (Exception)
@@ -310,8 +342,10 @@ namespace SWP_4IT_WP_VP
             {
                 con = new SqlConnection(ConnectionString02);
                 con.Open();
+
                 cmd = new SqlCommand("Insert into ");
                 cmd.ExecuteNonQuery();
+
                 con.Close();
             }
             catch (Exception)
@@ -324,9 +358,8 @@ namespace SWP_4IT_WP_VP
         //Update the table in the database from gridView
         public static void UpdateInventoryTable()
         {
-            //DataTable dt = new DataTable();
-            //dt = (DataTable)dgvAdressenListe.DataSource;
-            //adressenTableAdapter.Update(databaseDataSet);
+            
+
 
         }
     }

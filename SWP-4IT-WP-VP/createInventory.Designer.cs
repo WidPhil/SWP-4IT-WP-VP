@@ -31,12 +31,6 @@ namespace SWP_4IT_WP_VP
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridViewInventory = new System.Windows.Forms.DataGridView();
-            this.buttonCancel = new System.Windows.Forms.Button();
-            this.buttonSave = new System.Windows.Forms.Button();
-            this.dateTimePickerInventory = new System.Windows.Forms.DateTimePicker();
-            this.intersportDataSet = new SWP_4IT_WP_VP.IntersportDataSet();
-            this.thisMonthBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.thisMonthTableAdapter = new SWP_4IT_WP_VP.IntersportDataSetTableAdapters.ThisMonthTableAdapter();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.quantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -44,9 +38,15 @@ namespace SWP_4IT_WP_VP
             this.valuePerPieceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.valueTotalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sumDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.thisMonthBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.intersportDataSet = new SWP_4IT_WP_VP.IntersportDataSet();
+            this.buttonCancel = new System.Windows.Forms.Button();
+            this.buttonSave = new System.Windows.Forms.Button();
+            this.dateTimePickerInventory = new System.Windows.Forms.DateTimePicker();
+            this.thisMonthTableAdapter = new SWP_4IT_WP_VP.IntersportDataSetTableAdapters.ThisMonthTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewInventory)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.intersportDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.thisMonthBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.intersportDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridViewInventory
@@ -62,61 +62,13 @@ namespace SWP_4IT_WP_VP
             this.valueTotalDataGridViewTextBoxColumn,
             this.sumDataGridViewTextBoxColumn});
             this.dataGridViewInventory.DataSource = this.thisMonthBindingSource;
-            this.dataGridViewInventory.Location = new System.Drawing.Point(29, 75);
+            this.dataGridViewInventory.Location = new System.Drawing.Point(29, 81);
             this.dataGridViewInventory.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridViewInventory.Name = "dataGridViewInventory";
             this.dataGridViewInventory.RowHeadersWidth = 51;
             this.dataGridViewInventory.RowTemplate.Height = 24;
             this.dataGridViewInventory.Size = new System.Drawing.Size(925, 497);
             this.dataGridViewInventory.TabIndex = 0;
-            // 
-            // buttonCancel
-            // 
-            this.buttonCancel.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.buttonCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonCancel.Location = new System.Drawing.Point(846, 607);
-            this.buttonCancel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.buttonCancel.Name = "buttonCancel";
-            this.buttonCancel.Size = new System.Drawing.Size(108, 33);
-            this.buttonCancel.TabIndex = 2;
-            this.buttonCancel.Text = "Cancel";
-            this.buttonCancel.UseVisualStyleBackColor = true;
-            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
-            // 
-            // buttonSave
-            // 
-            this.buttonSave.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.buttonSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonSave.Location = new System.Drawing.Point(29, 607);
-            this.buttonSave.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.buttonSave.Name = "buttonSave";
-            this.buttonSave.Size = new System.Drawing.Size(109, 33);
-            this.buttonSave.TabIndex = 4;
-            this.buttonSave.Text = "Save";
-            this.buttonSave.UseVisualStyleBackColor = true;
-            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
-            // 
-            // dateTimePickerInventory
-            // 
-            this.dateTimePickerInventory.Font = new System.Drawing.Font("Microsoft Tai Le", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePickerInventory.Location = new System.Drawing.Point(29, 31);
-            this.dateTimePickerInventory.Name = "dateTimePickerInventory";
-            this.dateTimePickerInventory.Size = new System.Drawing.Size(296, 29);
-            this.dateTimePickerInventory.TabIndex = 5;
-            // 
-            // intersportDataSet
-            // 
-            this.intersportDataSet.DataSetName = "IntersportDataSet";
-            this.intersportDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // thisMonthBindingSource
-            // 
-            this.thisMonthBindingSource.DataMember = "ThisMonth";
-            this.thisMonthBindingSource.DataSource = this.intersportDataSet;
-            // 
-            // thisMonthTableAdapter
-            // 
-            this.thisMonthTableAdapter.ClearBeforeFill = true;
             // 
             // idDataGridViewTextBoxColumn
             // 
@@ -175,6 +127,54 @@ namespace SWP_4IT_WP_VP
             this.sumDataGridViewTextBoxColumn.Name = "sumDataGridViewTextBoxColumn";
             this.sumDataGridViewTextBoxColumn.Width = 125;
             // 
+            // thisMonthBindingSource
+            // 
+            this.thisMonthBindingSource.DataMember = "ThisMonth";
+            this.thisMonthBindingSource.DataSource = this.intersportDataSet;
+            // 
+            // intersportDataSet
+            // 
+            this.intersportDataSet.DataSetName = "IntersportDataSet";
+            this.intersportDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // buttonCancel
+            // 
+            this.buttonCancel.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonCancel.Location = new System.Drawing.Point(846, 607);
+            this.buttonCancel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonCancel.Name = "buttonCancel";
+            this.buttonCancel.Size = new System.Drawing.Size(108, 33);
+            this.buttonCancel.TabIndex = 2;
+            this.buttonCancel.Text = "Cancel";
+            this.buttonCancel.UseVisualStyleBackColor = true;
+            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
+            // 
+            // buttonSave
+            // 
+            this.buttonSave.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonSave.Location = new System.Drawing.Point(29, 607);
+            this.buttonSave.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonSave.Name = "buttonSave";
+            this.buttonSave.Size = new System.Drawing.Size(109, 33);
+            this.buttonSave.TabIndex = 4;
+            this.buttonSave.Text = "Save";
+            this.buttonSave.UseVisualStyleBackColor = true;
+            this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
+            // 
+            // dateTimePickerInventory
+            // 
+            this.dateTimePickerInventory.Font = new System.Drawing.Font("Microsoft Tai Le", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePickerInventory.Location = new System.Drawing.Point(29, 31);
+            this.dateTimePickerInventory.Name = "dateTimePickerInventory";
+            this.dateTimePickerInventory.Size = new System.Drawing.Size(296, 29);
+            this.dateTimePickerInventory.TabIndex = 5;
+            // 
+            // thisMonthTableAdapter
+            // 
+            this.thisMonthTableAdapter.ClearBeforeFill = true;
+            // 
             // createInventory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -189,8 +189,8 @@ namespace SWP_4IT_WP_VP
             this.Text = "Create new Inventory";
             this.Load += new System.EventHandler(this.createInventory_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewInventory)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.intersportDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.thisMonthBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.intersportDataSet)).EndInit();
             this.ResumeLayout(false);
 
         }
