@@ -195,7 +195,7 @@
             this.btn_signup.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.btn_signup.Font = new System.Drawing.Font("Arial", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_signup.Location = new System.Drawing.Point(361, 345);
-            this.btn_signup.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_signup.Margin = new System.Windows.Forms.Padding(4);
             this.btn_signup.Name = "btn_signup";
             this.btn_signup.Size = new System.Drawing.Size(188, 30);
             this.btn_signup.TabIndex = 6;
@@ -208,7 +208,7 @@
             this.textboxEmail.Font = new System.Drawing.Font("Arial", 9F);
             this.textboxEmail.ForeColor = System.Drawing.Color.Silver;
             this.textboxEmail.Location = new System.Drawing.Point(384, 153);
-            this.textboxEmail.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textboxEmail.Margin = new System.Windows.Forms.Padding(4);
             this.textboxEmail.Name = "textboxEmail";
             this.textboxEmail.Size = new System.Drawing.Size(369, 25);
             this.textboxEmail.TabIndex = 1;
@@ -235,7 +235,6 @@
             this.button1.TabIndex = 15;
             this.button1.Text = "test";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // login
             // 
