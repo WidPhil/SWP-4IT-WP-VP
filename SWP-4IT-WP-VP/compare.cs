@@ -29,12 +29,12 @@ namespace SWP_4IT_WP_VP
             con = new SqlConnection(ConnectionString02);
             con.Open();
             data = new DataTable();
-            sqldataAdapter = new SqlDataAdapter(cmd = new SqlCommand("Select * from " + cb_base, con));
+            sqldataAdapter = new SqlDataAdapter(cmd = new SqlCommand("Select * from " + cb_base.Text, con));
             sqldataAdapter.Fill(data);
             dgv_Base.DataSource = data;
 
             data = new DataTable();
-            sqldataAdapter = new SqlDataAdapter(cmd = new SqlCommand("Select * from " + cb_compare, con));
+            sqldataAdapter = new SqlDataAdapter(cmd = new SqlCommand("Select * from " + cb_compare.Text, con));
             sqldataAdapter.Fill(data);
             dgv_compareTo.DataSource = data;
         }
