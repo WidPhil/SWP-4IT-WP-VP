@@ -30,19 +30,21 @@ namespace SWP_4IT_WP_VP
         private void InitializeComponent()
         {
             this.btn_compare = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.dgv_Base = new System.Windows.Forms.DataGridView();
+            this.dgv_compareTo = new System.Windows.Forms.DataGridView();
+            this.cb_base = new System.Windows.Forms.ComboBox();
+            this.cb_compare = new System.Windows.Forms.ComboBox();
             this.lbl_BaseInventory = new System.Windows.Forms.Label();
             this.lbl_compareTo = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            this.btn_exit = new System.Windows.Forms.Button();
+            this.lbl_info = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_Base)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_compareTo)).BeginInit();
             this.SuspendLayout();
             // 
             // btn_compare
             // 
-            this.btn_compare.Location = new System.Drawing.Point(256, 429);
+            this.btn_compare.Location = new System.Drawing.Point(348, 417);
             this.btn_compare.Margin = new System.Windows.Forms.Padding(2);
             this.btn_compare.Name = "btn_compare";
             this.btn_compare.Size = new System.Drawing.Size(238, 32);
@@ -51,37 +53,37 @@ namespace SWP_4IT_WP_VP
             this.btn_compare.UseVisualStyleBackColor = true;
             this.btn_compare.Click += new System.EventHandler(this.btn_compare_Click);
             // 
-            // dataGridView1
+            // dgv_Base
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(26, 119);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(425, 255);
-            this.dataGridView1.TabIndex = 2;
+            this.dgv_Base.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_Base.Location = new System.Drawing.Point(26, 119);
+            this.dgv_Base.Name = "dgv_Base";
+            this.dgv_Base.Size = new System.Drawing.Size(425, 255);
+            this.dgv_Base.TabIndex = 2;
             // 
-            // dataGridView2
+            // dgv_compareTo
             // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(496, 119);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(469, 255);
-            this.dataGridView2.TabIndex = 3;
+            this.dgv_compareTo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_compareTo.Location = new System.Drawing.Point(496, 119);
+            this.dgv_compareTo.Name = "dgv_compareTo";
+            this.dgv_compareTo.Size = new System.Drawing.Size(469, 255);
+            this.dgv_compareTo.TabIndex = 3;
             // 
-            // comboBox1
+            // cb_base
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(26, 92);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 4;
+            this.cb_base.FormattingEnabled = true;
+            this.cb_base.Location = new System.Drawing.Point(26, 92);
+            this.cb_base.Name = "cb_base";
+            this.cb_base.Size = new System.Drawing.Size(121, 21);
+            this.cb_base.TabIndex = 4;
             // 
-            // comboBox2
+            // cb_compare
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(496, 92);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 21);
-            this.comboBox2.TabIndex = 5;
+            this.cb_compare.FormattingEnabled = true;
+            this.cb_compare.Location = new System.Drawing.Point(496, 92);
+            this.cb_compare.Name = "cb_compare";
+            this.cb_compare.Size = new System.Drawing.Size(121, 21);
+            this.cb_compare.TabIndex = 5;
             // 
             // lbl_BaseInventory
             // 
@@ -101,23 +103,44 @@ namespace SWP_4IT_WP_VP
             this.lbl_compareTo.TabIndex = 7;
             this.lbl_compareTo.Text = "Compare to:";
             // 
+            // btn_exit
+            // 
+            this.btn_exit.Location = new System.Drawing.Point(917, 472);
+            this.btn_exit.Name = "btn_exit";
+            this.btn_exit.Size = new System.Drawing.Size(75, 23);
+            this.btn_exit.TabIndex = 8;
+            this.btn_exit.Text = "exit";
+            this.btn_exit.UseVisualStyleBackColor = true;
+            this.btn_exit.Click += new System.EventHandler(this.btn_exit_Click);
+            // 
+            // lbl_info
+            // 
+            this.lbl_info.AutoSize = true;
+            this.lbl_info.Location = new System.Drawing.Point(69, 19);
+            this.lbl_info.Name = "lbl_info";
+            this.lbl_info.Size = new System.Drawing.Size(149, 13);
+            this.lbl_info.TabIndex = 9;
+            this.lbl_info.Text = "In this form, you can compare ";
+            // 
             // compare
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1004, 507);
+            this.Controls.Add(this.lbl_info);
+            this.Controls.Add(this.btn_exit);
             this.Controls.Add(this.lbl_compareTo);
             this.Controls.Add(this.lbl_BaseInventory);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.dataGridView2);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.cb_compare);
+            this.Controls.Add(this.cb_base);
+            this.Controls.Add(this.dgv_compareTo);
+            this.Controls.Add(this.dgv_Base);
             this.Controls.Add(this.btn_compare);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "compare";
             this.Text = "compare";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_Base)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_compareTo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -126,11 +149,13 @@ namespace SWP_4IT_WP_VP
         #endregion
 
         private System.Windows.Forms.Button btn_compare;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridView dataGridView2;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.DataGridView dgv_Base;
+        private System.Windows.Forms.DataGridView dgv_compareTo;
+        private System.Windows.Forms.ComboBox cb_base;
+        private System.Windows.Forms.ComboBox cb_compare;
         private System.Windows.Forms.Label lbl_BaseInventory;
         private System.Windows.Forms.Label lbl_compareTo;
+        private System.Windows.Forms.Button btn_exit;
+        private System.Windows.Forms.Label lbl_info;
     }
 }

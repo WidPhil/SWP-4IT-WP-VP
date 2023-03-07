@@ -32,6 +32,7 @@
             this.cb_inventories = new System.Windows.Forms.ComboBox();
             this.btn_convert = new System.Windows.Forms.Button();
             this.dgv_convert = new System.Windows.Forms.DataGridView();
+            this.btn_exit = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_convert)).BeginInit();
             this.SuspendLayout();
             // 
@@ -69,10 +70,20 @@
             // dgv_convert
             // 
             this.dgv_convert.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_convert.Location = new System.Drawing.Point(377, 181);
+            this.dgv_convert.Location = new System.Drawing.Point(382, 75);
             this.dgv_convert.Name = "dgv_convert";
-            this.dgv_convert.Size = new System.Drawing.Size(240, 150);
+            this.dgv_convert.Size = new System.Drawing.Size(320, 142);
             this.dgv_convert.TabIndex = 3;
+            // 
+            // btn_exit
+            // 
+            this.btn_exit.Location = new System.Drawing.Point(647, 334);
+            this.btn_exit.Name = "btn_exit";
+            this.btn_exit.Size = new System.Drawing.Size(75, 23);
+            this.btn_exit.TabIndex = 4;
+            this.btn_exit.Text = "Exit Form";
+            this.btn_exit.UseVisualStyleBackColor = true;
+            this.btn_exit.Click += new System.EventHandler(this.btn_exit_Click);
             // 
             // converter
             // 
@@ -80,6 +91,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(734, 369);
+            this.Controls.Add(this.btn_exit);
             this.Controls.Add(this.dgv_convert);
             this.Controls.Add(this.btn_convert);
             this.Controls.Add(this.cb_inventories);
@@ -98,5 +110,6 @@
         private System.Windows.Forms.ComboBox cb_inventories;
         private System.Windows.Forms.Button btn_convert;
         private System.Windows.Forms.DataGridView dgv_convert;
+        private System.Windows.Forms.Button btn_exit;
     }
 }

@@ -53,7 +53,7 @@
             // 
             // txtbox_confirmation
             // 
-            this.txtbox_confirmation.Location = new System.Drawing.Point(15, 162);
+            this.txtbox_confirmation.Location = new System.Drawing.Point(15, 132);
             this.txtbox_confirmation.Name = "txtbox_confirmation";
             this.txtbox_confirmation.Size = new System.Drawing.Size(216, 20);
             this.txtbox_confirmation.TabIndex = 2;
@@ -61,7 +61,7 @@
             // lbl_confirmation
             // 
             this.lbl_confirmation.AutoSize = true;
-            this.lbl_confirmation.Location = new System.Drawing.Point(12, 131);
+            this.lbl_confirmation.Location = new System.Drawing.Point(12, 101);
             this.lbl_confirmation.Name = "lbl_confirmation";
             this.lbl_confirmation.Size = new System.Drawing.Size(146, 13);
             this.lbl_confirmation.TabIndex = 3;
@@ -69,7 +69,7 @@
             // 
             // btn_recover
             // 
-            this.btn_recover.Location = new System.Drawing.Point(64, 200);
+            this.btn_recover.Location = new System.Drawing.Point(52, 188);
             this.btn_recover.Name = "btn_recover";
             this.btn_recover.Size = new System.Drawing.Size(128, 23);
             this.btn_recover.TabIndex = 3;
@@ -81,7 +81,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(257, 235);
+            this.ClientSize = new System.Drawing.Size(247, 240);
             this.Controls.Add(this.btn_recover);
             this.Controls.Add(this.lbl_confirmation);
             this.Controls.Add(this.txtbox_confirmation);

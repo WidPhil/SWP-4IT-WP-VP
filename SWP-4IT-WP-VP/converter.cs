@@ -46,7 +46,7 @@ namespace SWP_4IT_WP_VP
         {
             try
             {
-                cmd = new SqlCommand();
+                
                 data = new DataTable();
                 sqldataAdapter = new SqlDataAdapter(cmd = new SqlCommand("Select * from Users", con));
                 sqldataAdapter.Fill(data);
@@ -62,12 +62,24 @@ namespace SWP_4IT_WP_VP
                 app.Visible = true;
                 // get the reference of first sheet. By default its name is Sheet1.  
                 // store its reference to worksheet  
-                worksheet = workbook.Sheets["Tabelle1"];
+                worksheet = workbook.Sheets["Inventory"];
                 worksheet = workbook.ActiveSheet;
                 // changing the name of active sheet  
                 worksheet.Name = "Exported from gridview";
-                
 
+                //storing header part in Excel
+                for (int i = 1; i < dgv_convert.Columns.Count + 1; i++)
+                {
+                    worksheet.Cells[1, i] = dgv_convert.Columns[i - 1].HeaderText;
+                }
+                // storing Each row and column value to excel sheet  
+                for (int i = 0; i < dgv_convert.Rows.Count - 1; i++)
+                {
+                    for (int j = 0; j < dgv_convert.Columns.Count; j++)
+                    {
+                        worksheet.Cells[i + 2, j + 1] = dgv_convert.Rows[i].Cells[j].Value.ToString();
+                    }
+                }
                 fillExcel();
             }
             catch (Exception EX)
@@ -78,20 +90,12 @@ namespace SWP_4IT_WP_VP
         }
         private void fillExcel()
         {
-            //storing header part in Excel
-            for (int i = 1; i < dgv_convert.Columns.Count + 1; i++)
-            {
-                worksheet.Cells[1, i] = dgv_convert.Columns[i - 1].HeaderText;
-            }
-            // storing Each row and column value to excel sheet  
-            for (int i = 0; i < dgv_convert.Rows.Count - 1; i++)
-            {
-                for (int j = 0; j < dgv_convert.Columns.Count; j++)
-                {
-                    worksheet.Cells[i + 2, j + 1] = dgv_convert.Rows[i].Cells[j].Value.ToString();
-                }
-            }
+           
         }
-              
+
+        private void btn_exit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
