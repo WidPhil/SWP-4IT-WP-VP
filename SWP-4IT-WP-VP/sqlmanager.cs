@@ -27,11 +27,16 @@ namespace SWP_4IT_WP_VP
 
         public static string TRequ = "Requirements";
 
+        public static bool toReturnDB = false;
+        public static bool toReturnT = false;
+
+
         //checks if database Intersport is already created
         public static bool CheckDb()
         {
             con = new SqlConnection(ConnectionString);
             con.Open();
+
             cmd = new SqlCommand("SELECT * FROM sys.databases", con);
 
             SqlDataReader checkDatabase = cmd.ExecuteReader();
@@ -39,14 +44,13 @@ namespace SWP_4IT_WP_VP
             {
                 if (checkDatabase.GetString(0).ToLower().Equals(DbName.ToLower()))
                 {
-                    checkDatabase.Close();
-                    con.Close();
-                    return true;
+                    toReturnDB = true;
+                    
                 }
             }
             checkDatabase.Close();
             con.Close();
-            return false;
+            return toReturnDB;
         }
 
         //checks if tables are already created
@@ -54,6 +58,7 @@ namespace SWP_4IT_WP_VP
         {
             con = new SqlConnection(ConnectionString02);
             con.Open();
+
             cmd = new SqlCommand("SELECT * FROM sys.tables", con);
 
             SqlDataReader checkTable = cmd.ExecuteReader();
@@ -62,36 +67,38 @@ namespace SWP_4IT_WP_VP
             {
                 if (checkTable.GetString(0).ToLower().Equals(table.ToLower()))
                 {
-                    checkTable.Close();
-                    con.Close();
-                    return true;
+                    toReturnT = true;
                 }
 
             }
             checkTable.Close();
             con.Close();
-            return false;
+            return toReturnT;
         }
 
         //creates database Intersport
         public static void CreateDb()
         {
-            con = new SqlConnection(ConnectionString);
-            con.Open();
-
             CheckDb();
 
-            try
+            if (toReturnDB.Equals(false))
             {
-                SqlCommand cmd = new SqlCommand("Create Database " + DbName, con);
-                cmd.ExecuteNonQuery();
+                try
+                {
+                    con.Open();
+                    SqlCommand cmd = new SqlCommand("Create Database " + DbName, con);
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                }
+                catch (Exception cex)
+                {
+                    MessageBox.Show(cex.ToString());
+                }
             }
-            catch (Exception cex)
+            else
             {
-                MessageBox.Show(cex.ToString());
+                con.Close();
             }
-
-            con.Close();
             
         }
 
@@ -144,25 +151,33 @@ namespace SWP_4IT_WP_VP
         //creates table Users
         public static void CreateTUsers()
         {
-            con = new SqlConnection(ConnectionString02);
-            con.Open();
-
             CheckT(TU);
 
-            try
+            if (toReturnT.Equals(false))
             {
-                SqlCommand com = new SqlCommand("Create Table " + TU +
-                    "(id int primary key IDENTITY (1, 1), name varchar(100), Email varchar(100), " +
-                    "password varchar(100), hashedPassword varchar(100))", con);
-                com.ExecuteNonQuery();
+                try
+                {
+                    con = new SqlConnection(ConnectionString02);
+                    con.Open();
 
+                    SqlCommand com = new SqlCommand("Create Table " + TU +
+                        "(id int primary key IDENTITY (1, 1), name varchar(100), Email varchar(100), " +
+                        "password varchar(100), hashedPassword varchar(100))", con);
+                    com.ExecuteNonQuery();
+
+                    con.Close();
+
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+            }
+            else
+            {
                 con.Close();
-
             }
-            catch (Exception)
-            {
-                throw;
-            }
+            
         }
 
         //create table Requirements
