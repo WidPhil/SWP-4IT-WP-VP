@@ -78,19 +78,19 @@ namespace SWP_4IT_WP_VP
         }
         private void fillExcel()
         {
-            //storing header part in Excel
-            for (int i = 1; i < dgv_convert.Columns.Count + 1; i++)
-            {
-                worksheet.Cells[1, i] = dgv_convert.Columns[i - 1].HeaderText;
-            }
-            // storing Each row and column value to excel sheet  
-            for (int i = 0; i < dgv_convert.Rows.Count - 1; i++)
-            {
-                for (int j = 0; j < dgv_convert.Columns.Count; j++)
-                {
-                    worksheet.Cells[i + 2, j + 1] = dgv_convert.Rows[i].Cells[j].Value.ToString();
-                }
-            }
+            ////storing header part in Excel
+            //for (int i = 1; i < dgv_convert.Columns.Count + 1; i++)
+            //{
+            //    worksheet.Cells[1, i] = dgv_convert.Columns[i - 1].HeaderText;
+            //}
+            //// storing Each row and column value to excel sheet  
+            //for (int i = 0; i < dgv_convert.Rows.Count - 1; i++)
+            //{
+            //    for (int j = 0; j < dgv_convert.Columns.Count; j++)
+            //    {
+            //        worksheet.Cells[i + 2, j + 1] = dgv_convert.Rows[i].Cells[j].Value.ToString();
+            //    }
+            //}
         }
               
     }
