@@ -193,7 +193,7 @@ namespace SWP_4IT_WP_VP
                 //SqlCommand com = new SqlCommand("Create Table " + tname + "(id int primary key IDENTITY (1, 1), name varchar(100), type varchar(100), inStock varchar(100), MinimumStock varchar(100))", con);
                 //com.ExecuteNonQuery();
 
-                SqlCommand com = new SqlCommand("Create Table " + TRequ + "(id int primary key IDENTITY (1, 1), Product1 varchar(100), Product2 varchar(100), Product3 varchar(100), Product4 varchar(100), Product5 varchar(100), Product6 varchar(100), Product7 varchar(100))", con);
+                SqlCommand com = new SqlCommand("Create Table " + TRequ + "(id int primary key IDENTITY (1, 1), Name varchar(100), Color varchar(100), Type varchar(100), Brand varchar(100), MinStock varchar(100))", con);
                 com.ExecuteNonQuery();
 
                 //cmd = new SqlCommand("Insert into Requirements (Product1, Product2, Product3, Product4, Product5, Product6, Product7) values(3, 3, 4, 3, 2, 3, 2");
@@ -203,6 +203,23 @@ namespace SWP_4IT_WP_VP
             }
             catch (Exception)
             {
+                throw;
+            }
+        }
+
+        public static void FillRequirements()
+        {
+            try
+            {
+                con = new SqlConnection(ConnectionString02);
+                con.Open();
+                cmd = new SqlCommand("Insert into Requirements (Name, Color, Type, Brand, MinStock) values (");
+                cmd.ExecuteNonQuery();
+                con.Close();
+            }
+            catch (Exception)
+            {
+
                 throw;
             }
         }
@@ -329,5 +346,7 @@ namespace SWP_4IT_WP_VP
             //adressenTableAdapter.Update(databaseDataSet);
 
         }
+
+        
     }
 }

@@ -62,7 +62,7 @@ namespace SWP_4IT_WP_VP
                 app.Visible = true;
                 // get the reference of first sheet. By default its name is Sheet1.  
                 // store its reference to worksheet  
-                worksheet = workbook.Sheets["Inventory"];
+                worksheet = workbook.Sheets["Tabelle1"];
                 worksheet = workbook.ActiveSheet;
                 // changing the name of active sheet  
                 worksheet.Name = "Exported from gridview";
