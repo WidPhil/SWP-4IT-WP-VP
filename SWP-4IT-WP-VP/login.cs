@@ -91,8 +91,7 @@ namespace SWP_4IT_WP_VP
                 MessageBox.Show("Valid Password!");
                 menu m = new menu();
                 m.Show();
-                converter excel = new converter();
-                excel.Show();
+                
             }
             else
             {
