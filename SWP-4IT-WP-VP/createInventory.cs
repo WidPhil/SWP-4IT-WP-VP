@@ -41,10 +41,10 @@ namespace SWP_4IT_WP_VP
 
         private void buttonSave_Click(object sender, EventArgs e)
         {
-            sqlmanager.UpdateInventoryTable();
-            thisMonthBindingSource.DataSource
+            //sqlmanager.UpdateInventoryTable();
+            //thisMonthBindingSource.DataSource
 
-            dataGridViewInventory.DataSource = ttm;
+            //dataGridViewInventory.DataSource = ttm;
         }
     }
 }
