@@ -32,8 +32,10 @@ namespace SWP_4IT_WP_VP
         private void Login_Load(object sender, EventArgs e)
         {
             sqlmanager.CreateDb();
+            sqlmanager.CreateTInventoryTM();
+            sqlmanager.CreateTInventoryLM();
             sqlmanager.CreateTUsers();
-            //sqlmanager.CreateTRequirements();
+            sqlmanager.CreateTRequirements();
         }
 
         //Opens Form for sending Recovery Code
@@ -158,5 +160,11 @@ namespace SWP_4IT_WP_VP
             textboxEmail.ForeColor = Color.Silver;
         }
         #endregion
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            menu m = new menu();
+            m.Show();
+        }
     }
 }
