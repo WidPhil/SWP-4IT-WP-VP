@@ -119,6 +119,7 @@
     <Compile Include="overviewInventory.Designer.cs">
       <DependentUpon>overviewInventory.cs</DependentUpon>
     </Compile>
+    <Compile Include="Product.cs" />
     <Compile Include="sendcode.cs">
       <SubType>Form</SubType>
     </Compile>
