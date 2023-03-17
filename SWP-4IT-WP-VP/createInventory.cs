@@ -12,16 +12,22 @@ namespace SWP_4IT_WP_VP
 {
     public partial class createInventory : Form
     {
+        
+
         public createInventory()
         {
             InitializeComponent();
+
+           
         }
 
         private void createInventory_Load(object sender, EventArgs e)
         {
             // TODO: Diese Codezeile lädt Daten in die Tabelle "intersportDataSet.ThisMonth". Sie können sie bei Bedarf verschieben oder entfernen.
             this.thisMonthTableAdapter.Fill(this.intersportDataSet.ThisMonth);
-            
+
+        
+
         }
 
         private void buttonCancel_Click(object sender, EventArgs e)
@@ -39,12 +45,15 @@ namespace SWP_4IT_WP_VP
             }
         }
 
+        
         private void buttonSave_Click(object sender, EventArgs e)
         {
-            //sqlmanager.UpdateInventoryTable();
-            //thisMonthBindingSource.DataSource
+            
 
-            //dataGridViewInventory.DataSource = ttm;
+            sqlmanager.UpdateInventoryTableTM();
+            
+
+            
         }
     }
 }

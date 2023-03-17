@@ -30,6 +30,8 @@ namespace SWP_4IT_WP_VP
         public static bool toReturnDB = false;
         public static bool toReturnT = false;
 
+        //public static DataGridView dgv = createInventory.GetDataGridView();
+
 
         //checks if database Intersport is already created
         public static bool CheckDb()
@@ -407,11 +409,36 @@ namespace SWP_4IT_WP_VP
     
 
         //Update the table in the database from gridView
-        public static void UpdateInventoryTable()
+        public static void UpdateInventoryTableTM()
         {
-            
+            con = new SqlConnection(ConnectionString02);
+            SqlCommand com = new SqlCommand("UPDATE Intersport SET name = @value1, quantity = @value2, measurement = @value3, valuePerPiece = @value4, valueTotal = @value5, sum  = @value6 WHERE id = @id", con);
 
+            com.Parameters.AddWithValue("@value1", "");
+            com.Parameters.AddWithValue("@value2", "");
+            com.Parameters.AddWithValue("@value3", "");
+            com.Parameters.AddWithValue("@value4", "");
+            com.Parameters.AddWithValue("@value5", "");
+            com.Parameters.AddWithValue("@value6", "");
+            com.Parameters.AddWithValue("@id", "");
 
+            foreach (DataGridViewRow row in dataGridViewInventory.Rows)
+            {
+                if (!row.IsNewRow)
+                {
+                    com.Parameters["@value1"].Value = row.Cells["name"].Value;
+                    com.Parameters["@value2"].Value = row.Cells["quantity"].Value;
+                    com.Parameters["@value3"].Value = row.Cells["measurement"].Value;
+                    com.Parameters["@value4"].Value = row.Cells["valuePerPiece"].Value;
+                    com.Parameters["@value5"].Value = row.Cells["valueTotal"].Value;
+                    com.Parameters["@value6"].Value = row.Cells["sum"].Value;
+                    com.Parameters["@id"].Value = row.Cells["myID"].Value;
+
+                    com.ExecuteNonQuery();
+                }
+            }
+
+            con.Close();
         }
 
         
