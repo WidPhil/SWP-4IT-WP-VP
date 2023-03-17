@@ -234,7 +234,7 @@ namespace SWP_4IT_WP_VP
             {
                 con = new SqlConnection(ConnectionString02);
                 con.Open();
-                cmd = new SqlCommand("Insert into Requirements (Name, Color, Type, Brand, MinStock) values (");
+                cmd = new SqlCommand("Insert into Requirements (Name, Color, Type, Brand, MinStock, Price) values (");
                 cmd.ExecuteNonQuery();
                 con.Close();
             }
@@ -338,9 +338,31 @@ namespace SWP_4IT_WP_VP
                 con = new SqlConnection(ConnectionString02);
                 con.Open();
 
-                cmd = new SqlCommand("Select Product1 from Inventory");
-                cmd.ExecuteNonQuery();
 
+                cmd = new SqlCommand("Select * from ThisMonth");
+                cmd.ExecuteNonQuery();
+                SqlDataReader checkTable = cmd.ExecuteReader();
+
+                while (checkTable.Read())
+                {
+                    if (checkTable.GetString(0).ToLower().Equals(3))
+                    {
+                        bool OrderProduct1 = true;
+                    }
+                    else if (checkTable.GetString(2).ToLower().Equals(3))
+                    {
+                        bool OrderProduct2 = true;
+                    }
+                    else if (checkTable.GetString(3).ToLower().Equals(3))
+                    {
+                        bool OrderProduct3 = true;
+                    }
+                    else if (checkTable.GetString(4).ToLower().Equals(3))
+                    {
+                        bool OrderProduct4 = true;
+                    }
+
+                }
                 con.Close();
             }
             catch (Exception)
@@ -351,24 +373,38 @@ namespace SWP_4IT_WP_VP
         }
 
         //This Method orders Products
-        public static void OrderProducts()
-        {
-            try
+        
+            public static IEnumerable<Product> OrderProducts()
             {
-                con = new SqlConnection(ConnectionString02);
-                con.Open();
-
-                cmd = new SqlCommand("Insert into ");
-                cmd.ExecuteNonQuery();
-
-                con.Close();
+                
+                var query = "SELECT * FROM Products ORDER BY Name"; using (var connection = new SqlConnection(ConnectionString02))
+                {
+                    connection.Open();
+                    using (var command = new SqlCommand(query, connection))
+                    {
+                        using (var reader = command.ExecuteReader())
+                        {
+                            var products = new List<Product>();
+                            while (reader.Read())
+                            {
+                            var product = new Product
+                            {
+                                Id = (int)reader["Id"],
+                                Name = (string)reader["Name"],
+                                Price = (decimal)reader["Price"],
+                                    Color = (string)reader["Color"],
+                                    Brand = (string)reader["Brand"],
+                                    MinStock = (decimal)reader["MinStock"]
+                                };
+                                products.Add(product);
+                            }
+                            return products;
+                        }
+                    }
+                }
             }
-            catch (Exception)
-            {
-
-                throw;
-            }
-        }
+        
+    
 
         //Update the table in the database from gridView
         public static void UpdateInventoryTable()
