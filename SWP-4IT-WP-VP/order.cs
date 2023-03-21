@@ -12,6 +12,7 @@ namespace SWP_4IT_WP_VP
 {
     public partial class order : Form
     {
+        public static List<string> list = new List<string>();
         public order()
         {
             InitializeComponent();
@@ -20,6 +21,13 @@ namespace SWP_4IT_WP_VP
         private void btn_order_Click(object sender, EventArgs e)
         {
             
+        }
+
+        private void order_Load(object sender, EventArgs e)
+        {
+            //Product p = new Product();
+            //p.Name = ""
+            //cb_product.Items.Add();
         }
     }
 }
