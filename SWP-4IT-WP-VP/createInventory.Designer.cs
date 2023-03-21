@@ -44,6 +44,7 @@ namespace SWP_4IT_WP_VP
             this.buttonSave = new System.Windows.Forms.Button();
             this.dateTimePickerInventory = new System.Windows.Forms.DateTimePicker();
             this.thisMonthTableAdapter = new SWP_4IT_WP_VP.IntersportDataSetTableAdapters.ThisMonthTableAdapter();
+            this.labelCreateInventory = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewInventory)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.thisMonthBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.intersportDataSet)).BeginInit();
@@ -62,7 +63,7 @@ namespace SWP_4IT_WP_VP
             this.valueTotalDataGridViewTextBoxColumn,
             this.sumDataGridViewTextBoxColumn});
             this.dataGridViewInventory.DataSource = this.thisMonthBindingSource;
-            this.dataGridViewInventory.Location = new System.Drawing.Point(29, 81);
+            this.dataGridViewInventory.Location = new System.Drawing.Point(29, 61);
             this.dataGridViewInventory.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridViewInventory.Name = "dataGridViewInventory";
             this.dataGridViewInventory.RowHeadersWidth = 51;
@@ -141,7 +142,7 @@ namespace SWP_4IT_WP_VP
             // 
             this.buttonCancel.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonCancel.Location = new System.Drawing.Point(846, 607);
+            this.buttonCancel.Location = new System.Drawing.Point(846, 577);
             this.buttonCancel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(108, 33);
@@ -154,7 +155,7 @@ namespace SWP_4IT_WP_VP
             // 
             this.buttonSave.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonSave.Location = new System.Drawing.Point(29, 607);
+            this.buttonSave.Location = new System.Drawing.Point(29, 577);
             this.buttonSave.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(109, 33);
@@ -166,7 +167,7 @@ namespace SWP_4IT_WP_VP
             // dateTimePickerInventory
             // 
             this.dateTimePickerInventory.Font = new System.Drawing.Font("Microsoft Tai Le", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePickerInventory.Location = new System.Drawing.Point(29, 31);
+            this.dateTimePickerInventory.Location = new System.Drawing.Point(96, 8);
             this.dateTimePickerInventory.Name = "dateTimePickerInventory";
             this.dateTimePickerInventory.Size = new System.Drawing.Size(296, 29);
             this.dateTimePickerInventory.TabIndex = 5;
@@ -175,11 +176,22 @@ namespace SWP_4IT_WP_VP
             // 
             this.thisMonthTableAdapter.ClearBeforeFill = true;
             // 
+            // labelCreateInventory
+            // 
+            this.labelCreateInventory.AutoSize = true;
+            this.labelCreateInventory.Font = new System.Drawing.Font("Microsoft YaHei UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelCreateInventory.Location = new System.Drawing.Point(29, 8);
+            this.labelCreateInventory.Name = "labelCreateInventory";
+            this.labelCreateInventory.Size = new System.Drawing.Size(61, 27);
+            this.labelCreateInventory.TabIndex = 6;
+            this.labelCreateInventory.Text = "Date:";
+            // 
             // createInventory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(996, 662);
+            this.Controls.Add(this.labelCreateInventory);
             this.Controls.Add(this.dateTimePickerInventory);
             this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.buttonCancel);
@@ -192,6 +204,7 @@ namespace SWP_4IT_WP_VP
             ((System.ComponentModel.ISupportInitialize)(this.thisMonthBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.intersportDataSet)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -211,5 +224,6 @@ namespace SWP_4IT_WP_VP
         private System.Windows.Forms.DataGridViewTextBoxColumn valuePerPieceDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn valueTotalDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn sumDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Label labelCreateInventory;
     }
 }
