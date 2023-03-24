@@ -117,7 +117,7 @@ namespace SWP_4IT_WP_VP
 
                     SqlCommand com = new SqlCommand("Create Table " + TInvTM + " " +
                         "(id int primary key IDENTITY (1, 1), name varchar(100), quantity varchar(100), " +
-                        "measurement varchar(100), valuePerPiece varchar(100), valueTotal varchar(100), sum varchar(100))", con);
+                        "measurement varchar(100), valuePerPiece varchar(100), valueTotal varchar(100))", con);
                     com.ExecuteNonQuery();
 
                     con.Close();
@@ -148,7 +148,7 @@ namespace SWP_4IT_WP_VP
 
                     SqlCommand com = new SqlCommand("Create Table " + TInvLM + " " +
                         "(id int primary key IDENTITY (1, 1), name varchar(100), quantity varchar(100), measurement varchar(100), " +
-                        "valuePerPiece varchar(100), valueTotal varchar(100), sum varchar(100))", con);
+                        "valuePerPiece varchar(100), valueTotal varchar(100))", con);
                     com.ExecuteNonQuery();
 
                     con.Close();
@@ -406,41 +406,32 @@ namespace SWP_4IT_WP_VP
                 }
             }
         
-    
 
         //Update the table in the database from gridView
-        public static void UpdateInventoryTableTM()
+        public static void UpdateInventoryTableTM(int id, string n, int q, string m, string vp, string vt)
         {
             con = new SqlConnection(ConnectionString02);
-            SqlCommand com = new SqlCommand("UPDATE Intersport SET name = @value1, quantity = @value2, measurement = @value3, valuePerPiece = @value4, valueTotal = @value5, sum  = @value6 WHERE id = @id", con);
+            SqlCommand com = new SqlCommand("UPDATE Intersport SET id = @id, name = @value1, quantity = @value2, measurement = @value3, valuePerPiece = @value4, valueTotal = @value5 WHERE id = @id", con);
 
+            com.Parameters.AddWithValue("@id", "");
             com.Parameters.AddWithValue("@value1", "");
             com.Parameters.AddWithValue("@value2", "");
             com.Parameters.AddWithValue("@value3", "");
             com.Parameters.AddWithValue("@value4", "");
             com.Parameters.AddWithValue("@value5", "");
-            com.Parameters.AddWithValue("@value6", "");
-            com.Parameters.AddWithValue("@id", "");
 
-            foreach (DataGridViewRow row in dataGridViewInventory.Rows)
-            {
-                if (!row.IsNewRow)
-                {
-                    com.Parameters["@value1"].Value = row.Cells["name"].Value;
-                    com.Parameters["@value2"].Value = row.Cells["quantity"].Value;
-                    com.Parameters["@value3"].Value = row.Cells["measurement"].Value;
-                    com.Parameters["@value4"].Value = row.Cells["valuePerPiece"].Value;
-                    com.Parameters["@value5"].Value = row.Cells["valueTotal"].Value;
-                    com.Parameters["@value6"].Value = row.Cells["sum"].Value;
-                    com.Parameters["@id"].Value = row.Cells["myID"].Value;
-
-                    com.ExecuteNonQuery();
-                }
-            }
-
+            com.Parameters["@id"].Value = id;
+            com.Parameters["@value1"].Value = n;
+            com.Parameters["@value2"].Value = q;
+            com.Parameters["@value3"].Value = m;
+            com.Parameters["@value4"].Value = vp;
+            com.Parameters["@value5"].Value = vt;
+            
+            com.ExecuteNonQuery();
+                
             con.Close();
         }
 
-        
+
     }
 }

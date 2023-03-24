@@ -89,6 +89,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>IntersportDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="IntersportDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IntersportDataSet1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -190,6 +195,17 @@
     </None>
     <None Include="IntersportDataSet.xss">
       <DependentUpon>IntersportDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="IntersportDataSet1.xsc">
+      <DependentUpon>IntersportDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="IntersportDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>IntersportDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="IntersportDataSet1.xss">
+      <DependentUpon>IntersportDataSet1.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
