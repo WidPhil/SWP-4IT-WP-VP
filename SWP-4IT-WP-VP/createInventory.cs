@@ -23,8 +23,9 @@ namespace SWP_4IT_WP_VP
 
         private void createInventory_Load(object sender, EventArgs e)
         {
-            // TODO: Diese Codezeile lädt Daten in die Tabelle "intersportDataSet.ThisMonth". Sie können sie bei Bedarf verschieben oder entfernen.
-            this.thisMonthTableAdapter.Fill(this.intersportDataSet.ThisMonth);
+            // TODO: Diese Codezeile lädt Daten in die Tabelle "intersportDataSet1.ThisMonth". Sie können sie bei Bedarf verschieben oder entfernen.
+            this.thisMonthTableAdapter1.Fill(this.intersportDataSet1.ThisMonth);
+            
 
         
 
@@ -48,9 +49,23 @@ namespace SWP_4IT_WP_VP
         
         private void buttonSave_Click(object sender, EventArgs e)
         {
-            
+            int id;
+            string name;
+            int quantity;
+            string measurement;
+            string valuePerPiece;
+            string valueTotal;
 
-            sqlmanager.UpdateInventoryTableTM();
+            DataGridViewRow selectedRow = dataGridViewInventory.SelectedRows[i];
+
+            id = int.Parse(selectedRow.Cells["id"].Value.ToString());
+            name = selectedRow.Cells["name"].Value.ToString();
+            quantity = int.Parse(selectedRow.Cells["quantity"].Value.ToString());
+            measurement = selectedRow.Cells["measurement"].Value.ToString();
+            valuePerPiece = selectedRow.Cells["valuePerPiece"].Value.ToString();
+            valueTotal = selectedRow.Cells["valueTotal"].Value.ToString();
+            
+            sqlmanager.UpdateInventoryTableTM(id, name, quantity, measurement, valuePerPiece, valueTotal);
             
 
             
