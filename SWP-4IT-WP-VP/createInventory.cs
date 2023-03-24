@@ -56,16 +56,16 @@ namespace SWP_4IT_WP_VP
             string valuePerPiece;
             string valueTotal;
 
-            DataGridViewRow selectedRow = dataGridViewInventory.SelectedRows[i];
+            //DataGridViewRow selectedRow = dataGridViewInventory.SelectedRows[i];
 
-            id = int.Parse(selectedRow.Cells["id"].Value.ToString());
-            name = selectedRow.Cells["name"].Value.ToString();
-            quantity = int.Parse(selectedRow.Cells["quantity"].Value.ToString());
-            measurement = selectedRow.Cells["measurement"].Value.ToString();
-            valuePerPiece = selectedRow.Cells["valuePerPiece"].Value.ToString();
-            valueTotal = selectedRow.Cells["valueTotal"].Value.ToString();
+            //id = int.Parse(selectedRow.Cells["id"].Value.ToString());
+            //name = selectedRow.Cells["name"].Value.ToString();
+            //quantity = int.Parse(selectedRow.Cells["quantity"].Value.ToString());
+            //measurement = selectedRow.Cells["measurement"].Value.ToString();
+            //valuePerPiece = selectedRow.Cells["valuePerPiece"].Value.ToString();
+            //valueTotal = selectedRow.Cells["valueTotal"].Value.ToString();
             
-            sqlmanager.UpdateInventoryTableTM(id, name, quantity, measurement, valuePerPiece, valueTotal);
+            //sqlmanager.UpdateInventoryTableTM(id, name, quantity, measurement, valuePerPiece, valueTotal);
             
 
             
