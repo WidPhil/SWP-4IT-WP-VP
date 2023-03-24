@@ -59,7 +59,7 @@
             // 
             // btn_convert
             // 
-            this.btn_convert.Location = new System.Drawing.Point(104, 136);
+            this.btn_convert.Location = new System.Drawing.Point(30, 131);
             this.btn_convert.Name = "btn_convert";
             this.btn_convert.Size = new System.Drawing.Size(180, 37);
             this.btn_convert.TabIndex = 2;
