@@ -18,6 +18,7 @@ namespace SWP_4IT_WP_VP
         public static SqlConnection con;
         public static SqlCommand cmd;
         //public static SqlDataReader reader;
+        //Name der Datenbank: philip.widauer Benutzer für die Datenbank:   philip.widauer Kennwort für die Datenbank:   MyDatabase017 
 
         public static string DbName = "Intersport";
         public static string TInvTM = "ThisMonth";
@@ -25,7 +26,8 @@ namespace SWP_4IT_WP_VP
 
         public static string TU = "Users";
 
-        public static string TRequ = "Requirements";
+        public static string TUpperCategory = "uppercategory";
+        public static string TLowerCategory = "LowerCategorie";
 
         public static bool toReturnDB = false;
         public static bool toReturnT = false;
@@ -57,6 +59,7 @@ namespace SWP_4IT_WP_VP
         //checks if tables are already created
         public static bool CheckT(string table)
         {
+            toReturnT = false;
             con = new SqlConnection(ConnectionString02);
             con.Open();
 
@@ -70,8 +73,10 @@ namespace SWP_4IT_WP_VP
                 {
                     toReturnT = true;
                 }
+               
 
             }
+           
             checkTable.Close();
             con.Close();
             return toReturnT;
@@ -138,7 +143,7 @@ namespace SWP_4IT_WP_VP
         public static void CreateTInventoryLM()
         {
             CheckT(TInvLM);
-
+            MessageBox.Show(toReturnT.ToString());
             if (toReturnT.Equals(false))
             {
                 try
@@ -198,22 +203,21 @@ namespace SWP_4IT_WP_VP
         }
 
         //create table Requirements
-        public static void CreateTRequirements()
+        public static void CreateTableUpperCategory()
         {
-            CheckT(TRequ);
+           
+            CheckT(TUpperCategory);
 
             if (toReturnT.Equals(false))
             {
+                MessageBox.Show("worked!");
                 try
                 {
                     con = new SqlConnection(ConnectionString02);
                     con.Open();
 
-
-                    SqlCommand com = new SqlCommand("Create Table " + TRequ + "(id int primary key IDENTITY (1, 1), Product1 varchar(100), Product2 varchar(100), Product3 varchar(100), Product4 varchar(100), Product5 varchar(100), Product6 varchar(100), Product7 varchar(100))", con);
+                    SqlCommand com = new SqlCommand("Create Table " + TUpperCategory + "(id int primary key IDENTITY (1, 1), Uc varchar(100))", con);
                     com.ExecuteNonQuery();
-
-                    //cmd = new SqlCommand("Insert into Requirements (Product1, Product2, Product3, Product4, Product5, Product6, Product7) values(3, 3, 4, 3, 2, 3, 2");
 
                     con.Close();
 
@@ -228,6 +232,35 @@ namespace SWP_4IT_WP_VP
                 con.Close();
             }
             
+        }
+        public static void CreateTableLowerCategory()
+        {
+            CheckT(TLowerCategory);
+
+            if (toReturnT.Equals(false))
+            {
+                try
+                {
+                    con = new SqlConnection(ConnectionString02);
+                    con.Open();
+
+
+                    SqlCommand com = new SqlCommand("Create Table " + TLowerCategory + "(id int primary key IDENTITY (1, 1), Uc int FOREIGN KEY REFERENCES (uppercategory)(Uc), category varchar(100), lowercategory varchar(100), Product varchar(100), Size varchar(100), color varchar(100))", con);
+                    com.ExecuteNonQuery();
+
+                    con.Close();
+
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+            }
+            else
+            {
+                con.Close();
+            }
+
         }
 
         public static void FillRequirements()
