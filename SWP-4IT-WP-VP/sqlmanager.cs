@@ -32,6 +32,10 @@ namespace SWP_4IT_WP_VP
         public static bool toReturnDB = false;
         public static bool toReturnT = false;
 
+
+
+        public static IntersportEntities1 Entities = new IntersportEntities1();
+
         //public static DataGridView dgv = createInventory.GetDataGridView();
 
 
@@ -214,8 +218,8 @@ namespace SWP_4IT_WP_VP
                     con = new SqlConnection(ConnectionString02);
                     con.Open();
 
-                    SqlCommand com = new SqlCommand("Create Table " + TUpperCategory + "(id int primary key IDENTITY (1, 1), Uc varchar(100))", con);
-                    com.ExecuteNonQuery();
+                    //SqlCommand com = new SqlCommand("Create Table " + TUpperCategory + "(id int primary key IDENTITY (1, 1), Uc varchar(100))", con);
+                    //com.ExecuteNonQuery();
 
                     con.Close();
 
@@ -243,8 +247,8 @@ namespace SWP_4IT_WP_VP
                     con.Open();
 
 
-                    SqlCommand com = new SqlCommand("Create Table " + TLowerCategory + "(id int primary key IDENTITY (1, 1), Uc int FOREIGN KEY REFERENCES (uppercategory)(Uc), category varchar(100), lowercategory varchar(100), Product varchar(100), Size varchar(100), color varchar(100))", con);
-                    com.ExecuteNonQuery();
+                    //SqlCommand com = new SqlCommand("Create Table " + TLowerCategory + "(id int primary key IDENTITY (1, 1), Uc int FOREIGN KEY REFERENCES (uppercategory)(Uc), category varchar(100), lowercategory varchar(100), Product varchar(100), Size varchar(100), color varchar(100))", con);
+                    //com.ExecuteNonQuery();
 
                     con.Close();
 
@@ -263,6 +267,11 @@ namespace SWP_4IT_WP_VP
 
         public static void FillRequirements()
         {
+            
+            
+            
+            
+            
             try
             {
                 con = new SqlConnection(ConnectionString02);
@@ -281,28 +290,25 @@ namespace SWP_4IT_WP_VP
         //adds user to table
         public static void AddUser(string name, string Email, string Hash)
         {
-            
-            try
-            {
-                con = new SqlConnection(ConnectionString02);
-                con.Open();
-
-                cmd = new SqlCommand("insert into Users(name, Email, hashedPassword) values('" + name + "', '" + Email + "', '" + Hash + "')", con);
-                cmd.ExecuteNonQuery();
-
-                con.Close();
-
-                MessageBox.Show("Signed up successfully!");
-            }
-            catch (Exception)
-            {
-                throw;
-            }
+            Users users = new Users();
+            users.name = name;
+            users.Email = Email;
+            users.hashedPassword = Hash;
+            Entities.Users.Add(users);
+            Entities.SaveChanges();
         }
 
         //updates password in table
         public static void NewPassword(string Username, string newHash)
         {
+            //Users Users = new Users();
+
+            //if (Users.name == Username)
+            //{
+            //    Users.hashedPassword = newHash;
+            //}
+            //Entities.SaveChanges();
+
             try
             {
                 con = new SqlConnection(ConnectionString02);
@@ -322,47 +328,31 @@ namespace SWP_4IT_WP_VP
         //get password
         public static string ReadPassword(string username)
         {
-            
 
             try
             {
-                con = new SqlConnection(ConnectionString02);
-                con.Open();
+                Users users = new Users();
+                Users user1 = Entities.Users.FirstOrDefault(n => n.name.Equals(username));
+                if (user1 == null)
+                {
+                    return null;
+                    MessageBox.Show("No one found");
+                }
+                else
+                {
+                    return user1.hashedPassword;
+                }
 
-                cmd = new SqlCommand("SELECT hashedPassword FROM Users Where name = '"+ username + "'", con);
-                string password = (string)cmd.ExecuteScalar();
-
-                con.Close();
-
-                return password;
             }
             catch (Exception)
             {
+
                 throw;
             }
         }
 
         //this method querys all the data 
-        public static void GetInventory()
-        {
-            
-
-            try
-            {
-                con = new SqlConnection(ConnectionString02);
-                con.Open();
-
-                cmd = new SqlCommand("Select * from Inventory");
-                cmd.ExecuteNonQuery();
-
-                con.Close();
-            }
-            catch (Exception CEX)
-            {
-                MessageBox.Show(CEX.ToString());
-            }
-        }
-
+       
         //this method checks if the Products are low in Quantity
         public static void AutomaticOrderProducts()
         {
@@ -463,6 +453,7 @@ namespace SWP_4IT_WP_VP
             con.Close();
         }
 
+       
 
     }
 }

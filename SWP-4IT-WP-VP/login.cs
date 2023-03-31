@@ -71,6 +71,7 @@ namespace SWP_4IT_WP_VP
                 }
                 else
                     sqlmanager.AddUser(name, Email, FirstHash);
+                MessageBox.Show("Signed up successfully!");
             }
             catch (Exception)
             {
