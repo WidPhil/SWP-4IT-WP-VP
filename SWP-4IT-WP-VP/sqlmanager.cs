@@ -120,9 +120,7 @@ namespace SWP_4IT_WP_VP
                     con = new SqlConnection(ConnectionString02);
                     con.Open();
 
-                    SqlCommand com = new SqlCommand("Create Table " + TInvTM + " " +
-                        "(id int primary key IDENTITY (1, 1), name varchar(100), quantity varchar(100), " +
-                        "measurement varchar(100), valuePerPiece varchar(100), valueTotal varchar(100))", con);
+                    SqlCommand com = new SqlCommand("Create Table " + TInvTM + "(id int NOT NULL IDENTITY (1, 1) primary key, name varchar(100), quantity varchar(100), measurement varchar(100), valuePerPiece varchar(100), valueTotal varchar(100))", con);
                     com.ExecuteNonQuery();
 
                     con.Close();
