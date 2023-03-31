@@ -31,10 +31,11 @@ namespace SWP_4IT_WP_VP
         private void Login_Load(object sender, EventArgs e)
         {
             sqlmanager.CreateDb();
-            sqlmanager.CreateTInventoryTM();
+            //sqlmanager.CreateTInventoryTM();
             sqlmanager.CreateTInventoryLM();
             sqlmanager.CreateTUsers();
-            sqlmanager.CreateTRequirements();
+            sqlmanager.CreateTableUpperCategory();
+            sqlmanager.CreateTableLowerCategory();
         }
 
         //Opens Form for sending Recovery Code
