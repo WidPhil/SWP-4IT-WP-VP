@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -12,6 +13,8 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -33,12 +36,21 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Office.Interop.Excel.15.0.4795.1001\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -81,6 +93,21 @@
     <Compile Include="info.Designer.cs">
       <DependentUpon>info.cs</DependentUpon>
     </Compile>
+    <Compile Include="Intersport.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Intersport.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Intersport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Intersport.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Intersport.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Intersport.edmx</DependentUpon>
+    </Compile>
     <Compile Include="IntersportDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -110,6 +137,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>IntersportDataSet5.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Inventory.cs">
+      <DependentUpon>Intersport.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LastMonth.cs">
+      <DependentUpon>Intersport.tt</DependentUpon>
     </Compile>
     <Compile Include="login.cs">
       <SubType>Form</SubType>
@@ -142,6 +175,9 @@
       <DependentUpon>overviewInventory.cs</DependentUpon>
     </Compile>
     <Compile Include="Product.cs" />
+    <Compile Include="Requirements.cs">
+      <DependentUpon>Intersport.tt</DependentUpon>
+    </Compile>
     <Compile Include="sendcode.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -151,11 +187,11 @@
     <Compile Include="sqlmanager.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="requirements.cs">
-      <SubType>Form</SubType>
+    <Compile Include="ThisMonth.cs">
+      <DependentUpon>Intersport.tt</DependentUpon>
     </Compile>
-    <Compile Include="requirements.Designer.cs">
-      <DependentUpon>requirements.cs</DependentUpon>
+    <Compile Include="Users.cs">
+      <DependentUpon>Intersport.tt</DependentUpon>
     </Compile>
     <EmbeddedResource Include="compare.resx">
       <DependentUpon>compare.cs</DependentUpon>
@@ -196,12 +232,16 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="requirements.resx">
-      <DependentUpon>requirements.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="sendcode.resx">
       <DependentUpon>sendcode.cs</DependentUpon>
     </EmbeddedResource>
+    <EntityDeploy Include="Intersport.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Intersport.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Intersport.edmx.diagram">
+      <DependentUpon>Intersport.edmx</DependentUpon>
+    </None>
     <None Include="IntersportDataSet.xsc">
       <DependentUpon>IntersportDataSet.xsd</DependentUpon>
     </None>
@@ -282,5 +322,28 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Intersport.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Intersport.Context.cs</LastGenOutput>
+      <DependentUpon>Intersport.edmx</DependentUpon>
+    </Content>
+    <Content Include="Intersport.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Intersport.edmx</DependentUpon>
+      <LastGenOutput>Intersport.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Dieses Projekt verweist auf mindestens ein NuGet-Paket, das auf diesem Computer fehlt. Verwenden Sie die Wiederherstellung von NuGet-Paketen, um die fehlenden Dateien herunterzuladen. Weitere Informationen finden Sie unter "http://go.microsoft.com/fwlink/?LinkID=322105". Die fehlende Datei ist "{0}".</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
 </Project>

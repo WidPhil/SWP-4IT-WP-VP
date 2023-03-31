@@ -93,7 +93,7 @@ namespace SWP_4IT_WP_VP
         //Opens Requirements
         private void buttonRequirements_Click(object sender, EventArgs e)
         {
-            openMainForm(new requirements());
+            //openMainForm(new requirements());
         }
 
         //Opens editProducts

@@ -1,0 +1,237 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="IntersportModel1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Inventory">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="100" />
+          <Property Name="type" Type="varchar" MaxLength="100" />
+          <Property Name="brand" Type="varchar" MaxLength="100" />
+          <Property Name="price" Type="varchar" MaxLength="100" />
+          <Property Name="amount" Type="varchar" MaxLength="100" />
+          <Property Name="availableFor" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="LastMonth">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="100" />
+          <Property Name="quantity" Type="varchar" MaxLength="100" />
+          <Property Name="measurement" Type="varchar" MaxLength="100" />
+          <Property Name="valuePerPiece" Type="varchar" MaxLength="100" />
+          <Property Name="valueTotal" Type="varchar" MaxLength="100" />
+          <Property Name="sum" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Requirements">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Product1" Type="varchar" MaxLength="100" />
+          <Property Name="Product2" Type="varchar" MaxLength="100" />
+          <Property Name="Product3" Type="varchar" MaxLength="100" />
+          <Property Name="Product4" Type="varchar" MaxLength="100" />
+          <Property Name="Product5" Type="varchar" MaxLength="100" />
+          <Property Name="Product6" Type="varchar" MaxLength="100" />
+          <Property Name="Product7" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="ThisMonth">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="100" />
+          <Property Name="quantity" Type="varchar" MaxLength="100" />
+          <Property Name="measurement" Type="varchar" MaxLength="100" />
+          <Property Name="valuePerPiece" Type="varchar" MaxLength="100" />
+          <Property Name="valueTotal" Type="varchar" MaxLength="100" />
+          <Property Name="sum" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="100" />
+          <Property Name="Email" Type="varchar" MaxLength="100" />
+          <Property Name="password" Type="varchar" MaxLength="100" />
+          <Property Name="hashedPassword" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityContainer Name="IntersportModel1StoreContainer">
+          <EntitySet Name="Inventory" EntityType="Self.Inventory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LastMonth" EntityType="Self.LastMonth" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Requirements" EntityType="Self.Requirements" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ThisMonth" EntityType="Self.ThisMonth" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="IntersportModel1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Inventory">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="type" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="brand" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="price" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="amount" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="availableFor" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="LastMonth">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="quantity" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="measurement" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="valuePerPiece" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="valueTotal" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="sum" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Requirements">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Product1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Product2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Product3" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Product4" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Product5" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Product6" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Product7" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="ThisMonth">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="quantity" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="measurement" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="valuePerPiece" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="valueTotal" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="sum" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="password" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="hashedPassword" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="IntersportEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Inventory" EntityType="Self.Inventory" />
+          <EntitySet Name="LastMonth" EntityType="Self.LastMonth" />
+          <EntitySet Name="Requirements" EntityType="Self.Requirements" />
+          <EntitySet Name="ThisMonth" EntityType="Self.ThisMonth" />
+          <EntitySet Name="Users" EntityType="Self.Users" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="IntersportModel1StoreContainer" CdmEntityContainer="IntersportEntities1">
+          <EntitySetMapping Name="Inventory">
+            <EntityTypeMapping TypeName="IntersportModel1.Inventory">
+              <MappingFragment StoreEntitySet="Inventory">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="brand" ColumnName="brand" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="amount" ColumnName="amount" />
+                <ScalarProperty Name="availableFor" ColumnName="availableFor" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LastMonth">
+            <EntityTypeMapping TypeName="IntersportModel1.LastMonth">
+              <MappingFragment StoreEntitySet="LastMonth">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="quantity" ColumnName="quantity" />
+                <ScalarProperty Name="measurement" ColumnName="measurement" />
+                <ScalarProperty Name="valuePerPiece" ColumnName="valuePerPiece" />
+                <ScalarProperty Name="valueTotal" ColumnName="valueTotal" />
+                <ScalarProperty Name="sum" ColumnName="sum" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Requirements">
+            <EntityTypeMapping TypeName="IntersportModel1.Requirements">
+              <MappingFragment StoreEntitySet="Requirements">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Product1" ColumnName="Product1" />
+                <ScalarProperty Name="Product2" ColumnName="Product2" />
+                <ScalarProperty Name="Product3" ColumnName="Product3" />
+                <ScalarProperty Name="Product4" ColumnName="Product4" />
+                <ScalarProperty Name="Product5" ColumnName="Product5" />
+                <ScalarProperty Name="Product6" ColumnName="Product6" />
+                <ScalarProperty Name="Product7" ColumnName="Product7" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ThisMonth">
+            <EntityTypeMapping TypeName="IntersportModel1.ThisMonth">
+              <MappingFragment StoreEntitySet="ThisMonth">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="quantity" ColumnName="quantity" />
+                <ScalarProperty Name="measurement" ColumnName="measurement" />
+                <ScalarProperty Name="valuePerPiece" ColumnName="valuePerPiece" />
+                <ScalarProperty Name="valueTotal" ColumnName="valueTotal" />
+                <ScalarProperty Name="sum" ColumnName="sum" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="IntersportModel1.Users">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="hashedPassword" ColumnName="hashedPassword" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Kein" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
