@@ -23,11 +23,10 @@ namespace SWP_4IT_WP_VP
 
         private void createInventory_Load(object sender, EventArgs e)
         {
-            // TODO: Diese Codezeile lädt Daten in die Tabelle "intersportDataSet1.ThisMonth". Sie können sie bei Bedarf verschieben oder entfernen.
-            this.thisMonthTableAdapter1.Fill(this.intersportDataSet1.ThisMonth);
-            
+            // TODO: Diese Codezeile lädt Daten in die Tabelle "intersportDataSet5.ThisMonth". Sie können sie bei Bedarf verschieben oder entfernen.
+            this.thisMonthTableAdapter5.Fill(this.intersportDataSet5.ThisMonth);
 
-        
+            
 
         }
 
@@ -56,7 +55,7 @@ namespace SWP_4IT_WP_VP
             string valuePerPiece;
             string valueTotal;
 
-            DataGridViewRow selectedRow = dataGridViewInventory.SelectedRows[i];
+            DataGridViewRow selectedRow = dataGridViewInventory.SelectedRows[0];
 
             id = int.Parse(selectedRow.Cells["id"].Value.ToString());
             name = selectedRow.Cells["name"].Value.ToString();
@@ -69,6 +68,17 @@ namespace SWP_4IT_WP_VP
             
 
             
+        }
+
+        private void CellFormattingDGV(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+
+            if (this.dataGridViewInventory.Columns[e.ColumnIndex].Name.Equals("id"))
+            {
+                e.Value = Math.Abs(Convert.ToInt32(e.Value));
+
+                e.CellStyle.Format = "0";
+            }
         }
     }
 }
