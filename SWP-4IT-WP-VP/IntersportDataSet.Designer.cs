@@ -291,8 +291,6 @@ namespace SWP_4IT_WP_VP {
             
             private global::System.Data.DataColumn columnvalueTotal;
             
-            private global::System.Data.DataColumn columnsum;
-            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public ThisMonthDataTable() {
@@ -376,14 +374,6 @@ namespace SWP_4IT_WP_VP {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn sumColumn {
-                get {
-                    return this.columnsum;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -419,7 +409,7 @@ namespace SWP_4IT_WP_VP {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public ThisMonthRow AddThisMonthRow(string name, string quantity, string measurement, string valuePerPiece, string valueTotal, string sum) {
+            public ThisMonthRow AddThisMonthRow(string name, string quantity, string measurement, string valuePerPiece, string valueTotal) {
                 ThisMonthRow rowThisMonthRow = ((ThisMonthRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -427,8 +417,7 @@ namespace SWP_4IT_WP_VP {
                         quantity,
                         measurement,
                         valuePerPiece,
-                        valueTotal,
-                        sum};
+                        valueTotal};
                 rowThisMonthRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowThisMonthRow);
                 return rowThisMonthRow;
@@ -464,7 +453,6 @@ namespace SWP_4IT_WP_VP {
                 this.columnmeasurement = base.Columns["measurement"];
                 this.columnvaluePerPiece = base.Columns["valuePerPiece"];
                 this.columnvalueTotal = base.Columns["valueTotal"];
-                this.columnsum = base.Columns["sum"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -482,8 +470,6 @@ namespace SWP_4IT_WP_VP {
                 base.Columns.Add(this.columnvaluePerPiece);
                 this.columnvalueTotal = new global::System.Data.DataColumn("valueTotal", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnvalueTotal);
-                this.columnsum = new global::System.Data.DataColumn("sum", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnsum);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnid}, true));
                 this.columnid.AutoIncrement = true;
@@ -497,7 +483,6 @@ namespace SWP_4IT_WP_VP {
                 this.columnmeasurement.MaxLength = 100;
                 this.columnvaluePerPiece.MaxLength = 100;
                 this.columnvalueTotal.MaxLength = 100;
-                this.columnsum.MaxLength = 100;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -731,22 +716,6 @@ namespace SWP_4IT_WP_VP {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string sum {
-                get {
-                    try {
-                        return ((string)(this[this.tableThisMonth.sumColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("Der Wert für Spalte sum in Tabelle ThisMonth ist DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableThisMonth.sumColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsnameNull() {
                 return this.IsNull(this.tableThisMonth.nameColumn);
             }
@@ -803,18 +772,6 @@ namespace SWP_4IT_WP_VP {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetvalueTotalNull() {
                 this[this.tableThisMonth.valueTotalColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IssumNull() {
-                return this.IsNull(this.tableThisMonth.sumColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetsumNull() {
-                this[this.tableThisMonth.sumColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -983,11 +940,10 @@ namespace SWP_4IT_WP_VP.IntersportDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("measurement", "measurement");
             tableMapping.ColumnMappings.Add("valuePerPiece", "valuePerPiece");
             tableMapping.ColumnMappings.Add("valueTotal", "valueTotal");
-            tableMapping.ColumnMappings.Add("sum", "sum");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[ThisMonth] WHERE (([id] = @Original_id) AND ((@IsNull_name = 1 AND [name] IS NULL) OR ([name] = @Original_name)) AND ((@IsNull_quantity = 1 AND [quantity] IS NULL) OR ([quantity] = @Original_quantity)) AND ((@IsNull_measurement = 1 AND [measurement] IS NULL) OR ([measurement] = @Original_measurement)) AND ((@IsNull_valuePerPiece = 1 AND [valuePerPiece] IS NULL) OR ([valuePerPiece] = @Original_valuePerPiece)) AND ((@IsNull_valueTotal = 1 AND [valueTotal] IS NULL) OR ([valueTotal] = @Original_valueTotal)) AND ((@IsNull_sum = 1 AND [sum] IS NULL) OR ([sum] = @Original_sum)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[ThisMonth] WHERE (([id] = @Original_id) AND ((@IsNull_name = 1 AND [name] IS NULL) OR ([name] = @Original_name)) AND ((@IsNull_quantity = 1 AND [quantity] IS NULL) OR ([quantity] = @Original_quantity)) AND ((@IsNull_measurement = 1 AND [measurement] IS NULL) OR ([measurement] = @Original_measurement)) AND ((@IsNull_valuePerPiece = 1 AND [valuePerPiece] IS NULL) OR ([valuePerPiece] = @Original_valuePerPiece)) AND ((@IsNull_valueTotal = 1 AND [valueTotal] IS NULL) OR ([valueTotal] = @Original_valueTotal)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_name", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "name", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -1000,30 +956,26 @@ namespace SWP_4IT_WP_VP.IntersportDataSetTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_valuePerPiece", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "valuePerPiece", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_valueTotal", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "valueTotal", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_valueTotal", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "valueTotal", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_sum", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "sum", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_sum", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "sum", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[ThisMonth] ([name], [quantity], [measurement], [valuePerPiece], [valueTotal], [sum]) VALUES (@name, @quantity, @measurement, @valuePerPiece, @valueTotal, @sum);
-SELECT id, name, quantity, measurement, valuePerPiece, valueTotal, sum FROM ThisMonth WHERE (id = SCOPE_IDENTITY())";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[ThisMonth] ([name], [quantity], [measurement], [valuePerPiece], [valueTotal]) VALUES (@name, @quantity, @measurement, @valuePerPiece, @valueTotal);
+SELECT id, name, quantity, measurement, valuePerPiece, valueTotal FROM ThisMonth WHERE (id = SCOPE_IDENTITY())";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@name", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@quantity", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "quantity", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@measurement", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "measurement", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@valuePerPiece", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "valuePerPiece", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@valueTotal", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "valueTotal", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@sum", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "sum", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[ThisMonth] SET [name] = @name, [quantity] = @quantity, [measurement] = @measurement, [valuePerPiece] = @valuePerPiece, [valueTotal] = @valueTotal, [sum] = @sum WHERE (([id] = @Original_id) AND ((@IsNull_name = 1 AND [name] IS NULL) OR ([name] = @Original_name)) AND ((@IsNull_quantity = 1 AND [quantity] IS NULL) OR ([quantity] = @Original_quantity)) AND ((@IsNull_measurement = 1 AND [measurement] IS NULL) OR ([measurement] = @Original_measurement)) AND ((@IsNull_valuePerPiece = 1 AND [valuePerPiece] IS NULL) OR ([valuePerPiece] = @Original_valuePerPiece)) AND ((@IsNull_valueTotal = 1 AND [valueTotal] IS NULL) OR ([valueTotal] = @Original_valueTotal)) AND ((@IsNull_sum = 1 AND [sum] IS NULL) OR ([sum] = @Original_sum)));
-SELECT id, name, quantity, measurement, valuePerPiece, valueTotal, sum FROM ThisMonth WHERE (id = @id)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[ThisMonth] SET [name] = @name, [quantity] = @quantity, [measurement] = @measurement, [valuePerPiece] = @valuePerPiece, [valueTotal] = @valueTotal WHERE (([id] = @Original_id) AND ((@IsNull_name = 1 AND [name] IS NULL) OR ([name] = @Original_name)) AND ((@IsNull_quantity = 1 AND [quantity] IS NULL) OR ([quantity] = @Original_quantity)) AND ((@IsNull_measurement = 1 AND [measurement] IS NULL) OR ([measurement] = @Original_measurement)) AND ((@IsNull_valuePerPiece = 1 AND [valuePerPiece] IS NULL) OR ([valuePerPiece] = @Original_valuePerPiece)) AND ((@IsNull_valueTotal = 1 AND [valueTotal] IS NULL) OR ([valueTotal] = @Original_valueTotal)));
+SELECT id, name, quantity, measurement, valuePerPiece, valueTotal FROM ThisMonth WHERE (id = @id)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@name", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@quantity", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "quantity", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@measurement", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "measurement", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@valuePerPiece", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "valuePerPiece", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@valueTotal", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "valueTotal", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@sum", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "sum", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_name", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "name", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_name", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "name", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -1035,8 +987,6 @@ SELECT id, name, quantity, measurement, valuePerPiece, valueTotal, sum FROM This
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_valuePerPiece", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "valuePerPiece", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_valueTotal", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "valueTotal", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_valueTotal", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "valueTotal", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_sum", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "sum", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_sum", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "sum", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@id", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "id", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
@@ -1053,8 +1003,8 @@ SELECT id, name, quantity, measurement, valuePerPiece, valueTotal, sum FROM This
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT id, name, quantity, measurement, valuePerPiece, valueTotal, sum FROM dbo.T" +
-                "hisMonth";
+            this._commandCollection[0].CommandText = "SELECT id, name, quantity, measurement, valuePerPiece, valueTotal FROM dbo.ThisMo" +
+                "nth";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -1115,7 +1065,7 @@ SELECT id, name, quantity, measurement, valuePerPiece, valueTotal, sum FROM This
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_id, string Original_name, string Original_quantity, string Original_measurement, string Original_valuePerPiece, string Original_valueTotal, string Original_sum) {
+        public virtual int Delete(int Original_id, string Original_name, string Original_quantity, string Original_measurement, string Original_valuePerPiece, string Original_valueTotal) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_id));
             if ((Original_name == null)) {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
@@ -1157,14 +1107,6 @@ SELECT id, name, quantity, measurement, valuePerPiece, valueTotal, sum FROM This
                 this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(0));
                 this.Adapter.DeleteCommand.Parameters[10].Value = ((string)(Original_valueTotal));
             }
-            if ((Original_sum == null)) {
-                this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[12].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[12].Value = ((string)(Original_sum));
-            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -1185,7 +1127,7 @@ SELECT id, name, quantity, measurement, valuePerPiece, valueTotal, sum FROM This
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string name, string quantity, string measurement, string valuePerPiece, string valueTotal, string sum) {
+        public virtual int Insert(string name, string quantity, string measurement, string valuePerPiece, string valueTotal) {
             if ((name == null)) {
                 this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -1216,12 +1158,6 @@ SELECT id, name, quantity, measurement, valuePerPiece, valueTotal, sum FROM This
             else {
                 this.Adapter.InsertCommand.Parameters[4].Value = ((string)(valueTotal));
             }
-            if ((sum == null)) {
-                this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(sum));
-            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -1242,7 +1178,7 @@ SELECT id, name, quantity, measurement, valuePerPiece, valueTotal, sum FROM This
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string name, string quantity, string measurement, string valuePerPiece, string valueTotal, string sum, int Original_id, string Original_name, string Original_quantity, string Original_measurement, string Original_valuePerPiece, string Original_valueTotal, string Original_sum, int id) {
+        public virtual int Update(string name, string quantity, string measurement, string valuePerPiece, string valueTotal, int Original_id, string Original_name, string Original_quantity, string Original_measurement, string Original_valuePerPiece, string Original_valueTotal, int id) {
             if ((name == null)) {
                 this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -1273,62 +1209,48 @@ SELECT id, name, quantity, measurement, valuePerPiece, valueTotal, sum FROM This
             else {
                 this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(valueTotal));
             }
-            if ((sum == null)) {
-                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(sum));
-            }
-            this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(Original_id));
+            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Original_id));
             if ((Original_name == null)) {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(Original_name));
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Original_name));
             }
             if ((Original_quantity == null)) {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(Original_quantity));
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(Original_quantity));
             }
             if ((Original_measurement == null)) {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(Original_measurement));
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(Original_measurement));
             }
             if ((Original_valuePerPiece == null)) {
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((string)(Original_valuePerPiece));
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(Original_valuePerPiece));
             }
             if ((Original_valueTotal == null)) {
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[16].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[15].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((string)(Original_valueTotal));
+                this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[15].Value = ((string)(Original_valueTotal));
             }
-            if ((Original_sum == null)) {
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[18].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((string)(Original_sum));
-            }
-            this.Adapter.UpdateCommand.Parameters[19].Value = ((int)(id));
+            this.Adapter.UpdateCommand.Parameters[16].Value = ((int)(id));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -1349,8 +1271,8 @@ SELECT id, name, quantity, measurement, valuePerPiece, valueTotal, sum FROM This
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string name, string quantity, string measurement, string valuePerPiece, string valueTotal, string sum, int Original_id, string Original_name, string Original_quantity, string Original_measurement, string Original_valuePerPiece, string Original_valueTotal, string Original_sum) {
-            return this.Update(name, quantity, measurement, valuePerPiece, valueTotal, sum, Original_id, Original_name, Original_quantity, Original_measurement, Original_valuePerPiece, Original_valueTotal, Original_sum, Original_id);
+        public virtual int Update(string name, string quantity, string measurement, string valuePerPiece, string valueTotal, int Original_id, string Original_name, string Original_quantity, string Original_measurement, string Original_valuePerPiece, string Original_valueTotal) {
+            return this.Update(name, quantity, measurement, valuePerPiece, valueTotal, Original_id, Original_name, Original_quantity, Original_measurement, Original_valuePerPiece, Original_valueTotal, Original_id);
         }
     }
     
