@@ -21,15 +21,19 @@ namespace SWP_4IT_WP_VP
 
         private void createInventory_Load(object sender, EventArgs e)
         {
+            // TODO: Diese Codezeile lädt Daten in die Tabelle "intersportDataSet1.Storage". Sie können sie bei Bedarf verschieben oder entfernen.
+            this.storageTableAdapter.Fill(this.intersportDataSet1.Storage);
             // TODO: Diese Codezeile lädt Daten in die Tabelle "intersportDataSet.ThisMonth". Sie können sie bei Bedarf verschieben oder entfernen.
             this.thisMonthTableAdapter.Fill(this.intersportDataSet.ThisMonth);
 
+            //Todo: format all id numbers into normal numbers
             dataGridViewInventory.DefaultCellStyle.Format = "0";
 
         }
 
         private void buttonCancel_Click(object sender, EventArgs e)
         {
+            //delets a row from the datagridview
             try
             {
 
@@ -46,41 +50,41 @@ namespace SWP_4IT_WP_VP
         
         private void buttonSave_Click(object sender, EventArgs e)
         {
-            int intValue;
+            
+            
+            //todo: check if all cells are filled with information and save the data into variables
 
-            if (dataGridViewInventory.SelectedCells.Count > 0)
+            if (dataGridViewInventory.SelectedCells != null)
             {
-                // Durchlaufe alle ausgewählten Zellen
+                //Run through all selected cells
                 foreach (DataGridViewCell cell in dataGridViewInventory.SelectedCells)
                 {
-                    // Zugriff auf den Wert der Zelle und Speichern in einer Variable
+                    //Access the value of the cell and store it in a variable
                     string value = cell.Value.ToString();
 
-                    // Verarbeite die Daten, z.B. speichere sie in Variablen oder führe weitere Aktionen aus
-                    // Beispielweise kannst du den Wert in eine Variable von einem bestimmten Typ parsen
-                    
-                    if (int.TryParse(value, out intValue))
-                    {
-                        MessageBox.Show("Worked!");
-                    }
-                    else
-                    {
-                        MessageBox.Show("No!");
-                    }
+                    sqlmanager.UpdateInventoryTableTM(value);
+                    //if (int.TryParse(value, out intValue))
+                    //{
+                    //    MessageBox.Show("Worked!");
+                    //}
+                    //else
+                    //{
+                    //    MessageBox.Show("No!");
+                    //}
                 }
             }
             else
             {
-                MessageBox.Show("Nothing is in the cell");
+                MessageBox.Show("Please fill all cells with the right data!");
             }
 
-
+            MessageBox.Show("saved successfully!");
 
         }
 
         private void CellFormattingDGV(object sender, DataGridViewCellFormattingEventArgs e)
         {
-
+            //format the id cell into a normal number - not working because of another problem!
             if (this.dataGridViewInventory.Columns[e.ColumnIndex].Name.Equals("id"))
             {
                 e.Value = Math.Abs(Convert.ToInt32(e.Value));

@@ -33,6 +33,7 @@ namespace SWP_4IT_WP_VP
             sqlmanager.CreateDb();
             sqlmanager.CreateTInventoryTM();
             sqlmanager.CreateTInventoryLM();
+            sqlmanager.CreateTInventoryStorage();
             sqlmanager.CreateTUsers();
             sqlmanager.CreateTableUpperCategory();
             sqlmanager.CreateTableLowerCategory();
