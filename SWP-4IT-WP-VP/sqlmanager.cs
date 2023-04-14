@@ -10,35 +10,34 @@ namespace SWP_4IT_WP_VP
 {
     internal class sqlmanager
     {
-        //
+        //connection to the server and to the database
         public static string ConnectionString = "server = (localdb)\\MSSQLLocalDB; Integrated Security = true";
         public static string ConnectionString02 = "server = (localdb)\\MSSQLLocalDB; database = Intersport; Integrated Security = true";
+        
+        public static SqlConnection con;
+        public static SqlCommand cmd;
 
         public static string username = login.name;
 
-        public static SqlConnection con;
-        public static SqlCommand cmd;
         //public static SqlDataReader reader;
         //Name der Datenbank: philip.widauer Benutzer für die Datenbank:   philip.widauer Kennwort für die Datenbank:   MyDatabase017 
 
+        //Table and Database names
         public static string DbName = "Intersport";
         public static string TInvTM = "ThisMonth";
         public static string TInvLM = "LastMonth";
-
+        public static string TInvStorage = "Storage";
         public static string TU = "Users";
-
         public static string TUpperCategory = "uppercategory";
         public static string TLowerCategory = "LowerCategorie";
 
         public static bool toReturnDB = false;
         public static bool toReturnT = false;
 
-
-
+        //Entity modell
         public static IntersportEntities1 Entities = new IntersportEntities1();
 
         //public static DataGridView dgv = createInventory.GetDataGridView();
-
 
         //checks if database Intersport is already created
         public static bool CheckDb()
@@ -113,6 +112,35 @@ namespace SWP_4IT_WP_VP
             
         }
 
+        //creates table Storage
+        public static void CreateTInventoryStorage()
+        {
+            CheckT(TInvStorage);
+
+            if (toReturnT.Equals(false))
+            {
+                try
+                {
+                    con = new SqlConnection(ConnectionString02);
+                    con.Open();
+
+                    SqlCommand com = new SqlCommand("Create Table " + TInvStorage + "(id int NOT NULL IDENTITY (1, 1) primary key, name varchar(100), quantity varchar(100), measurement varchar(100), valuePerPiece varchar(100), valueTotal varchar(100))", con);
+                    com.ExecuteNonQuery();
+
+                    con.Close();
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
+            }
+            else
+            {
+                con.Close();
+            }
+
+        }
+
         //creates Table inventory ThisMonth
         public static void CreateTInventoryTM()
         {
@@ -170,7 +198,6 @@ namespace SWP_4IT_WP_VP
             {
                 con.Close();
             }
-            
         }
 
         //creates table Users
@@ -205,7 +232,7 @@ namespace SWP_4IT_WP_VP
             
         }
 
-        //create table Requirements
+        //creates table Requirements
         public static void CreateTableUpperCategory()
         {
            
@@ -236,6 +263,8 @@ namespace SWP_4IT_WP_VP
             }
             
         }
+
+        //creates table LowerCategory 
         public static void CreateTableLowerCategory()
         {
             CheckT(TLowerCategory);
@@ -246,7 +275,6 @@ namespace SWP_4IT_WP_VP
                 {
                     con = new SqlConnection(ConnectionString02);
                     con.Open();
-
 
                     //SqlCommand com = new SqlCommand("Create Table " + TLowerCategory + "(id int primary key IDENTITY (1, 1), Uc int FOREIGN KEY REFERENCES (uppercategory)(Uc), category varchar(100), lowercategory varchar(100), Product varchar(100), Size varchar(100), color varchar(100))", con);
                     //com.ExecuteNonQuery();
@@ -266,12 +294,9 @@ namespace SWP_4IT_WP_VP
 
         }
 
+        //inserts data into table requirements
         public static void FillRequirements()
         {
-            
-            
-            
-            
             
             try
             {
@@ -353,7 +378,6 @@ namespace SWP_4IT_WP_VP
         }
 
         //this method querys all the data 
-       
         //this method checks if the Products are low in Quantity
         public static void AutomaticOrderProducts()
         {
@@ -397,7 +421,6 @@ namespace SWP_4IT_WP_VP
         }
 
         //This Method orders Products
-        
             public static IEnumerable<Product> OrderProducts()
             {
                 
@@ -429,8 +452,8 @@ namespace SWP_4IT_WP_VP
             }
         
 
-        //Update the table in the database from gridView
-        public static void UpdateInventoryTableTM(int id, string n, int q, string m, string vp, string vt)
+        //Update the table ThisMonth in the database from gridView
+        public static void UpdateInventoryTableTM(string data)
         {
             con = new SqlConnection(ConnectionString02);
             SqlCommand com = new SqlCommand("UPDATE Intersport SET id = @id, name = @value1, quantity = @value2, measurement = @value3, valuePerPiece = @value4, valueTotal = @value5 WHERE id = @id", con);
@@ -442,12 +465,12 @@ namespace SWP_4IT_WP_VP
             com.Parameters.AddWithValue("@value4", "");
             com.Parameters.AddWithValue("@value5", "");
 
-            com.Parameters["@id"].Value = id;
-            com.Parameters["@value1"].Value = n;
-            com.Parameters["@value2"].Value = q;
-            com.Parameters["@value3"].Value = m;
-            com.Parameters["@value4"].Value = vp;
-            com.Parameters["@value5"].Value = vt;
+            //com.Parameters["@id"].Value = id;
+            //com.Parameters["@value1"].Value = n;
+            //com.Parameters["@value2"].Value = q;
+            //com.Parameters["@value3"].Value = m;
+            //com.Parameters["@value4"].Value = vp;
+            //com.Parameters["@value5"].Value = vt;
             
             com.ExecuteNonQuery();
                 
