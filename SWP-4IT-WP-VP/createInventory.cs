@@ -17,16 +17,14 @@ namespace SWP_4IT_WP_VP
         public createInventory()
         {
             InitializeComponent();
-
-           
         }
 
         private void createInventory_Load(object sender, EventArgs e)
         {
-            // TODO: Diese Codezeile lädt Daten in die Tabelle "intersportDataSet5.ThisMonth". Sie können sie bei Bedarf verschieben oder entfernen.
-            this.thisMonthTableAdapter5.Fill(this.intersportDataSet5.ThisMonth);
+            // TODO: Diese Codezeile lädt Daten in die Tabelle "intersportDataSet.ThisMonth". Sie können sie bei Bedarf verschieben oder entfernen.
+            this.thisMonthTableAdapter.Fill(this.intersportDataSet.ThisMonth);
 
-            
+            dataGridViewInventory.DefaultCellStyle.Format = "0";
 
         }
 
@@ -48,24 +46,36 @@ namespace SWP_4IT_WP_VP
         
         private void buttonSave_Click(object sender, EventArgs e)
         {
-            int id;
-            string name;
-            int quantity;
-            string measurement;
-            string valuePerPiece;
-            string valueTotal;
+            int intValue;
 
-            //id = int.Parse(selectedRow.Cells["id"].Value.ToString());
-            //name = selectedRow.Cells["name"].Value.ToString();
-            //quantity = int.Parse(selectedRow.Cells["quantity"].Value.ToString());
-            //measurement = selectedRow.Cells["measurement"].Value.ToString();
-            //valuePerPiece = selectedRow.Cells["valuePerPiece"].Value.ToString();
-            //valueTotal = selectedRow.Cells["valueTotal"].Value.ToString();
-            
-            //sqlmanager.UpdateInventoryTableTM(id, name, quantity, measurement, valuePerPiece, valueTotal);
-            
+            if (dataGridViewInventory.SelectedCells.Count > 0)
+            {
+                // Durchlaufe alle ausgewählten Zellen
+                foreach (DataGridViewCell cell in dataGridViewInventory.SelectedCells)
+                {
+                    // Zugriff auf den Wert der Zelle und Speichern in einer Variable
+                    string value = cell.Value.ToString();
 
-            
+                    // Verarbeite die Daten, z.B. speichere sie in Variablen oder führe weitere Aktionen aus
+                    // Beispielweise kannst du den Wert in eine Variable von einem bestimmten Typ parsen
+                    
+                    if (int.TryParse(value, out intValue))
+                    {
+                        MessageBox.Show("Worked!");
+                    }
+                    else
+                    {
+                        MessageBox.Show("No!");
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Nothing is in the cell");
+            }
+
+
+
         }
 
         private void CellFormattingDGV(object sender, DataGridViewCellFormattingEventArgs e)
@@ -77,6 +87,11 @@ namespace SWP_4IT_WP_VP
 
                 e.CellStyle.Format = "0";
             }
+        }
+
+        private void dataGridViewInventory_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
