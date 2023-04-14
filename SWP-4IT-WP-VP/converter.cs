@@ -41,7 +41,7 @@ namespace SWP_4IT_WP_VP
                 MessageBox.Show("Das hat nicht funktioniert!");
             }
         }
-
+        //Create Excel Sheet and Fill in the Data
         private void CreateExcel()
         {
             try
@@ -97,6 +97,26 @@ namespace SWP_4IT_WP_VP
         private void btn_exit_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void converter_Load(object sender, EventArgs e)
+        {
+            sqlmanager.GetListofTables();
+            for (sqlmanager.iForTables = 0; sqlmanager.iForTables < sqlmanager.tList.Count; sqlmanager.iForTables++)
+            {
+                cb_tables.Items.Add(sqlmanager.tList[sqlmanager.iForTables].ToString());
+          
+
+            }
+        }
+
+        private void btn_preview_Click(object sender, EventArgs e)
+        {
+            data = new DataTable();
+            sqldataAdapter = new SqlDataAdapter(cmd = new SqlCommand("Select * from Users", con));
+            sqldataAdapter.Fill(data);
+
+            dgv_convert.DataSource = data;
         }
     }
 }

@@ -23,6 +23,7 @@ namespace SWP_4IT_WP_VP
             
         }
 
+        //useless
         private void order_Load(object sender, EventArgs e)
         {
             //Product p = new Product();
