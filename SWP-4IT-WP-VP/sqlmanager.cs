@@ -10,6 +10,7 @@ namespace SWP_4IT_WP_VP
 {
     internal class sqlmanager
     {
+        //
         public static string ConnectionString = "server = (localdb)\\MSSQLLocalDB; Integrated Security = true";
         public static string ConnectionString02 = "server = (localdb)\\MSSQLLocalDB; database = Intersport; Integrated Security = true";
 
