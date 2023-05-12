@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Windows.Forms;
+using System.Collections;
+using System.Data;
 
 namespace SWP_4IT_WP_VP
 {
@@ -33,6 +35,13 @@ namespace SWP_4IT_WP_VP
 
         public static bool toReturnDB = false;
         public static bool toReturnT = false;
+
+
+        //This is for getting Tables
+        public static List<string> tList = new List<string>();
+        public static int iForDatabases;
+        public static int iForTables;
+
 
         //Entity modell
         public static IntersportEntities1 Entities = new IntersportEntities1();
@@ -174,7 +183,7 @@ namespace SWP_4IT_WP_VP
         public static void CreateTInventoryLM()
         {
             CheckT(TInvLM);
-            MessageBox.Show(toReturnT.ToString());
+            
             if (toReturnT.Equals(false))
             {
                 try
@@ -240,14 +249,13 @@ namespace SWP_4IT_WP_VP
 
             if (toReturnT.Equals(false))
             {
-                MessageBox.Show("worked!");
                 try
                 {
                     con = new SqlConnection(ConnectionString02);
                     con.Open();
 
-                    //SqlCommand com = new SqlCommand("Create Table " + TUpperCategory + "(id int primary key IDENTITY (1, 1), Uc varchar(100))", con);
-                    //com.ExecuteNonQuery();
+                    SqlCommand com = new SqlCommand("Create Table " + TUpperCategory + "(id int primary key IDENTITY (1, 1), Uc varchar(100))", con);
+                    com.ExecuteNonQuery();
 
                     con.Close();
 
@@ -296,8 +304,8 @@ namespace SWP_4IT_WP_VP
 
         //inserts data into table requirements
         public static void FillRequirements()
-        {
-            
+
+        {            
             try
             {
                 con = new SqlConnection(ConnectionString02);
@@ -361,8 +369,9 @@ namespace SWP_4IT_WP_VP
                 Users user1 = Entities.Users.FirstOrDefault(n => n.name.Equals(username));
                 if (user1 == null)
                 {
-                    return null;
                     MessageBox.Show("No one found");
+                    return null;
+                 
                 }
                 else
                 {
@@ -477,7 +486,54 @@ namespace SWP_4IT_WP_VP
             con.Close();
         }
 
-       
+        //Names of tables get saved in a list
+        public static void GetListofThisandLastMonth()
+        {
+
+            
+            con = new SqlConnection(ConnectionString02);
+            try
+            {
+                con.Open();
+                DataTable TBL = con.GetSchema("Tables");
+                foreach (DataRow tbl in TBL.Rows)
+                {
+                    string tablename = (string)tbl[2];
+                    if(tablename == "ThisMonth" || tablename == "LastMonth")
+                    {
+                        tList.Add(tablename);
+                    }
+                }
+                con.Close();
+            }
+            catch
+            {
+                MessageBox.Show("Das hat nicht funktioniert!");
+            }
+        }
+        public static void GetListofTables()
+        {
+
+
+            con = new SqlConnection(ConnectionString02);
+            try
+            {
+                con.Open();
+                DataTable TBL = con.GetSchema("Tables");
+                foreach (DataRow tbl in TBL.Rows)
+                {
+                    string tablename = (string)tbl[2];
+                    
+                        tList.Add(tablename);
+                 
+                }
+                con.Close();
+            }
+            catch
+            {
+                MessageBox.Show("Das hat nicht funktioniert!");
+            }
+        }
 
     }
 }

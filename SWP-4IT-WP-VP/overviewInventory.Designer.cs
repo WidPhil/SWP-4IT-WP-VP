@@ -32,6 +32,7 @@ namespace SWP_4IT_WP_VP
             this.dgv_Overview = new System.Windows.Forms.DataGridView();
             this.cb_chooseTable = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Overview)).BeginInit();
             this.SuspendLayout();
             // 
@@ -63,11 +64,21 @@ namespace SWP_4IT_WP_VP
             this.label1.TabIndex = 2;
             this.label1.Text = "Choose Table:";
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(312, 13);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(163, 13);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "diese Form braucht man eig nicht";
+            // 
             // overviewInventory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(858, 518);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cb_chooseTable);
             this.Controls.Add(this.dgv_Overview);
@@ -85,5 +96,6 @@ namespace SWP_4IT_WP_VP
         private System.Windows.Forms.DataGridView dgv_Overview;
         private System.Windows.Forms.ComboBox cb_chooseTable;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }

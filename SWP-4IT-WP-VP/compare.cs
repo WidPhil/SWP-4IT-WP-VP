@@ -24,6 +24,7 @@ namespace SWP_4IT_WP_VP
             InitializeComponent();
         }
 
+        //Show selected Tables, to compare them
         private void btn_compare_Click(object sender, EventArgs e)
         {
             con = new SqlConnection(ConnectionString02);
@@ -42,6 +43,19 @@ namespace SWP_4IT_WP_VP
         private void btn_exit_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        //This Method gets Tables
+        private void compare_Load(object sender, EventArgs e)
+        {
+          
+            sqlmanager.GetListofThisandLastMonth();
+            for (sqlmanager.iForTables = 0; sqlmanager.iForTables < sqlmanager.tList.Count; sqlmanager.iForTables++)
+            {
+                cb_base.Items.Add(sqlmanager.tList[sqlmanager.iForTables].ToString());
+                cb_compare.Items.Add(sqlmanager.tList[sqlmanager.iForTables].ToString());
+
+            }
         }
     }
 }

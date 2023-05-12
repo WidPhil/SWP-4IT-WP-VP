@@ -72,8 +72,6 @@ namespace SWP_4IT_WP_VP
             // cb_base
             // 
             this.cb_base.FormattingEnabled = true;
-            this.cb_base.Items.AddRange(new object[] {
-            "Users"});
             this.cb_base.Location = new System.Drawing.Point(26, 92);
             this.cb_base.Name = "cb_base";
             this.cb_base.Size = new System.Drawing.Size(121, 21);
@@ -82,8 +80,6 @@ namespace SWP_4IT_WP_VP
             // cb_compare
             // 
             this.cb_compare.FormattingEnabled = true;
-            this.cb_compare.Items.AddRange(new object[] {
-            "Users"});
             this.cb_compare.Location = new System.Drawing.Point(496, 92);
             this.cb_compare.Name = "cb_compare";
             this.cb_compare.Size = new System.Drawing.Size(121, 21);
@@ -143,6 +139,7 @@ namespace SWP_4IT_WP_VP
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "compare";
             this.Text = "compare";
+            this.Load += new System.EventHandler(this.compare_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Base)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_compareTo)).EndInit();
             this.ResumeLayout(false);
