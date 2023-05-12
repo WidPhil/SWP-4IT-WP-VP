@@ -150,7 +150,7 @@ namespace SWP_4IT_WP_VP
 
         }
 
-        //creates Table inventory ThisMonth
+        //creates Table inventory ThisMonth int NOT NULL IDENTITY (1, 1)primary key,
         public static void CreateTInventoryTM()
         {
             CheckT(TInvTM);
@@ -162,7 +162,7 @@ namespace SWP_4IT_WP_VP
                     con = new SqlConnection(ConnectionString02);
                     con.Open();
 
-                    SqlCommand com = new SqlCommand("Create Table " + TInvTM + "(id int NOT NULL IDENTITY (1, 1) primary key, name varchar(100), quantity varchar(100), measurement varchar(100), valuePerPiece varchar(100), valueTotal varchar(100))", con);
+                    SqlCommand com = new SqlCommand("Create Table " + TInvTM + "(id varchar(100), name varchar(100), quantity varchar(100), measurement varchar(100), valuePerPiece varchar(100), valueTotal varchar(100))", con);
                     com.ExecuteNonQuery();
 
                     con.Close();
@@ -459,32 +459,81 @@ namespace SWP_4IT_WP_VP
                     }
                 }
             }
-        
 
+        public SqlDataAdapter dataAdapter;
+        public DataTable dataTable;
         //Update the table ThisMonth in the database from gridView
-        public static void UpdateInventoryTableTM(string data)
+        public static void UpdateInventoryTableTM(string a, string b)
         {
             con = new SqlConnection(ConnectionString02);
-            SqlCommand com = new SqlCommand("UPDATE Intersport SET id = @id, name = @value1, quantity = @value2, measurement = @value3, valuePerPiece = @value4, valueTotal = @value5 WHERE id = @id", con);
+        
 
-            com.Parameters.AddWithValue("@id", "");
-            com.Parameters.AddWithValue("@value1", "");
-            com.Parameters.AddWithValue("@value2", "");
-            com.Parameters.AddWithValue("@value3", "");
-            com.Parameters.AddWithValue("@value4", "");
-            com.Parameters.AddWithValue("@value5", "");
+            //SqlCommand com = new SqlCommand("UPDATE ThisMonth SET id = @id, name = @value1, quantity = @value2, measurement = @value3, valuePerPiece = @value4, valueTotal = @value5 WHERE id = @id", con);
 
-            //com.Parameters["@id"].Value = id;
-            //com.Parameters["@value1"].Value = n;
-            //com.Parameters["@value2"].Value = q;
-            //com.Parameters["@value3"].Value = m;
-            //com.Parameters["@value4"].Value = vp;
-            //com.Parameters["@value5"].Value = vt;
-            
-            com.ExecuteNonQuery();
-                
-            con.Close();
+            //com.Parameters.AddWithValue("@id", "");
+            //com.Parameters.AddWithValue("@value1", "");
+            //com.Parameters.AddWithValue("@value2", "");
+            //com.Parameters.AddWithValue("@value3", "");
+            //com.Parameters.AddWithValue("@value4", "");
+            //com.Parameters.AddWithValue("@value5", "");
+
+            ////com.Parameters["@id"].Value = id;
+            ////com.Parameters["@value1"].Value = n;
+            ////com.Parameters["@value2"].Value = q;
+            ////com.Parameters["@value3"].Value = m;
+            ////com.Parameters["@value4"].Value = vp;
+            ////com.Parameters["@value5"].Value = vt;
+
+            //com.ExecuteNonQuery();
+
+            //con.Close();
+
+            // Erstellen Sie den SQL-Befehl zum Abrufen und Aktualisieren der Daten
+
+           
         }
+
+        
+        private SqlDataAdapter dataAdapter02;
+        private DataTable dataTable02;
+        
+        public sqlmanager(string connection)
+        {
+            con = new SqlConnection(connection);
+        }
+
+        public DataTable GetData(string selectQuery)
+        {
+            //con = new SqlConnection(ConnectionString02);
+            dataAdapter02 = new SqlDataAdapter(selectQuery, con);
+            dataTable02 = new DataTable();
+            dataAdapter02.Fill(dataTable02);
+            return dataTable02;
+        }
+
+        public void UpdateData(DataTable dataTable02, string updateQuery)
+        {
+            dataAdapter02.UpdateCommand = new SqlCommand(updateQuery, con);
+            dataAdapter02.UpdateCommand.Parameters.Add("@id", SqlDbType.VarChar, 100, "id");
+            dataAdapter02.UpdateCommand.Parameters.Add("@name", SqlDbType.VarChar, 100, "name");
+            dataAdapter02.UpdateCommand.Parameters.Add("@quantity", SqlDbType.VarChar, 100, "quantity");
+            dataAdapter02.UpdateCommand.Parameters.Add("@measurement", SqlDbType.VarChar, 100, "measurement");
+            dataAdapter02.UpdateCommand.Parameters.Add("@valuePerPiece", SqlDbType.VarChar, 100, "valuePerPiece");
+            dataAdapter02.UpdateCommand.Parameters.Add("@valueTotal", SqlDbType.VarChar, 100, "valueTotal");
+
+            dataAdapter02.Update(dataTable02);
+        }
+
+
+
+
+
+
+
+
+
+
+
 
         //Names of tables get saved in a list
         public static void GetListofThisandLastMonth()
