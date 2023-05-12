@@ -40,23 +40,23 @@ namespace SWP_4IT_WP_VP
             this.valuePerPieceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.valueTotalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewInventory = new System.Windows.Forms.DataGridView();
+            this.storageBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.intersportDataSet1 = new SWP_4IT_WP_VP.IntersportDataSet1();
+            this.thisMonthBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.intersportDataSet = new SWP_4IT_WP_VP.IntersportDataSet();
+            this.thisMonthTableAdapter = new SWP_4IT_WP_VP.IntersportDataSetTableAdapters.ThisMonthTableAdapter();
+            this.storageTableAdapter = new SWP_4IT_WP_VP.IntersportDataSet1TableAdapters.StorageTableAdapter();
             this.idDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.quantityDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.measurementDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.valuePerPieceDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.valueTotalDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.thisMonthBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.intersportDataSet = new SWP_4IT_WP_VP.IntersportDataSet();
-            this.thisMonthTableAdapter = new SWP_4IT_WP_VP.IntersportDataSetTableAdapters.ThisMonthTableAdapter();
-            this.intersportDataSet1 = new SWP_4IT_WP_VP.IntersportDataSet1();
-            this.storageBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.storageTableAdapter = new SWP_4IT_WP_VP.IntersportDataSet1TableAdapters.StorageTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewInventory)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.storageBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.intersportDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.thisMonthBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.intersportDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.intersportDataSet1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.storageBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonCancel
@@ -153,7 +153,7 @@ namespace SWP_4IT_WP_VP
             this.measurementDataGridViewTextBoxColumn1,
             this.valuePerPieceDataGridViewTextBoxColumn1,
             this.valueTotalDataGridViewTextBoxColumn1});
-            this.dataGridViewInventory.DataSource = this.storageBindingSource;
+            this.dataGridViewInventory.DataSource = this.thisMonthBindingSource;
             this.dataGridViewInventory.Location = new System.Drawing.Point(34, 93);
             this.dataGridViewInventory.Name = "dataGridViewInventory";
             this.dataGridViewInventory.RowHeadersWidth = 51;
@@ -161,6 +161,34 @@ namespace SWP_4IT_WP_VP
             this.dataGridViewInventory.Size = new System.Drawing.Size(812, 388);
             this.dataGridViewInventory.TabIndex = 6;
             this.dataGridViewInventory.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewInventory_CellContentClick);
+            // 
+            // storageBindingSource
+            // 
+            this.storageBindingSource.DataMember = "Storage";
+            this.storageBindingSource.DataSource = this.intersportDataSet1;
+            // 
+            // intersportDataSet1
+            // 
+            this.intersportDataSet1.DataSetName = "IntersportDataSet1";
+            this.intersportDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // thisMonthBindingSource
+            // 
+            this.thisMonthBindingSource.DataMember = "ThisMonth";
+            this.thisMonthBindingSource.DataSource = this.intersportDataSet;
+            // 
+            // intersportDataSet
+            // 
+            this.intersportDataSet.DataSetName = "IntersportDataSet";
+            this.intersportDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // thisMonthTableAdapter
+            // 
+            this.thisMonthTableAdapter.ClearBeforeFill = true;
+            // 
+            // storageTableAdapter
+            // 
+            this.storageTableAdapter.ClearBeforeFill = true;
             // 
             // idDataGridViewTextBoxColumn1
             // 
@@ -211,34 +239,6 @@ namespace SWP_4IT_WP_VP
             this.valueTotalDataGridViewTextBoxColumn1.Name = "valueTotalDataGridViewTextBoxColumn1";
             this.valueTotalDataGridViewTextBoxColumn1.Width = 125;
             // 
-            // thisMonthBindingSource
-            // 
-            this.thisMonthBindingSource.DataMember = "ThisMonth";
-            this.thisMonthBindingSource.DataSource = this.intersportDataSet;
-            // 
-            // intersportDataSet
-            // 
-            this.intersportDataSet.DataSetName = "IntersportDataSet";
-            this.intersportDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // thisMonthTableAdapter
-            // 
-            this.thisMonthTableAdapter.ClearBeforeFill = true;
-            // 
-            // intersportDataSet1
-            // 
-            this.intersportDataSet1.DataSetName = "IntersportDataSet1";
-            this.intersportDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // storageBindingSource
-            // 
-            this.storageBindingSource.DataMember = "Storage";
-            this.storageBindingSource.DataSource = this.intersportDataSet1;
-            // 
-            // storageTableAdapter
-            // 
-            this.storageTableAdapter.ClearBeforeFill = true;
-            // 
             // createInventory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -253,10 +253,10 @@ namespace SWP_4IT_WP_VP
             this.Text = "Create new Inventory";
             this.Load += new System.EventHandler(this.createInventory_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewInventory)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.storageBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.intersportDataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.thisMonthBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.intersportDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.intersportDataSet1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.storageBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -295,14 +295,14 @@ namespace SWP_4IT_WP_VP
         private IntersportDataSet intersportDataSet;
         private System.Windows.Forms.BindingSource thisMonthBindingSource;
         private IntersportDataSetTableAdapters.ThisMonthTableAdapter thisMonthTableAdapter;
+        private IntersportDataSet1 intersportDataSet1;
+        private System.Windows.Forms.BindingSource storageBindingSource;
+        private IntersportDataSet1TableAdapters.StorageTableAdapter storageTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn quantityDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn measurementDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn valuePerPieceDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn valueTotalDataGridViewTextBoxColumn1;
-        private IntersportDataSet1 intersportDataSet1;
-        private System.Windows.Forms.BindingSource storageBindingSource;
-        private IntersportDataSet1TableAdapters.StorageTableAdapter storageTableAdapter;
     }
 }

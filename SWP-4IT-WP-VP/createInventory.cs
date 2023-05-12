@@ -17,12 +17,22 @@ namespace SWP_4IT_WP_VP
         public createInventory()
         {
             InitializeComponent();
+            
+            InitializeDatabase();
         }
 
+        private sqlmanager databaseHelper;
+        private void InitializeDatabase()
+        {
+            string connection = "server = (localdb)\\MSSQLLocalDB; database = Intersport; Integrated Security = true";
+            databaseHelper = new sqlmanager(connection);
+
+            string selectQuery = "SELECT * FROM ThisMonth";
+            dataGridViewInventory.DataSource = databaseHelper.GetData(selectQuery);
+        }
         private void createInventory_Load(object sender, EventArgs e)
         {
-            // TODO: Diese Codezeile lädt Daten in die Tabelle "intersportDataSet1.Storage". Sie können sie bei Bedarf verschieben oder entfernen.
-            this.storageTableAdapter.Fill(this.intersportDataSet1.Storage);
+            
             // TODO: Diese Codezeile lädt Daten in die Tabelle "intersportDataSet.ThisMonth". Sie können sie bei Bedarf verschieben oder entfernen.
             this.thisMonthTableAdapter.Fill(this.intersportDataSet.ThisMonth);
 
@@ -50,35 +60,45 @@ namespace SWP_4IT_WP_VP
         
         private void buttonSave_Click(object sender, EventArgs e)
         {
-            
-            
+            try
+            {
+                string updateQuery = "UPDATE ThisMonth SET id = @id, name = @name, quantity = @quantity, measurement = @measurement, valuePerPiece = @valuePerPiece, valueTotal = @valueTotal WHERE id = @id";
+                databaseHelper.UpdateData((DataTable)dataGridViewInventory.DataSource, updateQuery);
+
+                MessageBox.Show("Daten wurden erfolgreich gespeichert.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Fehler beim Speichern der Daten: " + ex.Message);
+            }
+
             //todo: check if all cells are filled with information and save the data into variables
 
-            if (dataGridViewInventory.SelectedCells != null)
-            {
-                //Run through all selected cells
-                foreach (DataGridViewCell cell in dataGridViewInventory.SelectedCells)
-                {
-                    //Access the value of the cell and store it in a variable
-                    string value = cell.Value.ToString();
+            //if (dataGridViewInventory.SelectedCells != null)
+            //{
+            //    //Run through all selected cells
+            //    foreach (DataGridViewCell cell in dataGridViewInventory.SelectedCells)
+            //    {
+            //        //Access the value of the cell and store it in a variable
+            //        string value = cell.Value.ToString();
 
-                    sqlmanager.UpdateInventoryTableTM(value);
-                    //if (int.TryParse(value, out intValue))
-                    //{
-                    //    MessageBox.Show("Worked!");
-                    //}
-                    //else
-                    //{
-                    //    MessageBox.Show("No!");
-                    //}
-                }
-            }
-            else
-            {
-                MessageBox.Show("Please fill all cells with the right data!");
-            }
+            //        sqlmanager.UpdateInventoryTableTM(value);
+            //        //if (int.TryParse(value, out intValue))
+            //        //{
+            //        //    MessageBox.Show("Worked!");
+            //        //}
+            //        //else
+            //        //{
+            //        //    MessageBox.Show("No!");
+            //        //}
+            //    }
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Please fill all cells with the right data!");
+            //}
 
-            MessageBox.Show("saved successfully!");
+            //MessageBox.Show("saved successfully!");
 
         }
 
