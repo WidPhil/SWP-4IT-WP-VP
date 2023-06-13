@@ -162,7 +162,7 @@ namespace SWP_4IT_WP_VP
                     con = new SqlConnection(ConnectionString02);
                     con.Open();
 
-                    SqlCommand com = new SqlCommand("Create Table " + TInvTM + "(id varchar(100), name varchar(100), quantity varchar(100), measurement varchar(100), valuePerPiece varchar(100), valueTotal varchar(100))", con);
+                    SqlCommand com = new SqlCommand("Create Table " + TInvTM + "(id int NOT NULL IDENTITY (1, 1) primary key, name varchar(100), quantity varchar(100), measurement varchar(100), valuePerPiece varchar(100), valueTotal varchar(100))", con);
                     com.ExecuteNonQuery();
 
                     con.Close();
@@ -460,12 +460,12 @@ namespace SWP_4IT_WP_VP
                 }
             }
 
-        public SqlDataAdapter dataAdapter;
-        public DataTable dataTable;
+        //public SqlDataAdapter dataAdapter;
+        //public DataTable dataTable;
         //Update the table ThisMonth in the database from gridView
-        public static void UpdateInventoryTableTM(string a, string b)
-        {
-            con = new SqlConnection(ConnectionString02);
+        //public static void UpdateInventoryTableTM(string a, string b)
+        //{
+        //    con = new SqlConnection(ConnectionString02);
         
 
             //SqlCommand com = new SqlCommand("UPDATE ThisMonth SET id = @id, name = @value1, quantity = @value2, measurement = @value3, valuePerPiece = @value4, valueTotal = @value5 WHERE id = @id", con);
@@ -491,40 +491,50 @@ namespace SWP_4IT_WP_VP
             // Erstellen Sie den SQL-Befehl zum Abrufen und Aktualisieren der Daten
 
            
-        }
+        //}
 
         
-        private SqlDataAdapter dataAdapter02;
-        private DataTable dataTable02;
+        //private SqlDataAdapter dataAdapter02;
+        //private DataTable dataTable02;
         
-        public sqlmanager(string connection)
+        //public sqlmanager(string connection)
+        //{
+        //    con = new SqlConnection(connection);
+        //}
+
+        //public DataTable GetData(string selectQuery)
+        //{
+        //    //con = new SqlConnection(ConnectionString02);
+        //    dataAdapter02 = new SqlDataAdapter(selectQuery, con);
+        //    dataTable02 = new DataTable();
+        //    dataAdapter02.Fill(dataTable02);
+        //    return dataTable02;
+        //}
+
+        //public void UpdateData(DataTable dataTable02, string updateQuery)
+        //{
+        //    dataAdapter02.UpdateCommand = new SqlCommand(updateQuery, con);
+        //    dataAdapter02.UpdateCommand.Parameters.Add("@id", SqlDbType.VarChar, 100, "id");
+        //    dataAdapter02.UpdateCommand.Parameters.Add("@name", SqlDbType.VarChar, 100, "name");
+        //    dataAdapter02.UpdateCommand.Parameters.Add("@quantity", SqlDbType.VarChar, 100, "quantity");
+        //    dataAdapter02.UpdateCommand.Parameters.Add("@measurement", SqlDbType.VarChar, 100, "measurement");
+        //    dataAdapter02.UpdateCommand.Parameters.Add("@valuePerPiece", SqlDbType.VarChar, 100, "valuePerPiece");
+        //    dataAdapter02.UpdateCommand.Parameters.Add("@valueTotal", SqlDbType.VarChar, 100, "valueTotal");
+
+        //    dataAdapter02.Update(dataTable02);
+        //}
+
+        public static void UpdateTable(string n, string q, string m, string vp, string v)
         {
-            con = new SqlConnection(connection);
+            con = new SqlConnection(ConnectionString02);
+            con.Open();
+
+            cmd = new SqlCommand("Update ThisMonth set name = @n, quantity = @q, measurement = @m, valuePerPiece = @vp, valueTotal = @v", con);
+            cmd.ExecuteNonQuery();
+
+
+
         }
-
-        public DataTable GetData(string selectQuery)
-        {
-            //con = new SqlConnection(ConnectionString02);
-            dataAdapter02 = new SqlDataAdapter(selectQuery, con);
-            dataTable02 = new DataTable();
-            dataAdapter02.Fill(dataTable02);
-            return dataTable02;
-        }
-
-        public void UpdateData(DataTable dataTable02, string updateQuery)
-        {
-            dataAdapter02.UpdateCommand = new SqlCommand(updateQuery, con);
-            dataAdapter02.UpdateCommand.Parameters.Add("@id", SqlDbType.VarChar, 100, "id");
-            dataAdapter02.UpdateCommand.Parameters.Add("@name", SqlDbType.VarChar, 100, "name");
-            dataAdapter02.UpdateCommand.Parameters.Add("@quantity", SqlDbType.VarChar, 100, "quantity");
-            dataAdapter02.UpdateCommand.Parameters.Add("@measurement", SqlDbType.VarChar, 100, "measurement");
-            dataAdapter02.UpdateCommand.Parameters.Add("@valuePerPiece", SqlDbType.VarChar, 100, "valuePerPiece");
-            dataAdapter02.UpdateCommand.Parameters.Add("@valueTotal", SqlDbType.VarChar, 100, "valueTotal");
-
-            dataAdapter02.Update(dataTable02);
-        }
-
-
 
 
 

@@ -39,24 +39,21 @@ namespace SWP_4IT_WP_VP
             this.measurementDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.valuePerPieceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.valueTotalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewInventory = new System.Windows.Forms.DataGridView();
-            this.storageBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.intersportDataSet1 = new SWP_4IT_WP_VP.IntersportDataSet1();
             this.thisMonthBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.intersportDataSet = new SWP_4IT_WP_VP.IntersportDataSet();
+            this.storageBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.intersportDataSet1 = new SWP_4IT_WP_VP.IntersportDataSet1();
             this.thisMonthTableAdapter = new SWP_4IT_WP_VP.IntersportDataSetTableAdapters.ThisMonthTableAdapter();
             this.storageTableAdapter = new SWP_4IT_WP_VP.IntersportDataSet1TableAdapters.StorageTableAdapter();
-            this.idDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.quantityDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.measurementDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.valuePerPieceDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.valueTotalDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewInventory)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.storageBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.intersportDataSet1)).BeginInit();
+            this.textBoxName = new System.Windows.Forms.TextBox();
+            this.textBoxValueTotal = new System.Windows.Forms.TextBox();
+            this.textBoxValuePerPiece = new System.Windows.Forms.TextBox();
+            this.textBoxMeasurement = new System.Windows.Forms.TextBox();
+            this.textBoxQuantity = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.thisMonthBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.intersportDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.storageBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.intersportDataSet1)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonCancel
@@ -142,25 +139,15 @@ namespace SWP_4IT_WP_VP
             this.valueTotalDataGridViewTextBoxColumn.Name = "valueTotalDataGridViewTextBoxColumn";
             this.valueTotalDataGridViewTextBoxColumn.Width = 125;
             // 
-            // dataGridViewInventory
+            // thisMonthBindingSource
             // 
-            this.dataGridViewInventory.AutoGenerateColumns = false;
-            this.dataGridViewInventory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewInventory.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idDataGridViewTextBoxColumn1,
-            this.nameDataGridViewTextBoxColumn1,
-            this.quantityDataGridViewTextBoxColumn1,
-            this.measurementDataGridViewTextBoxColumn1,
-            this.valuePerPieceDataGridViewTextBoxColumn1,
-            this.valueTotalDataGridViewTextBoxColumn1});
-            this.dataGridViewInventory.DataSource = this.thisMonthBindingSource;
-            this.dataGridViewInventory.Location = new System.Drawing.Point(34, 93);
-            this.dataGridViewInventory.Name = "dataGridViewInventory";
-            this.dataGridViewInventory.RowHeadersWidth = 51;
-            this.dataGridViewInventory.RowTemplate.Height = 24;
-            this.dataGridViewInventory.Size = new System.Drawing.Size(812, 388);
-            this.dataGridViewInventory.TabIndex = 6;
-            this.dataGridViewInventory.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewInventory_CellContentClick);
+            this.thisMonthBindingSource.DataMember = "ThisMonth";
+            this.thisMonthBindingSource.DataSource = this.intersportDataSet;
+            // 
+            // intersportDataSet
+            // 
+            this.intersportDataSet.DataSetName = "IntersportDataSet";
+            this.intersportDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // storageBindingSource
             // 
@@ -172,16 +159,6 @@ namespace SWP_4IT_WP_VP
             this.intersportDataSet1.DataSetName = "IntersportDataSet1";
             this.intersportDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // thisMonthBindingSource
-            // 
-            this.thisMonthBindingSource.DataMember = "ThisMonth";
-            this.thisMonthBindingSource.DataSource = this.intersportDataSet;
-            // 
-            // intersportDataSet
-            // 
-            this.intersportDataSet.DataSetName = "IntersportDataSet";
-            this.intersportDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // thisMonthTableAdapter
             // 
             this.thisMonthTableAdapter.ClearBeforeFill = true;
@@ -190,61 +167,61 @@ namespace SWP_4IT_WP_VP
             // 
             this.storageTableAdapter.ClearBeforeFill = true;
             // 
-            // idDataGridViewTextBoxColumn1
+            // textBoxName
             // 
-            this.idDataGridViewTextBoxColumn1.DataPropertyName = "id";
-            this.idDataGridViewTextBoxColumn1.HeaderText = "id";
-            this.idDataGridViewTextBoxColumn1.MinimumWidth = 6;
-            this.idDataGridViewTextBoxColumn1.Name = "idDataGridViewTextBoxColumn1";
-            this.idDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.idDataGridViewTextBoxColumn1.Width = 125;
+            this.textBoxName.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxName.Location = new System.Drawing.Point(34, 88);
+            this.textBoxName.Name = "textBoxName";
+            this.textBoxName.Size = new System.Drawing.Size(100, 33);
+            this.textBoxName.TabIndex = 6;
+            this.textBoxName.TextChanged += new System.EventHandler(this.textBoxName_TextChanged);
             // 
-            // nameDataGridViewTextBoxColumn1
+            // textBoxValueTotal
             // 
-            this.nameDataGridViewTextBoxColumn1.DataPropertyName = "name";
-            this.nameDataGridViewTextBoxColumn1.HeaderText = "name";
-            this.nameDataGridViewTextBoxColumn1.MinimumWidth = 6;
-            this.nameDataGridViewTextBoxColumn1.Name = "nameDataGridViewTextBoxColumn1";
-            this.nameDataGridViewTextBoxColumn1.Width = 125;
+            this.textBoxValueTotal.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxValueTotal.Location = new System.Drawing.Point(34, 301);
+            this.textBoxValueTotal.Name = "textBoxValueTotal";
+            this.textBoxValueTotal.Size = new System.Drawing.Size(100, 33);
+            this.textBoxValueTotal.TabIndex = 8;
+            this.textBoxValueTotal.TextChanged += new System.EventHandler(this.textBoxValueTotal_TextChanged);
             // 
-            // quantityDataGridViewTextBoxColumn1
+            // textBoxValuePerPiece
             // 
-            this.quantityDataGridViewTextBoxColumn1.DataPropertyName = "quantity";
-            this.quantityDataGridViewTextBoxColumn1.HeaderText = "quantity";
-            this.quantityDataGridViewTextBoxColumn1.MinimumWidth = 6;
-            this.quantityDataGridViewTextBoxColumn1.Name = "quantityDataGridViewTextBoxColumn1";
-            this.quantityDataGridViewTextBoxColumn1.Width = 125;
+            this.textBoxValuePerPiece.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxValuePerPiece.Location = new System.Drawing.Point(34, 245);
+            this.textBoxValuePerPiece.Name = "textBoxValuePerPiece";
+            this.textBoxValuePerPiece.Size = new System.Drawing.Size(100, 33);
+            this.textBoxValuePerPiece.TabIndex = 9;
+            this.textBoxValuePerPiece.TextChanged += new System.EventHandler(this.textBoxValuePerPiece_TextChanged);
             // 
-            // measurementDataGridViewTextBoxColumn1
+            // textBoxMeasurement
             // 
-            this.measurementDataGridViewTextBoxColumn1.DataPropertyName = "measurement";
-            this.measurementDataGridViewTextBoxColumn1.HeaderText = "measurement";
-            this.measurementDataGridViewTextBoxColumn1.MinimumWidth = 6;
-            this.measurementDataGridViewTextBoxColumn1.Name = "measurementDataGridViewTextBoxColumn1";
-            this.measurementDataGridViewTextBoxColumn1.Width = 125;
+            this.textBoxMeasurement.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxMeasurement.Location = new System.Drawing.Point(34, 196);
+            this.textBoxMeasurement.Name = "textBoxMeasurement";
+            this.textBoxMeasurement.Size = new System.Drawing.Size(100, 33);
+            this.textBoxMeasurement.TabIndex = 10;
+            this.textBoxMeasurement.TextChanged += new System.EventHandler(this.textBoxMeasurement_TextChanged);
             // 
-            // valuePerPieceDataGridViewTextBoxColumn1
+            // textBoxQuantity
             // 
-            this.valuePerPieceDataGridViewTextBoxColumn1.DataPropertyName = "valuePerPiece";
-            this.valuePerPieceDataGridViewTextBoxColumn1.HeaderText = "valuePerPiece";
-            this.valuePerPieceDataGridViewTextBoxColumn1.MinimumWidth = 6;
-            this.valuePerPieceDataGridViewTextBoxColumn1.Name = "valuePerPieceDataGridViewTextBoxColumn1";
-            this.valuePerPieceDataGridViewTextBoxColumn1.Width = 125;
-            // 
-            // valueTotalDataGridViewTextBoxColumn1
-            // 
-            this.valueTotalDataGridViewTextBoxColumn1.DataPropertyName = "valueTotal";
-            this.valueTotalDataGridViewTextBoxColumn1.HeaderText = "valueTotal";
-            this.valueTotalDataGridViewTextBoxColumn1.MinimumWidth = 6;
-            this.valueTotalDataGridViewTextBoxColumn1.Name = "valueTotalDataGridViewTextBoxColumn1";
-            this.valueTotalDataGridViewTextBoxColumn1.Width = 125;
+            this.textBoxQuantity.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxQuantity.Location = new System.Drawing.Point(34, 143);
+            this.textBoxQuantity.Name = "textBoxQuantity";
+            this.textBoxQuantity.Size = new System.Drawing.Size(100, 33);
+            this.textBoxQuantity.TabIndex = 11;
+            this.textBoxQuantity.TextChanged += new System.EventHandler(this.textBoxQuantity_TextChanged);
             // 
             // createInventory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(880, 560);
-            this.Controls.Add(this.dataGridViewInventory);
+            this.Controls.Add(this.textBoxQuantity);
+            this.Controls.Add(this.textBoxMeasurement);
+            this.Controls.Add(this.textBoxValuePerPiece);
+            this.Controls.Add(this.textBoxValueTotal);
+            this.Controls.Add(this.textBoxName);
             this.Controls.Add(this.dateTimePickerInventory);
             this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.buttonCancel);
@@ -252,12 +229,12 @@ namespace SWP_4IT_WP_VP
             this.Name = "createInventory";
             this.Text = "Create new Inventory";
             this.Load += new System.EventHandler(this.createInventory_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewInventory)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.storageBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.intersportDataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.thisMonthBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.intersportDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.storageBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.intersportDataSet1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -291,18 +268,16 @@ namespace SWP_4IT_WP_VP
         private System.Windows.Forms.DataGridViewTextBoxColumn measurementDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn valuePerPieceDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn valueTotalDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridView dataGridViewInventory;
         private IntersportDataSet intersportDataSet;
         private System.Windows.Forms.BindingSource thisMonthBindingSource;
         private IntersportDataSetTableAdapters.ThisMonthTableAdapter thisMonthTableAdapter;
         private IntersportDataSet1 intersportDataSet1;
         private System.Windows.Forms.BindingSource storageBindingSource;
         private IntersportDataSet1TableAdapters.StorageTableAdapter storageTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn quantityDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn measurementDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn valuePerPieceDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn valueTotalDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.TextBox textBoxName;
+        private System.Windows.Forms.TextBox textBoxValueTotal;
+        private System.Windows.Forms.TextBox textBoxValuePerPiece;
+        private System.Windows.Forms.TextBox textBoxMeasurement;
+        private System.Windows.Forms.TextBox textBoxQuantity;
     }
 }
