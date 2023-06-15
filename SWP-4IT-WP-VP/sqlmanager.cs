@@ -524,18 +524,55 @@ namespace SWP_4IT_WP_VP
         //    dataAdapter02.Update(dataTable02);
         //}
 
-        public static void UpdateTable(string n, string q, string m, string vp, string v)
+        public static void UpdateTable(string n, string q, string m, string vp, decimal v)
         {
             con = new SqlConnection(ConnectionString02);
             con.Open();
 
-            cmd = new SqlCommand("Update ThisMonth set name = @n, quantity = @q, measurement = @m, valuePerPiece = @vp, valueTotal = @v", con);
+            cmd = new SqlCommand("Insert into ThisMonth (name, quantity, measurement, valuePerPiece, valueTotal) " +
+                "values ('" + n + "', '" + q + "', '" + m + "', '" + vp + "', '" + v + "')", con);
             cmd.ExecuteNonQuery();
 
+            con.Close();
 
+            
 
         }
 
+        public static void NewMonth()
+        {
+            // Name der zu überprüfenden Tabelle
+            string tableName = "LastMonth";
+
+            // Verbindung zur Datenbank herstellen
+            using (con = new SqlConnection(ConnectionString02))
+            {
+                try
+                {
+                    con.Open();
+
+                    // SQL-Abfrage zum Überprüfen, ob die Tabelle leer ist
+                    string query = $"SELECT COUNT(*) FROM {tableName}";
+                    SqlCommand command = new SqlCommand(query, con);
+
+                    // Anzahl der Datensätze in der Tabelle abrufen
+                    int count = Convert.ToInt32(command.ExecuteScalar());
+
+                    if (count == 0)
+                    {
+                        // The table is empty
+                    }
+                    else
+                    {
+                        // The table is not empty
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Something went wrong. Table: " + ex.Message);
+                }
+            }
+        }
 
 
 
