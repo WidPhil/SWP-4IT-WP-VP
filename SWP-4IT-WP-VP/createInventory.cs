@@ -21,10 +21,19 @@ namespace SWP_4IT_WP_VP
         public createInventory()
         {
             InitializeComponent();
-            
+            textBoxName.Enabled = false;
+            textBoxQuantity.Enabled = false;
+            textBoxMeasurement.Enabled = false;
+            textBoxValuePerPiece.Enabled = false;
         }
 
-        
+        private void buttonSave_Click(object sender, EventArgs e)
+        {
+            
+           sqlmanager.UpdateTable(n, q, m, vp, v);
+             
+        }
+
 
         private void textBoxName_TextChanged(object sender, EventArgs e)
         {
@@ -77,14 +86,7 @@ namespace SWP_4IT_WP_VP
             
         }
 
-        private void buttonSave_Click(object sender, EventArgs e)
-        {
-            
-
-            sqlmanager.UpdateTable(n, q, m, vp, v);
-
-        }
-
+        
         private void buttonCancel_Click(object sender, EventArgs e)
         {
             textBoxName.Clear();
@@ -98,7 +100,19 @@ namespace SWP_4IT_WP_VP
 
         private void buttonNewMonth_Click(object sender, EventArgs e)
         {
+            textBoxName.Enabled = true;
+            textBoxQuantity.Enabled = true;
+            textBoxMeasurement.Enabled = true;
+            textBoxValuePerPiece.Enabled = true;
             sqlmanager.NewMonth();
+        }
+
+        private void buttonContinue_Click(object sender, EventArgs e)
+        {
+            textBoxName.Enabled = true;
+            textBoxQuantity.Enabled = true;
+            textBoxMeasurement.Enabled = true;
+            textBoxValuePerPiece.Enabled = true;
         }
     }
 }

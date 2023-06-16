@@ -524,7 +524,26 @@ namespace SWP_4IT_WP_VP
                         // The table is not empty
                         MessageBox.Show("Last Months table is not empty. Now the data has been deleted.");
 
+                        SqlCommand com = new SqlCommand("DROP Table LastMonth", con);
+                        com.ExecuteNonQuery();
 
+                        con.Close();
+                        CreateTInventoryLM();
+                        con.Open();
+                        MessageBox.Show("LM clear!");
+
+                        SqlCommand com02 = new SqlCommand("INSERT INTO LastMonth (name, quantity, measurement, valuePerPiece, valueTotal) " +
+                                               "SELECT name, quantity, measurement, valuePerPiece, valueTotal " +
+                                               "FROM ThisMonth", con);
+                        com02.ExecuteNonQuery();
+
+                        SqlCommand com03 = new SqlCommand("DROP Table ThisMonth", con);
+                        com03.ExecuteNonQuery();
+
+                        con.Close();
+                        CreateTInventoryTM();
+
+                        MessageBox.Show("Start with your new inventory!");
 
                     }
                 }
