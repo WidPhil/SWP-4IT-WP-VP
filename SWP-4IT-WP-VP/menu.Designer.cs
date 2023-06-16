@@ -38,12 +38,10 @@
             this.panelInventory = new System.Windows.Forms.Panel();
             this.buttonCompare = new System.Windows.Forms.Button();
             this.buttonConvert = new System.Windows.Forms.Button();
-            this.buttonOverview = new System.Windows.Forms.Button();
             this.buttonCreate = new System.Windows.Forms.Button();
             this.buttonProducts = new System.Windows.Forms.Button();
             this.panelProducts = new System.Windows.Forms.Panel();
             this.buttonProduct = new System.Windows.Forms.Button();
-            this.buttonRequirements = new System.Windows.Forms.Button();
             this.buttonOrder = new System.Windows.Forms.Button();
             this.panelMainMenu = new System.Windows.Forms.Panel();
             this.buttonInfo = new System.Windows.Forms.Button();
@@ -63,7 +61,7 @@
             this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelMain.Location = new System.Drawing.Point(306, 0);
             this.panelMain.Name = "panelMain";
-            this.panelMain.Size = new System.Drawing.Size(1023, 726);
+            this.panelMain.Size = new System.Drawing.Size(1117, 724);
             this.panelMain.TabIndex = 7;
             // 
             // panelMain02
@@ -71,9 +69,9 @@
             this.panelMain02.BackColor = System.Drawing.Color.Gray;
             this.panelMain02.Controls.Add(this.buttonExit);
             this.panelMain02.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelMain02.Location = new System.Drawing.Point(0, 690);
+            this.panelMain02.Location = new System.Drawing.Point(0, 688);
             this.panelMain02.Name = "panelMain02";
-            this.panelMain02.Size = new System.Drawing.Size(1023, 36);
+            this.panelMain02.Size = new System.Drawing.Size(1117, 36);
             this.panelMain02.TabIndex = 0;
             // 
             // buttonExit
@@ -81,7 +79,7 @@
             this.buttonExit.Dock = System.Windows.Forms.DockStyle.Right;
             this.buttonExit.Font = new System.Drawing.Font("Arial", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonExit.ForeColor = System.Drawing.Color.DarkRed;
-            this.buttonExit.Location = new System.Drawing.Point(953, 0);
+            this.buttonExit.Location = new System.Drawing.Point(1047, 0);
             this.buttonExit.Name = "buttonExit";
             this.buttonExit.Size = new System.Drawing.Size(70, 36);
             this.buttonExit.TabIndex = 0;
@@ -131,7 +129,6 @@
             this.panelInventory.BackColor = System.Drawing.Color.White;
             this.panelInventory.Controls.Add(this.buttonCompare);
             this.panelInventory.Controls.Add(this.buttonConvert);
-            this.panelInventory.Controls.Add(this.buttonOverview);
             this.panelInventory.Controls.Add(this.buttonCreate);
             this.panelInventory.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelInventory.ForeColor = System.Drawing.Color.Black;
@@ -147,7 +144,7 @@
             this.buttonCompare.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonCompare.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonCompare.ForeColor = System.Drawing.Color.Black;
-            this.buttonCompare.Location = new System.Drawing.Point(0, 120);
+            this.buttonCompare.Location = new System.Drawing.Point(0, 80);
             this.buttonCompare.Name = "buttonCompare";
             this.buttonCompare.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
             this.buttonCompare.Size = new System.Drawing.Size(306, 40);
@@ -164,7 +161,7 @@
             this.buttonConvert.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonConvert.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonConvert.ForeColor = System.Drawing.Color.Black;
-            this.buttonConvert.Location = new System.Drawing.Point(0, 80);
+            this.buttonConvert.Location = new System.Drawing.Point(0, 40);
             this.buttonConvert.Name = "buttonConvert";
             this.buttonConvert.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
             this.buttonConvert.Size = new System.Drawing.Size(306, 40);
@@ -173,23 +170,6 @@
             this.buttonConvert.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonConvert.UseVisualStyleBackColor = true;
             this.buttonConvert.Click += new System.EventHandler(this.buttonConvert_Click);
-            // 
-            // buttonOverview
-            // 
-            this.buttonOverview.Dock = System.Windows.Forms.DockStyle.Top;
-            this.buttonOverview.FlatAppearance.BorderSize = 0;
-            this.buttonOverview.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonOverview.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonOverview.ForeColor = System.Drawing.Color.Black;
-            this.buttonOverview.Location = new System.Drawing.Point(0, 40);
-            this.buttonOverview.Name = "buttonOverview";
-            this.buttonOverview.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.buttonOverview.Size = new System.Drawing.Size(306, 40);
-            this.buttonOverview.TabIndex = 1;
-            this.buttonOverview.Text = "overview";
-            this.buttonOverview.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonOverview.UseVisualStyleBackColor = true;
-            this.buttonOverview.Click += new System.EventHandler(this.buttonOverview_Click);
             // 
             // buttonCreate
             // 
@@ -230,7 +210,6 @@
             // 
             this.panelProducts.BackColor = System.Drawing.Color.White;
             this.panelProducts.Controls.Add(this.buttonProduct);
-            this.panelProducts.Controls.Add(this.buttonRequirements);
             this.panelProducts.Controls.Add(this.buttonOrder);
             this.panelProducts.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelProducts.ForeColor = System.Drawing.Color.Black;
@@ -246,7 +225,7 @@
             this.buttonProduct.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonProduct.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonProduct.ForeColor = System.Drawing.Color.Black;
-            this.buttonProduct.Location = new System.Drawing.Point(0, 80);
+            this.buttonProduct.Location = new System.Drawing.Point(0, 40);
             this.buttonProduct.Name = "buttonProduct";
             this.buttonProduct.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
             this.buttonProduct.Size = new System.Drawing.Size(306, 40);
@@ -255,23 +234,6 @@
             this.buttonProduct.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonProduct.UseVisualStyleBackColor = true;
             this.buttonProduct.Click += new System.EventHandler(this.buttonProduct_Click);
-            // 
-            // buttonRequirements
-            // 
-            this.buttonRequirements.Dock = System.Windows.Forms.DockStyle.Top;
-            this.buttonRequirements.FlatAppearance.BorderSize = 0;
-            this.buttonRequirements.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonRequirements.Font = new System.Drawing.Font("Arial", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonRequirements.ForeColor = System.Drawing.Color.Black;
-            this.buttonRequirements.Location = new System.Drawing.Point(0, 40);
-            this.buttonRequirements.Name = "buttonRequirements";
-            this.buttonRequirements.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.buttonRequirements.Size = new System.Drawing.Size(306, 40);
-            this.buttonRequirements.TabIndex = 1;
-            this.buttonRequirements.Text = "requirements";
-            this.buttonRequirements.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonRequirements.UseVisualStyleBackColor = true;
-            this.buttonRequirements.Click += new System.EventHandler(this.buttonRequirements_Click);
             // 
             // buttonOrder
             // 
@@ -302,7 +264,7 @@
             this.panelMainMenu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelMainMenu.Location = new System.Drawing.Point(0, 0);
             this.panelMainMenu.Name = "panelMainMenu";
-            this.panelMainMenu.Size = new System.Drawing.Size(306, 726);
+            this.panelMainMenu.Size = new System.Drawing.Size(306, 724);
             this.panelMainMenu.TabIndex = 5;
             // 
             // buttonInfo
@@ -328,7 +290,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(1329, 726);
+            this.ClientSize = new System.Drawing.Size(1423, 724);
             this.Controls.Add(this.panelMain);
             this.Controls.Add(this.panelMainMenu);
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -356,12 +318,10 @@
         private System.Windows.Forms.Panel panelInventory;
         private System.Windows.Forms.Button buttonCompare;
         private System.Windows.Forms.Button buttonConvert;
-        private System.Windows.Forms.Button buttonOverview;
         private System.Windows.Forms.Button buttonCreate;
         private System.Windows.Forms.Button buttonProducts;
         private System.Windows.Forms.Panel panelProducts;
         private System.Windows.Forms.Button buttonProduct;
-        private System.Windows.Forms.Button buttonRequirements;
         private System.Windows.Forms.Button buttonOrder;
         private System.Windows.Forms.Panel panelMainMenu;
         private System.Windows.Forms.Button buttonInfo;
