@@ -56,6 +56,7 @@ namespace SWP_4IT_WP_VP
             this.labelValuePerPiece = new System.Windows.Forms.Label();
             this.labelTotal = new System.Windows.Forms.Label();
             this.buttonNewMonth = new System.Windows.Forms.Button();
+            this.labelNewMonth = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.thisMonthBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.intersportDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.storageBindingSource)).BeginInit();
@@ -177,7 +178,6 @@ namespace SWP_4IT_WP_VP
             this.textBoxValueTotal.ReadOnly = true;
             this.textBoxValueTotal.Size = new System.Drawing.Size(159, 33);
             this.textBoxValueTotal.TabIndex = 8;
-            this.textBoxValueTotal.TextChanged += new System.EventHandler(this.textBoxValueTotal_TextChanged);
             // 
             // textBoxValuePerPiece
             // 
@@ -285,11 +285,23 @@ namespace SWP_4IT_WP_VP
             this.buttonNewMonth.UseVisualStyleBackColor = true;
             this.buttonNewMonth.Click += new System.EventHandler(this.buttonNewMonth_Click);
             // 
+            // labelNewMonth
+            // 
+            this.labelNewMonth.AutoSize = true;
+            this.labelNewMonth.Font = new System.Drawing.Font("Microsoft Tai Le", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelNewMonth.Location = new System.Drawing.Point(177, 73);
+            this.labelNewMonth.Name = "labelNewMonth";
+            this.labelNewMonth.Size = new System.Drawing.Size(520, 18);
+            this.labelNewMonth.TabIndex = 18;
+            this.labelNewMonth.Text = "Before you click on the button, make sure you have saved the data from last month" +
+    "";
+            // 
             // createInventory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(990, 500);
+            this.Controls.Add(this.labelNewMonth);
             this.Controls.Add(this.buttonNewMonth);
             this.Controls.Add(this.labelTotal);
             this.Controls.Add(this.labelValuePerPiece);
@@ -307,7 +319,6 @@ namespace SWP_4IT_WP_VP
             this.Font = new System.Drawing.Font("Microsoft Tai Le", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "createInventory";
             this.Text = "Create new Inventory";
-            this.Load += new System.EventHandler(this.createInventory_Load);
             ((System.ComponentModel.ISupportInitialize)(this.thisMonthBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.intersportDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.storageBindingSource)).EndInit();
@@ -364,5 +375,6 @@ namespace SWP_4IT_WP_VP
         private System.Windows.Forms.Label labelValuePerPiece;
         private System.Windows.Forms.Label labelTotal;
         private System.Windows.Forms.Button buttonNewMonth;
+        private System.Windows.Forms.Label labelNewMonth;
     }
 }

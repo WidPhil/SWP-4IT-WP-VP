@@ -460,70 +460,6 @@ namespace SWP_4IT_WP_VP
                 }
             }
 
-        //public SqlDataAdapter dataAdapter;
-        //public DataTable dataTable;
-        //Update the table ThisMonth in the database from gridView
-        //public static void UpdateInventoryTableTM(string a, string b)
-        //{
-        //    con = new SqlConnection(ConnectionString02);
-        
-
-            //SqlCommand com = new SqlCommand("UPDATE ThisMonth SET id = @id, name = @value1, quantity = @value2, measurement = @value3, valuePerPiece = @value4, valueTotal = @value5 WHERE id = @id", con);
-
-            //com.Parameters.AddWithValue("@id", "");
-            //com.Parameters.AddWithValue("@value1", "");
-            //com.Parameters.AddWithValue("@value2", "");
-            //com.Parameters.AddWithValue("@value3", "");
-            //com.Parameters.AddWithValue("@value4", "");
-            //com.Parameters.AddWithValue("@value5", "");
-
-            ////com.Parameters["@id"].Value = id;
-            ////com.Parameters["@value1"].Value = n;
-            ////com.Parameters["@value2"].Value = q;
-            ////com.Parameters["@value3"].Value = m;
-            ////com.Parameters["@value4"].Value = vp;
-            ////com.Parameters["@value5"].Value = vt;
-
-            //com.ExecuteNonQuery();
-
-            //con.Close();
-
-            // Erstellen Sie den SQL-Befehl zum Abrufen und Aktualisieren der Daten
-
-           
-        //}
-
-        
-        //private SqlDataAdapter dataAdapter02;
-        //private DataTable dataTable02;
-        
-        //public sqlmanager(string connection)
-        //{
-        //    con = new SqlConnection(connection);
-        //}
-
-        //public DataTable GetData(string selectQuery)
-        //{
-        //    //con = new SqlConnection(ConnectionString02);
-        //    dataAdapter02 = new SqlDataAdapter(selectQuery, con);
-        //    dataTable02 = new DataTable();
-        //    dataAdapter02.Fill(dataTable02);
-        //    return dataTable02;
-        //}
-
-        //public void UpdateData(DataTable dataTable02, string updateQuery)
-        //{
-        //    dataAdapter02.UpdateCommand = new SqlCommand(updateQuery, con);
-        //    dataAdapter02.UpdateCommand.Parameters.Add("@id", SqlDbType.VarChar, 100, "id");
-        //    dataAdapter02.UpdateCommand.Parameters.Add("@name", SqlDbType.VarChar, 100, "name");
-        //    dataAdapter02.UpdateCommand.Parameters.Add("@quantity", SqlDbType.VarChar, 100, "quantity");
-        //    dataAdapter02.UpdateCommand.Parameters.Add("@measurement", SqlDbType.VarChar, 100, "measurement");
-        //    dataAdapter02.UpdateCommand.Parameters.Add("@valuePerPiece", SqlDbType.VarChar, 100, "valuePerPiece");
-        //    dataAdapter02.UpdateCommand.Parameters.Add("@valueTotal", SqlDbType.VarChar, 100, "valueTotal");
-
-        //    dataAdapter02.Update(dataTable02);
-        //}
-
         public static void UpdateTable(string n, string q, string m, string vp, decimal v)
         {
             con = new SqlConnection(ConnectionString02);
@@ -535,42 +471,69 @@ namespace SWP_4IT_WP_VP
 
             con.Close();
 
-            
-
         }
 
         public static void NewMonth()
         {
-            // Name der zu überprüfenden Tabelle
             string tableName = "LastMonth";
+            
 
-            // Verbindung zur Datenbank herstellen
             using (con = new SqlConnection(ConnectionString02))
             {
                 try
                 {
                     con.Open();
 
-                    // SQL-Abfrage zum Überprüfen, ob die Tabelle leer ist
                     string query = $"SELECT COUNT(*) FROM {tableName}";
                     SqlCommand command = new SqlCommand(query, con);
 
-                    // Anzahl der Datensätze in der Tabelle abrufen
+                    //Get the number of records in the table
                     int count = Convert.ToInt32(command.ExecuteScalar());
 
-                    if (count == 0)
+                    if (count.Equals(0))
                     {
-                        // The table is empty
+                        MessageBox.Show("table LM null");
+                        try
+                        {
+                            // The table is empty
+
+                            SqlCommand com = new SqlCommand("INSERT INTO LastMonth (name, quantity, measurement, valuePerPiece, valueTotal) " +
+                                               "SELECT name, quantity, measurement, valuePerPiece, valueTotal " +
+                                               "FROM ThisMonth", con);
+                            com.ExecuteNonQuery();
+
+                            SqlCommand com02 = new SqlCommand("DROP Table ThisMonth", con);
+                            com02.ExecuteNonQuery();
+
+                            con.Close();
+                            CreateTInventoryTM();
+
+                            MessageBox.Show("Start with your new inventory!");
+                            
+
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Something went wrong." + ex.Message);
+                            con.Close();
+                        }
+                        
                     }
                     else
                     {
                         // The table is not empty
+                        MessageBox.Show("Last Months table is not empty. Now the data has been deleted.");
+
+
+
                     }
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Something went wrong. Table: " + ex.Message);
+                    MessageBox.Show("Something went wrong." + ex.Message);
+                    con.Close();
                 }
+                con.Close();
             }
         }
 
