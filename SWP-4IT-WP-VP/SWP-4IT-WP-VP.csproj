@@ -148,12 +148,6 @@
     <Compile Include="order.Designer.cs">
       <DependentUpon>order.cs</DependentUpon>
     </Compile>
-    <Compile Include="overviewInventory.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="overviewInventory.Designer.cs">
-      <DependentUpon>overviewInventory.cs</DependentUpon>
-    </Compile>
     <Compile Include="Product.cs" />
     <Compile Include="Requirements.cs">
       <DependentUpon>Intersport.tt</DependentUpon>
@@ -199,9 +193,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="order.resx">
       <DependentUpon>order.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="overviewInventory.resx">
-      <DependentUpon>overviewInventory.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

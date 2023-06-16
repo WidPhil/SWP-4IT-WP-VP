@@ -150,7 +150,7 @@ namespace SWP_4IT_WP_VP
 
         }
 
-        //creates Table inventory ThisMonth
+        //creates Table inventory ThisMonth int NOT NULL IDENTITY (1, 1)primary key,
         public static void CreateTInventoryTM()
         {
             CheckT(TInvTM);
@@ -459,32 +459,110 @@ namespace SWP_4IT_WP_VP
                     }
                 }
             }
-        
 
-        //Update the table ThisMonth in the database from gridView
-        public static void UpdateInventoryTableTM(string data)
+        public static void UpdateTable(string n, string q, string m, string vp, decimal v)
         {
             con = new SqlConnection(ConnectionString02);
-            SqlCommand com = new SqlCommand("UPDATE Intersport SET id = @id, name = @value1, quantity = @value2, measurement = @value3, valuePerPiece = @value4, valueTotal = @value5 WHERE id = @id", con);
+            con.Open();
 
-            com.Parameters.AddWithValue("@id", "");
-            com.Parameters.AddWithValue("@value1", "");
-            com.Parameters.AddWithValue("@value2", "");
-            com.Parameters.AddWithValue("@value3", "");
-            com.Parameters.AddWithValue("@value4", "");
-            com.Parameters.AddWithValue("@value5", "");
+            cmd = new SqlCommand("Insert into ThisMonth (name, quantity, measurement, valuePerPiece, valueTotal) " +
+                "values ('" + n + "', '" + q + "', '" + m + "', '" + vp + "', '" + v + "')", con);
+            cmd.ExecuteNonQuery();
 
-            //com.Parameters["@id"].Value = id;
-            //com.Parameters["@value1"].Value = n;
-            //com.Parameters["@value2"].Value = q;
-            //com.Parameters["@value3"].Value = m;
-            //com.Parameters["@value4"].Value = vp;
-            //com.Parameters["@value5"].Value = vt;
-            
-            com.ExecuteNonQuery();
-                
             con.Close();
+
         }
+
+        public static void NewMonth()
+        {
+            string tableName = "LastMonth";
+            
+
+            using (con = new SqlConnection(ConnectionString02))
+            {
+                try
+                {
+                    con.Open();
+
+                    string query = $"SELECT COUNT(*) FROM {tableName}";
+                    SqlCommand command = new SqlCommand(query, con);
+
+                    //Get the number of records in the table
+                    int count = Convert.ToInt32(command.ExecuteScalar());
+
+                    if (count.Equals(0))
+                    {
+                        MessageBox.Show("table LM null");
+                        try
+                        {
+                            // The table is empty
+
+                            SqlCommand com = new SqlCommand("INSERT INTO LastMonth (name, quantity, measurement, valuePerPiece, valueTotal) " +
+                                               "SELECT name, quantity, measurement, valuePerPiece, valueTotal " +
+                                               "FROM ThisMonth", con);
+                            com.ExecuteNonQuery();
+
+                            SqlCommand com02 = new SqlCommand("DROP Table ThisMonth", con);
+                            com02.ExecuteNonQuery();
+
+                            con.Close();
+                            CreateTInventoryTM();
+
+                            MessageBox.Show("Start with your new inventory!");
+                            
+
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Something went wrong." + ex.Message);
+                            con.Close();
+                        }
+                        
+                    }
+                    else
+                    {
+                        // The table is not empty
+                        MessageBox.Show("Last Months table is not empty. Now the data has been deleted.");
+
+                        SqlCommand com = new SqlCommand("DROP Table LastMonth", con);
+                        com.ExecuteNonQuery();
+
+                        con.Close();
+                        CreateTInventoryLM();
+                        con.Open();
+                        MessageBox.Show("LM clear!");
+
+                        SqlCommand com02 = new SqlCommand("INSERT INTO LastMonth (name, quantity, measurement, valuePerPiece, valueTotal) " +
+                                               "SELECT name, quantity, measurement, valuePerPiece, valueTotal " +
+                                               "FROM ThisMonth", con);
+                        com02.ExecuteNonQuery();
+
+                        SqlCommand com03 = new SqlCommand("DROP Table ThisMonth", con);
+                        com03.ExecuteNonQuery();
+
+                        con.Close();
+                        CreateTInventoryTM();
+
+                        MessageBox.Show("Start with your new inventory!");
+
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Something went wrong." + ex.Message);
+                    con.Close();
+                }
+                con.Close();
+            }
+        }
+
+
+
+
+
+
+
+
 
         //Names of tables get saved in a list
         public static void GetListofThisandLastMonth()

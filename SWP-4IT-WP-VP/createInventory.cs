@@ -12,90 +12,107 @@ namespace SWP_4IT_WP_VP
 {
     public partial class createInventory : Form
     {
-        
+        public static string n;
+        public static string q;
+        public static string m;
+        public static string vp;
+        public static decimal v;
 
         public createInventory()
         {
             InitializeComponent();
+            textBoxName.Enabled = false;
+            textBoxQuantity.Enabled = false;
+            textBoxMeasurement.Enabled = false;
+            textBoxValuePerPiece.Enabled = false;
         }
 
-        private void createInventory_Load(object sender, EventArgs e)
-        {
-            // TODO: Diese Codezeile lädt Daten in die Tabelle "intersportDataSet1.Storage". Sie können sie bei Bedarf verschieben oder entfernen.
-            this.storageTableAdapter.Fill(this.intersportDataSet1.Storage);
-            // TODO: Diese Codezeile lädt Daten in die Tabelle "intersportDataSet.ThisMonth". Sie können sie bei Bedarf verschieben oder entfernen.
-            this.thisMonthTableAdapter.Fill(this.intersportDataSet.ThisMonth);
-
-            //Todo: format all id numbers into normal numbers
-            dataGridViewInventory.DefaultCellStyle.Format = "0";
-
-        }
-
-        private void buttonCancel_Click(object sender, EventArgs e)
-        {
-            //delets a row from the datagridview
-            try
-            {
-
-                thisMonthBindingSource.RemoveCurrent();
-                MessageBox.Show("Successfully cleared selected row");
-
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Nothing to clear");
-            }
-        }
-
-        
         private void buttonSave_Click(object sender, EventArgs e)
         {
             
-            
-            //todo: check if all cells are filled with information and save the data into variables
+           sqlmanager.UpdateTable(n, q, m, vp, v);
+             
+        }
 
-            if (dataGridViewInventory.SelectedCells != null)
+
+        private void textBoxName_TextChanged(object sender, EventArgs e)
+        {
+            n = textBoxName.Text;
+
+        }
+
+        private void textBoxQuantity_TextChanged(object sender, EventArgs e)
+        {
+            sum();
+
+            q = textBoxQuantity.Text;
+        }
+
+        private void textBoxMeasurement_TextChanged(object sender, EventArgs e)
+        {
+            m = textBoxMeasurement.Text;
+        }
+
+        private void textBoxValuePerPiece_TextChanged(object sender, EventArgs e)
+        {
+            sum();
+
+            vp = textBoxValuePerPiece.Text;
+        }
+
+        private void sum()
+        {
+            try
             {
-                //Run through all selected cells
-                foreach (DataGridViewCell cell in dataGridViewInventory.SelectedCells)
+                if (textBoxQuantity.Text != null || textBoxValuePerPiece.Text != null)
                 {
-                    //Access the value of the cell and store it in a variable
-                    string value = cell.Value.ToString();
+                    decimal qi = Convert.ToDecimal(textBoxQuantity.Text);
+                    decimal vpi = Convert.ToDecimal(textBoxValuePerPiece.Text);
 
-                    sqlmanager.UpdateInventoryTableTM(value);
-                    //if (int.TryParse(value, out intValue))
-                    //{
-                    //    MessageBox.Show("Worked!");
-                    //}
-                    //else
-                    //{
-                    //    MessageBox.Show("No!");
-                    //}
+                    v = qi * vpi;
+
+
+                    textBoxValueTotal.Text = v.ToString();
+                }
+                else
+                {
+                    MessageBox.Show("!");
                 }
             }
-            else
+            catch
             {
-                MessageBox.Show("Please fill all cells with the right data!");
+                
             }
+            
+        }
 
-            MessageBox.Show("saved successfully!");
+        
+        private void buttonCancel_Click(object sender, EventArgs e)
+        {
+            textBoxName.Clear();
+            textBoxQuantity.Clear();
+            textBoxMeasurement.Clear();
+            textBoxValuePerPiece.Clear();
+            textBoxValueTotal.Clear();
 
         }
 
-        private void CellFormattingDGV(object sender, DataGridViewCellFormattingEventArgs e)
-        {
-            //format the id cell into a normal number - not working because of another problem!
-            if (this.dataGridViewInventory.Columns[e.ColumnIndex].Name.Equals("id"))
-            {
-                e.Value = Math.Abs(Convert.ToInt32(e.Value));
 
-                e.CellStyle.Format = "0";
-            }
+        private void buttonNewMonth_Click(object sender, EventArgs e)
+        {
+            textBoxName.Enabled = true;
+            textBoxQuantity.Enabled = true;
+            textBoxMeasurement.Enabled = true;
+            textBoxValuePerPiece.Enabled = true;
+            sqlmanager.NewMonth();
         }
 
-        private void dataGridViewInventory_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void buttonContinue_Click(object sender, EventArgs e)
         {
-
+            textBoxName.Enabled = true;
+            textBoxQuantity.Enabled = true;
+            textBoxMeasurement.Enabled = true;
+            textBoxValuePerPiece.Enabled = true;
         }
     }
 }

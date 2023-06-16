@@ -65,5 +65,10 @@ namespace SWP_4IT_WP_VP
             //}
 
         }
+
+        private void lbl_umbrellaTerm_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

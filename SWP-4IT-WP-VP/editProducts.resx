@@ -117,4 +117,13 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="label1.Text" xml:space="preserve">
+    <value>erstell no a tabelle products (oda sie is schu erstellt des woas i nid) 
+donn füg do händisch beim erstellen produkte ein.
+ auf der form products könnte ma so mochn, das ma in diese tabelle neue produkte
+ hinzufügen ku. bei da form "order" könnte ma zum auswählen genau de
+ produkte wos in der tabelle sand auswählen und donn de menge erhöhen je nochdem
+wie viel ma nachbestellt
+</value>
+  </data>
 </root>

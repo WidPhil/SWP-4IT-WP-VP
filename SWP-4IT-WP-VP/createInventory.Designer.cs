@@ -39,58 +39,70 @@ namespace SWP_4IT_WP_VP
             this.measurementDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.valuePerPieceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.valueTotalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewInventory = new System.Windows.Forms.DataGridView();
-            this.idDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.quantityDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.measurementDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.valuePerPieceDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.valueTotalDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.thisMonthBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.intersportDataSet = new SWP_4IT_WP_VP.IntersportDataSet();
             this.thisMonthTableAdapter = new SWP_4IT_WP_VP.IntersportDataSetTableAdapters.ThisMonthTableAdapter();
-            this.intersportDataSet1 = new SWP_4IT_WP_VP.IntersportDataSet1();
+            this.textBoxName = new System.Windows.Forms.TextBox();
+            this.textBoxValueTotal = new System.Windows.Forms.TextBox();
+            this.textBoxValuePerPiece = new System.Windows.Forms.TextBox();
+            this.textBoxMeasurement = new System.Windows.Forms.TextBox();
             this.storageBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.intersportDataSet1 = new SWP_4IT_WP_VP.IntersportDataSet1();
             this.storageTableAdapter = new SWP_4IT_WP_VP.IntersportDataSet1TableAdapters.StorageTableAdapter();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewInventory)).BeginInit();
+            this.labelName = new System.Windows.Forms.Label();
+            this.labelQuantity = new System.Windows.Forms.Label();
+            this.labelMeasurement = new System.Windows.Forms.Label();
+            this.labelValuePerPiece = new System.Windows.Forms.Label();
+            this.labelTotal = new System.Windows.Forms.Label();
+            this.buttonNewMonth = new System.Windows.Forms.Button();
+            this.labelNewMonth = new System.Windows.Forms.Label();
+            this.buttonContinue = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.textBoxQuantity = new System.Windows.Forms.TextBox();
+            this.labelFill = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.thisMonthBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.intersportDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.intersportDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.storageBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.intersportDataSet1)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // buttonCancel
             // 
-            this.buttonCancel.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.buttonCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonCancel.Location = new System.Drawing.Point(738, 498);
-            this.buttonCancel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonCancel.BackColor = System.Drawing.Color.LightGray;
+            this.buttonCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonCancel.Font = new System.Drawing.Font("Microsoft Tai Le", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonCancel.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.buttonCancel.Location = new System.Drawing.Point(163, 496);
             this.buttonCancel.Name = "buttonCancel";
-            this.buttonCancel.Size = new System.Drawing.Size(108, 33);
+            this.buttonCancel.Size = new System.Drawing.Size(122, 34);
             this.buttonCancel.TabIndex = 2;
             this.buttonCancel.Text = "Cancel";
-            this.buttonCancel.UseVisualStyleBackColor = true;
+            this.buttonCancel.UseVisualStyleBackColor = false;
             this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
             // 
             // buttonSave
             // 
-            this.buttonSave.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.buttonSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonSave.Location = new System.Drawing.Point(34, 498);
-            this.buttonSave.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonSave.BackColor = System.Drawing.Color.LightGray;
+            this.buttonSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonSave.Font = new System.Drawing.Font("Microsoft Tai Le", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonSave.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.buttonSave.Location = new System.Drawing.Point(17, 496);
             this.buttonSave.Name = "buttonSave";
-            this.buttonSave.Size = new System.Drawing.Size(109, 33);
+            this.buttonSave.Size = new System.Drawing.Size(123, 34);
             this.buttonSave.TabIndex = 4;
             this.buttonSave.Text = "Save";
-            this.buttonSave.UseVisualStyleBackColor = true;
+            this.buttonSave.UseVisualStyleBackColor = false;
             this.buttonSave.Click += new System.EventHandler(this.buttonSave_Click);
             // 
             // dateTimePickerInventory
             // 
             this.dateTimePickerInventory.Font = new System.Drawing.Font("Microsoft Tai Le", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePickerInventory.Location = new System.Drawing.Point(34, 21);
+            this.dateTimePickerInventory.Location = new System.Drawing.Point(106, 82);
+            this.dateTimePickerInventory.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dateTimePickerInventory.Name = "dateTimePickerInventory";
-            this.dateTimePickerInventory.Size = new System.Drawing.Size(296, 29);
+            this.dateTimePickerInventory.Size = new System.Drawing.Size(332, 29);
             this.dateTimePickerInventory.TabIndex = 5;
             // 
             // idDataGridViewTextBoxColumn
@@ -142,75 +154,6 @@ namespace SWP_4IT_WP_VP
             this.valueTotalDataGridViewTextBoxColumn.Name = "valueTotalDataGridViewTextBoxColumn";
             this.valueTotalDataGridViewTextBoxColumn.Width = 125;
             // 
-            // dataGridViewInventory
-            // 
-            this.dataGridViewInventory.AutoGenerateColumns = false;
-            this.dataGridViewInventory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewInventory.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idDataGridViewTextBoxColumn1,
-            this.nameDataGridViewTextBoxColumn1,
-            this.quantityDataGridViewTextBoxColumn1,
-            this.measurementDataGridViewTextBoxColumn1,
-            this.valuePerPieceDataGridViewTextBoxColumn1,
-            this.valueTotalDataGridViewTextBoxColumn1});
-            this.dataGridViewInventory.DataSource = this.storageBindingSource;
-            this.dataGridViewInventory.Location = new System.Drawing.Point(34, 93);
-            this.dataGridViewInventory.Name = "dataGridViewInventory";
-            this.dataGridViewInventory.RowHeadersWidth = 51;
-            this.dataGridViewInventory.RowTemplate.Height = 24;
-            this.dataGridViewInventory.Size = new System.Drawing.Size(812, 388);
-            this.dataGridViewInventory.TabIndex = 6;
-            this.dataGridViewInventory.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewInventory_CellContentClick);
-            // 
-            // idDataGridViewTextBoxColumn1
-            // 
-            this.idDataGridViewTextBoxColumn1.DataPropertyName = "id";
-            this.idDataGridViewTextBoxColumn1.HeaderText = "id";
-            this.idDataGridViewTextBoxColumn1.MinimumWidth = 6;
-            this.idDataGridViewTextBoxColumn1.Name = "idDataGridViewTextBoxColumn1";
-            this.idDataGridViewTextBoxColumn1.ReadOnly = true;
-            this.idDataGridViewTextBoxColumn1.Width = 125;
-            // 
-            // nameDataGridViewTextBoxColumn1
-            // 
-            this.nameDataGridViewTextBoxColumn1.DataPropertyName = "name";
-            this.nameDataGridViewTextBoxColumn1.HeaderText = "name";
-            this.nameDataGridViewTextBoxColumn1.MinimumWidth = 6;
-            this.nameDataGridViewTextBoxColumn1.Name = "nameDataGridViewTextBoxColumn1";
-            this.nameDataGridViewTextBoxColumn1.Width = 125;
-            // 
-            // quantityDataGridViewTextBoxColumn1
-            // 
-            this.quantityDataGridViewTextBoxColumn1.DataPropertyName = "quantity";
-            this.quantityDataGridViewTextBoxColumn1.HeaderText = "quantity";
-            this.quantityDataGridViewTextBoxColumn1.MinimumWidth = 6;
-            this.quantityDataGridViewTextBoxColumn1.Name = "quantityDataGridViewTextBoxColumn1";
-            this.quantityDataGridViewTextBoxColumn1.Width = 125;
-            // 
-            // measurementDataGridViewTextBoxColumn1
-            // 
-            this.measurementDataGridViewTextBoxColumn1.DataPropertyName = "measurement";
-            this.measurementDataGridViewTextBoxColumn1.HeaderText = "measurement";
-            this.measurementDataGridViewTextBoxColumn1.MinimumWidth = 6;
-            this.measurementDataGridViewTextBoxColumn1.Name = "measurementDataGridViewTextBoxColumn1";
-            this.measurementDataGridViewTextBoxColumn1.Width = 125;
-            // 
-            // valuePerPieceDataGridViewTextBoxColumn1
-            // 
-            this.valuePerPieceDataGridViewTextBoxColumn1.DataPropertyName = "valuePerPiece";
-            this.valuePerPieceDataGridViewTextBoxColumn1.HeaderText = "valuePerPiece";
-            this.valuePerPieceDataGridViewTextBoxColumn1.MinimumWidth = 6;
-            this.valuePerPieceDataGridViewTextBoxColumn1.Name = "valuePerPieceDataGridViewTextBoxColumn1";
-            this.valuePerPieceDataGridViewTextBoxColumn1.Width = 125;
-            // 
-            // valueTotalDataGridViewTextBoxColumn1
-            // 
-            this.valueTotalDataGridViewTextBoxColumn1.DataPropertyName = "valueTotal";
-            this.valueTotalDataGridViewTextBoxColumn1.HeaderText = "valueTotal";
-            this.valueTotalDataGridViewTextBoxColumn1.MinimumWidth = 6;
-            this.valueTotalDataGridViewTextBoxColumn1.Name = "valueTotalDataGridViewTextBoxColumn1";
-            this.valueTotalDataGridViewTextBoxColumn1.Width = 125;
-            // 
             // thisMonthBindingSource
             // 
             this.thisMonthBindingSource.DataMember = "ThisMonth";
@@ -225,39 +168,226 @@ namespace SWP_4IT_WP_VP
             // 
             this.thisMonthTableAdapter.ClearBeforeFill = true;
             // 
-            // intersportDataSet1
+            // textBoxName
             // 
-            this.intersportDataSet1.DataSetName = "IntersportDataSet1";
-            this.intersportDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.textBoxName.Enabled = false;
+            this.textBoxName.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxName.Location = new System.Drawing.Point(16, 157);
+            this.textBoxName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textBoxName.Name = "textBoxName";
+            this.textBoxName.Size = new System.Drawing.Size(159, 33);
+            this.textBoxName.TabIndex = 6;
+            this.textBoxName.TextChanged += new System.EventHandler(this.textBoxName_TextChanged);
+            // 
+            // textBoxValueTotal
+            // 
+            this.textBoxValueTotal.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxValueTotal.Location = new System.Drawing.Point(16, 438);
+            this.textBoxValueTotal.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textBoxValueTotal.Name = "textBoxValueTotal";
+            this.textBoxValueTotal.ReadOnly = true;
+            this.textBoxValueTotal.Size = new System.Drawing.Size(159, 33);
+            this.textBoxValueTotal.TabIndex = 8;
+            // 
+            // textBoxValuePerPiece
+            // 
+            this.textBoxValuePerPiece.Enabled = false;
+            this.textBoxValuePerPiece.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxValuePerPiece.Location = new System.Drawing.Point(16, 365);
+            this.textBoxValuePerPiece.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textBoxValuePerPiece.Name = "textBoxValuePerPiece";
+            this.textBoxValuePerPiece.Size = new System.Drawing.Size(159, 33);
+            this.textBoxValuePerPiece.TabIndex = 9;
+            this.textBoxValuePerPiece.Text = "0";
+            this.textBoxValuePerPiece.TextChanged += new System.EventHandler(this.textBoxValuePerPiece_TextChanged);
+            // 
+            // textBoxMeasurement
+            // 
+            this.textBoxMeasurement.Enabled = false;
+            this.textBoxMeasurement.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxMeasurement.Location = new System.Drawing.Point(16, 296);
+            this.textBoxMeasurement.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textBoxMeasurement.Name = "textBoxMeasurement";
+            this.textBoxMeasurement.Size = new System.Drawing.Size(159, 33);
+            this.textBoxMeasurement.TabIndex = 10;
+            this.textBoxMeasurement.TextChanged += new System.EventHandler(this.textBoxMeasurement_TextChanged);
             // 
             // storageBindingSource
             // 
             this.storageBindingSource.DataMember = "Storage";
             this.storageBindingSource.DataSource = this.intersportDataSet1;
             // 
+            // intersportDataSet1
+            // 
+            this.intersportDataSet1.DataSetName = "IntersportDataSet1";
+            this.intersportDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // storageTableAdapter
             // 
             this.storageTableAdapter.ClearBeforeFill = true;
             // 
+            // labelName
+            // 
+            this.labelName.AutoSize = true;
+            this.labelName.Font = new System.Drawing.Font("Microsoft Tai Le", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelName.Location = new System.Drawing.Point(12, 131);
+            this.labelName.Name = "labelName";
+            this.labelName.Size = new System.Drawing.Size(171, 22);
+            this.labelName.TabIndex = 12;
+            this.labelName.Text = "Name of the product";
+            // 
+            // labelQuantity
+            // 
+            this.labelQuantity.AutoSize = true;
+            this.labelQuantity.Font = new System.Drawing.Font("Microsoft Tai Le", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelQuantity.Location = new System.Drawing.Point(12, 198);
+            this.labelQuantity.Name = "labelQuantity";
+            this.labelQuantity.Size = new System.Drawing.Size(76, 22);
+            this.labelQuantity.TabIndex = 13;
+            this.labelQuantity.Text = "Quantity";
+            // 
+            // labelMeasurement
+            // 
+            this.labelMeasurement.AutoSize = true;
+            this.labelMeasurement.Font = new System.Drawing.Font("Microsoft Tai Le", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelMeasurement.Location = new System.Drawing.Point(12, 270);
+            this.labelMeasurement.Name = "labelMeasurement";
+            this.labelMeasurement.Size = new System.Drawing.Size(115, 22);
+            this.labelMeasurement.TabIndex = 14;
+            this.labelMeasurement.Text = "Measurement";
+            // 
+            // labelValuePerPiece
+            // 
+            this.labelValuePerPiece.AutoSize = true;
+            this.labelValuePerPiece.Font = new System.Drawing.Font("Microsoft Tai Le", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelValuePerPiece.Location = new System.Drawing.Point(12, 339);
+            this.labelValuePerPiece.Name = "labelValuePerPiece";
+            this.labelValuePerPiece.Size = new System.Drawing.Size(128, 22);
+            this.labelValuePerPiece.TabIndex = 15;
+            this.labelValuePerPiece.Text = "Value per piece";
+            // 
+            // labelTotal
+            // 
+            this.labelTotal.AutoSize = true;
+            this.labelTotal.Font = new System.Drawing.Font("Microsoft Tai Le", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTotal.Location = new System.Drawing.Point(12, 412);
+            this.labelTotal.Name = "labelTotal";
+            this.labelTotal.Size = new System.Drawing.Size(48, 22);
+            this.labelTotal.TabIndex = 16;
+            this.labelTotal.Text = "Total";
+            // 
+            // buttonNewMonth
+            // 
+            this.buttonNewMonth.BackColor = System.Drawing.Color.LightGray;
+            this.buttonNewMonth.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonNewMonth.Location = new System.Drawing.Point(16, 36);
+            this.buttonNewMonth.Name = "buttonNewMonth";
+            this.buttonNewMonth.Size = new System.Drawing.Size(167, 29);
+            this.buttonNewMonth.TabIndex = 17;
+            this.buttonNewMonth.Text = "New month";
+            this.buttonNewMonth.UseVisualStyleBackColor = false;
+            this.buttonNewMonth.Click += new System.EventHandler(this.buttonNewMonth_Click);
+            // 
+            // labelNewMonth
+            // 
+            this.labelNewMonth.AutoSize = true;
+            this.labelNewMonth.Font = new System.Drawing.Font("Microsoft YaHei", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelNewMonth.Location = new System.Drawing.Point(12, 9);
+            this.labelNewMonth.Name = "labelNewMonth";
+            this.labelNewMonth.Size = new System.Drawing.Size(611, 20);
+            this.labelNewMonth.TabIndex = 18;
+            this.labelNewMonth.Text = "Before you click on the button \"new month\", make sure you save last month\'s data!" +
+    "\r\n";
+            // 
+            // buttonContinue
+            // 
+            this.buttonContinue.BackColor = System.Drawing.Color.LightGray;
+            this.buttonContinue.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonContinue.Location = new System.Drawing.Point(436, 36);
+            this.buttonContinue.Name = "buttonContinue";
+            this.buttonContinue.Size = new System.Drawing.Size(187, 29);
+            this.buttonContinue.TabIndex = 19;
+            this.buttonContinue.Text = "Continue inventory";
+            this.buttonContinue.UseVisualStyleBackColor = false;
+            this.buttonContinue.Click += new System.EventHandler(this.buttonContinue_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.buttonContinue);
+            this.panel1.Controls.Add(this.labelNewMonth);
+            this.panel1.Controls.Add(this.buttonNewMonth);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(994, 72);
+            this.panel1.TabIndex = 20;
+            // 
+            // textBoxQuantity
+            // 
+            this.textBoxQuantity.Enabled = false;
+            this.textBoxQuantity.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxQuantity.Location = new System.Drawing.Point(16, 224);
+            this.textBoxQuantity.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textBoxQuantity.Name = "textBoxQuantity";
+            this.textBoxQuantity.Size = new System.Drawing.Size(159, 33);
+            this.textBoxQuantity.TabIndex = 11;
+            this.textBoxQuantity.Text = "0";
+            this.textBoxQuantity.TextChanged += new System.EventHandler(this.textBoxQuantity_TextChanged);
+            // 
+            // labelFill
+            // 
+            this.labelFill.AutoSize = true;
+            this.labelFill.Font = new System.Drawing.Font("Microsoft YaHei", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelFill.Location = new System.Drawing.Point(12, 87);
+            this.labelFill.Name = "labelFill";
+            this.labelFill.Size = new System.Drawing.Size(75, 24);
+            this.labelFill.TabIndex = 21;
+            this.labelFill.Text = "Fill in ...";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft YaHei", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.DimGray;
+            this.label1.Location = new System.Drawing.Point(171, 296);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(98, 20);
+            this.label1.TabIndex = 22;
+            this.label1.Text = "* e.g. piece, ...";
+            // 
             // createInventory
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(880, 560);
-            this.Controls.Add(this.dataGridViewInventory);
+            this.ClientSize = new System.Drawing.Size(994, 580);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.labelFill);
+            this.Controls.Add(this.textBoxQuantity);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.labelTotal);
+            this.Controls.Add(this.labelValuePerPiece);
+            this.Controls.Add(this.labelMeasurement);
+            this.Controls.Add(this.labelQuantity);
+            this.Controls.Add(this.labelName);
+            this.Controls.Add(this.textBoxMeasurement);
+            this.Controls.Add(this.textBoxValuePerPiece);
+            this.Controls.Add(this.textBoxValueTotal);
+            this.Controls.Add(this.textBoxName);
             this.Controls.Add(this.dateTimePickerInventory);
             this.Controls.Add(this.buttonSave);
             this.Controls.Add(this.buttonCancel);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Font = new System.Drawing.Font("Microsoft Tai Le", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "createInventory";
             this.Text = "Create new Inventory";
-            this.Load += new System.EventHandler(this.createInventory_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewInventory)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.thisMonthBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.intersportDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.intersportDataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.storageBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.intersportDataSet1)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -291,18 +421,27 @@ namespace SWP_4IT_WP_VP
         private System.Windows.Forms.DataGridViewTextBoxColumn measurementDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn valuePerPieceDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn valueTotalDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridView dataGridViewInventory;
         private IntersportDataSet intersportDataSet;
         private System.Windows.Forms.BindingSource thisMonthBindingSource;
         private IntersportDataSetTableAdapters.ThisMonthTableAdapter thisMonthTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn quantityDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn measurementDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn valuePerPieceDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn valueTotalDataGridViewTextBoxColumn1;
         private IntersportDataSet1 intersportDataSet1;
         private System.Windows.Forms.BindingSource storageBindingSource;
         private IntersportDataSet1TableAdapters.StorageTableAdapter storageTableAdapter;
+        private System.Windows.Forms.TextBox textBoxName;
+        private System.Windows.Forms.TextBox textBoxValueTotal;
+        private System.Windows.Forms.TextBox textBoxValuePerPiece;
+        private System.Windows.Forms.TextBox textBoxMeasurement;
+        private System.Windows.Forms.Label labelName;
+        private System.Windows.Forms.Label labelQuantity;
+        private System.Windows.Forms.Label labelMeasurement;
+        private System.Windows.Forms.Label labelValuePerPiece;
+        private System.Windows.Forms.Label labelTotal;
+        private System.Windows.Forms.Button buttonNewMonth;
+        private System.Windows.Forms.Label labelNewMonth;
+        private System.Windows.Forms.Button buttonContinue;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.TextBox textBoxQuantity;
+        private System.Windows.Forms.Label labelFill;
+        private System.Windows.Forms.Label label1;
     }
 }
