@@ -25,20 +25,6 @@ namespace SWP_4IT_WP_VP
         }
 
         
-        private void createInventory_Load(object sender, EventArgs e)
-        {
-            
-            
-
-        }
-
-        
-
-        private void textBoxValueTotal_TextChanged(object sender, EventArgs e)
-        {
-
-           
-        }
 
         private void textBoxName_TextChanged(object sender, EventArgs e)
         {
@@ -89,9 +75,6 @@ namespace SWP_4IT_WP_VP
                 
             }
             
-
-            
-
         }
 
         private void buttonSave_Click(object sender, EventArgs e)
@@ -112,10 +95,6 @@ namespace SWP_4IT_WP_VP
 
         }
 
-        private void dataGridViewInventory_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
 
         private void buttonNewMonth_Click(object sender, EventArgs e)
         {
