@@ -148,7 +148,6 @@
     <Compile Include="order.Designer.cs">
       <DependentUpon>order.cs</DependentUpon>
     </Compile>
-    <Compile Include="Product.cs" />
     <Compile Include="Requirements.cs">
       <DependentUpon>Intersport.tt</DependentUpon>
     </Compile>

@@ -7,6 +7,8 @@ using System.Data.SqlClient;
 using System.Windows.Forms;
 using System.Collections;
 using System.Data;
+using System.Data.Entity.Infrastructure;
+using System.Diagnostics.Eventing.Reader;
 
 namespace SWP_4IT_WP_VP
 {
@@ -30,8 +32,7 @@ namespace SWP_4IT_WP_VP
         public static string TInvLM = "LastMonth";
         public static string TInvStorage = "Storage";
         public static string TU = "Users";
-        public static string TUpperCategory = "uppercategory";
-        public static string TLowerCategory = "LowerCategorie";
+        public static string TProducts = "Products";
 
         public static bool toReturnDB = false;
         public static bool toReturnT = false;
@@ -133,7 +134,7 @@ namespace SWP_4IT_WP_VP
                     con = new SqlConnection(ConnectionString02);
                     con.Open();
 
-                    SqlCommand com = new SqlCommand("Create Table " + TInvStorage + "(id int NOT NULL IDENTITY (1, 1) primary key, name varchar(100), quantity varchar(100), measurement varchar(100), valuePerPiece varchar(100), valueTotal varchar(100))", con);
+                    SqlCommand com = new SqlCommand("Create Table " + TInvStorage + "(id int NOT NULL IDENTITY (1, 1) primary key, Product varchar(100), quantity varchar(100))", con);
                     com.ExecuteNonQuery();
 
                     con.Close();
@@ -241,11 +242,12 @@ namespace SWP_4IT_WP_VP
             
         }
 
-        //creates table Requirements
-        public static void CreateTableUpperCategory()
+        //Creates Table Products
+        public static void CreateTProducts()
         {
-           
-            CheckT(TUpperCategory);
+            CheckT(TProducts);
+
+
 
             if (toReturnT.Equals(false))
             {
@@ -254,10 +256,18 @@ namespace SWP_4IT_WP_VP
                     con = new SqlConnection(ConnectionString02);
                     con.Open();
 
-                    SqlCommand com = new SqlCommand("Create Table " + TUpperCategory + "(id int primary key IDENTITY (1, 1), Uc varchar(100))", con);
+                    
+
+                    SqlCommand com = new SqlCommand("Create Table " + TProducts +
+                        "(id int primary key IDENTITY (1, 1), Product varchar(100), Size varchar(100), " +
+                        "Brand varchar(100), Color varchar(100), Price varchar(100))", con);
                     com.ExecuteNonQuery();
 
+
+
                     con.Close();
+
+
 
                 }
                 catch (Exception)
@@ -269,80 +279,99 @@ namespace SWP_4IT_WP_VP
             {
                 con.Close();
             }
-            
+
+
+
         }
 
-        //creates table LowerCategory 
-        public static void CreateTableLowerCategory()
+        //Adds standard Values to Products
+        public static void AddStandardProducts()
         {
-            CheckT(TLowerCategory);
-
-            if (toReturnT.Equals(false))
-            {
-                try
-                {
-                    con = new SqlConnection(ConnectionString02);
-                    con.Open();
-
-                    //SqlCommand com = new SqlCommand("Create Table " + TLowerCategory + "(id int primary key IDENTITY (1, 1), Uc int FOREIGN KEY REFERENCES (uppercategory)(Uc), category varchar(100), lowercategory varchar(100), Product varchar(100), Size varchar(100), color varchar(100))", con);
-                    //com.ExecuteNonQuery();
-
-                    con.Close();
-
-                }
-                catch (Exception)
-                {
-                    throw;
-                }
-            }
-            else
-            {
-                con.Close();
-            }
-
-        }
-
-        //inserts data into table requirements
-        public static void FillRequirements()
-
-        {            
             try
             {
+
+
                 con = new SqlConnection(ConnectionString02);
                 con.Open();
-                cmd = new SqlCommand("Insert into Requirements (Name, Color, Type, Brand, MinStock, Price) values (");
-                cmd.ExecuteNonQuery();
+
+
+
+                SqlCommand com = new SqlCommand("INSERT INTO Products (Product, Size, Brand, Color, Price) VALUES ('Hiking Shoe', '42', 'Salomon', 'Blue', '167.99')", con);
+                SqlCommand com1 = new SqlCommand("INSERT INTO Products (Product, Size, Brand, Color, Price) VALUES ('T-Shirt', 'M', 'McKinley', 'Blue', '67.99')", con);
+                SqlCommand com2 = new SqlCommand("INSERT INTO Products (Product, Size, Brand, Color, Price) VALUES ('Jacket', 'L', 'Watts', 'Blue', '233.99')", con);
+                SqlCommand com3 = new SqlCommand("INSERT INTO Products (Product, Size, Brand, Color, Price) VALUES ('Trousers', 'XL', 'Rehall', 'Blue', '79.99')", con);
+                SqlCommand com4 = new SqlCommand("INSERT INTO Products (Product, Size, Brand, Color, Price) VALUES ('Jacket', 'S', 'McKinley', 'Black', '176.99')", con);
+                SqlCommand com5 = new SqlCommand("INSERT INTO Products (Product, Size, Brand, Color, Price) VALUES ('Hoodie', 'M', 'Watts', 'Navy', '89.99')", con);
+                SqlCommand com6 = new SqlCommand("INSERT INTO Products (Product, Size, Brand, Color, Price) VALUES ('Running Shoe', '43', 'Salomon', 'Blue', '145.99')", con);
+                SqlCommand com7 = new SqlCommand("INSERT INTO Products (Product, Size, Brand, Color, Price) VALUES ('Sneakers', '45', 'Vans', 'Blue', '49.99')", con);
+                SqlCommand com8 = new SqlCommand("INSERT INTO Products (Product, Size, Brand, Color, Price) VALUES ('Hiking Shoe', '41', 'Salomon', 'Black', '129.99')", con);
+                SqlCommand com9 = new SqlCommand("INSERT INTO Products (Product, Size, Brand, Color, Price) VALUES ('Hiking Shoe', '40', 'Salomon', 'Green', '89.99')", con);
+
+                com1.ExecuteNonQuery();
+                com2.ExecuteNonQuery();
+                com3.ExecuteNonQuery();
+                com4.ExecuteNonQuery();
+                com5.ExecuteNonQuery();
+                com6.ExecuteNonQuery();
+                com7.ExecuteNonQuery();
+                com8.ExecuteNonQuery();
+                com9.ExecuteNonQuery();
+                com.ExecuteNonQuery();
                 con.Close();
+
             }
             catch (Exception)
             {
 
+
+
                 throw;
             }
+
+        }
+
+        public static void AddProducts(string Product, string Size, string Brand, string Color, decimal Price)
+        {
+            try
+            {
+                
+                
+                con = new SqlConnection(ConnectionString02);
+                con.Open();
+
+
+
+                SqlCommand com = new SqlCommand("INSERT INTO Products (Product, Size, Brand, Color, Price) VALUES ('" + Product+ "', '" + Size + "', '" + Brand + "', '" + Color + "', '" + Price + "')", con);
+                com.ExecuteNonQuery();
+                con.Close();
+               
+            }
+            catch (Exception)
+            {
+
+
+
+                throw;
+            }
+
         }
 
         //adds user to table
         public static void AddUser(string name, string Email, string Hash)
         {
-            Users users = new Users();
-            users.name = name;
-            users.Email = Email;
-            users.hashedPassword = Hash;
-            Entities.Users.Add(users);
-            Entities.SaveChanges();
+            con = new SqlConnection(ConnectionString02);
+            con.Open();
+            cmd = new SqlCommand("Insert into Users (name, Email, hashedPassword) " +
+               "values ('" + name + "', '" + Email + "', '" + Hash + "')", con);
+            cmd.ExecuteNonQuery();
+
+            con.Close();
         }
 
         //updates password in table
         public static void NewPassword(string Username, string newHash)
         {
-            //Users Users = new Users();
-
-            //if (Users.name == Username)
-            //{
-            //    Users.hashedPassword = newHash;
-            //}
-            //Entities.SaveChanges();
-
+          
             try
             {
                 con = new SqlConnection(ConnectionString02);
@@ -365,62 +394,37 @@ namespace SWP_4IT_WP_VP
 
             try
             {
-                Users users = new Users();
-                Users user1 = Entities.Users.FirstOrDefault(n => n.name.Equals(username));
-                if (user1 == null)
-                {
-                    MessageBox.Show("No one found");
-                    return null;
-                 
-                }
-                else
-                {
-                    return user1.hashedPassword;
-                }
+                
 
-            }
-            catch (Exception)
-            {
 
-                throw;
-            }
-        }
-
-        //this method querys all the data 
-        //this method checks if the Products are low in Quantity
-        public static void AutomaticOrderProducts()
-        {
-            try
-            {
                 con = new SqlConnection(ConnectionString02);
                 con.Open();
 
 
-                cmd = new SqlCommand("Select * from ThisMonth");
-                cmd.ExecuteNonQuery();
-                SqlDataReader checkTable = cmd.ExecuteReader();
 
-                while (checkTable.Read())
+
+                cmd = new SqlCommand("Select hashedPassword from Users WHERE name = '" + username+"'", con);
+
+
+
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
                 {
-                    if (checkTable.GetString(0).ToLower().Equals(3))
-                    {
-                        bool OrderProduct1 = true;
-                    }
-                    else if (checkTable.GetString(2).ToLower().Equals(3))
-                    {
-                        bool OrderProduct2 = true;
-                    }
-                    else if (checkTable.GetString(3).ToLower().Equals(3))
-                    {
-                        bool OrderProduct3 = true;
-                    }
-                    else if (checkTable.GetString(4).ToLower().Equals(3))
-                    {
-                        bool OrderProduct4 = true;
-                    }
+                    string Hash = reader[0].ToString();
 
+                    // Lese den Wert einer bestimmten Spalte in der aktuellen Zeile
+                    // Du kannst entweder den Index der Spalte verwenden (0-basiert) oder den Namen der Spalte
+                    // Beispiel: int id = reader.GetInt32(0);
+                    // Beispiel: string name = reader.GetString("Name");
+
+
+                    return Hash;
+                    // Verarbeite den Wert der aktuellen Zeile
                 }
-                con.Close();
+                return "User not found";
+
+
             }
             catch (Exception)
             {
@@ -428,37 +432,6 @@ namespace SWP_4IT_WP_VP
                 throw;
             }
         }
-
-        //This Method orders Products
-            public static IEnumerable<Product> OrderProducts()
-            {
-                
-                var query = "SELECT * FROM Products ORDER BY Name"; using (var connection = new SqlConnection(ConnectionString02))
-                {
-                    connection.Open();
-                    using (var command = new SqlCommand(query, connection))
-                    {
-                        using (var reader = command.ExecuteReader())
-                        {
-                            var products = new List<Product>();
-                            while (reader.Read())
-                            {
-                            var product = new Product
-                            {
-                                Id = (int)reader["Id"],
-                                Name = (string)reader["Name"],
-                                Price = (decimal)reader["Price"],
-                                    Color = (string)reader["Color"],
-                                    Brand = (string)reader["Brand"],
-                                    MinStock = (decimal)reader["MinStock"]
-                                };
-                                products.Add(product);
-                            }
-                            return products;
-                        }
-                    }
-                }
-            }
 
         public static void UpdateTable(string n, string q, string m, string vp, decimal v)
         {
@@ -473,6 +446,7 @@ namespace SWP_4IT_WP_VP
 
         }
 
+        //Transfers Data From This Month to Last Month
         public static void NewMonth()
         {
             string tableName = "LastMonth";
@@ -589,6 +563,8 @@ namespace SWP_4IT_WP_VP
                 MessageBox.Show("Das hat nicht funktioniert!");
             }
         }
+
+        //Gets all Tables
         public static void GetListofTables()
         {
 
@@ -611,6 +587,19 @@ namespace SWP_4IT_WP_VP
             {
                 MessageBox.Show("Das hat nicht funktioniert!");
             }
+        }
+
+        //Orders Products and saves them in Storage
+        public static void OrderProducts(string Product, decimal Quantity)
+        {
+            con = new SqlConnection(ConnectionString02);
+            con.Open();
+            cmd = new SqlCommand("Insert into Storage (Product, quantity) " +
+               "values ('" + Product + "', '" + Quantity + "')", con);
+            cmd.ExecuteNonQuery();
+
+            con.Close();
+
         }
 
     }
