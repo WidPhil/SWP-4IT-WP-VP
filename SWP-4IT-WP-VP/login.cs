@@ -35,8 +35,8 @@ namespace SWP_4IT_WP_VP
             sqlmanager.CreateTInventoryLM();
             sqlmanager.CreateTInventoryStorage();
             sqlmanager.CreateTUsers();
-            sqlmanager.CreateTableUpperCategory();
-            sqlmanager.CreateTableLowerCategory();
+            sqlmanager.CreateTProducts();
+            sqlmanager.AddStandardProducts();
         }
 
         //Opens Form for sending Recovery Code
@@ -86,6 +86,7 @@ namespace SWP_4IT_WP_VP
             
             PlainText = textBoxPassword.Text;
             checkHash = sqlmanager.ReadPassword(name);
+
 
             bool isValid = BCrypt.CheckPassword(PlainText, checkHash);
             if (isValid == true)

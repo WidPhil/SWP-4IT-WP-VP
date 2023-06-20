@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,7 @@ namespace SWP_4IT_WP_VP
 {
     public partial class order : Form
     {
+        public static SqlCommand cmd;
         public static List<string> list = new List<string>();
         public order()
         {
@@ -20,55 +22,28 @@ namespace SWP_4IT_WP_VP
 
         private void btn_order_Click(object sender, EventArgs e)
         {
-            
+            sqlmanager.OrderProducts(cb_Products.Text, nud_product.Value);
+            MessageBox.Show("It has been stored in Storage");
         }
 
-        //useless
+        //Fills up Combobox and Gridview
         private void order_Load(object sender, EventArgs e)
         {
-            //Product p = new Product();
-            //p.Name = ""
-            //cb_product.Items.Add();
+            SqlConnection con = new SqlConnection(sqlmanager.ConnectionString02);
+            DataTable data = new DataTable();
+            SqlDataAdapter sqldataAdapter = new SqlDataAdapter(cmd = new SqlCommand("Select * from Products", con));
+            sqldataAdapter.Fill(data);
 
-            //Tabelle mit Oberkategorien erstellen
-            //Tabelle mit Unterkategorien erstellen
-            //Unterkategorie mit primary key und secondary key (z.b shoes) erstellen
-            //um das Programm clean zu machen
-            cb_umbrellaTerm.Items.Add("shoes;");
-            cb_umbrellaTerm.Items.Add("clothing;");
-            cb_umbrellaTerm.Items.Add("apparel & equipment;");
-            
-            if(cb_umbrellaTerm.Text.Equals("shoes"))
-            {
-                cb_type.Items.Add("hiking shoes; ");
-                cb_type.Items.Add("sports shoes; ");
-                cb_type.Items.Add("winter shoes; ");
-            }
-            else if (cb_umbrellaTerm.Text.Equals("clothing"))
-            {
-                cb_type.Items.Add("outdoor clothing; ");
-                cb_type.Items.Add("bycicle clothing; ");
-                cb_type.Items.Add("sports clothing; ");
-            }
-            else if (cb_umbrellaTerm.Text.Equals("apparel & equipment"))
-            {
-                cb_type.Items.Add("sports equipment;");
-                cb_type.Items.Add("running equipment;");
-                cb_type.Items.Add("outdoor equipment;");
-            }
+            dataGridView1.DataSource = data;
 
-            //if (cb_type.Text.Equals() "hiking shoes")
-            //{
-            //    cb_brand.Items.Add("Salomon; \n" +
-            //                       "La Sportiva; \n" +
-            //                       "Adidas;");
-            //}
+            DataTable data1 = new DataTable();
+            SqlDataAdapter sqldataAdapter1 = new SqlDataAdapter(cmd = new SqlCommand("Select Product from Products", con));
+            sqldataAdapter1.Fill(data1);
+            cb_Products.DataSource = data1;
+            cb_Products.DisplayMember = "Product";
+            cb_Products.ValueMember = "Product";
 
         }
 
-        private void lbl_umbrellaTerm_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

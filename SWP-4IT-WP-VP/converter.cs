@@ -46,9 +46,10 @@ namespace SWP_4IT_WP_VP
         {
             try
             {
-                
+                string NameofTable = cb_tables.Text;
+
                 data = new DataTable();
-                sqldataAdapter = new SqlDataAdapter(cmd = new SqlCommand("Select * from Users", con));
+                sqldataAdapter = new SqlDataAdapter(cmd = new SqlCommand("Select * from "+NameofTable, con));
                 sqldataAdapter.Fill(data);
 
                 dgv_convert.DataSource = data;
@@ -109,14 +110,18 @@ namespace SWP_4IT_WP_VP
 
             }
         }
-
+        //Preview
         private void btn_preview_Click(object sender, EventArgs e)
         {
+            con = new SqlConnection(sqlmanager.ConnectionString02);
+            con.Open();
+            string NameofTable = cb_tables.Text;
             data = new DataTable();
-            sqldataAdapter = new SqlDataAdapter(cmd = new SqlCommand("Select * from Users", con));
+            sqldataAdapter = new SqlDataAdapter(cmd = new SqlCommand("Select * from "+NameofTable, con));
             sqldataAdapter.Fill(data);
 
             dgv_convert.DataSource = data;
+            con.Close();
         }
     }
 }

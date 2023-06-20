@@ -1,4 +1,4 @@
-﻿// Die T4-Codegenerierung ist für Modell 'C:\Users\Vanessa Payr\Source\Repos\WidPhil\SWP-4IT-WP-VP\SWP-4IT-WP-VP\Intersport.edmx' aktiviert. 
+﻿// Die T4-Codegenerierung ist für Modell 'C:\Users\phili\Source\Repos\WidPhil\SWP-4IT-WP-VP\SWP-4IT-WP-VP\Intersport.edmx' aktiviert. 
 // Um die Generierung von Legacycode zu aktivieren, ändern Sie den Wert der Designer-Eigenschaft 'Code Generation Strategy'
 // in 'Legacy ObjectContext'. Diese Eigenschaft wird im Eigenschaftenfenster angezeigt, wenn das Modell
 // im Designer geöffnet ist.

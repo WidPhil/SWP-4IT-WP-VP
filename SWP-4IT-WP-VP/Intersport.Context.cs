@@ -25,10 +25,11 @@ namespace SWP_4IT_WP_VP
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Inventory> Inventory { get; set; }
         public virtual DbSet<LastMonth> LastMonth { get; set; }
-        public virtual DbSet<Requirements> Requirements { get; set; }
         public virtual DbSet<ThisMonth> ThisMonth { get; set; }
         public virtual DbSet<Users> Users { get; set; }
+        //public virtual DbSet<Products> Products { get; set; }
+        //public virtual DbSet<Storage> Storage { get; set; }
+        //public virtual DbSet<uppercategory> uppercategory { get; set; }
     }
 }

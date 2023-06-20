@@ -67,7 +67,6 @@ namespace SWP_4IT_WP_VP
 
         private void buttonOverview_Click(object sender, EventArgs e)
         {
-            openMainForm(new overviewInventory());
         }
 
         private void buttonConvert_Click(object sender, EventArgs e)
